@@ -1,1 +1,10 @@
-/venv/
+# Python
+venv/
+__pycache__
+*.log
+*.pot
+*.pyc
+
+# JavaScript
+package-lock.json
+
