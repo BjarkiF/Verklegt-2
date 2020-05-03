@@ -4,6 +4,7 @@ __pycache__
 *.log
 *.pot
 *.pyc
+.pytest_cache/
 
 # JavaScript
 node_modules/
