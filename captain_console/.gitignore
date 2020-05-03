@@ -9,7 +9,7 @@ __pycache__
 # JavaScript
 node_modules/
 package-lock.json
-
+bower_components/
 
 
 # https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
