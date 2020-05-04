@@ -16,9 +16,9 @@ let files = {
 }
 
 gulp.task('scss', function(){
-  return gulp.src('./scss/style.scss')
+  return gulp.src('./static/scss/style.scss')
     .pipe(sass()) // Using gulp-sass
-    .pipe(gulp.dest('./static/css'))
+    .pipe(gulp.dest('./staticfiles/css/style.css'))
 });
 
 gulp.task('css-library', function(){
