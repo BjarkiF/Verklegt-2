@@ -2,8 +2,12 @@
 {% block content %}
     <h2>Vörur</h2>
     <div>
+    {% if items %}
         {% for item in items %}
             {% include 'items/single_item_all.html' with item=item %}
         {% endfor %}
+    {% else %}
+        Engar vörur í gagnagrunni!
+    {% endif %}
     </div>
 {% endblock %}
