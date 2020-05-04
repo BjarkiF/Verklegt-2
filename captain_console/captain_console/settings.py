@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'items',
+    'users',
+    'cart',
+    'about',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +81,12 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'uebfjgpj',
+        'USER': 'uebfjgpj',
+        'PASSWORD': 'XiaTs1x6u9I74e8lU6_uYL4aDJhsA36s',
+        'HOST': 'balarama.db.elephantsql.com',
+        'PORT': '5432'
     }
 }
 
