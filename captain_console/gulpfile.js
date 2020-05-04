@@ -18,17 +18,17 @@ let files = {
 gulp.task('scss', function(){
   return gulp.src('./scss/style.scss')
     .pipe(sass()) // Using gulp-sass
-    .pipe(gulp.dest('./staticfiles/css'))
+    .pipe(gulp.dest('./static/css'))
 });
 
 gulp.task('css-library', function(){
   return gulp.src(files.library.css)
-    .pipe(gulp.dest('./staticfiles/css/lib'))
+    .pipe(gulp.dest('./static/css/lib'))
 });
 
 gulp.task('js-library', function(){
   return gulp.src(files.library.js)
-    .pipe(gulp.dest('./staticfiles/js/lib'))
+    .pipe(gulp.dest('./static/js/lib'))
 });
 
 gulp.task('watch', () => {
