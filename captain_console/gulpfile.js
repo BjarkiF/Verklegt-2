@@ -33,6 +33,10 @@ gulp.task('js-library', function(){
 
 gulp.task('watch', () => {
     gulp.watch('scss/**/*.scss', (done) => {
-        gulp.series(['scss'])(done);
+        gulp.series(['build','scss'])(done);
     });
+});
+
+gulp.task('build', (done) => {
+    gulp.series(['scss', 'css-library', 'js-library'])(done);
 });

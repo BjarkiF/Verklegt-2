@@ -14,6 +14,9 @@ bower_components/
 static/css/lib/
 static/js/lib/
 static/admin/
+static/css/
+static/js/
+static/staticfiles.json
 
 # https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
