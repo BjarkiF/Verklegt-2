@@ -14,8 +14,8 @@ bower_components/
 static/css/lib/
 static/js/lib/
 static/admin/
-static/css/
-static/js/
+static/css/lib/
+static/js/lib/
 static/staticfiles.json
 
 # https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore

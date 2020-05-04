@@ -1,0 +1,9 @@
+body {
+  padding: 0;
+  margin: 10; }
+
+.navbar-default .navbar-nav li a {
+  color: red; }
+  .navbar-default .navbar-nav li a:hover {
+    color: blue;
+    background-color: green; }
