@@ -18,7 +18,7 @@ let files = {
 gulp.task('scss', function(){
   return gulp.src('./static/scss/style.scss')
     .pipe(sass()) // Using gulp-sass
-    .pipe(gulp.dest('./static/css/'))
+    .pipe(gulp.dest('./static/css/style.css'))
 });
 
 gulp.task('css-library', function(){
@@ -32,8 +32,8 @@ gulp.task('js-library', function(){
 });
 
 gulp.task('watch', () => {
-    gulp.watch('scss/**/*.scss', (done) => {
-        gulp.series(['build','scss'])(done);
+    gulp.watch('./static/scss/*.scss', function(done) {
+        gulp.series(['scss'])(done);
     });
 });
 
