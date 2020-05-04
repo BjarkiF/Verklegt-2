@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var watch = require('gulp-watch')
 
 let files = {
   'library':{
@@ -17,7 +18,7 @@ let files = {
 gulp.task('scss', function(){
   return gulp.src('./scss/style.scss')
     .pipe(sass()) // Using gulp-sass
-    .pipe(gulp.dest('./staticfiles/'))
+    .pipe(gulp.dest('./staticfiles/css'))
 });
 
 gulp.task('css-library', function(){
@@ -28,4 +29,10 @@ gulp.task('css-library', function(){
 gulp.task('js-library', function(){
   return gulp.src(files.library.js)
     .pipe(gulp.dest('./staticfiles/js/lib'))
+});
+
+gulp.task('watch', () => {
+    gulp.watch('scss/**/*.scss', (done) => {
+        gulp.series(['scss'])(done);
+    });
 });
