@@ -93,15 +93,15 @@ try:
             'NAME': os.getenv('DB_NAME'),
             'USER': os.getenv('DB_USER'),
             'PASSWORD': os.getenv('DB_PASSWORD'),
-            'HOST': os.getenv('DATABASE_URL'),
+            'HOST': os.getenv('DB_URL'),
             'PORT': os.getenv('DB_PORT')
         }
     }
+    logging.info('Local!')
 except:
 
     import dj_database_url
     logging.info('Loading .env failed!')
-
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -112,6 +112,7 @@ except:
             'PORT': os.environ.get('DB_PORT')
         }
     }
+    logging.info('Heroku!')
 
 """    
 ,
