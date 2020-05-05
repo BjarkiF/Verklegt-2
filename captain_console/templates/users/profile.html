@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Prófíll!</h1>
+    <h1>Prófíll</h1>
+    <img src="{{ user.img }}" alt="Prófílmynd"/>
+    <p>Nafn: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Netfang: {{ user.email }}</p>
+    <p>Heimilisfang: {{ user.address }}</p>
+    <p>Sími: {{ user.phone }}</p>
+    <a href="/users/profile/edit">
+        <input type="submit" value="Uppfæra prófíl">
+    </a>
 {% endblock %}
