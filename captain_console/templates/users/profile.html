@@ -1,7 +1,11 @@
 {% extends 'base.html' %} <!--TODO: eins og maður sé ekki skráður inn? -->
 {% block content %}
     <h1>Prófíll</h1>
-    <img src="{{ user.img }}" alt="Prófílmynd"/>
+    {% if user.img  %}
+        <img src="{{ user.img }}" alt="Prófílmynd"/>
+    {% else %}
+        <p>Mynd vantar!</p>
+    {% endif %}
     <p>Nafn: {{ user.first_name }} {{ user.last_name }}</p>
     <p>Netfang: {{ user.email }}</p>
     <p>Heimilisfang: {{ user.address }}</p>
