@@ -1,9 +1,135 @@
-body {
+*{
+  /*box-sizing: border-box;*/
+  margin: 0;
   padding: 0;
-  margin: 10; }
+  /*background-color: #9fcdff;*/
+}
 
-.navbar-default .navbar-nav li a {
-  color: red; }
-  .navbar-default .navbar-nav li a:hover {
-    color: blue;
-    background-color: green; }
+li, a, button{
+  font-family: 'Turret Road', cursive;
+
+  /*font-weight: 500;*/
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+
+}
+.container{
+  margin-top: 80px;
+}
+
+body{
+  /*text-align: center;*/
+}
+
+/*.wrapper{*/
+/*  width: 1170px;*/
+/*  margin: 0 auto;*/
+/*}*/
+header {
+  height: 80px;
+  text-align: center;
+  background: red;
+  width: 100%;
+  z-index: 12;
+  position: fixed;
+
+
+  /*display: flex;*/
+  /*justify-content: flex-start;*/
+
+  /*align-items: center;*/
+  padding: 0;
+
+}
+
+.logo{
+  cursor: pointer;
+  /*width: 20%;*/
+  float: left;
+  line-height: 80px;
+}
+nav{
+  float: right;
+  /*line-height: 80px;*/
+}
+nav a {
+  text-decoration: none;
+}
+.navbuttons{
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  width: 85%;
+  /*border: black solid 5px;*/
+}
+.Rbuttons{
+  display: flex;
+  justify-content: right;
+
+  padding-left: 30px;
+
+  /*justify-content: space-between;*/
+  text-decoration: none;
+  float: right;
+}
+
+.search{
+  display: flex;
+  padding-left: 60px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+
+  /*justify-content: space-between;*/
+  text-decoration: none;
+
+
+
+}
+.Lbuttons{
+  display: flex;
+
+  /*justify-content: space-between;*/
+  text-decoration: none;
+}
+
+.navbuttons li {
+  display: inline-block;
+  padding-left: 30px;
+  padding-top: 40px;
+  /*padding: 0px 20px;*/
+}
+.navbuttons li a{
+  transition: all 0.3s ease 0s;
+  margin-right: 10px;
+  text-decoration: none;
+}
+.navbuttons li a:hover{
+  color: ghostwhite;
+}
+
+/*button {*/
+/*  padding: 9px 25px;*/
+/*  background-color: red;*/
+/*  border: none;*/
+/*  border-radius: 50%;*/
+/*  cursor: pointer;*/
+/*  transition: all 0.3s ease 0s;*/
+/*}*/
+
+button:hover{
+
+  background-color: purple;
+
+}
+
+img{
+  height: 80px;
+  width: 97px;
+}
+
+/*.navbar-default .navbar-nav li a {*/
+/*  color: red; }*/
+/*  .navbar-default .navbar-nav li a:hover {*/
+/*    color: blue;*/
+/*    background-color: green; }*/
