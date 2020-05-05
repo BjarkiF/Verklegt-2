@@ -85,6 +85,7 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 dotenv_path = '.env'
+DATABASES = {}
 if 'HEROKU' not in os.environ:
     load_dotenv(dotenv_path=dotenv_path)
     DATABASES = {
