@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div id="login_wrapper">
-        <h2>Innskrá</h2>
-        <div id="login_form">
-            <input type="text" id="login" name="login" placeholder="Netfang">
-            <input type="password" id="password" name="password" placeholder="Aðgangsorð">
-            <input type="submit" id="login_submit" value="Innskrá">
-        </div>
-    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Innskrá">
+    </form>
+    <p>Ekki með aðgang?</p>
+    <a href="register">
+    <input type="button" value="Nýskrá">
+    </a>
 {% endblock %}

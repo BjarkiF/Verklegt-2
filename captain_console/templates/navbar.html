@@ -55,8 +55,13 @@
                 <button type="submit" >Leita</button>
             </form>
             <ul class="Rbuttons">
-                <li><a href="/users/">Innskrá </a></li>
-                <li><a href="/cart/">Karfa </a></li>
+              {% if user.is_authenticated %}
+                  <li><a href="/users/profile">Prófíll</a></li>
+                  <li><a href="/cart/">Karfa</a></li>
+                  <li><a href="/users/logout">Skrá út</a></li>
+              {% else %}
+                  <li><a href="/users/">Innskrá</a></li>
+              {% endif %}
             </ul>
         </nav>
 

@@ -81,9 +81,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'captain_console.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+""""
+Database
+https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 dotenv_path = '.env'
 DATABASES = {'default': {}}
 
@@ -97,7 +97,7 @@ try:
     if db_from_env:
         DATABASES['default'].update(os.getenv('db_from_env'))
     else:
-        logging.eror('Connecting to DB failed!')
+        logging.error('Connecting to DB failed!')
 except:
     load_dotenv(dotenv_path=dotenv_path)
     DATABASES['default'] = {
@@ -109,7 +109,7 @@ except:
             'PORT': os.getenv('DB_PORT')
     }
     logging.info('Local!')
-    #DATABASES = {
+    # DATABASES = {
     #    'default': {
     #        'ENGINE': 'django.db.backends.postgresql',
     #        'NAME': os.environ.get('DB_NAME'),
@@ -118,11 +118,12 @@ except:
     #        'HOST': os.environ.get('DATABASE_URL'),
     #        'PORT': os.environ.get('DB_PORT')
     #    }
-    #}
+    # }
 logging.info('Heroku!')
+"""
 
-"""    
-,
+#,
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'uebfjgpj',
@@ -131,16 +132,16 @@ logging.info('Heroku!')
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432'
     },
-    'heroku': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'uebfjgpj',
-        'USER': 'uebfjgpj',
-        'PASSWORD': 'XiaTs1x6u9I74e8lU6_uYL4aDJhsA36s',
-        'HOST': 'balarama.db.elephantsql.com',
-        'PORT': '5432'
-    }
+    # #   'heroku': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'uebfjgpj',
+    #     'USER': 'uebfjgpj',
+    #     'PASSWORD': 'XiaTs1x6u9I74e8lU6_uYL4aDJhsA36s',
+    #     'HOST': 'balarama.db.elephantsql.com',
+    #     'PORT': '5432'
+    # }
 }
-"""
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -188,3 +189,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 django_heroku.settings(locals())
 
+LOGIN_URL = '/users/login'
+LOGIN_REDIRECT_URL = '/users/profile'
