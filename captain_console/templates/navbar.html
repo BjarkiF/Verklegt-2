@@ -50,17 +50,29 @@
                 <li><a href="/about/">Um okkur </a></li>
             </ul>
             <form class="search">
-                <input type="text"  placeholder="Leita..">
+                <input class="search-txt" type="text"  placeholder="Leita..">
+                <a class="search-btn" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
 
-                <button type="submit" >Leita</button>
+
+{#                <button type="submit" >Leita</button>#}
             </form>
             <ul class="Rbuttons">
               {% if user.is_authenticated %}
-                  <li><a href="/users/profile">Prófíll</a></li>
-                  <li><a href="/cart/">Karfa</a></li>
-                  <li><a href="/users/logout">Skrá út</a></li>
+                  <li><a href="/users/profile">Prófíll
+                  <i class="fas fa-user"></i>
+                  </a></li>
+                  <li><a href="/cart/">Karfa
+                  <i class="fas fa-shopping-cart"></i>
+                  </a></li>
+                  <li><a href="/users/logout">Skrá út
+                  <i class="fas fa-sign-out-alt"></i>
+                  </a></li>
               {% else %}
-                  <li><a href="/users/">Innskrá</a></li>
+                  <li><a href="/users/">Innskrá
+                  <i class="fas fa-user"></i>
+                  </a></li>
               {% endif %}
             </ul>
         </nav>

@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 dotenv_path = '..env'
 DATABASES = {'default': {}}
 
-
+'''
 try:
     load_dotenv(dotenv_path=dotenv_path)
     DATABASES['default'] = {
@@ -123,8 +123,8 @@ except:
         logging.error('Connecting to DB failed!')
     logging.info('Heroku!')
 
-#,
-"""
+#,'''
+
 
 DATABASES = {
     'default': {
