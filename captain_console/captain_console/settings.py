@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -87,9 +88,23 @@ DATABASES = {
         'PASSWORD': 'XiaTs1x6u9I74e8lU6_uYL4aDJhsA36s',
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432'
+    },
+    'heroku': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'uebfjgpj',
+        'USER': 'uebfjgpj',
+        'PASSWORD': 'XiaTs1x6u9I74e8lU6_uYL4aDJhsA36s',
+        'HOST': 'balarama.db.elephantsql.com',
+        'PORT': '5432'
     }
 }
 
+try:
+    from local_settings import *
+except ImportError as e:
+    # Configure Django App for Heroku.
+    import django_heroku
+    django_heroku.settings(locals(), databases=False)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
