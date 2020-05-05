@@ -81,24 +81,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'captain_console.wsgi.application'
 
-""""
-Database
-https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+#Database
+#https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 dotenv_path = '.env'
 DATABASES = {'default': {}}
 
 
 try:
-    import dj_database_url
-    logging.info('Loading .env failed!')
-
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    logging.info('db_from_env: {0}'.format(db_from_env))
-    if db_from_env:
-        DATABASES['default'].update(os.getenv('db_from_env'))
-    else:
-        logging.error('Connecting to DB failed!')
-except:
     load_dotenv(dotenv_path=dotenv_path)
     DATABASES['default'] = {
             'ENGINE': 'django.db.backends.postgresql',
@@ -109,20 +99,32 @@ except:
             'PORT': os.getenv('DB_PORT')
     }
     logging.info('Local!')
-    # DATABASES = {
-    #    'default': {
-    #        'ENGINE': 'django.db.backends.postgresql',
-    #        'NAME': os.environ.get('DB_NAME'),
-    #        'USER': os.environ.get('DB_USER'),
-    #        'PASSWORD': os.environ.get('DB_PASSWORD'),
-    #        'HOST': os.environ.get('DATABASE_URL'),
-    #        'PORT': os.environ.get('DB_PORT')
-    #    }
-    # }
-logging.info('Heroku!')
-"""
+     #DATABASES = {
+     #   'default': {
+     #       'ENGINE': 'django.db.backends.postgresql',
+     #       'NAME': os.environ.get('DB_NAME'),
+     #       'USER': os.environ.get('DB_USER'),
+     #       'PASSWORD': os.environ.get('DB_PASSWORD'),
+     #       'HOST': os.environ.get('DATABASE_URL'),
+     #       'PORT': os.environ.get('DB_PORT')
+     #    }
+     #}
+
+
+except:
+    import dj_database_url
+    logging.info('Loading .env failed!')
+
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    logging.info('db_from_env: {0}'.format(db_from_env))
+    if db_from_env:
+        DATABASES['default'].update(os.getenv('db_from_env'))
+    else:
+        logging.error('Connecting to DB failed!')
+    logging.info('Heroku!')
 
 #,
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -142,7 +144,7 @@ DATABASES = {
     # }
 }
 
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
