@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch')
 
+/*
 let files = {
   'library':{
     'js': [
@@ -14,6 +15,18 @@ let files = {
     ]
   }
 }
+*/
+
+gulp.task('clearstatic',function(done) {
+    // rm -rf staticfiles/*
+   require('child_process').spawn('rm', ['-rf', 'staticfiles/*'], { stdio: 'inherit' })(done);
+});
+
+gulp.task('collectstatic',function() {
+    // python3 manage.py collectstatic
+   require('child_process').spawn('python3', ['manage.py','collectstatic'], { stdio: 'inherit' });
+});
+
 
 gulp.task('scss', function(){
   return gulp.src('./static/scss/style.scss')
@@ -21,6 +34,7 @@ gulp.task('scss', function(){
     .pipe(gulp.dest('./static/css/'))
 });
 
+/*
 gulp.task('css-library', function(){
   return gulp.src(files.library.css)
     .pipe(gulp.dest('./static/css/lib'))
@@ -30,13 +44,18 @@ gulp.task('js-library', function(){
   return gulp.src(files.library.js)
     .pipe(gulp.dest('./static/js/lib'))
 });
+*/
 
 gulp.task('watch', () => {
-    gulp.watch('scss/**/*.scss', (done) => {
-        gulp.series(['build','scss'])(done);
+    gulp.watch('./static/scss/*.scss', function(done) {
+        gulp.series(['scss'])(done);
     });
 });
 
 gulp.task('build', (done) => {
-    gulp.series(['scss', 'css-library', 'js-library'])(done);
+    gulp.series(['collectstatic', 'scss', 'css-library', 'js-library'])(done);
+});
+
+gulp.task('static', (done) => {
+    gulp.series(['clearstatic', 'collectstatic'])(done);
 });

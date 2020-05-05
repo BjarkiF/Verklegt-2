@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
+import os
+import logging
+
+from dotenv import load_dotenv
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,9 +84,54 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+dotenv_path = '.env'
+DATABASES = {'default': {}}
 
-DATABASES = {
+
+try:
+    import dj_database_url
+    logging.info('Loading .env failed!')
+
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    logging.info('db_from_env: {0}'.format(db_from_env))
+    if db_from_env:
+        DATABASES['default'].update(os.getenv('db_from_env'))
+    else:
+        logging.eror('Connecting to DB failed!')
+except:
+    load_dotenv(dotenv_path=dotenv_path)
+    DATABASES['default'] = {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
+            'HOST': os.getenv('DB_URL'),
+            'PORT': os.getenv('DB_PORT')
+    }
+    logging.info('Local!')
+    #DATABASES = {
+    #    'default': {
+    #        'ENGINE': 'django.db.backends.postgresql',
+    #        'NAME': os.environ.get('DB_NAME'),
+    #        'USER': os.environ.get('DB_USER'),
+    #        'PASSWORD': os.environ.get('DB_PASSWORD'),
+    #        'HOST': os.environ.get('DATABASE_URL'),
+    #        'PORT': os.environ.get('DB_PORT')
+    #    }
+    #}
+logging.info('Heroku!')
+
+"""    
+,
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'uebfjgpj',
+        'USER': 'uebfjgpj',
+        'PASSWORD': 'XiaTs1x6u9I74e8lU6_uYL4aDJhsA36s',
+        'HOST': 'balarama.db.elephantsql.com',
+        'PORT': '5432'
+    },
+    'heroku': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'uebfjgpj',
         'USER': 'uebfjgpj',
@@ -89,7 +140,7 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -133,7 +184,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 django_heroku.settings(locals())
 
