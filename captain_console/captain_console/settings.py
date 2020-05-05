@@ -13,6 +13,17 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import django_heroku
 import dj_database_url
+import os
+import logging
+
+from dotenv import load_dotenv
+
+dotenv_path = '.env'
+
+try:
+    load_dotenv(dotenv_path=dotenv_path)
+except:
+    logging.info('Loading .env failed!')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -83,6 +94,17 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_URL'),
+        'PORT': os.getenv('DB_PORT')
+    }
+}
+"""    
+,
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'uebfjgpj',
         'USER': 'uebfjgpj',
         'PASSWORD': 'XiaTs1x6u9I74e8lU6_uYL4aDJhsA36s',
@@ -98,13 +120,7 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
-try:
-    from local_settings import *
-except ImportError as e:
-    # Configure Django App for Heroku.
-    import django_heroku
-    django_heroku.settings(locals(), databases=False)
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
