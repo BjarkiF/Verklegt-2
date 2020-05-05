@@ -114,7 +114,7 @@ DATABASES['default'].update(os.getenv('db_from_env'))
     #        'PORT': os.environ.get('DB_PORT')
     #    }
     #}
-    logging.info('Heroku!')
+logging.info('Heroku!')
 
 """    
 ,
