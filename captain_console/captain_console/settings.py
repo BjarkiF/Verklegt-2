@@ -85,18 +85,16 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 dotenv_path = '.env'
-DATABASES = {}
+DATABASES = {'default': {}}
 if 'HEROKU' not in os.environ:
     load_dotenv(dotenv_path=dotenv_path)
-    DATABASES = {
-        'default': {
+    DATABASES['default'] = {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.getenv('DB_NAME'),
             'USER': os.getenv('DB_USER'),
             'PASSWORD': os.getenv('DB_PASSWORD'),
             'HOST': os.getenv('DB_URL'),
             'PORT': os.getenv('DB_PORT')
-        }
     }
     logging.info('Local!')
 else:
