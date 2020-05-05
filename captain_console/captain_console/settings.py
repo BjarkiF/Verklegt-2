@@ -99,9 +99,19 @@ try:
     }
 except:
 
-    #import dj_database_url
+    import dj_database_url
     logging.info('Loading .env failed!')
-    django_heroku.settings(locals())
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('DB_NAME'),
+            'USER': os.environ.get('DB_USER'),
+            'PASSWORD': os.environ.get('DB_PASSWORD'),
+            'HOST': os.environ.get('DATABASE_URL'),
+            'PORT': os.environ.get('DB_PORT')
+        }
+    }
 
 """    
 ,
