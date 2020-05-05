@@ -81,10 +81,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'captain_console.wsgi.application'
 
-
+"""
 #Database
 #https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-dotenv_path = '.env'
+dotenv_path = '..env'
 DATABASES = {'default': {}}
 
 
@@ -113,7 +113,7 @@ try:
 
 except:
     import dj_database_url
-    logging.info('Loading .env failed!')
+    logging.info('Loading ..env failed!')
 
     db_from_env = dj_database_url.config(conn_max_age=500)
     logging.info('db_from_env: {0}'.format(db_from_env))
@@ -125,6 +125,7 @@ except:
 
 #,
 """
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -144,7 +145,7 @@ DATABASES = {
     # }
 }
 
-"""
+
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
