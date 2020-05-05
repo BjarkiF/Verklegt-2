@@ -86,23 +86,23 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 dotenv_path = '.env'
 DATABASES = {'default': {}}
-if 'HEROKU' not in os.environ:
-    load_dotenv(dotenv_path=dotenv_path)
-    DATABASES['default'] = {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('DB_NAME'),
-            'USER': os.getenv('DB_USER'),
-            'PASSWORD': os.getenv('DB_PASSWORD'),
-            'HOST': os.getenv('DB_URL'),
-            'PORT': os.getenv('DB_PORT')
-    }
-    logging.info('Local!')
-else:
-    import dj_database_url
-    logging.info('Loading .env failed!')
+#if 'HEROKU' not in os.environ:
+#    load_dotenv(dotenv_path=dotenv_path)
+#    DATABASES['default'] = {
+#            'ENGINE': 'django.db.backends.postgresql',
+#            'NAME': os.getenv('DB_NAME'),
+#            'USER': os.getenv('DB_USER'),
+#            'PASSWORD': os.getenv('DB_PASSWORD'),
+#            'HOST': os.getenv('DB_URL'),
+#            'PORT': os.getenv('DB_PORT')
+#    }
+#    logging.info('Local!')
+#else:
+import dj_database_url
+logging.info('Loading .env failed!')
 
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(os.getenv('db_from_env'))
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(os.getenv('db_from_env'))
 
     #DATABASES = {
     #    'default': {
