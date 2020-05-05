@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
-import dj_database_url
 import os
 import logging
 
@@ -85,8 +84,7 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-dotenv_path = 'x.env'
-
+dotenv_path = '.env'
 try:
     load_dotenv(dotenv_path=dotenv_path)
     DATABASES = {
@@ -100,6 +98,8 @@ try:
         }
     }
 except:
+
+    #import dj_database_url
     logging.info('Loading .env failed!')
     django_heroku.settings(locals())
 
