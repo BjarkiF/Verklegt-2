@@ -101,16 +101,20 @@ if 'HEROKU' not in os.environ:
 else:
     import dj_database_url
     logging.info('Loading .env failed!')
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('DB_NAME'),
-            'USER': os.environ.get('DB_USER'),
-            'PASSWORD': os.environ.get('DB_PASSWORD'),
-            'HOST': os.environ.get('DATABASE_URL'),
-            'PORT': os.environ.get('DB_PORT')
-        }
-    }
+
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+
+    #DATABASES = {
+    #    'default': {
+    #        'ENGINE': 'django.db.backends.postgresql',
+    #        'NAME': os.environ.get('DB_NAME'),
+    #        'USER': os.environ.get('DB_USER'),
+    #        'PASSWORD': os.environ.get('DB_PASSWORD'),
+    #        'HOST': os.environ.get('DATABASE_URL'),
+    #        'PORT': os.environ.get('DB_PORT')
+    #    }
+    #}
     logging.info('Heroku!')
 
 """    
