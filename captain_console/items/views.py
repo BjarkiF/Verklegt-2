@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from items.models import Item
+from items.models import Item, ItemManufacturer
 
 def index(request):
     return render(request, 'items/index.html')
 
 def all(request):
-    context = {'items': Item.objects.all().order_by('name')}
+    context = {
+        'items': Item.objects.all().order_by('name'),
+        'manuf': ItemManufacturer.objects.all().order_by('name')
+    }
     return render(request, 'items/all_items.html', context)
 
 def get_item_by_id(request, id):
