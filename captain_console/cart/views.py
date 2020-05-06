@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from cart.models import Cart
 from items.models import Item
 
@@ -14,3 +14,11 @@ def index(request):
     return render(request, 'cart/index.html', {
         'items': items
     })
+
+
+def add_to_cart(request, id):
+    item = get_object_or_404(Item, pk=id)
+    cart = get_object_or_404(Cart, customer_id= request.user.id)
+    cart.items.append(item.id)
+    cart.save()
+    return index(request)
