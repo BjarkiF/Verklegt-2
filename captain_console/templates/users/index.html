@@ -2,7 +2,17 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.non_field_errors }}
+    <div class="login-group">
+        <label for="{{ form.username.id_for_label }}">Notandanafn:</label>
+        {{ form.username }}
+        {{ form.username.errors }}
+    </div>
+    <div class="login-group">
+        <label for="{{ form.password.id_for_label }}">Lykilorð:</label>
+        {{ form.password }}
+        {{ form.password.errors }}
+    </div>
         <input type="submit" value="Innskrá">
     </form>
     <p>Ekki með aðgang?</p>
