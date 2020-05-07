@@ -1,8 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from cart.models import Cart
 from items.models import Item
-
 
 @login_required
 def index(request):
@@ -17,8 +16,11 @@ def index(request):
 
 
 def add_to_cart(request, id):
-    item = get_object_or_404(Item, pk=id)
-    cart = get_object_or_404(Cart, customer_id= request.user.id)
-    cart.items.append(item.id)
-    cart.save()
-    return index(request)
+    if request.user.is_authenticated:
+        item = get_object_or_404(Item, pk=id)
+        cart = get_object_or_404(Cart, customer_id= request.user.id)
+        cart.items.append(item.id)
+        cart.save()
+        return index(request)
+    else:
+        return redirect('/users/')
