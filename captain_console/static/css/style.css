@@ -41,6 +41,16 @@ header {
   border-right: 50px #E0E0E0 solid;
 
 }
+footer{
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  background-color: black;
+
+  border-left: 50px #E0E0E0 solid;
+  border-right: 50px #E0E0E0 solid;
+}
 
 .logo{
   cursor: pointer;
