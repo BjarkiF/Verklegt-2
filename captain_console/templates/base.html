@@ -16,13 +16,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@700&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body class="body">
     <div class="nav">
         {% include 'navbar.html' %}
     </div>
     <div class="container">
         {% block content %}
         {% endblock %}
+    </div>
+    <div class="footer">
+        {% include 'footer.html' %}
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
