@@ -25,7 +25,7 @@ body{
 header {
   height: 80px;
   text-align: center;
-  background: red;
+  background: #ff0000;
   width: 100%;
   z-index: 12;
   position: fixed;
