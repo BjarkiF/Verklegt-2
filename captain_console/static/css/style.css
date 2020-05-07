@@ -11,6 +11,21 @@ li, a, button{
   text-decoration: none;
 
 }
+
+#left, #right{
+  background: #E0E0E0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+
+}
+#left{
+  left: 0;
+}
+#right{
+  right: 0;
+}
 .container{
   /*margin-top: 80px;*/
   margin: 80px 0 0 0;
@@ -33,22 +48,27 @@ body{
 header {
   height: 80px;
   text-align: center;
-  background: #ff0000;
+  background: #CE0000;
   width: 100%;
   z-index: 12;
   position: fixed;
   padding: 0;
   border-left: 50px #E0E0E0 solid;
   border-right: 50px #E0E0E0 solid;
+  color: #EDF2F4;
 
+
+}
+header nav ul a{
+  color: #EDF2F4;
 }
 footer{
   position: fixed;
   height: 40px;
   width: 100%;
   bottom: 0;
-  background-color: black;
-
+  background-color: #CE0000;
+  color: #EDF2F4;
   border-left: 50px #E0E0E0 solid;
   border-right: 50px #E0E0E0 solid;
 }
