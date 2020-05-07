@@ -59,7 +59,7 @@
 {#                <button type="submit" >Leita</button>#}
             </form>
             <ul class="Rbuttons">
-              {% if user.is_authenticated %}
+              {% if not user.is_anonymous %}
                   <li><a href="/users/profile">Prófíll
                   <i class="fas fa-user"></i>
                   </a></li>

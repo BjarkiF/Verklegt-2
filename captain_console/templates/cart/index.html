@@ -12,6 +12,11 @@
             <div class="cart-price">
                 {{ item.price }},-
             </div>
+            <div class="cart-remove">
+                <a class="cart-remove-icon" href="{% url 'remove_from_cart' item.id %}">
+                    <img src="/static/images/trash%20icon.png" alt="Eyða úr körfu"/>
+                </a>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}
