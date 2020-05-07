@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Vörur</h2>
-    <div>
+    <h2 class="head-items">Vörur:</h2>
+    <div class="all-items">
     {% if items %}
         {% for item in items %}
             {% include 'items/single_item_all.html' with item=item %}
@@ -9,5 +9,41 @@
     {% else %}
         Engar vörur í gagnagrunni!
     {% endif %}
+    </div>
+    <div class="sidebar-items">
+        <p> Flokkun:</p>
+        <div class="select">
+            <select class="side-drop" name="Cflokk" id="Cflokk">
+                <option selected disabled>veldu flokk</option>
+                <option value="Tölvur">Tölvur</option>
+                <option value="Leikir">Leikir</option>
+                <option value="Aukahlutir">Aukahlutir</option>
+            </select>
+        </div>
+        <br>
+        <div class="select">
+            <select class="side-drop" name="Cmanufacture" id="Cmanuf">
+                <option selected disabled>veldu framleiðanda</option>
+                {% for name in manuf %}
+                    <option >{{ name.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div class="select">
+            <select class="side-drop" name="sort" id="sort">
+                <option selected disabled>Raða eftir</option>
+                <option>A-Z</option>
+                <option>Z-A</option>
+                <option>Hæsta verð</option>
+                <option>Lægsta verð</option>
+            </select>
+        </div>
+        <br>
+        <button class="Sbutton" type="submit">Leita</button>
+
+
+
+
     </div>
 {% endblock %}

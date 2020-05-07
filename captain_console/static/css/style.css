@@ -6,26 +6,22 @@
 }
 
 li, a, button{
-  font-family: 'Turret Road', cursive;
-
-  /*font-weight: 500;*/
   font-size: 25px;
   color: black;
   text-decoration: none;
 
 }
 .container{
-  margin-top: 80px;
+  /*margin-top: 80px;*/
+  margin: 80px 0 0 0;
+  padding: 0;
+
 }
 
 body{
+  font-family: 'Turret Road', cursive;
   /*text-align: center;*/
 }
-
-/*.wrapper{*/
-/*  width: 1170px;*/
-/*  margin: 0 auto;*/
-/*}*/
 header {
   height: 80px;
   text-align: center;
@@ -33,12 +29,6 @@ header {
   width: 100%;
   z-index: 12;
   position: fixed;
-
-
-  /*display: flex;*/
-  /*justify-content: flex-start;*/
-
-  /*align-items: center;*/
   padding: 0;
 
 }
@@ -65,16 +55,8 @@ nav a {
 }
 .Rbuttons{
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 60%;
-  /*display: flex;*/
-  /*justify-content: right;*/
-
-  /*padding-left: 30px;*/
-
-  /*!*justify-content: space-between;*!*/
-  /*text-decoration: none;*/
-  /*float: right;*/
 }
 
 .search{
@@ -83,16 +65,10 @@ nav a {
   left: 50%;
   transform: translate(-50%,-50%);
   background: ghostwhite;
-  /*height: 30px;*/
   border-radius: 40px;
   padding: 2px;
+  /*display: flex;*/
 
-
-  display: flex;
-  /*padding-left: 60px;*/
-  /*padding-top: 40px;*/
-  /*padding-bottom: 10px;*/
-  /*text-decoration: none;*/
 }
 .search:hover > .search-txt{
   /*width: 240px;*/
@@ -126,17 +102,11 @@ nav a {
   transition: 0.4s;
   line-height: 40px;
   width: 160px;
-
-
 }
 .Lbuttons{
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 10%;
-  /*display: flex;*/
-
-  /*!*justify-content: space-between;*!*/
-  /*text-decoration: none;*/
 }
 
 .navbuttons li {
@@ -154,28 +124,142 @@ nav a {
   color: ghostwhite;
 }
 
-/*button {*/
-/*  padding: 9px 25px;*/
-/*  background-color: red;*/
-/*  border: none;*/
-/*  border-radius: 50%;*/
-/*  cursor: pointer;*/
-/*  transition: all 0.3s ease 0s;*/
-/*}*/
-
-button:hover{
-
-  background-color: purple;
-
+button {
+  /*padding: 9px 25px;*/
+  /*background-color: red;*/
+  /*border: none;*/
+  /*border-radius: 50%;*/
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
 
 img{
   height: 80px;
   width: 97px;
 }
+/*----------------------------------------------------------------------------*/
+/*VÖRUR Á VÖRUSÍÐU*/
+.all-items{
+  width: 80%;
+  float: right;
+  /*background-image: url("../images/logo.png");*/
+  padding-left: 50px;
 
-/*.navbar-default .navbar-nav li a {*/
-/*  color: red; }*/
-/*  .navbar-default .navbar-nav li a:hover {*/
-/*    color: blue;*/
-/*    background-color: green; }*/
+}
+
+.item{
+  display: inline-block;
+  justify-content: center;
+  font-size: 20px;
+  height: 180px;
+  width: 150px;
+  /*padding: 40px;*/
+  margin: 30px;
+}
+.item-img{
+  border-radius: 10px;
+  border: black 2px solid;
+  justify-content: center;
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  /*height: 120px;*/
+  /*width: 195px;*/
+}
+.item-name{
+  padding-top: 20px;
+  margin: 0;
+  font-size: 18px;
+}
+
+.item-price{
+  /*position: relative;*/
+  /*top: 0;*/
+  /*float: bottom;*/
+  font-size: 16px;
+}
+.head-items{
+  /*background: #9fcdff;*/
+  width: 75%;
+  float: right;
+  /*background-image: url("../images/logo.png");*/
+  padding: 10px 0 0 0;
+  margin: 0;
+}
+/*---------------------------------------------------------------------------*/
+/*SIDEBAR Á VÖRUSÍÐU*/
+.sidebar-items{
+  position: fixed;
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  padding: 10px;
+  background: rgb(252, 138, 138);
+}
+.sidebar-items p{
+  padding-left: 10px;
+  font-size: 30px;
+
+}
+
+select{
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: none;
+  background: ghostwhite;
+  flex: 1;
+  padding: 0 4px;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+}
+select::-ms-expand{
+  display: none;
+}
+
+.select{
+  position: relative;
+  display: flex;
+  width: 230px;
+  height: 40px;
+  line-height: 3;
+  background: grey;
+  overflow: hidden;
+  border-radius: 4px;
+  /*border:black 4px solid;*/
+
+}
+
+.select::after{
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 16px;
+  background: grey;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+}
+.select:hover::after{
+  color: red;
+}
+
+
+.Sbutton{
+  width: 200px;
+  padding: 5px;
+  margin: 200px 10px 0 10px;
+  border-radius: 10px;
+  border:grey 2px solid;
+}
+
+.Sbutton:hover{
+  transition: 0.3s all ease;
+  color: red;
+  border-color: black;
+}
