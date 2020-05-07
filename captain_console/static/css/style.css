@@ -15,13 +15,20 @@ li, a, button{
   /*margin-top: 80px;*/
   margin: 80px 0 0 0;
   padding: 0;
+  border-left: 50px #E0E0E0 solid;
+  border-right: 50px #E0E0E0 solid;
+  width: 100%;
+  height: 100%;
+
 
 }
 
 body{
   font-family: 'Turret Road', cursive;
   /*text-align: center;*/
+  height: 100%;
 }
+
 header {
   height: 80px;
   text-align: center;
@@ -30,6 +37,8 @@ header {
   z-index: 12;
   position: fixed;
   padding: 0;
+  border-left: 50px #E0E0E0 solid;
+  border-right: 50px #E0E0E0 solid;
 
 }
 
@@ -262,4 +271,18 @@ select::-ms-expand{
   transition: 0.3s all ease;
   color: red;
   border-color: black;
+}
+
+
+
+/*---------------------------------------------------------------------------*/
+/*UM OKKUR SÍÐAN*/
+#info{
+  border: 2px black solid;
+  align-items: center;
+  width: 600px;
+  text-align: center;
+  margin: 2% 20%;
+
+
 }
