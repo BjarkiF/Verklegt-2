@@ -7,5 +7,8 @@
             <p>Verð: {{ item.price }},-</p>
             <p>Framleiðandi: {{ item.manufacturer.name }}</p>
             <p>Flokkur: {{ item.category.name }}</p>
+            <a href="{% url 'add_to_cart' item.id %}">
+                <button>Bæta í körfu</button>
+            </a>
         </div>
     {% endblock %}
