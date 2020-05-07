@@ -24,3 +24,10 @@ def add_to_cart(request, id):
         return index(request)
     else:
         return redirect('/users/')
+
+def remove_from_cart(request, id):
+    item = get_object_or_404(Item, pk=id)
+    cart = get_object_or_404(Cart, customer_id=request.user.id)
+    cart.items.remove(str(item.id))
+    cart.save()
+    return index(request)
