@@ -62,8 +62,10 @@ header {
 header nav ul a{
   color: #EDF2F4;
 }
+/*-------------------------------------------------------------------------*/
+/*Footer*/
 footer{
-  position: fixed;
+  /*position: fixed;*/
   height: 40px;
   width: 100%;
   bottom: 0;
@@ -71,8 +73,10 @@ footer{
   color: #EDF2F4;
   border-left: 50px #E0E0E0 solid;
   border-right: 50px #E0E0E0 solid;
-}
+  margin-top: 10px;
 
+}
+/*-------------------------------------------------------------------------------*/
 .logo{
   cursor: pointer;
   /*width: 20%;*/
@@ -161,7 +165,7 @@ nav a {
   text-decoration: none;
 }
 .navbuttons li a:hover{
-  color: ghostwhite;
+  color: gray;
 }
 
 button {
@@ -177,6 +181,12 @@ img{
   height: 80px;
   width: 97px;
 }
+
+
+
+
+
+
 /*----------------------------------------------------------------------------*/
 /*VÖRUR Á VÖRUSÍÐU*/
 .all-items{
