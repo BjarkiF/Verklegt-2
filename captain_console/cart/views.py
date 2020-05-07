@@ -17,17 +17,18 @@ def index(request):
 
 def add_to_cart(request, id):
     if request.user.is_authenticated:
-        item = get_object_or_404(Item, pk=id)
         cart = get_object_or_404(Cart, customer_id= request.user.id)
-        cart.items.append(item.id)
+        if cart.items:
+            cart.items.append(id)
+        else:
+            cart.items = [id]
         cart.save()
         return index(request)
     else:
         return redirect('/users/')
 
 def remove_from_cart(request, id):
-    item = get_object_or_404(Item, pk=id)
     cart = get_object_or_404(Cart, customer_id=request.user.id)
-    cart.items.remove(str(item.id))
+    cart.items.remove(str(id))
     cart.save()
     return index(request)
