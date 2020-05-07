@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 from users.forms.profile_form import ProfileForm
-from users.models import Users
+from django.contrib.auth.models import User
 
 
 def register(request):
@@ -18,7 +18,7 @@ def register(request):
 
 @login_required
 def edit_profile(request):
-    profile = Users.objects.filter(user=request.user).first()
+    profile = User.objects.filter(username=request.user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=profile, data=request.POST)
         if form.is_valid():
@@ -33,5 +33,5 @@ def edit_profile(request):
 @login_required
 def profile(request):
     return render(request, 'users/profile.html', {
-        'user': Users.objects.filter(user=request.user).first()
+        'user': User.objects.filter(username=request.user).first()
     })

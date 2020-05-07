@@ -1,15 +1,16 @@
 {% extends 'base.html' %} <!--TODO: eins og maður sé ekki skráður inn? -->
 {% block content %}
     <h1>Prófíll</h1>
-    {% if user.img  %}
-        <img src="{{ user.img }}" alt="Prófílmynd"/>
+    {% if user.profile.img  %}
+        <img src="{{ user.profile.img }}" alt="Prófílmynd"/>
     {% else %}
         <p>Mynd vantar!</p>
     {% endif %}
-    <p>Nafn: {{ user.first_name }} {{ user.last_name }}</p>
-    <p>Netfang: {{ user.email }}</p>
-    <p>Heimilisfang: {{ user.address }}</p>
-    <p>Sími: {{ user.phone }}</p>
+    <p>Nafn: {{ user.profile.first_name }} {{ user.profile.last_name }}</p>
+    <p>Netfang: {{ user.profile.email }}</p>
+    <p>Heimilisfang: {{ user.profile.address }}</p>
+    <p>Sími: {{ user.profile.phone }}</p>
+    <p>Notandanafn: {{ user.username }}</p>
     <a href="/users/profile/edit">
         <input type="submit" value="Uppfæra prófíl">
     </a>

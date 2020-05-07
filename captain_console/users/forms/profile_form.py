@@ -1,11 +1,11 @@
 from django.forms import ModelForm, widgets
-from users.models import Users
+from users.models import Profile
 from django import forms
 
 
 class ProfileForm(ModelForm):
     class Meta:
-        model = Users
+        model = Profile
         exclude = ['id', 'user']
         widgets = {
             'first_name': widgets.TextInput(attrs={'class': 'form-control'}),

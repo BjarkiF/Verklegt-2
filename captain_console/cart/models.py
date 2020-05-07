@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
-from users.models import Users
+from django.contrib.auth.models import User
 
 class Cart(models.Model):
-    customer = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     items = ArrayField(models.CharField(max_length=255))

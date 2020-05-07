@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Uppfæra prófíl</h1>
+    <h3>Stjörnumerkta reiti verður að fylla í</h3>
     <form method="post">
         {% csrf_token %}
         {{ form }}
