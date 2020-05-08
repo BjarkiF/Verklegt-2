@@ -81,7 +81,7 @@ footer{
 .left-footer{
   width: 33%;
   height: 100%;
-  border: 1px black solid;
+  /*border: 1px black solid;*/
   float: left;
 }
 .opening-hours{
@@ -96,12 +96,13 @@ footer{
   float: left;
   margin: 0 20px 0 20px;
 }
+
 /*-------------------------------------------------------------------------*/
 /*Center Footer*/
 .center-footer{
   width: 34%;
   height: 100%;
-  border: 1px black solid;
+  /*border: 1px black solid;*/
   float: left;
 }
 .center-footer-header{
@@ -122,18 +123,25 @@ footer{
   margin: 5px 0 16px 0;
 }
 
-
-
-
 /*-------------------------------------------------------------------------*/
 /*Right Footer*/
 .right-footer{
   width: 33%;
   height: 100%;
-  border: 1px black solid;
+  /*border: 1px black solid;*/
   float: left;
 }
-
+.right-footer-header{
+  font-size: 20px;
+  margin: 15px 0 20px 30px;
+}
+.right-footer-icons{
+  font-size: 25px;
+  float: left;
+  width: 40px;
+  text-align: center;
+  margin-left: 5px;
+}
 
 /*-------------------------------------------------------------------------------*/
 .logo{
