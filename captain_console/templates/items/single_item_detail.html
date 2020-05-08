@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
     {% block content %}
-        <div>
+        <div class="singleitem">
             <img class="item-img" src="{{ item.itemimg_set.first.img }}"  alt="{{ item.item.name }}"/>
-            <h4>{{ item.name }}</h4>
-            <p>{{ item.description }}</p>
-            <p>Verð: {{ item.price }},-</p>
-            <p>Framleiðandi: {{ item.manufacturer.name }}</p>
-            <p>Flokkur: {{ item.category.name }}</p>
+            <div class="singlename">
+                <p>{{ item.name }}</p>
+            </div>
+            <div class="singledescription">
+                <p>{{ item.description }}</p>
+            </div>
+            <div class="singleinfo">
+                <p id="price">Verð: {{ item.price }},-</p>
+                <p>Framleiðandi: {{ item.manufacturer.name }}</p>
+                <p>Flokkur: {{ item.category.name }}</p>
+            </div>
+
             <a href="{% url 'add_to_cart' item.id %}">
-                <button>Bæta í körfu</button>
+                <button class="Kbutton">Bæta í körfu</button>
             </a>
         </div>
     {% endblock %}
