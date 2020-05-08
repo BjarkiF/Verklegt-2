@@ -66,7 +66,7 @@ header nav ul a{
 /*Footer*/
 footer{
   /*position: fixed;*/
-  height: 40px;
+  height: 200px;
   width: 100%;
   bottom: 0;
   background-color: #CE0000;
@@ -74,8 +74,67 @@ footer{
   border-left: 50px #E0E0E0 solid;
   border-right: 50px #E0E0E0 solid;
   margin-top: 10px;
-
+  position:relative;
 }
+/*-------------------------------------------------------------------------*/
+/*Left Footer*/
+.left-footer{
+  width: 33%;
+  height: 100%;
+  border: 1px black solid;
+  float: left;
+}
+.opening-hours{
+  float: left;
+}
+.left-footer-header{
+  font-size: 20px;
+  margin: 15px 0 20px 30px;
+}
+.left-footer i{
+  font-size: 80px;
+  float: left;
+  margin: 0 20px 0 20px;
+}
+/*-------------------------------------------------------------------------*/
+/*Center Footer*/
+.center-footer{
+  width: 34%;
+  height: 100%;
+  border: 1px black solid;
+  float: left;
+}
+.center-footer-header{
+  font-size: 20px;
+  margin: 15px 0 14px 30px;
+}
+.center-footer-icons{
+  font-size: 25px;
+  float: left;
+  width: 50px;
+  text-align: center;
+  margin-left: 5px;
+}
+.center-footer-contact-info{
+  float: left;
+}
+.center-footer-contact-info p{
+  margin: 5px 0 16px 0;
+}
+
+
+
+
+/*-------------------------------------------------------------------------*/
+/*Right Footer*/
+.right-footer{
+  width: 33%;
+  height: 100%;
+  border: 1px black solid;
+  float: left;
+}
+
+
 /*-------------------------------------------------------------------------------*/
 .logo{
   cursor: pointer;
@@ -100,7 +159,7 @@ nav a {
 .Rbuttons{
   position: absolute;
   top: 0;
-  left: 60%;
+  right: 0;
 }
 
 .search{
@@ -242,16 +301,24 @@ img{
 .sidebar-items{
   position: fixed;
   display: inline-block;
-  width: 20%;
+  width: 260px;
   height: 100%;
   padding: 10px;
-  background: rgb(252, 138, 138);
-}
-.sidebar-items p{
-  padding-left: 10px;
-  font-size: 30px;
+  margin-bottom: 200px;
+  text-align: center;
+  border-right: 2px #CE0000 solid;
 
 }
+
+.sidebar-items p{
+  font-size: 30px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+/*.side-drop{*/
+/*  margin-top: 15px;*/
+/*}*/
+
 
 select{
   appearance: none;
@@ -274,14 +341,12 @@ select::-ms-expand{
 .select{
   position: relative;
   display: flex;
-  width: 230px;
   height: 40px;
   line-height: 3;
-  background: grey;
   overflow: hidden;
   border-radius: 4px;
   /*border:black 4px solid;*/
-
+  margin: 20px 0 0 0;
 }
 
 .select::after{
@@ -290,7 +355,7 @@ select::-ms-expand{
   top: 0;
   right: 0;
   padding: 0 16px;
-  background: gray;
+  background: #CE0000;
   cursor: pointer;
   pointer-events: none;
   transition: 0.25s all ease;
@@ -302,8 +367,7 @@ select::-ms-expand{
 
 .Sbutton{
   width: 200px;
-  padding: 5px;
-  margin: 200px 10px 0 10px;
+  margin: 30px 10px 0 10px;
   border-radius: 10px;
   border:grey 2px solid;
 }
