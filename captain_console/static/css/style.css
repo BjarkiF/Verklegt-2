@@ -593,7 +593,7 @@ select::-ms-expand{
 }
 .loginting input:hover{
   transition: 0.3s all ease;
-  width: 250px;
+  /*width: 250px;*/
 
   color: gray;
   margin: 10px 0;
