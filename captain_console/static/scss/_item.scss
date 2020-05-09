@@ -1,0 +1,81 @@
+/*--------------------------------------------------------------------------------*/
+/*single VARA*/
+.singleitem{
+  background: ghostwhite;
+  display: inline-block;
+  justify-content: center;
+  width: 95%;
+  float: right;
+  margin-bottom: 40px;
+  /*height: 80%;*/
+
+}
+
+.item-img{
+  margin-top: 10px;
+  /*margin-left: 30px;*/
+  height: 300px;
+  width: 250px;
+  /*display: inline-block;*/
+  background: #9fcdff;
+}
+.singlename{
+  font-size: 24px;
+  margin: 0;
+  /*padding-left: 0px;*/
+  width: 200px;
+  /*background: #1c7430;*/
+  margin-left: 75px;
+
+  /*display: inline-block;*/
+}
+
+.singledescription{
+  /*background: #6f42c1;*/
+  position: absolute;
+  left: 33%;
+  top: 15%;
+  /*display:inline-block;*/
+  height: 330px;
+  width: 330px;
+  border: black 2px solid;
+  border-radius: 10px;
+  padding: 10px;
+}
+.singleinfo{
+  position: absolute;
+  left: 63%;
+  top: 15%;
+  height: 280px;
+  width: 330px;
+  border: black 2px solid;
+  border-radius: 10px;
+  padding: 10px;
+}
+.singledescription p{
+  font-size: 16px;
+}
+.singleinfo p{
+  font-size: 20px;
+
+}
+
+#price{
+  font-size: 30px;
+  padding: 0;
+}
+.Kbutton{
+  position: absolute;
+  left: 70%;
+  top: 65%;
+  width: 200px;
+  padding: 5px;
+  border-radius: 10px;
+  border:grey 2px solid;
+}
+
+.Kbutton:hover{
+  transition: 0.3s all ease;
+  color: red;
+  border-color: black;
+}

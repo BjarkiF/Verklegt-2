@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch')
+var concat = require('gulp-concat')
+var csslint = require('gulp-csslint')
 
 /*
 let files = {
@@ -31,6 +33,11 @@ gulp.task('collectstatic',function() {
 gulp.task('scss', function(){
   return gulp.src('./static/scss/style.scss')
     .pipe(sass()) // Using gulp-sass
+    .pipe(concat('style.scss.css'))
+    .pipe(csslint({
+        'shorthand': false
+    }))
+    .pipe(csslint.formatter())
     .pipe(gulp.dest('./static/css/'))
 });
 
