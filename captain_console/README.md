@@ -9,10 +9,25 @@ Eftirfarandi env breytur þurfa að vera rétt stilltar til að ná gagnagrunnst
 - DB_PORT
 - PORT=8000 # Svo heroku local sé á réttu porti.
 
-## Running
+## Installing
+virtualenv venv
+. venv/bin/activate
+pip install -r requirements.txt
 
+## Gulp Skipanir
+gulp scss
 
+gulp watch
 
+## Local Deployment
+heroku local 
+
+eða 
+
+python3 manage.py runserver
+
+## Remote Deployment
+git push heroku master
 
 ## Testing
 ### Frontend testing
