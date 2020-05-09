@@ -1,5 +1,9 @@
 /*--------------------------------------------------------------------------*/
 /*FrontPage*/
+.content{
+  flex-shrink: 0;
+}
+
 .frontcontent{
   width: 95%;
   float: right;
@@ -27,8 +31,6 @@
 .frontFL:hover{
   transition: 0.3s all ease;
   background: red;
-
-
 }
 .frontFL:hover p{
   transition: 0.3s all ease;
