@@ -19,7 +19,12 @@ from django.urls import path, include
 from django.urls import re_path
 from django.views.static import serve
 
+from rest_framework import routers
+
 import logging
+
+router = routers.DefaultRouter()
+router.register(r'items', include('items.views'), basename='items')
 
 urlpatterns = [
     path('', include('items.urls')),
@@ -27,7 +32,8 @@ urlpatterns = [
     path('items/', include('items.urls')),
     path('users/', include('users.urls')),
     path('about/', include('about.urls')),
-    path('cart/', include('cart.urls'))
+    path('cart/', include('cart.urls')),
+    path('api/v1/', include('api.urls')),
 ]
 
 #if settings.DEBUG:

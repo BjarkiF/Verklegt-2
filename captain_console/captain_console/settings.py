@@ -14,10 +14,8 @@ import os
 import django_heroku
 import os
 import logging
-
-from dotenv import load_dotenv
-
-
+import dj_database_url
+import rest_framework
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_json_api',
+    'six',
     'items',
     'users',
     'cart',
@@ -81,71 +82,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'captain_console.wsgi.application'
 
-"""
 #Database
 #https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-dotenv_path = '..env'
-DATABASES = {'default': {}}
-
-'''
-try:
-    load_dotenv(dotenv_path=dotenv_path)
-    DATABASES['default'] = {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('DB_NAME'),
-            'USER': os.getenv('DB_USER'),
-            'PASSWORD': os.getenv('DB_PASSWORD'),
-            'HOST': os.getenv('DB_URL'),
-            'PORT': os.getenv('DB_PORT')
-    }
-    logging.info('Local!')
-     #DATABASES = {
-     #   'default': {
-     #       'ENGINE': 'django.db.backends.postgresql',
-     #       'NAME': os.environ.get('DB_NAME'),
-     #       'USER': os.environ.get('DB_USER'),
-     #       'PASSWORD': os.environ.get('DB_PASSWORD'),
-     #       'HOST': os.environ.get('DATABASE_URL'),
-     #       'PORT': os.environ.get('DB_PORT')
-     #    }
-     #}
 
 
-except:
-    import dj_database_url
-    logging.info('Loading ..env failed!')
-
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    logging.info('db_from_env: {0}'.format(db_from_env))
-    if db_from_env:
-        DATABASES['default'].update(os.getenv('db_from_env'))
-    else:
-        logging.error('Connecting to DB failed!')
-    logging.info('Heroku!')
-
-#,'''
-"""
+#DATABASES = { 'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': os.getenv('DB_NAME'),
+#        'USER': os.getenv('DB_USER'),
+#        'PASSWORD': os.getenv('DB_PASSWORD'),
+#        'HOST': os.getenv('DB_HOST'),
+#        'PORT': os.getenv('DB_PORT'),
+#        'OPTIONS': {'SSL_REQUIRE': False }
+#    }
+#}
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'uebfjgpj',
-        'USER': 'uebfjgpj',
-        'PASSWORD': 'XiaTs1x6u9I74e8lU6_uYL4aDJhsA36s',
-        'HOST': 'balarama.db.elephantsql.com',
-        'PORT': '5432'
-    },
-    # #   'heroku': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'uebfjgpj',
-    #     'USER': 'uebfjgpj',
-    #     'PASSWORD': 'XiaTs1x6u9I74e8lU6_uYL4aDJhsA36s',
-    #     'HOST': 'balarama.db.elephantsql.com',
-    #     'PORT': '5432'
-    # }
-}
 
+
+DATABASES = {'default':{}}
+DATABASES['default'] = dj_database_url.config(default=os.getenv('DB_URL'), ssl_require=False)
+
+#DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -191,7 +149,57 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+#django_heroku.settings(locals(), logging=not DEBUG, databases=not DEBUG)
 django_heroku.settings(locals())
+
+try:
+    # Disable ssl on database in development.
+    if os.environ['ENV']:
+        ssl_require = os.environ['ENV'] != 'development'
+        locals()['DATABASES']['default'] = dj_database_url.config(
+            conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=ssl_require)
+except:
+    # If the program is migrating.
+    logging.info('Migrate')
 
 LOGIN_URL = '/users/login'
 LOGIN_REDIRECT_URL = '/users/profile'
+
+
+## REST FRAMEWORK STUFF
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
+"""
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10,
+    'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework_json_api.pagination.JsonApiPageNumberPagination',
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework_json_api.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser'
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework_json_api.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    'DEFAULT_METADATA_CLASS': 'rest_framework_json_api.metadata.JSONAPIMetadata',
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework_json_api.filters.QueryParameterValidationFilter',
+        'rest_framework_json_api.filters.OrderingFilter',
+        'rest_framework_json_api.django_filters.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+    ),
+    'SEARCH_PARAM': 'filter[search]',
+    'TEST_REQUEST_RENDERER_CLASSES': (
+        'rest_framework_json_api.renderers.JSONRenderer',
+    ),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'vnd.api+json'
+}
+
+"""
+
+
