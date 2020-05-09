@@ -1,17 +1,35 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="captain_console" type="Python.DjangoServer" factoryName="Django server">
+  <configuration default="false" name="Captain Console Local" type="Python.DjangoServer" factoryName="Django server">
     <module name="captain_console" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
       <env name="PYTHONUNBUFFERED" value="1" />
       <env name="DJANGO_SETTINGS_MODULE" value="captain_console.settings" />
+      <env name="DATABASE_URL" value="postgres://postgres:p4ssw0rd@192.168.1.88:1337/captain_console" />
+      <env name="DB_NAME" value="captain_console" />
+      <env name="DB_USER" value="postgres" />
+      <env name="DB_PASSWORD" value="p4ssw0rd" />
+      <env name="DB_HOST" value="192.168.1.88" />
+      <env name="DB_PORT" value="1337" />
+      <env name="DB_ENGINE" value="django.db.backends.postgresql" />
+      <env name="ENV" value="development" />
     </envs>
     <option name="SDK_HOME" value="" />
     <option name="WORKING_DIRECTORY" value="" />
     <option name="IS_MODULE_SDK" value="true" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
+    <EXTENSION ID="net.ashald.envfile">
+      <option name="IS_ENABLED" value="false" />
+      <option name="IS_SUBST" value="false" />
+      <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+      <option name="IS_IGNORE_MISSING_FILES" value="false" />
+      <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+      <ENTRIES>
+        <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+      </ENTRIES>
+    </EXTENSION>
     <option name="launchJavascriptDebuger" value="false" />
     <option name="port" value="8000" />
     <option name="host" value="" />

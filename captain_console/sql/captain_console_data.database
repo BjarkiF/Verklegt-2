@@ -1,0 +1,361 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.5 (Ubuntu 11.5-3.pgdg18.04+1)
+-- Dumped by pg_dump version 12.2 (Ubuntu 12.2-2.pgdg18.04+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+
+
+--
+-- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (1, 'admin', 'logentry');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (2, 'auth', 'permission');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (3, 'auth', 'group');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (4, 'auth', 'user');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (5, 'contenttypes', 'contenttype');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (6, 'sessions', 'session');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (7, 'items', 'item');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (8, 'items', 'itemcategory');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (9, 'items', 'itemmanufacturer');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (10, 'items', 'itemimg');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (13, 'cart', 'cart');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (11, 'users', 'profile');
+
+
+--
+-- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (1, 'Can add log entry', 1, 'add_logentry');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (2, 'Can change log entry', 1, 'change_logentry');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (3, 'Can delete log entry', 1, 'delete_logentry');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (4, 'Can view log entry', 1, 'view_logentry');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (5, 'Can add permission', 2, 'add_permission');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (6, 'Can change permission', 2, 'change_permission');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (7, 'Can delete permission', 2, 'delete_permission');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (8, 'Can view permission', 2, 'view_permission');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (9, 'Can add group', 3, 'add_group');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (10, 'Can change group', 3, 'change_group');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (11, 'Can delete group', 3, 'delete_group');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (12, 'Can view group', 3, 'view_group');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (13, 'Can add user', 4, 'add_user');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (14, 'Can change user', 4, 'change_user');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (15, 'Can delete user', 4, 'delete_user');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (16, 'Can view user', 4, 'view_user');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (17, 'Can add content type', 5, 'add_contenttype');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (18, 'Can change content type', 5, 'change_contenttype');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (19, 'Can delete content type', 5, 'delete_contenttype');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (20, 'Can view content type', 5, 'view_contenttype');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (21, 'Can add session', 6, 'add_session');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (22, 'Can change session', 6, 'change_session');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (23, 'Can delete session', 6, 'delete_session');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (24, 'Can view session', 6, 'view_session');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (25, 'Can add item', 7, 'add_item');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (26, 'Can change item', 7, 'change_item');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (27, 'Can delete item', 7, 'delete_item');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (28, 'Can view item', 7, 'view_item');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (29, 'Can add item category', 8, 'add_itemcategory');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (30, 'Can change item category', 8, 'change_itemcategory');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (31, 'Can delete item category', 8, 'delete_itemcategory');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (32, 'Can view item category', 8, 'view_itemcategory');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (33, 'Can add item manufacturer', 9, 'add_itemmanufacturer');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (34, 'Can change item manufacturer', 9, 'change_itemmanufacturer');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (35, 'Can delete item manufacturer', 9, 'delete_itemmanufacturer');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (36, 'Can view item manufacturer', 9, 'view_itemmanufacturer');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (37, 'Can add item img', 10, 'add_itemimg');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (38, 'Can change item img', 10, 'change_itemimg');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (39, 'Can delete item img', 10, 'delete_itemimg');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (40, 'Can view item img', 10, 'view_itemimg');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (41, 'Can add users', 11, 'add_users');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (42, 'Can change users', 11, 'change_users');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (43, 'Can delete users', 11, 'delete_users');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (44, 'Can view users', 11, 'view_users');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (45, 'Can add cart', 13, 'add_cart');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (46, 'Can change cart', 13, 'change_cart');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (47, 'Can delete cart', 13, 'delete_cart');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (48, 'Can view cart', 13, 'view_cart');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (49, 'Can add profile', 11, 'add_profile');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (50, 'Can change profile', 11, 'change_profile');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (51, 'Can delete profile', 11, 'delete_profile');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (52, 'Can view profile', 11, 'view_profile');
+
+
+--
+-- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+
+
+--
+-- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (10, 'pbkdf2_sha256$180000$zd4TiOIZ1CJk$DPhjYsfNa1yegcUqv5WkqAOioryJ5RwYYZWgT1egkck=', '2020-05-08 15:41:14.785121+00', false, 'drillukongurinn', '', '', '', false, true, '2020-05-05 14:13:48.990985+00');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (12, 'pbkdf2_sha256$180000$XkZueOJuVF5p$7Z8ODc8N3xQihX/VHkmKMov8Ff82eaksdlJdGqvtulQ=', '2020-05-08 19:56:13.798909+00', false, 'xXsakariasXx', 'Sakarías', 'Ragnarsson', 'noi.fjalar@icloud.com', false, true, '2020-05-07 12:51:44.607007+00');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (9, 'pbkdf2_sha256$180000$rrttRYQ0lwx9$YVjwBUYmiuliWKXHeB3w2K07Nuo526+TqBpF1XkT8Og=', '2020-05-05 15:51:03.105045+00', true, 'superuser', '', '', '', false, true, '2020-05-05 14:13:04.511188+00');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (11, 'pbkdf2_sha256$180000$FmadRbPRvF3i$B3PnfECOsCl2o5uwrLqeZEpRFVL6+LurYu+MZBN5TbI=', '2020-05-06 13:05:43.076277+00', false, 'testuser', '', '', '', false, true, '2020-05-06 13:05:35.441616+00');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (13, 'pbkdf2_sha256$180000$zky2WeW4bEuB$02H23PHPtd1cr43JVMdvVMie4aEPrSynlb1jetBkf0o=', '2020-05-07 15:07:21.273231+00', false, 'testcart', '', '', '', false, true, '2020-05-07 15:07:09.418321+00');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (14, 'pbkdf2_sha256$180000$W8BHmwYFHFh3$AgpmGT1ji/lgH3eiKjRoRGkAMbU/Itae9CbBtUBWQ8k=', '2020-05-07 20:50:58.710695+00', false, 'testcart2', '', '', '', false, true, '2020-05-07 20:50:37.898173+00');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (1, 'pbkdf2_sha256$180000$R8rYL4UQQIrs$4fkvgyra3EY7plJmrRlb/gcKrI8iylbehOgNxkMTZ7k=', '2020-05-07 20:57:07.576555+00', false, 'bjarkifridriks', '', '', '', false, true, '2020-05-05 11:47:38.984443+00');
+
+
+--
+-- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+
+
+--
+-- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+
+
+--
+-- Data for Name: cart_cart; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.cart_cart (id, items, user_id) VALUES (1, '{6,3,3,3,3,6}', 1);
+INSERT INTO public.cart_cart (id, items, user_id) VALUES (17, '{}', 13);
+INSERT INTO public.cart_cart (id, items, user_id) VALUES (18, '{}', 12);
+INSERT INTO public.cart_cart (id, items, user_id) VALUES (19, '{7}', 10);
+
+
+--
+-- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+
+
+--
+-- Data for Name: django_migrations; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (1, 'contenttypes', '0001_initial', '2020-05-04 14:36:18.389083+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (2, 'auth', '0001_initial', '2020-05-04 14:36:19.308293+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (3, 'admin', '0001_initial', '2020-05-04 14:36:21.566915+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (4, 'admin', '0002_logentry_remove_auto_add', '2020-05-04 14:36:22.283076+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (5, 'admin', '0003_logentry_add_action_flag_choices', '2020-05-04 14:36:22.642157+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (6, 'contenttypes', '0002_remove_content_type_name', '2020-05-04 14:36:23.184279+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (7, 'auth', '0002_alter_permission_name_max_length', '2020-05-04 14:36:23.629379+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (8, 'auth', '0003_alter_user_email_max_length', '2020-05-04 14:36:24.07548+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (9, 'auth', '0004_alter_user_username_opts', '2020-05-04 14:36:24.43456+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (10, 'auth', '0005_alter_user_last_login_null', '2020-05-04 14:36:24.882661+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (11, 'auth', '0006_require_contenttypes_0002', '2020-05-04 14:36:25.236741+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (12, 'auth', '0007_alter_validators_add_error_messages', '2020-05-04 14:36:25.594822+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (13, 'auth', '0008_alter_user_username_max_length', '2020-05-04 14:36:26.045924+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (14, 'auth', '0009_alter_user_last_name_max_length', '2020-05-04 14:36:26.493024+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (15, 'auth', '0010_alter_group_name_max_length', '2020-05-04 14:36:26.942125+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (16, 'auth', '0011_update_proxy_permissions', '2020-05-04 14:36:27.300206+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (17, 'users', '0001_initial', '2020-05-04 14:36:27.749307+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (18, 'cart', '0001_initial', '2020-05-04 14:36:28.199408+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (19, 'items', '0001_initial', '2020-05-04 14:36:29.292655+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (20, 'sessions', '0001_initial', '2020-05-04 14:36:30.100836+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (21, 'cart', '0002_auto_20200506_1306', '2020-05-06 13:07:12.725239+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (22, 'users', '0002_auto_20200506_1306', '2020-05-06 13:07:13.182339+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (23, 'cart', '0002_auto_20200507_1946', '2020-05-07 19:47:27.322724+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (24, 'users', '0002_auto_20200507_1946', '2020-05-07 19:47:27.744551+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (25, 'cart', '0003_auto_20200507_2045', '2020-05-07 20:45:43.46977+00');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (26, 'users', '0003_auto_20200507_2045', '2020-05-07 20:45:44.13159+00');
+
+
+--
+-- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('9tyf15fun3ouq0n93ksvejg3cz0zjowq', 'OTFiNzI0MGQ2MDJmMGIwZjlkNWI1ZWFiMWUwNTYwNjMyNWEyNDdkNzp7Il9hdXRoX3VzZXJfaWQiOiIxMCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiMTU0ZDc1N2YzNDk4YTFiNGQ5ZDVjMzZjOTBhN2I1M2UzZmZhMTNlMSJ9', '2020-05-22 15:41:14.876874+00');
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('vypry8jymcn0wn8l5gfgmr19vp2ol49j', 'MjYwMzY1YmM5YTRmNGM5NmU0YzY0Mzk0ODYzMmM5ZjAzYTE4YjMyYjp7Il9hdXRoX3VzZXJfaWQiOiIxMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiMDQ3Mjk2YWVhOWIyNjU4NWQwYjQxNTc1NDQxOTgyNzY3MjY1OWRkMiJ9', '2020-05-22 19:56:13.876141+00');
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('0bsopepjtkujicbbgv4hygriygps9cm2', 'ODE5NmI0Yzk2NTVkZWJjMmFhMzkxMDViMTQ3YWFhYjVkY2QwZDUyNzp7Il9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiOGJkZGRhMTRmNzk0MDMzYzc1OGYyNWI5ZjZkMWVhMGRiNjk5MDg3MCJ9', '2020-05-20 13:05:43.165297+00');
+
+
+--
+-- Data for Name: items_itemcategory; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.items_itemcategory (id, name) VALUES (3, 'Aukahlutir');
+INSERT INTO public.items_itemcategory (id, name) VALUES (2, 'Leikir');
+INSERT INTO public.items_itemcategory (id, name) VALUES (1, 'Tölvur');
+
+
+--
+-- Data for Name: items_itemmanufacturer; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.items_itemmanufacturer (id, name, img) VALUES (1, 'Nintendo', 'https://vectorified.com/images/nintendo-logo-icon-9.png');
+INSERT INTO public.items_itemmanufacturer (id, name, img) VALUES (2, 'Sega', 'https://vectorified.com/images/sega-icon-23.png');
+INSERT INTO public.items_itemmanufacturer (id, name, img) VALUES (3, 'Sony', 'https://vectorified.com/image/sony-logo-vector-11.png');
+INSERT INTO public.items_itemmanufacturer (id, name, img) VALUES (4, 'Microsoft', 'https://vectorified.com/image/microsoft-logo-vector-8.png');
+
+
+--
+-- Data for Name: items_item; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (2, 'Genesis', 'The Sega Genesis, known as the Mega Drive outside North America, is a 16-bit home video game console developed and sold by Sega. The Genesis is Sega''s third console and the successor to the Master System. Sega released it as the Mega Drive in Japan in 1988, and later as the Genesis in North America in 1989.', 17990, 1, 2);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (5, 'NES Zapper', 'The NES Zapper, also known as The Light Gun or Beam Gun in Japan, is an electronic light gun accessory for the Nintendo Entertainment System (NES) and the Japanese Famicom. It was released in Japan for the Famicom on February 18, 1984 and alongside the launch of the NES in North America in October 1985.', 189990, 3, 1);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (6, 'Game Boy Camera', 'The Game Boy Camera (GBC), released as Pocket Camera in Japan, is a Nintendo accessory for the handheld Game Boy game console. It was released on February 21, 1998 in Japan, and manufacturing was ceased in late 2002. As a toy for user-generated content, it can be used to shoot grayscale photographs, edit them or create original drawings, and transfer images between GBC units or to the 64DD art game suite Mario Artist.', 2490, 3, 1);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (1, 'NES', 'The Nintendo Entertainment System (NES) is an 8-bit third-generation home video game console produced, released, and marketed by Nintendo. It is a remodelled export version of the company''s Family Computer (FC) platform in Japan, commonly known as the Famicom, which was launched on July 15, 1983.', 19990, 1, 1);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (4, 'Duck Hunt', 'Duck Hunt is a 1984 light gun shooter video game developed and published by Nintendo for the Nintendo Entertainment System (NES) video game console. The game was first released in Japan in April 1984, and was released as a launch game for the NES in North America in October 1985, with it also releasing in Europe two years later.', 6790, 2, 1);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (3, 'Super Mario', 'Super Mario Bros. is a platform game developed and published by Nintendo. The successor to the 1983 arcade game, Mario Bros., it was released in Japan in 1985 for the Famicom, and in North America and Europe for the Nintendo Entertainment System (NES) in 1985 and 1987 respectively.', 4890, 2, 1);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (7, 'After Burner II', 'After Burner II is an arcade-style flight game released by Sega in October 1987. It is the second game in the After Burner series. In the game, players fly a F-14 Tomcat jet fighter, gunning down enemies while avoiding incoming fire.', 8799, 2, 2);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (8, 'Alien 3', 'Alien 3 is a side-scrolling platform game in which the player controls Ellen Ripley, the films main character, who progresses through the Fiorina 161 prison colony that was featured in the film. The player can jump, shoot, climb ladders, crawl through tunnels, open doors, and use elevators. Unlike the film, Ripley has a large arsenal of weapons that can be used against the games enemies, consisting of Aliens and Facehuggers. Weapons include pulse rifles, flamethrowers, and grenades. A motion tracker warns the player of nearby enemies', 7499, 2, 2);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (9, 'Batman Returns', 'Batman Returns is the title of a beat em up video game for various platforms based on the film of the same name. The Sega console versions (i.e. Sega Genesis, Sega CD, Master System and Game Gear) were published by Sega while the NES and Super NES versions were developed and published by Konami. The MS-DOS version was published by Konami and developed by Spirit of Discovery. The Amiga version was developed by Denton Designs, and also published by Konami.', 4799, 2, 2);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (10, 'Battletoads', 'Battletoads is a video game media franchise by Rare that began with the original beat em up game Battletoads in 1991. Starring three anthropomorphic toads named after skin conditions, Rash, Zitz, and Pimple, the series was created to rival the Teenage Mutant Ninja Turtles games series. The series as a whole has been quite popular with five installments up to this date and at its apex spawned an animated television pilot.', 14899, 2, 2);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (11, 'Castlevania: Bloodlines', 'Castlevania: Bloodlines[c][d] is a platform game developed and published by Konami for the Sega Genesis. It was the only Castlevania video game released on the Genesis. The games storyline concerns a legendary vampire named Elizabeth Bartley, who is Draculas niece, suddenly appearing in the 20th century. Plotting a sacrificial war in order to bring her uncle back to life, she orchestrates the beginning of World War I.', 7699, 2, 2);
+INSERT INTO public.items_item (id, name, description, price, category_id, manufacturer_id) VALUES (12, 'Double Dragon', 'Double Dragon is a 1987 beat em up video game developed by Technōs Japan and distributed in North America and Europe by Taito. The game is a spiritual and technological successor to Technos earlier beat em up, Nekketsu Kōha Kunio-kun (released outside of Japan by Taito as Renegade), but introduced several additions such as two-player cooperative gameplay and the ability to arm oneself with an enemys weapon after disarming them.', 6799, 2, 2);
+
+
+--
+-- Data for Name: items_itemimg; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (1, 'https://cdn11.bigcommerce.com/s-ymgqt/products/38147/images/39525/NES-1-player-pak-acc__89927.1536762256.500.750.jpg?c=2', 1);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (2, 'https://genesismini.sega.com/img/system/genesis_mini_blueglow.png', 2);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (3, 'https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png', 3);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (4, 'https://upload.wikimedia.org/wikipedia/en/1/14/DuckHuntBox.jpg', 4);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (5, 'https://images-na.ssl-images-amazon.com/images/I/51r2dbQOrDL._SX258_BO1,204,203,200_.jpg', 5);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (6, 'https://www.mariowiki.com/images/thumb/5/51/Game_Boy_Camera_box_art_red.jpg/250px-Game_Boy_Camera_box_art_red.jpg', 6);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (7, 'https://upload.wikimedia.org/wikipedia/en/a/a6/After_Burner_II.jpg', 7);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (8, 'https://upload.wikimedia.org/wikipedia/en/4/4b/Alien3_game_cover_art.jpg', 8);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (9, 'https://upload.wikimedia.org/wikipedia/en/f/f7/BatmanReturnsCoverart.jpg', 9);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (10, 'https://upload.wikimedia.org/wikipedia/en/e/e8/Battletoads_Coverart.png', 10);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (11, 'https://upload.wikimedia.org/wikipedia/en/a/af/Castlevania_Bloodlines.jpg', 11);
+INSERT INTO public.items_itemimg (id, img, item_id) VALUES (12, 'https://upload.wikimedia.org/wikipedia/en/e/e6/Ddragon_chirashi.jpg', 12);
+
+
+--
+-- Data for Name: users_profile; Type: TABLE DATA; Schema: public; Owner: uebfjgpj
+--
+
+INSERT INTO public.users_profile (id, first_name, last_name, img, email, address, phone, user_id) VALUES (1, 'Bjarki', 'Friðriksson', 'https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg', 'bjarkif18@ru.is', 'Byggðarholt 31', '6639898', 1);
+INSERT INTO public.users_profile (id, first_name, last_name, img, email, address, phone, user_id) VALUES (2, 'Raggi', 'Admin', '', 'gamer@captainconsole.com', 'Olís', '', 9);
+INSERT INTO public.users_profile (id, first_name, last_name, img, email, address, phone, user_id) VALUES (8, '', '', '', '', '', '', 13);
+
+
+--
+-- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.auth_group_id_seq', 1, false);
+
+
+--
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 1, false);
+
+
+--
+-- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.auth_permission_id_seq', 52, true);
+
+
+--
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
+
+
+--
+-- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.auth_user_id_seq', 14, true);
+
+
+--
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
+
+
+--
+-- Name: cart_cart_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.cart_cart_id_seq', 19, true);
+
+
+--
+-- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 1, false);
+
+
+--
+-- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.django_content_type_id_seq', 13, true);
+
+
+--
+-- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 26, true);
+
+
+--
+-- Name: items_item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.items_item_id_seq', 12, true);
+
+
+--
+-- Name: items_itemcategory_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.items_itemcategory_id_seq', 3, true);
+
+
+--
+-- Name: items_itemimg_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.items_itemimg_id_seq', 12, true);
+
+
+--
+-- Name: items_itemmanufacturer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.items_itemmanufacturer_id_seq', 4, true);
+
+
+--
+-- Name: users_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: uebfjgpj
+--
+
+SELECT pg_catalog.setval('public.users_users_id_seq', 8, true);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
