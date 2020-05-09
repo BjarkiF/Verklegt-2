@@ -14,10 +14,8 @@ bower_components/
 # Static Files
 static/css/lib/
 static/js/lib/
-static/admin/
 static/css/lib/
 static/js/lib/
-static/staticfiles.json
 
 # Misc
 .env
