@@ -5,13 +5,15 @@ footer{
   height: 180px;
   width: 100%;
   bottom: 0;
+  left: 0;
   background-color: #CE0000;
   color: #EDF2F4;
   border-left: 50px #E0E0E0 solid;
   border-right: 50px #E0E0E0 solid;
   margin-top: 10px;
-  position:relative;
+  //position:fixed;
 }
+
 /*-------------------------------------------------------------------------*/
 /*Left Footer*/
 .left-footer{
@@ -19,16 +21,20 @@ footer{
   height: 100%;
   float: left;
 }
+
 .opening-hours{
   float: left;
 }
+
 .opening-hours p{
   margin-bottom: 16px;
 }
+
 .left-footer-header{
   font-size: 20px;
   margin: 15px 0 20px 30px;
 }
+
 .left-footer i{
   font-size: 80px;
   float: left;
@@ -42,10 +48,12 @@ footer{
   height: 100%;
   float: left;
 }
+
 .center-footer-header{
   font-size: 20px;
   margin: 15px 0 14px 30px;
 }
+
 .center-footer-icons{
   font-size: 25px;
   float: left;
@@ -53,9 +61,11 @@ footer{
   text-align: center;
   margin-left: 5px;
 }
+
 .center-footer-contact-info{
   float: left;
 }
+
 .center-footer-contact-info p{
   margin: 5px 0 16px 0;
 }
@@ -67,10 +77,12 @@ footer{
   height: 100%;
   float: left;
 }
+
 .right-footer-header{
   font-size: 20px;
   margin: 15px 0 14px 30px;
 }
+
 .right-footer-icons{
   font-size: 25px;
   float: left;
@@ -78,9 +90,11 @@ footer{
   text-align: center;
   margin-left: 5px;
 }
+
 .right-footer-media-info{
   margin-top: 20px;
 }
+
 .right-footer-media-info p{
   margin: 0 0 16px 0;
 }

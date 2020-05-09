@@ -3,42 +3,34 @@
 
 .loginsite{
   background: #e8e1d6;
-  height: 400px;
-  display: flex;
-}
-.loginsite h2{
-  position: absolute;
-  left: 40%;
 
-}
-.login-group{
-  /*display: flex;*/
-  padding: 10px;
+  form {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
 
-}
-.login-group input{
-  width: 300px;
-  display: flex;
+    h2 {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100px;
+    }
 
+    input{
+      width: 100%;
+    }
+  }
 }
+
 .login-group label{
   padding-right: 10px;
   font-size: 16px;
 }
 
-.log-in{
-  /*background: #6f42c1;*/
-  padding: 10px;
-  position: relative;
-  left: 30%;
-  top: 15%;
-  height: 180px;
-}
 .loginting{
-  position: absolute;
   left: 10%;
   top: 100%;
 }
+
 .loginting input{
   width: 100px;
   background: #CE0000;
@@ -47,17 +39,10 @@
   margin: 10px 0;
   color: ghostwhite;
 }
+
 .loginting input:hover{
   transition: 0.3s all ease;
-  /*width: 250px;*/
-
   color: gray;
   margin: 10px 0;
   border-radius: 0;
-}
-
-.loginting p{
-  font-size: 20px;
-  margin: 0;
-  padding: 0;
 }
