@@ -4,6 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('all/', views.all),
-    path('items/', views.items.as_view({'get': 'list'})),
+    path('items/all/', views.items.as_view({'get': 'list'})),
     path('<int:id>', views.get_item_by_id)
 ]
