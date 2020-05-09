@@ -12,24 +12,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@700&display=swap" rel="stylesheet">
 
 </head>
-<body class="body">
-    <div id="left"></div>
-    <div id="right"></div>
-    <div class="nav">
-        {% include 'navbar.html' %}
-    </div>
+<body>
     <div class="container">
-        {% block content %}
-        {% endblock %}
+        <div class="nav">
+            {% include 'navbar.html' %}
+        </div>
+        <div class="col-md-12 content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <!--<div class="footer">-->
+            {% include 'footer.html' %}
+        <!--</div>-->
+        <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+        <script src="/static/js/script.js"></script>
+        <script src="/static/js/items.js"></script>
+        {#    icons#}
+        <script src="https://kit.fontawesome.com/32b6e89c66.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </div>
-    <div class="footer">
-        {% include 'footer.html' %}
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="/static/js/script.js"></script>
-    <script src="/static/js/items.js"></script>
-{#    icons#}
-    <script src="https://kit.fontawesome.com/32b6e89c66.js" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
