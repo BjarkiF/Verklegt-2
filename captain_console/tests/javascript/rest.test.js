@@ -18,7 +18,7 @@ describe('Endpoint tests', () => {
      ********************************************/
 
     it("GET /events SUCCESS - all events", function(done) {
-        chai.request('http://localhost:8000')
+        chai.request('https://captain-console-47.herokuapp.com')
             .get('/api/v1/items/all')
             .set('Content-Type', 'appliction/json')
             .end( (err, res) => {
