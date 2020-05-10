@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div id="info">
+    <div class="col-md-6" id="info">
         <h2>Um Okkur</h2>
         <p>Captain console is guided by four principles: customer obsession rather than competitor focus, passion for invention, commitment to operational excellence, and long-term thinking. We strive to have a positive impact on customers, employees, small businesses, the economy, and communities. Amazonians are smart, passionate builders with different backgrounds and goals, who share a common desire to always be learning and inventing on behalf of our customers.</p>
+        <span class="location-header">Staðsetning</span>
+        <span class="location-text">Captain console er staðsett á Gamergötu 14 í Kópavogi!</span>
     </div>
-        <p class="location-header">Staðsetning</p>
-        <p class="location-text">Captain console er staðsett á Gamergötu 14 í Kópavogi!</p>
-    <div id="location">
+    <div class="col-md-6" id="location">
         {% include 'about/google_map.html' %}
     </div>
 {% endblock %}
