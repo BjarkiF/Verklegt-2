@@ -6,10 +6,6 @@ footer{
   height: 20vh;
   bottom: 0;
   background-color: $color0;
-  //color: $color3;
-  //border-left: 50px #E0E0E0 solid;
-  //border-right: 50px #E0E0E0 solid;
-  //margin-top: 10px;
   display: flex;
   flex-direction: row;
 }
@@ -18,16 +14,12 @@ footer{
 /*Left Footer*/
 .left-footer{
   width: 33%;
-  //height: 100%;
-  //float: left;
 }
 
 .opening-hours{
-  //float: left;
-}
-
-.opening-hours p{
-  margin-bottom: 16px;
+  p{
+    margin-bottom: 16px;
+  }
 }
 
 .left-footer-header{
@@ -45,7 +37,6 @@ footer{
 /*Center Footer*/
 .center-footer{
   width: 34%;
-  //height: 100%;
   float: left;
 }
 
@@ -74,7 +65,6 @@ footer{
 /*Right Footer*/
 .right-footer{
   width: 33%;
-  //height: 100%;
   float: left;
 }
 

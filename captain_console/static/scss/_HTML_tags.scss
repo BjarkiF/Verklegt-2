@@ -1,8 +1,4 @@
 button {
-  /*padding: 9px 25px;*/
-  /*background-color: red;*/
-  /*border: none;*/
-  /*border-radius: 50%;*/
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
@@ -13,10 +9,8 @@ img{
 }
 
 body {
-  /*box-sizing: border-box;*/
   margin: 0;
   padding: 0;
-  /*background-color: #9fcdff;*/
 }
 
 li, a, button{
@@ -25,30 +19,8 @@ li, a, button{
   text-decoration: none;
 
 }
-/*
-#left, #right{
-  background: #E0E0E0;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 50px;
-
-}
-
-#left{
-  left: 0;
-}
-
-#right{
-  right: 0;
-}
-*/
 
 .container:first-of-type{
-  /*margin-top: 80px;*/
-  //margin: 80px 0 0 0;
-  //border-left: 50px #E0E0E0 solid;
-  //border-right: 50px #E0E0E0 solid;
   background-color: $color4;
   color: $color3;
   display: flex;
@@ -62,7 +34,6 @@ li, a, button{
 body{
   font-family: 'Turret Road', cursive;
   background: $color5;
-  /*text-align: center;*/
   height: 100%;
   flex: 1 0 auto;
   color: $color3;
