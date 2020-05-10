@@ -1,4 +1,10 @@
 @charset "UTF-8";
+/*                                                                              */
+/*     ,::::\           :|       ++       ,::::\                    :|          */
+/*    ::|    .::\ :::\ :::| .::\ :| :::\ ::|    ,::\ :::\ <::< ,::\ :| :~~/     */
+/*     '::::/`::| :::/  :|  `::| :| :|:|  '::::/`::/ :|:| >::> `::/ :| :::,     */
+/*                :|                                                            */
+/*                                                                              */
 button {
   cursor: pointer;
   transition: all 0.3s ease 0s; }
@@ -12,8 +18,8 @@ body {
   padding: 0; }
 
 li, a, button {
-  font-size: 25px;
   color: black;
+  font-size: 25px;
   text-decoration: none; }
 
 .container:first-of-type {
@@ -27,11 +33,11 @@ li, a, button {
   padding: 0; }
 
 body {
-  font-family: 'Turret Road', cursive;
   background: #d3d3d3;
-  height: 100%;
+  color: #000000;
   flex: 1 0 auto;
-  color: #000000; }
+  font-family: 'Turret Road', cursive;
+  height: 100%; }
 
 .content {
   min-height: 70vh; }
@@ -60,15 +66,15 @@ footer {
   margin: 15px 0 20px 30px; }
 
 .left-footer i {
-  font-size: 80px;
   float: left;
+  font-size: 80px;
   margin: 4px 20px 0 20px; }
 
 /*-------------------------------------------------------------------------*/
 /*Center Footer*/
 .center-footer {
-  width: 34%;
-  float: left; }
+  float: left;
+  width: 34%; }
 
 .center-footer-header {
   font-size: 20px;
@@ -90,8 +96,8 @@ footer {
 /*-------------------------------------------------------------------------*/
 /*Right Footer*/
 .right-footer {
-  width: 33%;
-  float: left; }
+  float: left;
+  width: 33%; }
 
 .right-footer-header {
   font-size: 20px;
@@ -117,9 +123,9 @@ footer {
   line-height: 80px; }
 
 nav {
-  width: 100%;
+  background-color: #CE0000;
   height: 10vh;
-  background-color: #CE0000; }
+  width: 100%; }
 
 nav a {
   text-decoration: none; }
@@ -205,10 +211,10 @@ header nav ul a {
 /*----------------------------------------------------------------------------*/
 /*VÖRUR Á VÖRUSÍÐU*/
 .all-items {
-  width: 80%;
   float: right;
+  padding-bottom: 100px;
   padding-left: 50px;
-  padding-bottom: 100px; }
+  width: 80%; }
 
 .item {
   display: inline-block;
@@ -228,18 +234,18 @@ header nav ul a {
   width: auto; }
 
 .item-name {
-  padding-top: 20px;
+  font-size: 18px;
   margin: 0;
-  font-size: 18px; }
+  padding-top: 20px; }
 
 .item-price {
   font-size: 16px; }
 
 .head-items {
-  width: 75%;
   float: right;
+  margin: 0;
   padding: 10px 0 0 0;
-  margin: 0; }
+  width: 75%; }
 
 /*---------------------------------------------------------------------------*/
 /*SIDEBAR Á VÖRUSÍÐU*/
@@ -303,9 +309,9 @@ select::-ms-expand {
   border: grey 2px solid; }
 
 .Sbutton:hover {
-  transition: 0.3s all ease;
+  border-color: black;
   color: red;
-  border-color: black; }
+  transition: 0.3s all ease; }
 
 /*--------------------------------------------------------------------------*/
 /*FrontPage*/
@@ -313,12 +319,12 @@ select::-ms-expand {
   flex-shrink: 0; }
 
 .frontcontent {
-  width: 95%;
-  float: right; }
+  float: right;
+  width: 95%; }
 
 .frontcontent img {
-  width: 100%;
-  height: 100%; }
+  height: 100%;
+  width: 100%; }
 
 .frontFL {
   display: inline-block;
@@ -339,17 +345,17 @@ select::-ms-expand {
   color: ghostwhite; }
 
 .frontFL a {
-  text-decoration: none;
-  text-align: center; }
+  text-align: center;
+  text-decoration: none; }
 
 .frontFL p {
   padding-top: 10px; }
 
 .frontFL img {
-  width: 298px;
-  height: 250px;
   border-top-left-radius: 10px;
-  border-top-right-radius: 10px; }
+  border-top-right-radius: 10px;
+  height: 250px;
+  width: 298px; }
 
 /*---------------------------------------------------------------------------*/
 /*UM OKKUR SÍÐAN*/
@@ -365,9 +371,9 @@ select::-ms-expand {
   padding: 10px 20px 20px 20px; }
 
 .location-header {
-  text-align: center;
+  font-size: 18px;
   margin-top: 70px;
-  font-size: 18px; }
+  text-align: center; }
 
 .locat ion-text {
   text-align: center; }
@@ -384,10 +390,10 @@ select::-ms-expand {
   margin-top: 20px; }
 
 .item-img {
-  margin-top: 10px;
+  background: #9fcdff;
   height: 300px;
-  width: 250px;
-  background: #9fcdff; }
+  margin-top: 10px;
+  width: 250px; }
 
 .singlename {
   font-size: 24px;
@@ -430,9 +436,9 @@ select::-ms-expand {
   background-color: gray; }
 
 .Kbutton:hover {
-  transition: 0.3s all ease;
+  border-color: black;
   color: red;
-  border-color: black; }
+  transition: 0.3s all ease; }
 
 /*-------------------------------------------------------------------------------------*/
 /*INNSKRÁ SÍÐAN*/

@@ -60,7 +60,7 @@ gulp.task('watch', () => {
 });
 
 gulp.task('build', (done) => {
-    gulp.series(['collectstatic', 'scss', 'css-library', 'js-library'])(done);
+    gulp.series(['collectstatic', 'scss'])(done);
 });
 
 gulp.task('static', (done) => {
