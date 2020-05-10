@@ -1,39 +1,30 @@
 /*--------------------------------------------------------------------------*/
 /*FrontPage*/
-.content{
+/*.content{
   flex-shrink: 0;
-}
+}*/
 
 .frontcontent{
-  float: right;
-  width: 95%;
-}
-
-.frontcontent img{
-  height: 100%;
   width: 100%;
+
+  img{
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .frontFL{
-  display: inline-block;
-  justify-content: center;
+  display: table-cell;
   height: 300px;
   width: 300px;
-  margin: 30px;
   background-color: gray;
   border: black 1px solid;
   border-radius: 10px;
-}
 
-.frontFL:hover{
-  transition: 0.3s all ease;
-  background: red;
-}
-
-.frontFL:hover p{
-  transition: 0.3s all ease;
-  color: ghostwhite;
-
+  &:hover{
+    transition: 0.3s all ease;
+    background: red;
+  }
 }
 
 .frontFL a{
@@ -43,6 +34,10 @@
 
 .frontFL p{
   padding-top: 10px;
+  &:hover{
+    transition: 0.3s all ease;
+    color: ghostwhite;
+  }
 }
 
 .frontFL img{

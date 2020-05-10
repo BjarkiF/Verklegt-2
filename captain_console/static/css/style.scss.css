@@ -122,18 +122,17 @@ footer {
   float: left;
   line-height: 80px; }
 
-nav {
-  background-color: #CE0000;
-  height: 10vh;
-  width: 100%; }
-
 nav a {
   text-decoration: none; }
 
-.navbuttons {
+.navbar {
   list-style: none;
   text-decoration: none;
-  display: flex; }
+  display: flex;
+  background-color: #CE0000;
+  height: 10vh;
+  width: 100%;
+  border-radius: 0; }
 
 .Rbuttons {
   margin-left: auto;
@@ -315,34 +314,25 @@ select::-ms-expand {
 
 /*--------------------------------------------------------------------------*/
 /*FrontPage*/
-.content {
-  flex-shrink: 0; }
-
+/*.content{
+  flex-shrink: 0;
+}*/
 .frontcontent {
-  float: right;
-  width: 95%; }
-
-.frontcontent img {
-  height: 100%;
   width: 100%; }
+  .frontcontent img {
+    height: 100%;
+    width: 100%; }
 
 .frontFL {
-  display: inline-block;
-  justify-content: center;
+  display: table-cell;
   height: 300px;
   width: 300px;
-  margin: 30px;
   background-color: gray;
   border: black 1px solid;
   border-radius: 10px; }
-
-.frontFL:hover {
-  transition: 0.3s all ease;
-  background: red; }
-
-.frontFL:hover p {
-  transition: 0.3s all ease;
-  color: ghostwhite; }
+  .frontFL:hover {
+    transition: 0.3s all ease;
+    background: red; }
 
 .frontFL a {
   text-align: center;
@@ -350,6 +340,9 @@ select::-ms-expand {
 
 .frontFL p {
   padding-top: 10px; }
+  .frontFL p:hover {
+    transition: 0.3s all ease;
+    color: ghostwhite; }
 
 .frontFL img {
   border-top-left-radius: 10px;
@@ -362,12 +355,7 @@ select::-ms-expand {
 #info {
   border: 1px #CE0000 solid;
   border-radius: 10px;
-  width: 600px;
   text-align: center;
-  justify-content: center;
-  position: relative;
-  top: 50px;
-  left: 250px;
   padding: 10px 20px 20px 20px; }
 
 .location-header {
