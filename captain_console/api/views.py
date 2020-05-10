@@ -64,7 +64,7 @@ class user(viewsets.ModelViewSet):
     """
     Return user profile..
     """
-    queryset = User.objects.get()
+    queryset = User.objects.all()
     serializer_class = ItemSerializer
     permission_classes = [permissions.IsAuthenticated]
 
