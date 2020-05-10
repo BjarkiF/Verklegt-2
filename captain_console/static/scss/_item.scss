@@ -11,10 +11,10 @@
 }
 
 .item-img{
-  margin-top: 10px;
-  height: 300px;
-  width: 250px;
   background: #9fcdff;
+  height: 300px;
+  margin-top: 10px;
+  width: 250px;
 }
 
 .singlename{
@@ -33,6 +33,7 @@
   border-radius: 10px;
   padding: 10px;
 }
+
 .singleinfo{
   border: black 2px solid;
   border-radius: 10px;
@@ -40,9 +41,11 @@
   width: 330px;
   padding: 10px;
 }
+
 .singledescription p{
   font-size: 16px;
 }
+
 .singleinfo p{
   font-size: 20px;
 }
@@ -62,7 +65,7 @@
 }
 
 .Kbutton:hover{
-  transition: 0.3s all ease;
-  color: red;
   border-color: black;
+  color: red;
+  transition: 0.3s all ease;
 }

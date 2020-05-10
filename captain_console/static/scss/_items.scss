@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------*/
 /*VÖRUR Á VÖRUSÍÐU*/
 .all-items{
-  width: 80%;
   float: right;
-  padding-left: 50px;
   padding-bottom: 100px;
+  padding-left: 50px;
+  width: 80%;
 }
 
 .item{
@@ -27,20 +27,21 @@
 }
 
 .item-name{
-  padding-top: 20px;
-  margin: 0;
   font-size: 18px;
+  margin: 0;
+  padding-top: 20px;
 }
 
 .item-price{
   font-size: 16px;
 }
 .head-items{
-  width: 75%;
   float: right;
-  padding: 10px 0 0 0;
   margin: 0;
+  padding: 10px 0 0 0;
+  width: 75%;
 }
+
 /*---------------------------------------------------------------------------*/
 /*SIDEBAR Á VÖRUSÍÐU*/
 .sidebar-items{
@@ -111,7 +112,7 @@ select::-ms-expand{
 }
 
 .Sbutton:hover{
-  transition: 0.3s all ease;
-  color: red;
   border-color: black;
+  color: red;
+  transition: 0.3s all ease;
 }

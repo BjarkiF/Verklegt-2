@@ -14,8 +14,8 @@ body {
 }
 
 li, a, button{
-  font-size: 25px;
   color: black;
+  font-size: 25px;
   text-decoration: none;
 
 }
@@ -32,11 +32,11 @@ li, a, button{
 }
 
 body{
-  font-family: 'Turret Road', cursive;
   background: $color5;
-  height: 100%;
-  flex: 1 0 auto;
   color: $color3;
+  flex: 1 0 auto;
+  font-family: 'Turret Road', cursive;
+  height: 100%;
 }
 
 .content {
