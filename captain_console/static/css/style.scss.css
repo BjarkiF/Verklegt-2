@@ -11,7 +11,7 @@ img {
   height: 80px;
   width: 97px; }
 
-* {
+body {
   /*box-sizing: border-box;*/
   margin: 0;
   padding: 0;
@@ -22,57 +22,61 @@ li, a, button {
   color: black;
   text-decoration: none; }
 
-#left, #right {
+/*
+#left, #right{
   background: #E0E0E0;
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 50px; }
+  width: 50px;
 
-#left {
-  left: 0; }
+}
 
-#right {
-  right: 0; }
+#left{
+  left: 0;
+}
 
-.container {
+#right{
+  right: 0;
+}
+*/
+.container:first-of-type {
   /*margin-top: 80px;*/
-  margin: 80px 0 0 0;
   padding: 0;
   border-left: 50px #E0E0E0 solid;
   border-right: 50px #E0E0E0 solid;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; }
 
 body {
   font-family: 'Turret Road', cursive;
   /*background: #d3d3d3;*/
   /*text-align: center;*/
-  height: 100%; }
+  height: 100%;
+  flex: 1 0 auto;
+  color: #000000; }
+
+.content {
+  min-height: 70vh; }
 
 /*-------------------------------------------------------------------------*/
 /*Footer*/
 footer {
-  /*position: fixed;*/
-  height: 180px;
+  flex-shrink: 0;
   width: 100%;
+  height: 20vh;
   bottom: 0;
   background-color: #CE0000;
-  color: #EDF2F4;
-  border-left: 50px #E0E0E0 solid;
-  border-right: 50px #E0E0E0 solid;
-  margin-top: 10px;
-  position: relative; }
+  display: flex;
+  flex-direction: row; }
 
 /*-------------------------------------------------------------------------*/
 /*Left Footer*/
 .left-footer {
-  width: 33%;
-  height: 100%;
-  float: left; }
-
-.opening-hours {
-  float: left; }
+  width: 33%; }
 
 .opening-hours p {
   margin-bottom: 16px; }
@@ -90,7 +94,6 @@ footer {
 /*Center Footer*/
 .center-footer {
   width: 34%;
-  height: 100%;
   float: left; }
 
 .center-footer-header {
@@ -114,7 +117,6 @@ footer {
 /*Right Footer*/
 .right-footer {
   width: 33%;
-  height: 100%;
   float: left; }
 
 .right-footer-header {
@@ -142,7 +144,9 @@ footer {
   line-height: 80px; }
 
 nav {
-  float: right;
+  width: 100%;
+  height: 10vh;
+  background-color: #CE0000;
   /*line-height: 80px;*/ }
 
 nav a {
@@ -152,19 +156,15 @@ nav a {
   list-style: none;
   text-decoration: none;
   display: flex;
-  width: 85%;
   /*border: black solid 5px;*/ }
 
 .Rbuttons {
-  position: absolute;
   top: 0;
   right: 0; }
 
 .search {
-  position: absolute;
   top: 60%;
   left: 50%;
-  transform: translate(-50%, -50%);
   background: ghostwhite;
   border-radius: 40px;
   padding: 2px;
@@ -204,7 +204,6 @@ nav a {
   width: 50px; }
 
 .Lbuttons {
-  position: absolute;
   top: 0;
   left: 10%; }
 
@@ -215,7 +214,6 @@ nav a {
   /*padding: 0px 20px;*/ }
 
 .navbuttons li a {
-  transition: all 0.3s ease 0s;
   margin-right: 10px;
   text-decoration: none; }
 
@@ -228,7 +226,6 @@ header {
   background: #CE0000;
   width: 100%;
   z-index: 12;
-  position: fixed;
   padding: 0;
   border-left: 50px #E0E0E0 solid;
   border-right: 50px #E0E0E0 solid;
@@ -288,7 +285,6 @@ header nav ul a {
 /*---------------------------------------------------------------------------*/
 /*SIDEBAR Á VÖRUSÍÐU*/
 .sidebar-items {
-  position: fixed;
   display: inline-block;
   width: 260px;
   height: 100%;
@@ -355,6 +351,9 @@ select::-ms-expand {
 
 /*--------------------------------------------------------------------------*/
 /*FrontPage*/
+.content {
+  flex-shrink: 0; }
+
 .frontcontent {
   width: 95%;
   float: right;
@@ -420,7 +419,7 @@ select::-ms-expand {
   margin-top: 70px;
   font-size: 18px; }
 
-.location-text {
+.locat ion-text {
   text-align: center; }
 
 /*--------------------------------------------------------------------------------*/
@@ -464,13 +463,13 @@ select::-ms-expand {
   padding: 10px; }
 
 .singleinfo {
+  border: black 2px solid;
+  border-radius: 10px;
   position: absolute;
   left: 63%;
   top: 15%;
   height: 280px;
   width: 330px;
-  border: black 2px solid;
-  border-radius: 10px;
   padding: 10px; }
 
 .singledescription p {
@@ -500,55 +499,36 @@ select::-ms-expand {
 /*-------------------------------------------------------------------------------------*/
 /*INNSKRÁ SÍÐAN*/
 .loginsite {
-  background: #e8e1d6;
-  height: 400px;
-  display: flex; }
-
-.loginsite h2 {
-  position: absolute;
-  left: 40%; }
-
-.login-group {
-  /*display: flex;*/
-  padding: 10px; }
-
-.login-group input {
-  width: 300px;
-  display: flex; }
+  background: #e8e1d6; }
+  .loginsite form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%; }
+    .loginsite form h2 {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100px; }
+    .loginsite form input {
+      width: 100%; }
 
 .login-group label {
-  padding-right: 10px;
-  font-size: 16px; }
-
-.log-in {
-  /*background: #6f42c1;*/
-  padding: 10px;
-  position: relative;
-  left: 30%;
-  top: 15%;
-  height: 180px; }
+  font-size: 16px;
+  padding-right: 10px; }
 
 .loginting {
-  position: absolute;
   left: 10%;
   top: 100%; }
 
 .loginting input {
-  width: 100px;
   background: #CE0000;
-  font-size: 20px;
   border-radius: 10px;
+  color: ghostwhite;
+  font-size: 20px;
   margin: 10px 0;
-  color: ghostwhite; }
+  width: 100px; }
 
 .loginting input:hover {
-  transition: 0.3s all ease;
-  /*width: 250px;*/
+  border-radius: 0;
   color: gray;
   margin: 10px 0;
-  border-radius: 0; }
-
-.loginting p {
-  font-size: 20px;
-  margin: 0;
-  padding: 0; }
+  transition: 0.3s all ease; }
