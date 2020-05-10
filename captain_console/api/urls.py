@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.index),
     path('all/', views.all),
     path('items/all/', views.items.as_view({'get': 'list'})),
+    path('cart/', views.cart.as_view({'get': 'list'})),
     path('<int:id>', views.get_item_by_id)
 ]
