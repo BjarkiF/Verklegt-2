@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
+
 from django.shortcuts import render, redirect
 
 from users.forms.profile_form import ProfileForm
@@ -16,6 +17,19 @@ def register(request):
         'form': UserCreationForm()
     })
 
+
+def recover(request):
+    if request.method == 'POST':
+        form = PasswordResetForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            #return redirect('RecoverSen')
+            return render(request, 'users/mail_sent.html')
+    return render(request, 'users/recover.html', {
+        'form': UserCreationForm()
+    })
+
+
 @login_required
 def edit_profile(request):
     profile = User.objects.filter(username=request.user).first()
@@ -29,6 +43,7 @@ def edit_profile(request):
     return render(request, 'users/edit_profile.html', {
         'form': ProfileForm(instance=profile)
     })
+
 
 @login_required
 def profile(request):

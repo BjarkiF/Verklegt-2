@@ -1,10 +1,10 @@
 {%  extends 'base.html' %}
 {% block content %}
     <div class="col-md-12 loginsite">
-        <h1>Nýskráning</h1>
+        <h1>Endurheimta Lykilorð</h1>
         <form method="post">
             {% csrf_token %}
-            {{ form }}
+            {{ form.as_p }}
             <input type="submit" value="Nýskrá">
         </form>
     </div>

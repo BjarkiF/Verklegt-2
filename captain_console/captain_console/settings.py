@@ -166,6 +166,11 @@ except:
 LOGIN_URL = '/users/login'
 LOGIN_REDIRECT_URL = '/users/profile'
 
+# Recover account emailing
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
+
 
 ## REST FRAMEWORK STUFF
 REST_FRAMEWORK = {
