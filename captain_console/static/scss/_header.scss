@@ -103,6 +103,9 @@
 //header nav ul a{
 //  color: #EDF2F4;
 //}
+//.container{
+//  height: 80px;
+//}
 .logo{
   cursor: pointer;
   float: left;
@@ -110,8 +113,10 @@
 }
 nav{
   float: right;
-  background: red;
-  width: 100%;
+  //background: red;
+  position: fixed;
+  //margin: 0 50px;
+  width: 90%;
   /*line-height: 80px;*/
 }
 nav a {
@@ -121,12 +126,13 @@ nav a {
   list-style: none;
   text-decoration: none;
   display: flex;
-  width: 85%;
+  position: fixed;
+  z-index: 1;
   /*border: black solid 5px;*/
   background-color: $color0;
   color: $color4;
-  height: 10vh;
-  width: 100%;
+  height: 80px;
+  //width: 90%;
   border-radius: 0;
 }
 
@@ -193,10 +199,11 @@ nav a {
   padding-left: 30px;
   padding-top: 40px;
 }
-.navbuttons li a{
+.navbuttons li a {
   transition: all 0.3s ease 0s;
   margin-right: 10px;
   text-decoration: none;
+}
 
 ul {
   li {
@@ -226,6 +233,7 @@ img{
   height: 80px;
   width: 97px;
 }
+
 header nav ul a{
   color: #EDF2F4;
 }

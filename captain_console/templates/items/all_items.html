@@ -2,6 +2,7 @@
 {% block content %}
     <h2 class="head-items">Vörur:</h2>
     <div class="all-items">
+{#    <h2 class="head-items">Vörur:</h2>#}
     {% if items %}
         {% for item in items %}
             {% include 'items/single_item_all.html' with item=item %}

@@ -44,8 +44,9 @@ body {
 footer {
   flex-shrink: 0;
   width: 100%;
-  height: 20vh;
+  height: 100%;
   bottom: 0;
+  color: #FFFFFF;
   background-color: #CE0000;
   display: flex;
   flex-direction: row; }
@@ -115,14 +116,13 @@ footer {
 
 .logo {
   cursor: pointer;
-  /*width: 20%;*/
   float: left;
   line-height: 80px; }
 
 nav {
   float: right;
-  background: red;
-  width: 100%;
+  position: fixed;
+  width: 90%;
   /*line-height: 80px;*/ }
 
 nav a {
@@ -132,8 +132,13 @@ nav a {
   list-style: none;
   text-decoration: none;
   display: flex;
-  width: 85%;
-  /*border: black solid 5px;*/ }
+  position: fixed;
+  z-index: 1;
+  /*border: black solid 5px;*/
+  background-color: #CE0000;
+  color: #FFFFFF;
+  height: 80px;
+  border-radius: 0; }
 
 .Rbuttons {
   position: absolute;
@@ -147,8 +152,7 @@ nav a {
   transform: translate(-50%, -50%);
   background: ghostwhite;
   border-radius: 40px;
-  padding: 2px;
-  /*display: flex;*/ }
+  padding: 2px; }
 
 .search:hover > .search-txt {
   width: 240px;
@@ -168,7 +172,6 @@ nav a {
 .search-btn:hover {
   color: gray;
   transition: all 0.3s ease 0s;
-  /*width: 200px;*/
   text-decoration: none; }
 
 .search-txt {
@@ -191,13 +194,17 @@ nav a {
 .navbuttons li {
   display: inline-block;
   padding-left: 30px;
-  padding-top: 40px;
-  /*padding: 0px 20px;*/ }
+  padding-top: 40px; }
 
 .navbuttons li a {
   transition: all 0.3s ease 0s;
   margin-right: 10px;
   text-decoration: none; }
+
+ul li a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #FFFFFF; }
 
 .navbuttons li a:hover {
   color: gray; }
@@ -214,12 +221,19 @@ img {
   height: 80px;
   width: 97px; }
 
+header nav ul a {
+  color: #EDF2F4; }
+
 /*VÖRUR Á VÖRUSÍÐU*/
+.col-md-12 {
+  margin-top: 80px; }
+
 .all-items {
   width: 80%;
   float: right;
   /*background-image: url("../images/logo.png");*/
-  padding-left: 50px;
+  margin-top: 10px;
+  padding-left: 80px;
   padding-bottom: 100px; }
 
 .item {
@@ -228,8 +242,7 @@ img {
   font-size: 20px;
   height: 180px;
   width: 150px;
-  /*padding: 40px;*/
-  margin: 30px; }
+  margin: 20px; }
 
 .item-img {
   border-radius: 10px;
@@ -247,6 +260,9 @@ img {
   margin: 0;
   font-size: 18px; }
 
+.itm p {
+  color: #0f0f0f; }
+
 .item-price {
   /*position: relative;*/
   /*top: 0;*/
@@ -258,8 +274,7 @@ img {
   width: 75%;
   float: right;
   /*background-image: url("../images/logo.png");*/
-  padding: 10px 0 0 0;
-  margin: 0; }
+  padding: 10px; }
 
 /*---------------------------------------------------------------------------*/
 /*SIDEBAR Á VÖRUSÍÐU*/
@@ -322,7 +337,8 @@ select::-ms-expand {
   width: 200px;
   margin: 15px 10px 0 10px;
   border-radius: 10px;
-  border: grey 2px solid; }
+  border: grey 2px solid;
+  color: #0f0f0f; }
 
 .Sbutton:hover {
   transition: 0.3s all ease;
@@ -377,9 +393,6 @@ select::-ms-expand {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px; }
 
-navbar.navbuttons {
-  width: 100%; }
-
 /*---------------------------------------------------------------------------*/
 /*UM OKKUR SÍÐAN*/
 #info {
@@ -387,6 +400,9 @@ navbar.navbuttons {
   border-radius: 10px;
   text-align: center;
   padding: 10px 20px 20px 20px; }
+
+.col-md-6.content {
+  margin-top: 20px; }
 
 .location-header {
   font-size: 18px;
@@ -490,6 +506,54 @@ navbar.navbuttons {
   width: 100px; }
 
 .loginting input:hover {
+  border-radius: 0;
+  color: gray;
+  margin: 10px 0;
+  transition: 0.3s all ease; }
+
+.register-title {
+  width: 100%;
+  text-align: center; }
+
+.register-site {
+  height: 500px; }
+
+.register-site p {
+  font-size: 20px;
+  text-align: center; }
+
+.form-control {
+  width: 400px;
+  margin: 20px 0 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  font-size: 20px; }
+
+.form-control input {
+  position: absolute;
+  background: ghostwhite;
+  left: 40%;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 0;
+  border: 2px gray solid;
+  font-size: 16px; }
+
+.reg {
+  position: relative;
+  left: 40%;
+  background: #CE0000;
+  border-radius: 10px;
+  color: ghostwhite;
+  font-size: 20px;
+  margin: 10px 0;
+  width: 150px; }
+
+.reg:hover {
   border-radius: 0;
   color: gray;
   margin: 10px 0;
