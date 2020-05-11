@@ -122,7 +122,6 @@ footer {
 nav {
   float: right;
   position: fixed;
-  width: 90%;
   /*line-height: 80px;*/ }
 
 nav a {
@@ -138,6 +137,7 @@ nav a {
   background-color: #CE0000;
   color: #FFFFFF;
   height: 80px;
+  width: 92.5%;
   border-radius: 0; }
 
 .Rbuttons {
