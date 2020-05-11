@@ -7,7 +7,6 @@ from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
 from django.contrib.auth.models import User
 
 
-
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(data=request.POST)
