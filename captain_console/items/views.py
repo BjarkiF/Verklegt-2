@@ -7,7 +7,7 @@ def index(request):
 
 def all(request):
     items = []
-    if 'search_filter' in request.GET:
+    if 'search_filter' in request.GET:  #TODO: search virkar ekki
         search_filter = request.GET['search_filter']
         items = [{
             'id': x.id,
@@ -26,3 +26,9 @@ def get_item_by_id(request, id):
     return render(request, 'items/single_item_detail.html', {
         'item': get_object_or_404(Item, pk=id)
     })
+
+def get_items_category(request, id):
+    context = {
+        'items': Item.objects.filter(category_id=id)
+    }
+    return render(request, 'items/all_items.html', context)
