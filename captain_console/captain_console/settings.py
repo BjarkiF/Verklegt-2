@@ -87,21 +87,21 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 #https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-# DATABASES = { 'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'captain_console',
-#        'USER': 'postgres',
-#        'PASSWORD': 'AnnaðVerklegaNámskeiðið',
-#        'HOST': 'captainconsole47.ddns.net',
-#        'PORT': 5432,
-#    }
-# }
+DATABASES = { 'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'captain_console',
+       'USER': 'postgres',
+       'PASSWORD': 'AnnaðVerklegaNámskeiðið',
+       'HOST': 'captainconsole47.ddns.net',
+       'PORT': 5432,
+   }
+}
 
 
 
 
-DATABASES = {'default':{}}
-DATABASES['default'] = dj_database_url.config(default=os.getenv('DB_URL'), ssl_require=False)
+# DATABASES = {'default':{}}
+# DATABASES['default'] = dj_database_url.config(default=os.getenv('DB_URL'), ssl_require=False)
 
 #DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
@@ -163,8 +163,10 @@ except:
     logging.info('Migrate')
 
 LOGIN_URL = '/users/login'
+
 LOGIN_REDIRECT_URL = '/users/profile'
 
+AUTH_PROFILE_MODULE = 'users.Profile'
 
 ## REST FRAMEWORK STUFF
 REST_FRAMEWORK = {

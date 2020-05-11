@@ -4,7 +4,24 @@
     <h3>Stjörnumerkta reiti verður að fylla í</h3>
     <form method="post">
         {% csrf_token %}
-        {{ form }}
+        <div class="profile-form">
+            Fornafn: *{{ form_user.first_name }}
+        </div>
+        <div class="profile-form">
+            Eftirnafn: *{{ form_user.last_name }}
+        </div>
+        <div class="profile-form">
+            Netfang: *{{ form_user.email }}
+        </div>
+        <div class="profile-form">
+            Sími: {{ form_extended.phone }}
+        </div>
+        <div class="profile-form">
+            Heimilisfang: {{ form_extended.address }}
+        </div>
+        <div class="profile-form">
+            Mynd: {{ form_extended.img }}
+        </div>
         <input type="submit" value="Staðfesta"/>
     </form>
 {% endblock %}

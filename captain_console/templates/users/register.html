@@ -1,9 +1,40 @@
 {%  extends 'base.html' %}
 {% block content %}
-    <h1>Nýskráning</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Nýskrá">
-    </form>
+    <div class="register-site">
+        <h1>Nýskráning</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-control">
+                {{ form.username.errors }}
+                Notandanafn:
+                {{ form.username }}
+            </div>
+            <div class="form-control">
+                {{ form.first_name.errors }}
+                Fornafn:
+                {{ form.first_name }}
+            </div>
+            <div class="form-control">
+                {{ form.last_name.errors }}
+                Eftirnafn:
+                {{ form.last_name }}
+            </div>
+            <div class="form-control">
+                {{ form.email.errors }}
+                Netfang:
+                {{ form.email }}
+            </div>
+            <div class="form-control">
+                {{ form.password1.errors }}
+                Lykilorð:
+                {{ form.password1 }}
+            </div>
+            <div class="form-control">
+                {{ form.password2.errors }}
+                Staðfesta Lykilorð:
+                {{ form.password2 }}
+            </div>
+            <input type="submit" value="Nýskrá">
+        </form>
+    </div>
 {% endblock %}
