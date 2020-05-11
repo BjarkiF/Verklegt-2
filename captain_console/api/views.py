@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from rest_framework.viewsets import ModelViewSet
 
 from items.models import Item, ItemManufacturer
+from cart.models import Cart
+from users.models import User#, Users
 from django.forms.models import model_to_dict
 
 from rest_framework import viewsets
@@ -11,7 +13,6 @@ from rest_framework import permissions
 
 from api.serializers import ItemSerializer
 
-import json
 
 def index(request):
     data = {
@@ -35,11 +36,45 @@ def get_item_by_id(request):
     return JsonResponse(data)
 
 
-class items(viewsets.ModelViewSet):
+class item(viewsets.ModelViewSet):
     """
-    #API endpoint that allows users to be viewed or edited.
+    Return items in the store.
     """
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+class items(viewsets.ModelViewSet):
+    """
+    Return items in the store.
+    """
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+class cart(viewsets.ModelViewSet):
+    """
+    Returns user cart.
+    """
+    queryset = Cart.objects.all()
+    serializer_class = ItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class user(viewsets.ModelViewSet):
+    """
+    Return user profile..
+    """
+    queryset = User.objects.all()
+    serializer_class = ItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class users(viewsets.ModelViewSet):
+    """
+    Returns all users.
+    """
+    queryset = User.objects.all()
+    serializer_class = ItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
 

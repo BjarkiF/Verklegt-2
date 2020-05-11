@@ -1,51 +1,50 @@
 /*-------------------------------------------------------------------------*/
 /*Footer*/
 footer{
-  /*position: fixed;*/
-  height: 180px;
+  flex-shrink: 0;
   width: 100%;
+  height: 20vh;
   bottom: 0;
-  background-color: #CE0000;
-  color: #EDF2F4;
-  border-left: 50px #E0E0E0 solid;
-  border-right: 50px #E0E0E0 solid;
-  margin-top: 10px;
-  position:relative;
+  background-color: $color0;
+  display: flex;
+  flex-direction: row;
 }
+
 /*-------------------------------------------------------------------------*/
 /*Left Footer*/
 .left-footer{
   width: 33%;
-  height: 100%;
-  float: left;
 }
+
 .opening-hours{
-  float: left;
+  p{
+    margin-bottom: 16px;
+  }
 }
-.opening-hours p{
-  margin-bottom: 16px;
-}
+
 .left-footer-header{
   font-size: 20px;
   margin: 15px 0 20px 30px;
 }
+
 .left-footer i{
-  font-size: 80px;
   float: left;
+  font-size: 80px;
   margin: 4px 20px 0 20px;
 }
 
 /*-------------------------------------------------------------------------*/
 /*Center Footer*/
 .center-footer{
-  width: 34%;
-  height: 100%;
   float: left;
+  width: 34%;
 }
+
 .center-footer-header{
   font-size: 20px;
   margin: 15px 0 14px 30px;
 }
+
 .center-footer-icons{
   font-size: 25px;
   float: left;
@@ -53,9 +52,11 @@ footer{
   text-align: center;
   margin-left: 5px;
 }
+
 .center-footer-contact-info{
   float: left;
 }
+
 .center-footer-contact-info p{
   margin: 5px 0 16px 0;
 }
@@ -63,14 +64,15 @@ footer{
 /*-------------------------------------------------------------------------*/
 /*Right Footer*/
 .right-footer{
-  width: 33%;
-  height: 100%;
   float: left;
+  width: 33%;
 }
+
 .right-footer-header{
   font-size: 20px;
   margin: 15px 0 14px 30px;
 }
+
 .right-footer-icons{
   font-size: 25px;
   float: left;
@@ -78,9 +80,11 @@ footer{
   text-align: center;
   margin-left: 5px;
 }
+
 .right-footer-media-info{
   margin-top: 20px;
 }
+
 .right-footer-media-info p{
   margin: 0 0 16px 0;
 }

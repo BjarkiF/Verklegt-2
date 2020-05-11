@@ -2,7 +2,7 @@
               /* Set the size of the div element that contains the map */
               #map {
                   height: 250px;  /* The height is 400 pixels */
-                  width: 50%;  /* The width is the width of the web page */
+                  width: 100%;  /* The width is the width of the web page */
                   margin: auto;
                   border: 2px black solid;
                   border-radius: 25px;
@@ -11,12 +11,12 @@
             <!--The div element for the map -->
             <div id="map"></div>
             <script>
-        function initMap() {
-          var home = {lat: 64.137206, lng: -21.807774};
-          var map = new google.maps.Map(
-              document.getElementById('map'), {zoom: 10, center: home});
-          var marker = new google.maps.Marker({position: home, map: map});
-        }
+                function initMap() {
+                  var home = {lat: 64.137206, lng: -21.807774};
+                  var map = new google.maps.Map(
+                      document.getElementById('map'), {zoom: 10, center: home});
+                  var marker = new google.maps.Marker({position: home, map: map});
+                }
             </script>
             <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL34AJ5ePdoeTNQe8Oo-Ze8MmJGMUqTuo&callback=initMap">

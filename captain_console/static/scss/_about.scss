@@ -1,22 +1,27 @@
-
 /*---------------------------------------------------------------------------*/
 /*UM OKKUR SÍÐAN*/
 #info{
   border: 1px #CE0000 solid;
   border-radius: 10px;
-  width: 600px;
+  //width: 48%;
   text-align: center;
-  justify-content: center;
-  position: relative;
-  top: 50px;
-  left: 250px;
+  //justify-content: center;
+  //position: relative;
+  //top: 50px;
+  //left: 250px;
   padding: 10px 20px 20px 20px;
 }
-.location-header{
-  text-align: center;
-  margin-top: 70px;
-  font-size: 18px;
+
+#location {
+  //width: 48%;
 }
-.location-text{
+
+.location-header{
+  font-size: 18px;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.locat ion-text{
   text-align: center;
 }

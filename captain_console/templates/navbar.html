@@ -37,43 +37,28 @@
 {#    </div><!-- /.navbar-collapse -->#}
 {#  </div><!-- /.container-fluid -->#}
 {#</nav>#}
-<body>
-    <header>
 
-        <a href="/items/" class="logo">
-            <img class="logo" src="../../static/images/logo.png" alt="logo">
+<nav class="navbar navbuttons">
+<a href="/items/" class="logo">
+    <img class="logo" src="../../static/images/logo.png" alt="logo">
+</a>
+    <ul class="Lbuttons">
+        <li><a href="/items/all">Vörur </a></li>
+        <li><a href="/about/">Um okkur </a></li>
+    </ul>
+    <div class="search">
+        <input class="search-txt" id="search-txt" type="search"  placeholder="Leita..">
+        <a class="search-btn" id="search-btn">
+            <i class="fas fa-search" ></i>
         </a>
-
-        <nav class="navbuttons">
-            <ul class="Lbuttons">
-                <li><a href="/items/all">Vörur </a></li>
-                <li><a href="/about/">Um okkur </a></li>
-            </ul>
-            <div class="search">
-                <input class="search-txt" id="search-txt" type="search"  placeholder="Leita..">
-                <a class="search-btn" id="search-btn">
-                    <i class="fas fa-search" ></i>
-                </a>
-            </div>
-            <ul class="Rbuttons">
-              {% if not user.is_anonymous %}
-                  <li><a href="/users/profile">Prófíll
-                  <i class="fas fa-user"></i>
-                  </a></li>
-                  <li><a href="/cart/">Karfa
-                  <i class="fas fa-shopping-cart"></i>
-                  </a></li>
-                  <li><a href="/users/logout">Skrá út
-                  <i class="fas fa-sign-out-alt"></i>
-                  </a></li>
-              {% else %}
-                  <li><a href="/users/">Innskrá
-                  <i class="fas fa-user"></i>
-                  </a></li>
-              {% endif %}
-            </ul>
-        </nav>
-
-    </header>
-</body>
-
+    </div>
+    <ul class="Rbuttons">
+      {% if not user.is_anonymous %}
+          <li><a href="/users/profile">Prófíll<i class="fas fa-user"></i></a></li>
+          <li><a href="/cart/">Karfa<i class="fas fa-shopping-cart"></i></a></li>
+          <li><a href="/users/logout">Skrá út<i class="fas fa-sign-out-alt"></i></a></li>
+      {% else %}
+          <li><a href="/users/">Innskrá<i class="fas fa-user"></i></a></li>
+      {% endif %}
+    </ul>
+</nav>
