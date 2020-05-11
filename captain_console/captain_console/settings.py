@@ -87,22 +87,21 @@ WSGI_APPLICATION = 'captain_console.wsgi.application'
 #https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-#DATABASES = { 'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': os.getenv('DB_NAME'),
-#        'USER': os.getenv('DB_USER'),
-#        'PASSWORD': os.getenv('DB_PASSWORD'),
-#        'HOST': os.getenv('DB_HOST'),
-#        'PORT': os.getenv('DB_PORT'),
-#        'OPTIONS': {'SSL_REQUIRE': False }
-#    }
-#}
+DATABASES = { 'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'captain_console',
+       'USER': 'postgres',
+       'PASSWORD': 'AnnaðVerklegaNámskeiðið',
+       'HOST': 'captainconsole47.ddns.net',
+       'PORT': 5432,
+   }
+}
 
 
 
 
-DATABASES = {'default':{}}
-DATABASES['default'] = dj_database_url.config(default=os.getenv('DB_URL'), ssl_require=False)
+# DATABASES = {'default':{}}
+# DATABASES['default'] = dj_database_url.config(default=os.getenv('DB_URL'), ssl_require=False)
 
 #DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
@@ -164,6 +163,7 @@ except:
     logging.info('Migrate')
 
 LOGIN_URL = '/users/login'
+
 LOGIN_REDIRECT_URL = '/users/profile'
 
 # Recover account emailing
@@ -171,6 +171,7 @@ EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
 
+AUTH_PROFILE_MODULE = 'users.Profile'
 
 ## REST FRAMEWORK STUFF
 REST_FRAMEWORK = {

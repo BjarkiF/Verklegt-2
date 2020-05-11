@@ -44,5 +44,8 @@ def add_to_cart(request, id):
 def remove_from_cart(request, id):
     cart = get_object_or_404(Cart, user_id=request.user.id)
     cart.items.remove(str(id))
+    item = get_object_or_404(Item, pk=id)
+    cart = Cart.objects.get_or_create(customer_id=request.user.id)
+    cart.items.append(item.id)
     cart.save()
     return index(request)
