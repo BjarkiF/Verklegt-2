@@ -615,3 +615,52 @@ select::-ms-expand{
   margin: 0;
   padding: 0;
 }
+/*------------------------------------------------------------------------------------*/
+/*NÝSKRÁNING*/
+
+.register{
+  background: #e8e1d6;
+  height: 500px;
+  display: flex;
+}
+.register h2{
+  position: absolute;
+  left: 40%;
+}
+
+.register form{
+ position: relative;
+  top: 20%;
+  left: 10%;
+}
+
+.register input{
+  background: #6f42c1;
+  display: flex;
+}
+
+
+/*.token{*/
+/*  background: ;*/
+/*  color: white;*/
+/*}*/
+
+.formting{
+  background: lightsteelblue;
+  /*position: relative;*/
+  /*left: 20%;*/
+  /*display: flex;*/
+
+}
+.formting ul{
+
+  color: greenyellow;
+}
+
+.formting li{
+  text-decoration: none;
+  position: relative;
+  left: 100%;
+  font-size: 16px;
+  color: deeppink;
+}

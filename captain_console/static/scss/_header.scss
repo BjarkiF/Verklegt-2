@@ -1,33 +1,161 @@
-/*-------------------------------------------------------------------------------*/
+///*-------------------------------------------------------------------------------*/
+//.logo{
+//  cursor: pointer;
+//  float: left;
+//  line-height: 80px;
+//}
+//
+//nav a {
+//  text-decoration: none;
+//}
+//
+//.navbar{
+//  list-style: none;
+//  text-decoration: none;
+//  display: flex;
+//  background-color: $color0;
+//  height: 80px;
+//  width: 100%;
+//  border-radius: 0;
+//}
+//
+//.Rbuttons{
+//  margin-left: auto;
+//  margin-right: 0;
+//}
+//
+//.search{
+//  top: 60%;
+//  left: 50%;
+//  background: ghostwhite;
+//  border-radius: 40px;
+//  padding: 2px;
+//}
+//
+//.search:hover > .search-txt{
+//  width: 240px;
+//  padding: 0 6px;
+//}
+//
+//.search-btn{
+//  color: ghostwhite;
+//  float: right;
+//  width: 40px;
+//  height: 40px;
+//  border-radius: 50%;
+//  background: red;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//}
+//
+//.search-btn:hover{
+//  color: gray;
+//  transition: all 0.3s ease 0s;
+//  text-decoration: none;
+//}
+//
+//.search-txt{
+//  border: none;
+//  background: none;
+//  outline: none;
+//  float: left;
+//  padding: 0;
+//  color: black;
+//  font-size: 16px;
+//  transition: 0.4s;
+//  line-height: 40px;
+//  width: 50px;
+//}
+//
+//.Lbuttons{
+//  top: 0;
+//  left: 10%;
+//}
+//
+//.navbuttons li {
+//  display: inline-block;
+//  padding-left: 30px;
+//  padding-top: 40px;
+//}
+//
+//.navbuttons li a{
+//  margin-right: 10px;
+//  text-decoration: none;
+//}
+//
+//.navbuttons li a:hover{
+//  color: gray;
+//}
+//
+//header {
+//  height: 80px;
+//  text-align: center;
+//  background: #CE0000;
+//  width: 100%;
+//  z-index: 12;
+//  position: fixed;
+//  padding: 0;
+//  border-left: 50px #E0E0E0 solid;
+//  border-right: 50px #E0E0E0 solid;
+//  color: #EDF2F4;
+//}
+//header nav ul a{
+//  color: #EDF2F4;
+//}
+//.container{
+//  //margin: 0;
+//  //position: relative;
+//  left: 50px;
+//  right: 50px;
+//  height: 80px;
+//}
+
+
 .logo{
   cursor: pointer;
   float: left;
   line-height: 80px;
 }
-
+nav{
+  float: right;
+  //background: red;
+  position: fixed;
+  //margin: 0 50px;
+  //width: 100%;
+  left: 50px;
+  right: 50px;
+  z-index: 100;
+  /*line-height: 80px;*/
+}
 nav a {
   text-decoration: none;
 }
-
-.navbar{
+.navbuttons{
   list-style: none;
   text-decoration: none;
   display: flex;
+  position: fixed;
+  z-index: 1;
+  /*border: black solid 5px;*/
   background-color: $color0;
   color: $color4;
-  height: 10vh;
-  width: 100%;
+  height: 80px;
+  //width: ;
   border-radius: 0;
 }
 
 .Rbuttons{
-  margin-left: auto;
-  margin-right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .search{
+  position: absolute;
   top: 60%;
   left: 50%;
+  transform: translate(-50%,-50%);
   background: ghostwhite;
   border-radius: 40px;
   padding: 2px;
@@ -70,6 +198,7 @@ nav a {
 }
 
 .Lbuttons{
+  position: absolute;
   top: 0;
   left: 10%;
 }
@@ -78,6 +207,11 @@ nav a {
   display: inline-block;
   padding-left: 30px;
   padding-top: 40px;
+}
+.navbuttons li a {
+  transition: all 0.3s ease 0s;
+  margin-right: 10px;
+  text-decoration: none;
 }
 
 ul {
@@ -95,17 +229,21 @@ ul {
   color: gray;
 }
 
-header {
-  height: 80px;
-  text-align: center;
-  background: #CE0000;
-  width: 100%;
-  z-index: 12;
-  padding: 0;
-  border-left: 50px #E0E0E0 solid;
-  border-right: 50px #E0E0E0 solid;
-  color: #EDF2F4;
+button {
+  /*padding: 9px 25px;*/
+  /*background-color: red;*/
+  /*border: none;*/
+  /*border-radius: 50%;*/
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
+
+img{
+  height: 80px;
+  width: 97px;
+
+}
+
 header nav ul a{
   color: #EDF2F4;
 }

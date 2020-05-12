@@ -18,7 +18,7 @@ body {
   padding: 0; }
 
 li, a, button {
-  color: black;
+  color: #edf2f4;
   font-size: 25px;
   text-decoration: none; }
 
@@ -28,26 +28,24 @@ li, a, button {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 85%;
-  min-height: 100vh;
   padding: 0; }
+
+.container {
+  left: 50px;
+  right: 50px; }
 
 body {
   background: #d3d3d3;
   color: #000000;
-  flex: 1 0 auto;
   font-family: 'Turret Road', cursive;
   height: 100%; }
-
-.content {
-  min-height: 70vh; }
 
 /*-------------------------------------------------------------------------*/
 /*Footer*/
 footer {
   flex-shrink: 0;
   width: 100%;
-  height: 20vh;
+  height: 100%;
   bottom: 0;
   color: #FFFFFF;
   background-color: #CE0000;
@@ -117,32 +115,44 @@ footer {
 .right-footer-media-info p {
   margin: 0 0 16px 0; }
 
-/*-------------------------------------------------------------------------------*/
 .logo {
   cursor: pointer;
   float: left;
   line-height: 80px; }
 
+nav {
+  float: right;
+  position: fixed;
+  left: 50px;
+  right: 50px;
+  z-index: 100;
+  /*line-height: 80px;*/ }
+
 nav a {
   text-decoration: none; }
 
-.navbar {
+.navbuttons {
   list-style: none;
   text-decoration: none;
   display: flex;
+  position: fixed;
+  z-index: 1;
+  /*border: black solid 5px;*/
   background-color: #CE0000;
   color: #FFFFFF;
-  height: 10vh;
-  width: 100%;
+  height: 80px;
   border-radius: 0; }
 
 .Rbuttons {
-  margin-left: auto;
-  margin-right: 0; }
+  position: absolute;
+  top: 0;
+  right: 0; }
 
 .search {
+  position: absolute;
   top: 60%;
   left: 50%;
+  transform: translate(-50%, -50%);
   background: ghostwhite;
   border-radius: 40px;
   padding: 2px; }
@@ -180,6 +190,7 @@ nav a {
   width: 50px; }
 
 .Lbuttons {
+  position: absolute;
   top: 0;
   left: 10%; }
 
@@ -187,6 +198,11 @@ nav a {
   display: inline-block;
   padding-left: 30px;
   padding-top: 40px; }
+
+.navbuttons li a {
+  transition: all 0.3s ease 0s;
+  margin-right: 10px;
+  text-decoration: none; }
 
 ul li a {
   margin-right: 10px;
@@ -196,27 +212,32 @@ ul li a {
 .navbuttons li a:hover {
   color: gray; }
 
-header {
+button {
+  /*padding: 9px 25px;*/
+  /*background-color: red;*/
+  /*border: none;*/
+  /*border-radius: 50%;*/
+  cursor: pointer;
+  transition: all 0.3s ease 0s; }
+
+img {
   height: 80px;
-  text-align: center;
-  background: #CE0000;
-  width: 100%;
-  z-index: 12;
-  padding: 0;
-  border-left: 50px #E0E0E0 solid;
-  border-right: 50px #E0E0E0 solid;
-  color: #EDF2F4; }
+  width: 97px; }
 
 header nav ul a {
   color: #EDF2F4; }
 
-/*----------------------------------------------------------------------------*/
 /*VÖRUR Á VÖRUSÍÐU*/
+.col-md-12 {
+  margin-top: 80px; }
+
 .all-items {
+  width: 80%;
   float: right;
-  padding-bottom: 100px;
-  padding-left: 50px;
-  width: 80%; }
+  /*background-image: url("../images/logo.png");*/
+  margin-top: 10px;
+  padding-left: 80px;
+  padding-bottom: 100px; }
 
 .item {
   display: inline-block;
@@ -224,7 +245,7 @@ header nav ul a {
   font-size: 20px;
   height: 180px;
   width: 150px;
-  margin: 30px; }
+  margin: 20px; }
 
 .item-img {
   border-radius: 10px;
@@ -233,27 +254,37 @@ header nav ul a {
   max-height: 100%;
   max-width: 100%;
   height: auto;
-  width: auto; }
+  width: auto;
+  /*height: 120px;*/
+  /*width: 195px;*/ }
 
 .item-name {
-  font-size: 18px;
+  padding-top: 20px;
   margin: 0;
-  padding-top: 20px; }
+  font-size: 18px; }
+
+.itm p {
+  color: #0f0f0f; }
 
 .item-price {
+  /*position: relative;*/
+  /*top: 0;*/
+  /*float: bottom;*/
   font-size: 16px; }
 
 .head-items {
+  /*background: #9fcdff;*/
+  width: 75%;
   float: right;
-  margin: 0;
-  padding: 10px 0 0 0;
-  width: 75%; }
+  /*background-image: url("../images/logo.png");*/
+  padding: 10px; }
 
 /*---------------------------------------------------------------------------*/
 /*SIDEBAR Á VÖRUSÍÐU*/
 .sidebar-items {
+  position: fixed;
   display: inline-block;
-  width: 260px;
+  width: 19%;
   height: 100%;
   padding: 10px;
   margin-bottom: 200px;
@@ -288,6 +319,7 @@ select::-ms-expand {
   line-height: 3;
   overflow: hidden;
   border-radius: 4px;
+  /*border:black 4px solid;*/
   margin: 10px 0 0 0; }
 
 .select::after {
@@ -308,50 +340,61 @@ select::-ms-expand {
   width: 200px;
   margin: 15px 10px 0 10px;
   border-radius: 10px;
-  border: grey 2px solid; }
+  border: grey 2px solid;
+  color: #0f0f0f; }
 
 .Sbutton:hover {
-  border-color: black;
+  transition: 0.3s all ease;
   color: red;
-  transition: 0.3s all ease; }
+  border-color: black; }
 
-/*--------------------------------------------------------------------------*/
 /*FrontPage*/
-/*.content{
-  flex-shrink: 0;
-}*/
 .frontcontent {
-  width: 100%; }
-  .frontcontent img {
-    height: 100%;
-    width: 100%; }
+  width: 95%;
+  float: right;
+  /*background: lightgray;*/
+  /*background-image: url("../images/logo.jpg");*/ }
+
+.frontcontent img {
+  width: 100%;
+  height: 100%; }
 
 .frontFL {
-  display: table-cell;
+  /*padding-left: 20px;*/
+  display: inline-block;
+  justify-content: center;
+  /*font-size: 20px;*/
   height: 300px;
   width: 300px;
+  /*padding-left: 20px;*/
+  margin: 25px;
   background-color: gray;
   border: black 1px solid;
   border-radius: 10px; }
-  .frontFL:hover {
-    transition: 0.3s all ease;
-    background: red; }
+
+.frontFL:hover {
+  transition: 0.3s all ease;
+  background: red; }
+
+.frontFL:hover p {
+  transition: 0.3s all ease;
+  color: ghostwhite; }
 
 .frontFL a {
-  text-align: center;
-  text-decoration: none; }
+  text-decoration: none;
+  text-align: center; }
 
 .frontFL p {
   padding-top: 10px; }
-  .frontFL p:hover {
-    transition: 0.3s all ease;
-    color: ghostwhite; }
 
+/*.frontFL p:hover{*/
+/*  color: ghostwhite;*/
+/*}*/
 .frontFL img {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  width: 298px;
   height: 250px;
-  width: 298px; }
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; }
 
 /*---------------------------------------------------------------------------*/
 /*UM OKKUR SÍÐAN*/
@@ -360,6 +403,9 @@ select::-ms-expand {
   border-radius: 10px;
   text-align: center;
   padding: 10px 20px 20px 20px; }
+
+.col-md-6.content {
+  margin-top: 20px; }
 
 .location-header {
   font-size: 18px;
@@ -467,3 +513,158 @@ select::-ms-expand {
   color: gray;
   margin: 10px 0;
   transition: 0.3s all ease; }
+
+.register-title {
+  width: 100%;
+  text-align: center; }
+
+.register-site {
+  height: 500px; }
+
+.register-site p {
+  font-size: 20px;
+  text-align: center; }
+
+.form-control {
+  width: 400px;
+  margin: 20px 0 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  font-size: 20px; }
+
+.form-control input {
+  position: absolute;
+  background: ghostwhite;
+  left: 40%;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 0;
+  border: 2px gray solid;
+  font-size: 16px; }
+
+.reg {
+  position: relative;
+  left: 40%;
+  background: #CE0000;
+  border-radius: 10px;
+  color: ghostwhite;
+  font-size: 20px;
+  margin: 10px 0;
+  width: 150px; }
+
+.reg:hover {
+  border-radius: 0;
+  color: gray;
+  margin: 10px 0;
+  transition: 0.3s all ease; }
+
+.cart-item {
+  display: inline-block;
+  width: 85%;
+  padding: 5px 10px;
+  border-bottom: 2px black solid;
+  background: #dedde8; }
+
+.cart-img {
+  display: inline-block;
+  background: white;
+  margin: 0 20px;
+  border: 2px black solid;
+  border-radius: 5px; }
+
+.cart-img img {
+  height: 100px;
+  width: 100px; }
+
+.cart-name {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 20px; }
+
+.cart-price {
+  font-size: 22px;
+  display: inline-block;
+  position: relative;
+  float: right;
+  margin-top: 30px; }
+
+.cart-q {
+  display: inline-block;
+  font-size: 20px;
+  margin-left: 150px; }
+
+.cart-remove {
+  display: inline-block;
+  background: red;
+  padding: 5px;
+  border: 2px black solid;
+  border-radius: 5px;
+  margin: 10px 10px 10px 40px;
+  width: auto; }
+
+.discount {
+  font-size: 20px;
+  text-align: right; }
+
+.buybtn {
+  text-align: right;
+  margin: 10px; }
+
+.buybutton {
+  width: 200px;
+  margin: 15px 10px 0 10px;
+  border-radius: 10px;
+  border: grey 2px solid;
+  background: red;
+  color: ghostwhite; }
+
+.buybutton:hover {
+  transition: 0.3s all ease;
+  color: red;
+  border-color: gray; }
+
+.profile {
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 0; }
+
+.profile img {
+  height: 300px;
+  width: 300px;
+  border: 2px black solid;
+  border-radius: 10px;
+  margin: 10px 30px; }
+
+.profile-info {
+  display: inline-block;
+  border: 2px black solid;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  font-size: 20px;
+  background: #dedde8;
+  margin: 10px 30px; }
+
+.profile-info p {
+  font-size: 20px; }
+
+.profile-update {
+  margin: 10px 10px 10px 80px; }
+
+.update {
+  border: 2px black solid;
+  border-radius: 10px;
+  background: red;
+  color: ghostwhite; }
+
+.update:hover {
+  transition: 0.3s all ease;
+  color: gray; }
+
+.profile-update a {
+  color: black; }
