@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="captain_console@captainconsole47.ddns.net" uuid="feeb4169-f40a-441e-85bf-62abe904e157">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://captainconsole47.ddns.net:5432/captain_console</jdbc-url>
+    </data-source>
+  </component>
+</project>

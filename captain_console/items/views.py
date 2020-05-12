@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from items.models import Item, ItemManufacturer, ItemCategory
 
@@ -9,16 +9,16 @@ def index(request):
 # manuf í context er til að fá lista af framleiðendum í sidebar filter
 def all(request):
 
-    items = []
-    if 'search_filter' in request.GET:  #TODO: search virkar ekki
-        search_filter = request.GET['search_filter']
-        items = [{
-            'id': x.id,
-            'name': x.name,
-            'price': x.price,
-            'img': x.itemimg_set.first.img,
-        } for x in Item.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': items})
+    # items = []
+    # if 'search_filter' in request.GET:  #TODO: search virkar ekki
+    #     search_filter = request.GET['search_filter']
+    #     items = [{
+    #         'id': x.id,
+    #         'name': x.name,
+    #         'price': x.price,
+    #         'img': x.itemimg_set.first.img,
+    #     } for x in Item.objects.filter(name__icontains=search_filter)]
+    #     return JsonResponse({'data': items})
 
     # Ef það er query string í URL þá áframsendist requestið á filter fallið
     if request.GET.get('filter-cat') or request.GET.get('filter-sort'):
@@ -76,3 +76,12 @@ def get_items_filter(request):
         'manuf': manuf_context,
     }
     return render(request, 'items/all_items.html', context)
+
+def search(request):
+    search_term = request.GET.get('q')
+    try:
+        manufacturer = ItemManufacturer.objects.get(name=search_term.capitalize())
+        items = Item.objects.filter(Q(name__icontains=search_term) | Q(manufacturer_id=manufacturer.id))
+    except ItemManufacturer.DoesNotExist:
+        items = Item.objects.filter(name__icontains=search_term)
+    return render(request, 'items/all_items.html', {'items': items})
