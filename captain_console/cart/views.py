@@ -15,13 +15,6 @@ def index(request):
             items.append(item)
     else:
         items = []
-    #     try:
-    #         Users.objects.get(user_id=request.user.id)
-    #     except ObjectDoesNotExist:
-    #         user_temp = Users.objects.create(user_id=request.user.id)
-    #         user_temp.save()
-    #     Cart.objects.create(user_id=request.user.id, items=[])
-    #     items = []
     return render(request, 'cart/index.html', {
         'items': items
     })
@@ -32,7 +25,7 @@ def add_to_cart(request, id):
     if request.user.is_authenticated:
         cart = Cart.objects.filter(user_id=request.user.id).first()
         if not cart:
-            cart = Cart.objects.create(user_id=request.user.id)
+            cart = Cart.objects.create(user_id=request.user.id, items=[])
         if not cart.items:
             cart.items = []
         cart.items.append(id)
@@ -44,8 +37,5 @@ def add_to_cart(request, id):
 def remove_from_cart(request, id):
     cart = get_object_or_404(Cart, user_id=request.user.id)
     cart.items.remove(str(id))
-    item = get_object_or_404(Item, pk=id)
-    cart = Cart.objects.get_or_create(customer_id=request.user.id)
-    cart.items.append(item.id)
     cart.save()
     return index(request)
