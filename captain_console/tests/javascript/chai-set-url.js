@@ -1,6 +1,6 @@
 /*
 
- Script checks if there is an url parameter passed into the script.
+ Script checks if there is an url parameter passed with the tests.
  If not the url returned will be http://localhost:8000
 
 */

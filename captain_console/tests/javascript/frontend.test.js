@@ -1,6 +1,6 @@
 let chai = require('chai')
 let chaiHttp = require('chai-http')
-let parseArguments = require('./parse_arguments')
+let parseArguments = require('./chai-set-url')
 chai.use(chaiHttp)
 
 let url = parseArguments.url()
