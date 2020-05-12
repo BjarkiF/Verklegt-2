@@ -147,7 +147,7 @@ nav a {
 }
 
 .Rbuttons{
-  position: absolute;
+  //position: absolute;
   top: 0;
   right: 0;
 }
@@ -155,7 +155,7 @@ nav a {
 .search{
   position: absolute;
   top: 60%;
-  left: 500px;
+  left: 50%;
   transform: translate(-50%,-50%);
   background: ghostwhite;
   border-radius: 40px;
@@ -205,6 +205,7 @@ nav a {
 }
 .Lbuttons li{
   padding-left: 18px;
+  padding-top: 24px;
 }
 .Rbuttons li{
   padding-right: 18px;
@@ -212,10 +213,27 @@ nav a {
 .Rbuttons i{
   padding: 3px;
 }
+.cart-stack{
+  position: absolute;
+  padding-top: 24px;
+  right: 150px;
+}
+.login-stack{
+  position: absolute;
+  padding-top: 24px;
+  right: 0;
+}
+.profile-logout-stack{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 7px 0 0 0;
+  width: 150px;
+}
 
 .navbuttons li {
   display: inline-block;
-  padding-top: 24px;
+
 }
 .navbuttons li a {
   transition: all 0.3s ease 0s;
