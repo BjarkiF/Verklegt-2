@@ -29,13 +29,14 @@ li, a, button {
   background-color: #FFFFFF;
   color: #000000;
   height: 100%;
+  width: 90%;
   padding: 0; }
 
 .container {
-  margin: 0 0 0 0;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
-  position: relative;
-  left: 50px; }
+  position: relative; }
 
 body {
   background: #d3d3d3;
@@ -126,8 +127,9 @@ footer {
 nav {
   float: right;
   position: fixed;
-  left: 50px;
-  right: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
   z-index: 100;
   /*line-height: 80px;*/ }
 

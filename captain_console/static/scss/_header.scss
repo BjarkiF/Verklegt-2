@@ -121,10 +121,11 @@ nav{
   float: right;
   //background: red;
   position: fixed;
-  //margin: 0 50px;
-  //width: 100%;
-  left: 50px;
-  right: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+  //left: 50px;
+  //right: 50px;
   z-index: 100;
   /*line-height: 80px;*/
 }
