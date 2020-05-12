@@ -26,7 +26,7 @@
   display: inline-block;
   //background: pink;
   margin-left: 20px;
-  font-size: 20px;
+  font-size: 26px;
 }
 .cart-price{
   font-size: 22px;
@@ -43,9 +43,24 @@
   margin-left: 150px;
 
 }
+.cart-q a{
+  color: black;
+  text-decoration: none;
+  font-size:20px;
+  padding: 5px 10px;
+  border: 1px black solid;
+  border-radius: 4px;
+  background: $color5;
+}
+.cart-q a:hover{
+  color: $color0;
+  transition: 0.3s all ease;
+
+
+}
 .cart-remove{
   display: inline-block;
-  background: red;
+  background: $color0;
   padding: 5px;
   border: 2px black solid;
   border-radius: 5px;
@@ -77,4 +92,14 @@
   transition: 0.3s all ease;
   color: red;
   border-color: gray;
+}
+
+.cart-total{
+  text-align: right;
+  font-size: 26px;
+  text-decoration: underline;
+  //background: #2b542c;
+  padding: 10px;
+  //width: 300px;
+  //float: right;
 }
