@@ -6,7 +6,8 @@
         {% if user.profile.img  %}
             <img src="{{ user.profile.img }}" alt="Prófílmynd"/>
         {% else %}
-            <p>Mynd vantar!</p>
+            <img src="../../static/images/noprofile_resize.jpg" alt="No profile pic">
+            <p class="mynd-vantar-text">Mynd vantar!</p>
         {% endif %}
     <div/>
     <div class="profile-info">
