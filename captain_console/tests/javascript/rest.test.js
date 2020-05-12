@@ -2,24 +2,26 @@ let chai = require('chai')
 let chaiHttp = require('chai-http')
 chai.use(chaiHttp)
 
+// Get the arguments.
 let argv = require('minimist')(process.argv.slice(2));
 let url = argv._[1];
 
+// Check if it's a valid url.
 function isValidUrl(string) {
   try {
     new URL(string);
   } catch (_) {
     return false;
   }
-
   return true;
 }
 
-if (isValidUrl(url)){
-    console.log('Testing url: ' + url)
-}else{
+// If there is no url use 'localhost:8000'.
+if (!isValidUrl(url)){
     url = 'http://localhost:8000'
 }
+
+console.log('Testing url: ' + url)
 
 describe('Endpoint tests', () => {
     //###########################
