@@ -44,6 +44,9 @@ body {
   font-family: 'Turret Road', cursive;
   height: 100%; }
 
+.content {
+  min-height: 70vh; }
+
 /*-------------------------------------------------------------------------*/
 /*Footer*/
 footer {
@@ -145,7 +148,7 @@ nav a {
   border: none;
   background-color: #CE0000;
   color: #FFFFFF;
-  height: 80px;
+  height: 10.5vh;
   border-radius: 0; }
 
 .Rbuttons {
@@ -699,8 +702,11 @@ select::-ms-expand {
   margin: 0;
   padding: 0; }
 
-.mynd-vantar-text {
-  margin-left: 30px; }
+.picture-missing-text {
+  margin-left: 187px; }
+
+.picture-missing {
+  margin-left: 50px; }
 
 .profile img {
   height: 300px;
@@ -717,13 +723,13 @@ select::-ms-expand {
   margin: 10px 30px;
   position: absolute;
   top: 10%;
-  left: 35%; }
+  left: 370px; }
 
 .profile-info p {
   font-size: 20px; }
 
 .profile-update {
-  margin: 10px 10px 10px 80px; }
+  margin: 10px 10px 40px 80px; }
 
 .update {
   border: 2px black solid;
