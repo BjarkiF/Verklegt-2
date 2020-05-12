@@ -46,13 +46,13 @@
 .update{
   border: 2px black solid;
   border-radius: 10px;
-  background: red;
-  color: ghostwhite;
+  background: $color0;
+  color: $color4;
 
 }
 .update:hover{
   transition: 0.3s all ease;
-  color: gray;
+  color: #D0D3D4;
 
 
 }

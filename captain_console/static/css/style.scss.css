@@ -635,8 +635,11 @@ select::-ms-expand {
 
 .cart-q {
   display: inline-block;
+  position: absolute;
   font-size: 20px;
-  margin-left: 150px; }
+  margin-left: 150px;
+  right: 300px;
+  margin-top: 35px; }
 
 .cart-q a {
   color: black;
@@ -662,7 +665,9 @@ select::-ms-expand {
 
 .discount {
   font-size: 20px;
-  text-align: right; }
+  text-align: right;
+  padding-right: 75px;
+  padding-top: 10px; }
 
 .buybtn {
   text-align: right;
@@ -673,7 +678,7 @@ select::-ms-expand {
   margin: 15px 10px 0 10px;
   border-radius: 10px;
   border: grey 2px solid;
-  background: red;
+  background: #CE0000;
   color: ghostwhite; }
 
 .buybutton:hover {
@@ -685,7 +690,8 @@ select::-ms-expand {
   text-align: right;
   font-size: 26px;
   text-decoration: underline;
-  padding: 10px; }
+  padding: 10px;
+  padding-right: 30px; }
 
 .profile-header {
   margin-left: 30px; }
@@ -721,12 +727,12 @@ select::-ms-expand {
 .update {
   border: 2px black solid;
   border-radius: 10px;
-  background: red;
-  color: ghostwhite; }
+  background: #CE0000;
+  color: #FFFFFF; }
 
 .update:hover {
   transition: 0.3s all ease;
-  color: gray; }
+  color: #D0D3D4; }
 
 .profile-update a {
   color: black; }

@@ -37,10 +37,16 @@
   margin-top: 30px;
 }
 .cart-q{
+  //float: right;
   display: inline-block;
+  position: absolute;
   font-size: 20px;
   //background: lightblue;
   margin-left: 150px;
+  right: 300px;
+  margin-top: 35px;
+
+
 
 }
 .cart-q a{
@@ -71,6 +77,8 @@
 .discount{
   font-size: 20px;
   text-align: right;
+  padding-right: 75px;
+  padding-top: 10px;
 }
 
 .buybtn{
@@ -83,7 +91,7 @@
   margin: 15px 10px 0 10px;
   border-radius: 10px;
   border:grey 2px solid;
-  background: red;
+  background: $color0;
   color: ghostwhite;
 
 }
@@ -102,4 +110,5 @@
   padding: 10px;
   //width: 300px;
   //float: right;
+  padding-right: 30px;
 }
