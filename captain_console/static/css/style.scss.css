@@ -36,9 +36,6 @@ body {
   font-family: 'Turret Road', cursive;
   height: 100%; }
 
-.content {
-  min-height: 70vh; }
-
 /*-------------------------------------------------------------------------*/
 /*Footer*/
 footer {
@@ -122,6 +119,9 @@ footer {
 nav {
   float: right;
   position: fixed;
+  left: 50px;
+  right: 50px;
+  z-index: 100;
   /*line-height: 80px;*/ }
 
 nav a {
@@ -137,7 +137,6 @@ nav a {
   background-color: #CE0000;
   color: #FFFFFF;
   height: 80px;
-  width: 1170px;
   border-radius: 0; }
 
 .Rbuttons {
@@ -281,7 +280,7 @@ header nav ul a {
 .sidebar-items {
   position: fixed;
   display: inline-block;
-  width: 260px;
+  width: 19%;
   height: 100%;
   padding: 10px;
   margin-bottom: 200px;
@@ -558,3 +557,110 @@ select::-ms-expand {
   color: gray;
   margin: 10px 0;
   transition: 0.3s all ease; }
+
+.cart-item {
+  display: inline-block;
+  width: 85%;
+  padding: 5px 10px;
+  border-bottom: 2px black solid;
+  background: #dedde8; }
+
+.cart-img {
+  display: inline-block;
+  background: white;
+  margin: 0 20px;
+  border: 2px black solid;
+  border-radius: 5px; }
+
+.cart-img img {
+  height: 100px;
+  width: 100px; }
+
+.cart-name {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 20px; }
+
+.cart-price {
+  font-size: 22px;
+  display: inline-block;
+  position: relative;
+  float: right;
+  margin-top: 30px; }
+
+.cart-q {
+  display: inline-block;
+  font-size: 20px;
+  margin-left: 150px; }
+
+.cart-remove {
+  display: inline-block;
+  background: red;
+  padding: 5px;
+  border: 2px black solid;
+  border-radius: 5px;
+  margin: 10px 10px 10px 40px;
+  width: auto; }
+
+.discount {
+  font-size: 20px;
+  text-align: right; }
+
+.buybtn {
+  text-align: right;
+  margin: 10px; }
+
+.buybutton {
+  width: 200px;
+  margin: 15px 10px 0 10px;
+  border-radius: 10px;
+  border: grey 2px solid;
+  background: red;
+  color: ghostwhite; }
+
+.buybutton:hover {
+  transition: 0.3s all ease;
+  color: red;
+  border-color: gray; }
+
+.profile {
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 0; }
+
+.profile img {
+  height: 300px;
+  width: 300px;
+  border: 2px black solid;
+  border-radius: 10px;
+  margin: 10px 30px; }
+
+.profile-info {
+  display: inline-block;
+  border: 2px black solid;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  font-size: 20px;
+  background: #dedde8;
+  margin: 10px 30px; }
+
+.profile-info p {
+  font-size: 20px; }
+
+.profile-update {
+  margin: 10px 10px 10px 80px; }
+
+.update {
+  border: 2px black solid;
+  border-radius: 10px;
+  background: red;
+  color: ghostwhite; }
+
+.update:hover {
+  transition: 0.3s all ease;
+  color: gray; }
+
+.profile-update a {
+  color: black; }

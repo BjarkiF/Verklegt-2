@@ -104,8 +104,14 @@
 //  color: #EDF2F4;
 //}
 //.container{
+//  //margin: 0;
+//  //position: relative;
+//  left: 50px;
+//  right: 50px;
 //  height: 80px;
 //}
+
+
 .logo{
   cursor: pointer;
   float: left;
@@ -116,7 +122,10 @@ nav{
   //background: red;
   position: fixed;
   //margin: 0 50px;
-  //width: 90%;
+  //width: 100%;
+  left: 50px;
+  right: 50px;
+  z-index: 100;
   /*line-height: 80px;*/
 }
 nav a {
@@ -132,7 +141,7 @@ nav a {
   background-color: $color0;
   color: $color4;
   height: 80px;
-  width: 1170px;
+  //width: ;
   border-radius: 0;
 }
 

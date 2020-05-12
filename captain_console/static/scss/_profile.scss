@@ -1,0 +1,53 @@
+.profile{
+  //background: #1b6d85;
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.profile img{
+  height: 300px;
+  width: 300px;
+  border: 2px black solid;
+  border-radius: 10px;
+  margin: 10px 30px;
+  //display: inline-block;
+}
+.profile-info{
+  display: inline-block;
+  border: 2px black solid;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  font-size: 20px;
+  background: #dedde8;
+  margin: 10px 30px;
+
+
+}
+.profile-info p{
+  font-size: 20px;
+
+}
+
+.profile-update {
+  //color: ghostwhite;
+  margin: 10px 10px 10px 80px;
+
+}
+.update{
+  border: 2px black solid;
+  border-radius: 10px;
+  background: red;
+  color: ghostwhite;
+
+}
+.update:hover{
+  transition: 0.3s all ease;
+  color: gray;
+
+
+}
+.profile-update a{
+  color: black;
+}
