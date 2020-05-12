@@ -13,6 +13,10 @@ body {
   padding: 0;
 }
 
+*{
+  margin: 0;
+}
+
 
 
 li, a, button{
@@ -25,18 +29,19 @@ li, a, button{
 .container:first-of-type{
   background-color: $color4;
   color: $color3;
-  display: flex;
-  flex-direction: column;
+  //display: flex;
+  //flex-direction: column;
   height: 100%;
   //width: 80%;
   //min-height: 100vh;
   padding: 0;
 }
 .container{
-  //margin: 0;
-//  position: relative;
+  margin: 0 0 0 0;
+  padding: 0;
+  position: relative;
   left: 50px;
-  right: 50px;
+  //right: 50px;
 //  //height: 80px;
 }
 
