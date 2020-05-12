@@ -10,6 +10,9 @@
   margin: 0;
   padding: 0;
 }
+.mynd-vantar-text{
+  margin-left: 30px;
+}
 .profile img{
   height: 300px;
   width: 300px;
@@ -46,13 +49,13 @@
 .update{
   border: 2px black solid;
   border-radius: 10px;
-  background: red;
-  color: ghostwhite;
+  background: $color0;
+  color: $color4;
 
 }
 .update:hover{
   transition: 0.3s all ease;
-  color: gray;
+  color: #D0D3D4;
 
 
 }
