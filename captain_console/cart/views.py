@@ -19,8 +19,6 @@ def index(request):
         'items': items
     })
 
-
-
 def add_to_cart(request, id):
     if request.user.is_authenticated:
         cart = Cart.objects.filter(user_id=request.user.id).first()
