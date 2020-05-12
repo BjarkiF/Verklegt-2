@@ -13,6 +13,7 @@
       <env name="DB_PORT" value="5432" />
       <env name="DB_ENGINE" value="django.db.backends.postgresql" />
       <env name="ENV" value="development" />
+      <env name="DATABASE_URL" value="postgres://postgres:p4ssw0rd@captainconsole47.ddns.net/captain_console" />
     </envs>
     <option name="SDK_HOME" value="" />
     <option name="WORKING_DIRECTORY" value="" />

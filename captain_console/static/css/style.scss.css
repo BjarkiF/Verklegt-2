@@ -156,7 +156,7 @@ nav a {
 .search {
   position: absolute;
   top: 60%;
-  left: 50%;
+  left: 500px;
   transform: translate(-50%, -50%);
   background: ghostwhite;
   border-radius: 40px;
@@ -178,7 +178,7 @@ nav a {
   align-items: center; }
 
 .search-btn:hover {
-  color: gray;
+  color: #D0D3D4;
   transition: all 0.3s ease 0s;
   text-decoration: none; }
 
@@ -197,12 +197,20 @@ nav a {
 .Lbuttons {
   position: absolute;
   top: 0;
-  left: 10%; }
+  left: 60px; }
+
+.Lbuttons li {
+  padding-left: 18px; }
+
+.Rbuttons li {
+  padding-right: 18px; }
+
+.Rbuttons i {
+  padding: 3px; }
 
 .navbuttons li {
   display: inline-block;
-  padding-left: 30px;
-  padding-top: 40px; }
+  padding-top: 24px; }
 
 .navbuttons li a {
   transition: all 0.3s ease 0s;
@@ -215,7 +223,7 @@ ul li a {
   color: #FFFFFF; }
 
 .navbuttons li a:hover {
-  color: gray; }
+  color: #D0D3D4; }
 
 button {
   /*padding: 9px 25px;*/
@@ -343,8 +351,8 @@ select::-ms-expand {
   color: red; }
 
 .Sbutton {
-  width: 200px;
-  margin: 15px 10px 0 10px;
+  width: 100%;
+  margin: 15px 0 0 0;
   border-radius: 10px;
   border: grey 2px solid;
   color: #0f0f0f; }
@@ -491,7 +499,8 @@ select::-ms-expand {
 /*-------------------------------------------------------------------------------------*/
 /*INNSKRÁ SÍÐAN*/
 .loginsite {
-  background: #e8e1d6; }
+  background: #e8e1d6;
+  margin-top: 0; }
   .loginsite h2 {
     margin-left: auto;
     margin-right: auto;
@@ -509,7 +518,8 @@ select::-ms-expand {
 
 .loginting {
   left: 10%;
-  top: 100%; }
+  top: 100%;
+  padding-bottom: 30px; }
 
 .loginting input {
   background: #CE0000;
@@ -527,10 +537,13 @@ select::-ms-expand {
 
 .register-title {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  margin-top: 0;
+  padding-top: 30px; }
 
 .register-site {
-  height: 500px; }
+  height: 500px;
+  background: #e8e1d6; }
 
 .register-site p {
   font-size: 20px;
@@ -544,7 +557,8 @@ select::-ms-expand {
   border-radius: 0;
   border: none;
   box-shadow: none;
-  font-size: 20px; }
+  font-size: 20px;
+  background: #e8e1d6; }
 
 .form-control input {
   position: absolute;
@@ -648,7 +662,7 @@ select::-ms-expand {
 
 .buybutton:hover {
   transition: 0.3s all ease;
-  color: red;
+  color: #D0D3D4;
   border-color: gray; }
 
 .cart-total {

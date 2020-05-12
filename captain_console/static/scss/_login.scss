@@ -3,6 +3,7 @@
 
 .loginsite{
   background: #e8e1d6;
+  margin-top: 0;
 
   h2 {
     margin-left: auto;
@@ -29,6 +30,7 @@
 .loginting{
   left: 10%;
   top: 100%;
+  padding-bottom: 30px;
 }
 
 .loginting input{
@@ -55,6 +57,8 @@
   width: 100%;
   text-align: center;
   //background: #e8e1d6;
+  margin-top: 0;
+  padding-top: 30px;
 
 
 }
@@ -64,6 +68,7 @@
   //background: #e8e1d6;
   height: 500px;
   //display: flex;
+  background: #e8e1d6;
 }
 .register-site p {
   font-size: 20px;
@@ -80,6 +85,7 @@
   box-shadow: none;
   font-size: 20px;
   //border: 1px gray solid;
+  background: #e8e1d6;
 
 
   //background: deeppink;

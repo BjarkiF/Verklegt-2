@@ -155,7 +155,7 @@ nav a {
 .search{
   position: absolute;
   top: 60%;
-  left: 50%;
+  left: 500px;
   transform: translate(-50%,-50%);
   background: ghostwhite;
   border-radius: 40px;
@@ -180,7 +180,7 @@ nav a {
 }
 
 .search-btn:hover{
-  color: gray;
+  color: #D0D3D4;
   transition: all 0.3s ease 0s;
   text-decoration: none;
 }
@@ -201,13 +201,21 @@ nav a {
 .Lbuttons{
   position: absolute;
   top: 0;
-  left: 10%;
+  left: 60px;
+}
+.Lbuttons li{
+  padding-left: 18px;
+}
+.Rbuttons li{
+  padding-right: 18px;
+}
+.Rbuttons i{
+  padding: 3px;
 }
 
 .navbuttons li {
   display: inline-block;
-  padding-left: 30px;
-  padding-top: 40px;
+  padding-top: 24px;
 }
 .navbuttons li a {
   transition: all 0.3s ease 0s;
@@ -227,7 +235,7 @@ ul {
 }
 
 .navbuttons li a:hover{
-  color: gray;
+  color: #D0D3D4;
 }
 
 button {
