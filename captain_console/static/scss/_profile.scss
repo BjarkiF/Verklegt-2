@@ -1,7 +1,12 @@
+
+.profile-header{
+  //text-align: center;
+  margin-left: 30px;
+}
 .profile{
   //background: #1b6d85;
   width: 100%;
-  display: inline-block;
+  //display: inline-block;
   margin: 0;
   padding: 0;
 }
@@ -14,22 +19,25 @@
   //display: inline-block;
 }
 .profile-info{
-  display: inline-block;
-  border: 2px black solid;
-  border-radius: 10px;
-  width: 300px;
+  //display: inline-block;
+  //border: 2px black solid;
+  //border-radius: 10px;
+  width: 500px;
   height: 300px;
   font-size: 20px;
-  background: #dedde8;
+  //background: #dedde8;
+  padding: 15px;
   margin: 10px 30px;
-
+  position: absolute;
+  top: 10%;
+  left: 35%;
 
 }
 .profile-info p{
   font-size: 20px;
 
 }
-
+//
 .profile-update {
   //color: ghostwhite;
   margin: 10px 10px 10px 80px;

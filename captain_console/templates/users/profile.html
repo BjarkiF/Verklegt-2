@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Prófíll</h2>
+    <h2 class="profile-header">Þinn Prófíll:</h2>
     <div class="profile">
 
         {% if user.profile.img  %}
@@ -8,17 +8,18 @@
         {% else %}
             <p>Mynd vantar!</p>
         {% endif %}
-        <div class="profile-info">
-            <p>Nafn: {{ user.first_name }} {{ user.last_name }}</p>
-            <p>Netfang: {{ user.email }}</p>
-            <p>Heimilisfang: {{ user.profile.address }}</p>
-            <p>Sími: {{ user.profile.phone }}</p>
-            <p>Notandanafn: {{ user.username }}</p>
-        </div>
-        <div class="profile-update">
-            <a href="/users/profile/edit">
-                <input class="update" type="submit" value="Uppfæra prófíl">
-            </a>
-        </div>
+    <div/>
+    <div class="profile-info">
+        <p>* Nafn: {{ user.first_name }} {{ user.last_name }}</p>
+        <p>* Netfang: {{ user.email }}</p>
+        <p>* Heimilisfang: {{ user.profile.address }}</p>
+        <p>* Sími: {{ user.profile.phone }}</p>
+        <p>* Notandanafn: {{ user.username }}</p>
+    </div>
+    <div class="profile-update">
+        <a href="/users/profile/edit">
+            <input class="update" type="submit" value="Uppfæra prófíl">
+        </a>
+    </div>
     </div>
 {% endblock %}
