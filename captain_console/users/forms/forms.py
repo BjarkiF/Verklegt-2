@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.forms import ModelForm, widgets
-from users.models import Profile
+from users.models import Profile, UserAddress
 from django import forms
 from django.contrib.auth.models import User
 
@@ -23,7 +23,7 @@ class UserLoginForm(AuthenticationForm):
 class EditProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ('address', 'phone', 'img')
+        fields = ('phone', 'img')
 
 
 class RegisterForm(UserCreationForm):
@@ -38,7 +38,14 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = {'username', 'first_name', 'last_name', 'email', 'password1', 'password2'}
 
+
 class EditUserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email')
+
+
+class EditAddressForm(forms.ModelForm):
+    class Meta:
+        model = UserAddress
+        fields = ('street_name', 'house_num', 'city', 'zipcode', 'country', )

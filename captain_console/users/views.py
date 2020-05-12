@@ -32,8 +32,8 @@ def recover(request):
 
 @login_required
 def edit_profile(request):
-    profile = Profile.objects.filter(user_id=request.user.id).first()
-    user = User.objects.filter(username=request.user).first()
+    profile = Profile.objects.get(user_id=request.user.id)
+    user = User.objects.get(username=request.user)
     if request.method == 'POST':
         form_user = EditUserForm(data=request.POST)
         form_extended = EditProfileForm(data=request.POST)
@@ -42,9 +42,10 @@ def edit_profile(request):
             user.last_name = request.POST['last_name']
             user.email = request.POST['email']
             user.save()
-            profile.img = request.POST['img']
-            profile.phone = request.POST['phone']
-            profile.address = request.POST['address']
+            if request.POST['img']:
+                profile.img = request.POST['img']
+            if request.POST['phone']:
+                profile.phone = request.POST['phone']
             profile.save()
             return redirect('Profile')
     return render(request, 'users/edit_profile.html', {
