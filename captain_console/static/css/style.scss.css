@@ -30,6 +30,10 @@ li, a, button {
   height: 100%;
   padding: 0; }
 
+.container {
+  left: 50px;
+  right: 50px; }
+
 body {
   background: #d3d3d3;
   color: #000000;
