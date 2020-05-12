@@ -291,10 +291,9 @@ header nav ul a {
   position: fixed;
   display: inline-block;
   width: 19%;
-  height: 85%;
+  height: 100%;
   padding: 10px;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-bottom: 200px;
   text-align: center;
   border-right: 2px #CE0000 solid; }
 
