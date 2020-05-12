@@ -9,4 +9,5 @@ urlpatterns = [
     path(r'^all/$', views.get_items_filter),
     path('<int:id>', views.get_item_by_id),
     path('filter/<int:id>', views.get_items_category),
+    path('search/', views.search)
 ]

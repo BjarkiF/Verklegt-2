@@ -47,10 +47,12 @@
         <li><a href="/about/">Um okkur </a></li>
     </ul>
     <div class="search">
-        <input class="search-txt" id="search-txt" type="search"  placeholder="Leita..">
-        <a class="search-btn" id="search-btn">
-            <i class="fas fa-search" ></i>
-        </a>
+        <form class="search-form" method="get" action="/items/search/">
+            <input class="search-txt" id="search-txt" type="search" name="q"  placeholder="Leita.." required>
+            <button class="search-btn" type="submit" value="Leita">
+                 <i class="fas fa-search" ></i>
+            </button>
+        </form>
     </div>
     <ul class="Rbuttons">
       {% if not user.is_anonymous %}
