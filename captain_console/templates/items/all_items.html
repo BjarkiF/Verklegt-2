@@ -13,38 +13,37 @@
     </div>
     <div class="sidebar-items">
         <p> Flokkun:</p>
-        <div class="select">
-            <select class="side-drop" name="Cflokk" id="Cflokk">
-                <option selected disabled>Veldu flokk</option>
-                <option value="Tölvur">Tölvur</option>
-                <option value="Leikir">Leikir</option>
-                <option value="Aukahlutir">Aukahlutir</option>
-            </select>
-        </div>
-        <br>
-        <div class="select">
-            <select class="side-drop" name="Cmanufacture" id="Cmanuf">
-                <option selected disabled>Veldu framleiðanda</option>
-                {% for name in manuf %}
-                    <option >{{ name.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <br>
-        <div class="select">
-            <select class="side-drop" name="sort" id="sort">
-                <option selected disabled>Raða eftir</option>
-                <option>A-Z</option>
-                <option>Z-A</option>
-                <option>Hæsta verð</option>
-                <option>Lægsta verð</option>
-            </select>
-        </div>
-        <br>
-        <button class="Sbutton" type="submit">Leita</button>
-
-
-
-
+{#        <form action="{% url 'filter' %}" method="post" id="filter">#}
+        <form id="filter">
+            <div class="select">
+                <select class="side-drop" name="filter-cat" id="filter-cat">
+                    <option selected disabled>Veldu Flokk</option>
+                    <option value="Tölvur">Tölvur</option>
+                    <option value="Leikir">Leikir</option>
+                    <option value="Aukahlutir">Aukahlutir</option>
+                </select>
+            </div>
+            <br>
+            <div class="select">
+                <select class="side-drop" name="filter-manuf" id="filter-manuf">
+                    <option selected disabled>Veldu framleiðanda</option>
+                    {% for name in manuf %}
+                        <option value="{{ name.name }}">{{ name.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <br>
+            <div class="select">
+                <select class="side-drop" name="filter-sort" id="filter-sort">
+                    <option selected disabled>Raða eftir</option>
+                    <option value="name">A-Z</option>
+                    <option value="-name">Z-A</option>
+                    <option value="-price">Hæsta verð</option>
+                    <option value="price">Lægsta verð</option>
+                </select>
+            </div>
+            <br>
+            <input type="submit" class="Sbutton" value="Leita">
+        </form>
     </div>
 {% endblock %}
