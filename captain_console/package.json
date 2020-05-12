@@ -4,7 +4,8 @@
   "description": "Verklegt Námskeið 2",
   "main": "",
   "scripts": {
-    "test-rest": "./node_modules/mocha/bin/mocha ./tests/javascript/*.test.js",
+    "test-frontend": "./node_modules/mocha/bin/mocha ./tests/javascript/frontend.test.js",
+    "test-rest": "./node_modules/mocha/bin/mocha ./tests/javascript/rest.test.js",
     "heroku-logs": "heroku logs --tail -a captain-console-47"
   },
   "author": "",
