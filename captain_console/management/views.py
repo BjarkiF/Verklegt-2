@@ -11,7 +11,8 @@ from django.contrib.auth.models import User
 @login_required
 def index(request):
     # TODO: Connect to database.
-    return render(request, 'management/index.html', {'order_count': 1337})
+    data = {'orders': {'unprocesessed': 1337, 'ready': 42, 'mailed': 666}}
+    return render(request, 'management/index.html', data)
 
 
 @login_required

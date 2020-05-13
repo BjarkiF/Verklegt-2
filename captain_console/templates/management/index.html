@@ -3,8 +3,9 @@
     {% include 'management/navbar.html' %}
     <div class="col-md-10 content">
         <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <span>{{ order_count }} óafgreiddar pantanir.</span>
+            <span>{{ orders.unprocesessed }} óafgreiddar pantanir.</span>
+            <span>{{ orders.ready }} tilbúnar pantanir.</span>
+            <span>{{ orders.mailed }} pantanir póstlagðar.</span>
         </div>
     </div>
 {% endblock %}
