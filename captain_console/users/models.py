@@ -11,6 +11,7 @@ class UserAddress(models.Model):
     zipcode = models.CharField(max_length=255, default='', blank=True)
 
 class Profile(models.Model):
+    # TODO: Hvað er þetta? Eitthvað gamalt?
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     img = models.CharField(max_length=999, default='', blank=True, verbose_name='Mynd')
@@ -21,4 +22,4 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-post_save.connect(create_user_profile, sender=User)
+    post_save.connect(create_user_profile, sender=User)

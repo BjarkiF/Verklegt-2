@@ -84,6 +84,9 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
+
+    TODO: Gera fleiri frontend test.
+
     */
 });
 

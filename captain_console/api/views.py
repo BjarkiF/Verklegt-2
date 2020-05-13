@@ -1,8 +1,8 @@
 from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from rest_framework.viewsets import ModelViewSet
-
+from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
 from items.models import Item, ItemManufacturer
 from cart.models import Cart
 from users.models import User#, Users
@@ -19,6 +19,7 @@ def index(request):
         'name': 'API INDEX x_X'
     }
     return JsonResponse(data)
+
 
 def all(request):
     context = {
@@ -44,6 +45,7 @@ class item(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+
 class items(viewsets.ModelViewSet):
     """
     Return items in the store.
@@ -51,6 +53,7 @@ class items(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
 
 class cart(viewsets.ModelViewSet):
     """
@@ -60,6 +63,7 @@ class cart(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+
 class user(viewsets.ModelViewSet):
     """
     Return user profile..
@@ -68,6 +72,7 @@ class user(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+
 class users(viewsets.ModelViewSet):
     """
     Returns all users.
@@ -75,6 +80,3 @@ class users(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = ItemSerializer
     permission_classes = [permissions.IsAuthenticated]
-
-
-
