@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'management/navbar.html' %}
+    <div class="col-md-10 content">
+        <h1>Management Staff</h1>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for s in staff %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{ s }}</td>
+              <td>{{ s.kennitala }}</td>
+              <td>{{ s.telephone }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+{% endblock %}
