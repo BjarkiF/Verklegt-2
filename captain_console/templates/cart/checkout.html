@@ -6,16 +6,33 @@
         <div class="checkout-info">
             {% with user.useraddress_set.all|first as address %}
             <div class="address-choice">
-                <h4>Nota vistað heimilisfang:
-                    {% if address.street_name != '' %}
-                        <input type="radio" name="address-radio" id="saved_address"></h4>
-                        <h5>Vistað heimilisfang:</h5>
-                        <p>{{ address.street_name }} {{ address.house_num }}</p>
-                        <p>{{ address.zipcode }} {{ address.city }}, {{ address.country.country_name }}</p>
-                    {% else %}
-                        <p>Ekkert vistað heimilisfang!</p>
-                    {% endif %}
-                <h4>Nýtt heimilisfang: <input type="radio" name="address-radio" id="new_address"></h4>
+{#                <form id="address-form">#}
+                    <h4>Nota vistað heimilisfang:
+                        {% if address.street_name != '' %}
+                            <input type="radio" name="address-radio" id="saved_address"></h4>
+                            <h5>Vistað heimilisfang:</h5>
+                            <p>{{ address.street_name }} {{ address.house_num }}</p>
+                            <p>{{ address.zipcode }} {{ address.city }}, {{ address.country.country_name }}</p>
+                        {% else %}
+                            <p>Ekkert vistað heimilisfang!</p>
+                        {% endif %}
+                    <h4>Nýtt heimilisfang: <input type="radio" name="address-radio" id="new_address"></h4>
+                    <div class="address-form">
+                        Götunafn: {{ form.street_name }}
+                    </div>
+                    <div class="address-form">
+                        Húsnúmer: {{ form.house_num }}
+                    </div>
+                    <div class="address-form">
+                        Póstnúmer: {{ form.zipcode }}
+                    </div>
+                    <div class="address-form">
+                        Borg/Bær: {{ form.city }}
+                    </div>
+                    <div class="address-form">
+                        Land: {{ form.country_id }}
+                    </div>
+{#                </form>#}
             </div>
             <div class="address-saved">
                 <div class="address-saved-item">
@@ -42,8 +59,6 @@
                     <input type="text" placeholder="xxx">
                 </div>
             </form>
-        <p>Coins</p>
-
         </div>
         <div class="buybtn">
             <a href="/cart/checkout">
@@ -51,4 +66,5 @@
             </a>
         </div>
     </div>
+
 {% endblock %}

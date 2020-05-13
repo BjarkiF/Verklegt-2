@@ -43,14 +43,45 @@
   font-size: 20px;
 
 }
+
+.profile-address{
+  //background: #debba8;
+  position: absolute;
+  height: 180px;
+  width: 350px;
+  top: 12%;
+  left: 835px;
+
+}
+
+.profile-address p{
+  font-size: 20px;
+  margin-left: 20px;
+
+}
+
 //
-.profile-update {
-  //color: ghostwhite;
-  margin: 10px 10px 40px 80px;
+.profile-update-address{
+    //color: ghostwhite;
+  //margin: 10px 40px 40px 40px;
   //position: absolute;
+  margin-right: 75px;
+  margin-bottom: 50px;
   display: inline-block;
   float: right;
 }
+
+.profile-update {
+  //color: ghostwhite;
+  //margin: 10px 40px 40px 40px;
+  //position: absolute;
+  margin-bottom: 50px;
+  margin-right: 150px;
+  float: right;
+  display: inline-block;
+
+}
+
 .update{
   border: 2px black solid;
   border-radius: 10px;
