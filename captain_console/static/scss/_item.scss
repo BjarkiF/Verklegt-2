@@ -6,7 +6,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .item-img{
@@ -14,6 +14,10 @@
   height: 300px;
   margin-top: 10px;
   width: 250px;
+}
+.single-img-name{
+  margin-left: 70px;
+  padding-left: 0;
 }
 
 .singlename{
@@ -38,9 +42,10 @@
   border-radius: 10px;
   height: 280px;
   width: 280px;
-  padding: 10px;
+  padding: 20px 15px 15px 15px;
   margin-right: 70px;
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .singledescription p{
@@ -59,10 +64,12 @@
 .Kbutton{
   width: 200px;
   padding: 5px;
-  margin-left: auto;
-  margin-right: auto;
+  right: 0;
+  //margin-left: auto;
+  //margin-right: auto;
   border-radius: 10px;
   background-color: $color6;
+  //margin-top: 30px;
 }
 
 .Kbutton:hover{
