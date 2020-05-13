@@ -7,7 +7,7 @@
     "build": "python3 manage.py collectstatic && bower install && pytest tests/python && python3 manage.py test",
     "test-frontend": "./node_modules/mocha/bin/mocha ./tests/javascript/frontend.test.js",
     "test-rest": "./node_modules/mocha/bin/mocha ./tests/javascript/rest.test.js",
-    "test": "npm run test-frontend && npm run test-frontend",
+    "test": "npm run test-rest && npm run test-frontend",
     "heroku-logs": "heroku logs --tail -a captain-console-47"
   },
   "author": "",

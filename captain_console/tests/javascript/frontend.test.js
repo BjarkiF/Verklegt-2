@@ -49,7 +49,6 @@ describe('Endpoint tests', () => {
             .get('/cart/')
             .set('Content-Type', 'appliction/json')
             .end( (err, res) => {
-                console.log(res)
                 chai.expect(res).to.have.status(200);
                 chai.expect(res).to.be.html;
                 chai.expect(res.redirects[0]).to.equal(url + '/users/login?next=/cart/')
