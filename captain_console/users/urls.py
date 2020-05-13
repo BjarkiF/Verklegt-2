@@ -2,7 +2,7 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, 
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-from . import forms
+#from . import forms
 
 '''
 ,
@@ -13,7 +13,8 @@ urlpatterns = [
     path('', LoginView.as_view(template_name='users/index.html'), name="Login"),
     path('register', views.register, name="Register"),
     path('reset', views.recover, name="Recover"),
-    path('logout', LogoutView.as_view(next_page='/'), name="Logout"),
+    path('logout', LogoutView.as_view(), name="Logout"),
+    path('login', LoginView.as_view(), name="Login"),
     path('profile/edit', views.edit_profile, name="Edit_profile"),
     path('profile', views.profile, name="Profile"),
     path('reset/<str:token>/', auth_views.PasswordResetView, name='password_reset_confirm'),

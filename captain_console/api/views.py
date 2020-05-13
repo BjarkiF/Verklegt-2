@@ -13,7 +13,7 @@ from rest_framework import permissions
 
 from api.serializers import ItemSerializer
 
-
+"""
 def index(request):
     data = {
         'name': 'API INDEX x_X'
@@ -35,7 +35,7 @@ def get_item_by_id(request):
         'name': 'BY ID x_X'
     }
     return JsonResponse(data)
-
+"""
 
 class item(viewsets.ModelViewSet):
     """

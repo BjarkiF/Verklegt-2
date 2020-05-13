@@ -17,6 +17,8 @@ static/js/lib/
 static/css/lib/
 static/js/lib/
 
+staticfiles/
+
 # Misc
 .env
 .env.*

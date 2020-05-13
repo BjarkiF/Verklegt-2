@@ -1,9 +1,13 @@
+let dotenv = require('dotenv').config()
 let chai = require('chai')
 let chaiHttp = require('chai-http')
 let parseArguments = require('./chai-set-url')
 chai.use(chaiHttp)
 
 let url = parseArguments.url()
+
+// TODO: Gera ráð fyrir mismunandi creds.
+let creds = { 'username': process.env.REST_USERNAME, 'password': process.env.REST_PASSWORD }
 
 describe('Endpoint tests', () => {
     //###########################
@@ -41,7 +45,7 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET api/v1/cart/ SUCCESS - all events", function(done) {
+    it("GET api/v1/cart/ ERROR - all events", function(done) {
         chai.request(url)
             .get('/api/v1/cart')
             .set('Content-Type', 'appliction/json')
@@ -54,7 +58,7 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET api/v1/users/ SUCCESS - all events", function(done) {
+    it("GET api/v1/users/ ERROR - all events", function(done) {
         chai.request(url)
             .get('/api/v1/users/')
             .set('Content-Type', 'appliction/json')
@@ -67,7 +71,22 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET api/v1/user/1337/ SUCCESS - all events", function(done) {
+    it("GET api/v1/users/ SUCCESS - all users", function(done) {
+        // TODO: Skoða þetta betur. Afhverju er þetta að gefa HTTP statuskóðann 500 í staðin fyrir 200?
+        chai.request(url)
+            .get('/api/v1/users/')
+            .set('Content-Type', 'appliction/json')
+            .auth(creds.username, creds.password)
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(200);
+                chai.expect(res).to.be.json;
+                chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
+    it("GET api/v1/user/1337/ ERROR - user by id", function(done) {
         chai.request(url)
             .get('/api/v1/user/1337/')
             .set('Content-Type', 'appliction/json')

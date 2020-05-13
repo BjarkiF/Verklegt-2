@@ -4,8 +4,10 @@
   "description": "Verklegt Námskeið 2",
   "main": "",
   "scripts": {
+    "build": "python3 manage.py collectstatic && bower install && pytest tests/python && python3 manage.py test",
     "test-frontend": "./node_modules/mocha/bin/mocha ./tests/javascript/frontend.test.js",
     "test-rest": "./node_modules/mocha/bin/mocha ./tests/javascript/rest.test.js",
+    "test": "npm run test-frontend && npm run test-frontend",
     "heroku-logs": "heroku logs --tail -a captain-console-47"
   },
   "author": "",
@@ -14,6 +16,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "child_process": "^1.0.2",
+    "dotenv": "^8.2.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.1.0",
