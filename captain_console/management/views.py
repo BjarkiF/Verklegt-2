@@ -32,13 +32,15 @@ def orders(request):
 
 @login_required
 def staff(request):
-    staff = User.objects.all()
+    staff = User.objects.filter(is_superuser='f')
     return render(request, 'management/staff/index.html', {'staff': staff})
+
 
 @login_required
 def staffRegister(request):
     # TODO: Connect to database.
     return render(request, 'management/staff/register.html')
+
 
 @login_required
 def config(request):

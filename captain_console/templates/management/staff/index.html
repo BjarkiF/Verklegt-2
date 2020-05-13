@@ -7,18 +7,28 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Username</th>
               <th scope="col">First</th>
               <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Email</th>
+              <th scope="col">is_active</th>
+              <th scope="col">last_login</th>
+              <th scope="col">Kennitala</th>
+              <th scope="col">Sími</th>
             </tr>
           </thead>
           <tbody>
             {% for s in staff %}
             <tr>
               <th scope="row">{{ forloop.counter }}</th>
-              <td>{{ s.user }}</td>
-              <td>{{ s.kennitala }}</td>
-              <td>{{ s.telephone }}</td>
+              <td>{{ s.username }}</td>
+              <td>{{ s.first_name }}</td>
+              <td>{{ s.last_name }}</td>
+              <td>{{ s.email }}</td>
+              <td>{{ s.is_active }}</td>
+              <td>{{ s.last_login }}</td>
+              <td><!-- TODO: kennitala --></td>
+              <td><!-- TODO: telephone --></td>
             </tr>
             {% endfor %}
           </tbody>

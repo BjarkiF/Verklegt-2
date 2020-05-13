@@ -2,8 +2,10 @@ from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from items.models import Item, ItemManufacturer, ItemCategory
 
+
 def index(request):
     return render(request, 'items/index.html')
+
 
 # search_filter er tengdur searchbar, virkar ekki.
 # manuf í context er til að fá lista af framleiðendum í sidebar filter
@@ -43,6 +45,7 @@ def get_items_category(request, id):
         'manuf': ItemManufacturer.objects.all().order_by('name'),
     }
     return render(request, 'items/all_items.html', context)
+
 
 # Tékkar hvað er í query strengnum og býr til filteraðan lista eftir því
 def get_items_filter(request):
