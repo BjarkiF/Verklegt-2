@@ -1,8 +1,9 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.forms import ModelForm, widgets
-from users.models import Profile, UserAddress, UserCountry
+from users.models import Profile, UserAddress, UserCountry, UserCard
 from django import forms
 from django.contrib.auth.models import User
+from django.core.validators import RegexValidator
 
 # TODO: PasswordResetForm klasa vantar.
 
@@ -58,8 +59,17 @@ class EditAddressForm(forms.ModelForm):
         model = UserAddress
         fields = ('street_name', 'house_num', 'city', 'zipcode', 'country_id' )
 
-# class EditCountryForm(forms.ModelForm):
-#     country_select = forms.ModelChoiceField(queryset=UserCountry.objects.all(), initial=0)
-#     class Meta:
-#         model = UserCountry
-#         fields = ('country_select',)
+class UserCardForm(forms.ModelForm):
+    name = forms.CharField(max_length=999)
+    number = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xxxx-xxxx-xxxx-xxxx'}), min_length=16,
+                             max_length=16, validators=[RegexValidator(r'^\d{1,10}$')])
+    exp_month = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xx'}), min_length=16,
+                             max_length=16, validators=[RegexValidator(r'^\d{1,10}$')])
+    exp_year = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xx'}), min_length=16,
+                             max_length=16, validators=[RegexValidator(r'^\d{1,10}$')])
+    cvc = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xxx'}), min_length=16,
+                             max_length=16, validators=[RegexValidator(r'^\d{1,10}$')])
+
+    class Meta:
+        model = UserCard
+        fields = ('number', 'exp_month', 'exp_year', 'cvc')

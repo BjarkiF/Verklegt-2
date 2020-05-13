@@ -24,6 +24,13 @@ class Profile(models.Model):
     phone = models.CharField(max_length=999, default='', blank=True, verbose_name='Símanúmer')
 
 
+class UserCard(models.Model):
+    name = models.CharField(max_length=999)
+    number = models.IntegerField()
+    exp_month = models.IntegerField()
+    exp_year = models.IntegerField()
+    cvc = models.IntegerField()
+
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)

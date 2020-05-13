@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from cart.models import Cart
 from items.models import Item
 from users.models import User
-from users.forms.forms import EditAddressForm
+from users.forms.forms import EditAddressForm, UserCardForm
 from django.core.exceptions import ObjectDoesNotExist
 
 @login_required
@@ -30,10 +30,9 @@ def index(request):
         'total': total,
     })
 
-# TODO: fá GET request úr templatinu, annars runnar fallið aftur alltaf þegar það er refreshað
+@login_required
 def add_to_cart(request, id):
     if request.user.is_authenticated:
-        #if request.method == 'POST':
         cart = Cart.objects.filter(user_id=request.user.id).first()
         if not cart:
             cart = Cart.objects.create(user_id=request.user.id, items=[])
@@ -41,28 +40,38 @@ def add_to_cart(request, id):
             cart.items = []
         cart.items.append(id)
         cart.save()
-        return index(request)
+        return redirect('/cart/')
     else:
         return redirect('/users/')
 
+@login_required
 def remove_from_cart(request, id):
-    #if request.method == 'POST':
     cart = get_object_or_404(Cart, user_id=request.user.id)
     cart.items.remove(str(id))
     cart.save()
-    return index(request)
+    return redirect('/cart/')
 
+@login_required
 def remove_from_cart_all(request, id):
     cart = Cart.objects.get(user_id=request.user.id)
     items = cart.items
     items[:] = (value for value in items if value != str(id))
     cart.items = items
     cart.save()
-    return index(request)
+    return redirect('/cart/')
 
+@login_required
 def checkout(request):
+    if request.method == 'POST':
+        address_form = EditAddressForm(data=request.POST)
+        card_form = UserCardForm(data=request.POST)
+        if address_form.is_valid() and card_form.is_valid():
+            pass
+        elif card_form.is_valid():
+            pass
     context = {
         'user': User.objects.get(id=request.user.id),
-        'form': EditAddressForm()
+        'address_form': EditAddressForm(),
+        'card_form': UserCardForm(),
     }
     return render(request ,'cart/checkout.html', context)
