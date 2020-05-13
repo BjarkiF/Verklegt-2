@@ -737,7 +737,7 @@ select::-ms-expand {
   font-size: 20px; }
 
 .profile-update {
-  margin: 10px 10px 40px 80px;
+  margin: 10px 40px 40px 40px;
   display: inline-block;
   float: right; }
 
@@ -829,3 +829,6 @@ select::-ms-expand {
 
 .staff-register-site {
   background: #9fcdff; }
+
+.col-md-2 {
+  padding-top: 15px; }
