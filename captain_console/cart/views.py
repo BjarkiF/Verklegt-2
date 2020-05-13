@@ -32,23 +32,23 @@ def index(request):
 # TODO: fá GET request úr templatinu, annars runnar fallið aftur alltaf þegar það er refreshað
 def add_to_cart(request, id):
     if request.user.is_authenticated:
-        if request.method == 'POST':
-            cart = Cart.objects.filter(user_id=request.user.id).first()
-            if not cart:
-                cart = Cart.objects.create(user_id=request.user.id, items=[])
-            if not cart.items:
-                cart.items = []
-            cart.items.append(id)
-            cart.save()
+        #if request.method == 'POST':
+        cart = Cart.objects.filter(user_id=request.user.id).first()
+        if not cart:
+            cart = Cart.objects.create(user_id=request.user.id, items=[])
+        if not cart.items:
+            cart.items = []
+        cart.items.append(id)
+        cart.save()
         return index(request)
     else:
         return redirect('/users/')
 
 def remove_from_cart(request, id):
-    if request.method == 'POST':
-        cart = get_object_or_404(Cart, user_id=request.user.id)
-        cart.items.remove(str(id))
-        cart.save()
+    #if request.method == 'POST':
+    cart = get_object_or_404(Cart, user_id=request.user.id)
+    cart.items.remove(str(id))
+    cart.save()
     return index(request)
 
 def remove_from_cart_all(request, id):
@@ -60,4 +60,4 @@ def remove_from_cart_all(request, id):
     return index(request)
 
 def checkout(request):
-    return render(request ,'cart/checkout.html')
+    return render(request ,'cart/checkout.html', { 'user': User.objects.get(id=request.user.id),})
