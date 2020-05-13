@@ -154,16 +154,12 @@ nav a {
 
 .search {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: ghostwhite;
   border-radius: 40px;
   padding: 2px; }
-
-.search:hover > .search-txt {
-  width: 240px;
-  padding: 0 6px; }
 
 .search-btn {
   color: ghostwhite;
@@ -176,11 +172,6 @@ nav a {
   justify-content: center;
   align-items: center; }
 
-.search-btn:hover {
-  color: #D0D3D4;
-  transition: all 0.3s ease 0s;
-  text-decoration: none; }
-
 .search-txt {
   border: none;
   background: none;
@@ -191,7 +182,7 @@ nav a {
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
-  width: 50px; }
+  width: 200px; }
 
 .Lbuttons {
   position: absolute;
@@ -468,7 +459,6 @@ select::-ms-expand {
   margin-top: 30px; }
 
 .item-img {
-  background: #9fcdff;
   height: 300px;
   margin-top: 10px;
   width: 250px; }
