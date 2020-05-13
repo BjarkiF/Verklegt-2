@@ -1,18 +1,17 @@
 from django.contrib.auth.decorators import login_required
 #from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
-
 from django.shortcuts import render, redirect
-from users.models import Profile
-from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
+from users.models import Profile, UserAddress
+from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm, EditAddressForm
 from django.contrib.auth.models import User
 
 
-def register(request):
+def register(request): # TODO: notandi fær ekki villu ef eitthvað klikkar
     if request.method == 'POST':
         form = RegisterForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('Login')
+            return redirect('/users/')
     return render(request, 'users/register.html', {
         'form': RegisterForm()
     })
@@ -59,4 +58,23 @@ def profile(request):
     return render(request, 'users/profile.html', {
         'user': User.objects.filter(id=request.user.id).first(),
         'profile': Profile.objects.filter(user_id=request.user.id).first(),
+        'address': UserAddress.objects.filter(user_id=request.user.id).first(),
+    })
+
+# TODO: Skoða hvernig þetta er saveað, afhverju virkar ekki form.save?
+@login_required
+def edit_address(request):
+    address = UserAddress.objects.get(user_id=request.user.id)
+    if request.method == 'POST':
+        form = EditAddressForm(data=request.POST)
+        if form.is_valid():
+            address.street_name = request.POST['street_name']
+            address.house_num = request.POST['house_num']
+            address.city = request.POST['city']
+            address.zipcode = request.POST['zipcode']
+            address.country = request.POST['country']
+            address.save()
+            return redirect('Profile')
+    return render(request, 'users/edit_address.html', {
+        'form': EditAddressForm(instance=address),
     })

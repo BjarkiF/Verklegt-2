@@ -29,6 +29,7 @@ def index(request):
         'total': total,
     })
 
+# TODO: fá GET request úr templatinu, annars runnar fallið aftur alltaf þegar það er refreshað
 def add_to_cart(request, id):
     if request.user.is_authenticated:
         if request.method == 'POST':

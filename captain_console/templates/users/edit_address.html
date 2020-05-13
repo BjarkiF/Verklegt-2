@@ -1,24 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="edit-site">
-        <h2 class="edit-title">Uppfæra prófíl</h2>
+        <h2 class="edit-title">Uppfæra Heimilisfang</h2>
         <p>*Stjörnumerkta reiti verður að fylla í</p>
         <form method="post">
             {% csrf_token %}
             <div class="profile-form">
-                Fornafn: *{{ form_user.first_name }}
+                Götunafn: {{ form.street_name }}
             </div>
             <div class="profile-form">
-                Eftirnafn: *{{ form_user.last_name }}
+                Húsnúmer: *{{ form.house_num }}
             </div>
             <div class="profile-form">
-                Netfang: *{{ form_user.email }}
+                Borg/Bær: *{{ form.city }}
             </div>
             <div class="profile-form">
-                Sími: {{ form_extended.phone }}
+                Póstnúmer: {{ form.zipcode }}
             </div>
             <div class="profile-form">
-                Mynd: {{ form_extended.img }}
+                Land: {{ form.country }}
             </div>
             <input class="edit" type="submit" value="Staðfesta"/>
         </form>

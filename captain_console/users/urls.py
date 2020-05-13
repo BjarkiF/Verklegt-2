@@ -19,4 +19,5 @@ urlpatterns = [
     path('profile', views.profile, name="Profile"),
     path('reset/<str:token>/', auth_views.PasswordResetView, name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView, name='password_reset_complete'),
+    path('profile/address', views.edit_address, name='Edit_address')
 ]
