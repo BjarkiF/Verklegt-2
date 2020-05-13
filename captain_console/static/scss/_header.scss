@@ -68,7 +68,7 @@ nav a {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: red;
+  background: $color0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,4 +168,13 @@ button {
 
 header nav ul a{
   color: #EDF2F4;
+}
+
+
+
+/*-------------------------------------------------------------------------------------*/
+/*Staff navbar*/
+
+.staff-nav-bar{
+  background: #E6B74B;
 }
