@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from cart.models import Cart
 from items.models import Item
-from django.contrib.auth.models import User
+from users.models import User
+from users.forms.forms import EditAddressForm
 from django.core.exceptions import ObjectDoesNotExist
 
 @login_required
@@ -60,4 +61,8 @@ def remove_from_cart_all(request, id):
     return index(request)
 
 def checkout(request):
-    return render(request ,'cart/checkout.html', { 'user': User.objects.get(id=request.user.id),})
+    context = {
+        'user': User.objects.get(id=request.user.id),
+        'form': EditAddressForm()
+    }
+    return render(request ,'cart/checkout.html', context)

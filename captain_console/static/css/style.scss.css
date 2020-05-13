@@ -736,10 +736,28 @@ select::-ms-expand {
 .profile-info p {
   font-size: 20px; }
 
-.profile-update {
-  margin: 10px 40px 40px 40px;
+.profile-address {
+  position: absolute;
+  height: 180px;
+  width: 350px;
+  top: 12%;
+  left: 835px; }
+
+.profile-address p {
+  font-size: 20px;
+  margin-left: 20px; }
+
+.profile-update-address {
+  margin-right: 75px;
+  margin-bottom: 50px;
   display: inline-block;
   float: right; }
+
+.profile-update {
+  margin-bottom: 50px;
+  margin-right: 150px;
+  float: right;
+  display: inline-block; }
 
 .update {
   border: 2px black solid;

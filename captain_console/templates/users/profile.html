@@ -20,7 +20,7 @@
     </div>
     <div class="profile-address">
         {% if address.street_name %}
-            <h4>Vistað heimilisfang:</h4>
+            <h3>Vistað heimilisfang:</h3>
             <p>{{ address.street_name }} {{ address.house_num }}</p>
             <p>{{ address.zipcode }}, {{ address.city }}</p>
             <p>{{ address.country.country_name }}</p>
@@ -28,14 +28,14 @@
             <h3>Ekkert heimilisfang vistað!</h3>
         {% endif %}
     </div>
-    <div class="profile-update">
-        <a href="/users/profile/edit">
-            <input class="update" type="submit" value="Uppfæra prófíl">
+    <div class="profile-update-address">
+        <a href="/users/profile/address">
+            <input id="update-address" class="update" type="submit" value="Uppfæra heimilisfang">
         </a>
     </div>
-    <div class="profile-update-address profile-update">
-        <a href="/users/profile/address">
-            <input class="update" type="submit" value="Uppfæra heimilisfang">
+    <div class="profile-update">
+        <a href="/users/profile/edit">
+            <input id="update-profile" class="update" type="submit" value="Uppfæra prófíl">
         </a>
     </div>
     </div>
