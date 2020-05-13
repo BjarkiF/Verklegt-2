@@ -172,6 +172,11 @@ nav a {
   justify-content: center;
   align-items: center; }
 
+.search-btn:hover {
+  color: #D0D3D4;
+  transition: all 0.3s ease 0s;
+  text-decoration: none; }
+
 .search-txt {
   border: none;
   background: none;
@@ -402,7 +407,7 @@ select::-ms-expand {
 
 .frontFL:hover {
   transition: 0.3s all ease;
-  background: red; }
+  background: #CE0000; }
 
 .frontFL:hover p {
   transition: 0.3s all ease;
@@ -811,3 +816,6 @@ select::-ms-expand {
   border-radius: 4px;
   margin-left: 5px;
   border: 2px gray solid; }
+
+.staff-register-site {
+  background: #9fcdff; }

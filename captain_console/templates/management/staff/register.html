@@ -1,8 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
     {% include 'management/navbar.html' %}
-    <div class="col-md-10 content">
-        <h1>Skrá Nýjann Starfskraft</h1>
-        <!-- TODO: RegisterEmployeeForm -->
+{#    <div class="col-md-10 content">#}
+{#        <h1>Skrá Nýjann Starfskraft</h1>#}
+{#        <!-- TODO: RegisterEmployeeForm -->#}
+{#    </div>#}
+    <div class="staff-register-site">
+        <h2 class="register-title">Skrá staff</h2>
+        <p>* Stjörnumerkta reiti er nauðsynlegt að fylla</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-control">
+                {{ form.username.errors }}
+                Notandanafn:* {{ form.username }}
+            </div>
+            <div class="form-control">
+                {{ form.first_name.errors }}
+                Fornafn:* {{ form.first_name }}
+            </div>
+            <div class="form-control">
+                {{ form.last_name.errors }}
+                Eftirnafn:* {{ form.last_name }}
+            </div>
+            <div class="form-control">
+                {{ form.email.errors }}
+                Netfang:* {{ form.email }}
+            </div>
+            <div class="form-control">
+                {{ form.password1.errors }}
+                Lykilorð:* {{ form.password1 }}
+            </div>
+            <div class="form-control">
+                {{ form.password2.errors }}
+                Staðfesta Lykilorð:* {{ form.password2 }}
+            </div>
+            <input class="reg" type="submit" value="Nýskrá">
+        </form>
     </div>
 {% endblock %}
