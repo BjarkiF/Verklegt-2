@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 #from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
 from django.shortcuts import render, redirect
-from users.models import Profile, UserAddress
-from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm, EditAddressForm
+from users.models import Profile, UserAddress, UserCountry
+from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm, EditAddressForm #, EditCountryForm
 from django.contrib.auth.models import User
 
 
@@ -72,9 +72,10 @@ def edit_address(request):
             address.house_num = request.POST['house_num']
             address.city = request.POST['city']
             address.zipcode = request.POST['zipcode']
-            address.country = request.POST['country']
+            address.country_id = request.POST['country_id']
             address.save()
             return redirect('Profile')
     return render(request, 'users/edit_address.html', {
         'form': EditAddressForm(instance=address),
+        #'country_select': UserCountry.objects.all()
     })

@@ -18,8 +18,16 @@
                 Póstnúmer: {{ form.zipcode }}
             </div>
             <div class="profile-form">
-                Land: {{ form.country }}
+                Land: {{ form.country_id }}
             </div>
+{#            <div class="profile-form">#}
+{#                Land: <select id="country_select">#}
+{#                    <option selected disabled value="">Veldu Land</option>#}
+{#                    {% for country in country_select %}#}
+{#                        <option value="{{ country.id }}">{{ country.country_name }}</option>#}
+{#                    {% endfor %}#}
+{#                </select>#}
+{#            </div>#}
             <input class="edit" type="submit" value="Staðfesta"/>
         </form>
     </div>

@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.forms import ModelForm, widgets
-from users.models import Profile, UserAddress
+from users.models import Profile, UserAddress, UserCountry
 from django import forms
 from django.contrib.auth.models import User
 
@@ -48,6 +48,18 @@ class EditUserForm(forms.ModelForm):
 
 
 class EditAddressForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(EditAddressForm, self).__init__(*args, **kwargs)
+        self.fields['country_id'].label_from_instance = lambda obj: "%s" % obj.country_name
+
+    country_id = forms.ModelChoiceField(queryset=UserCountry.objects.all())
+
     class Meta:
         model = UserAddress
-        fields = ('street_name', 'house_num', 'city', 'zipcode', 'country', )
+        fields = ('street_name', 'house_num', 'city', 'zipcode', 'country_id' )
+
+# class EditCountryForm(forms.ModelForm):
+#     country_select = forms.ModelChoiceField(queryset=UserCountry.objects.all(), initial=0)
+#     class Meta:
+#         model = UserCountry
+#         fields = ('country_select',)

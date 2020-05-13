@@ -19,10 +19,14 @@
         <p>* Notandanafn: {{ user.username }}</p>
     </div>
     <div class="profile-address">
-        <h4>Vistað heimilisfang:</h4>
-        <p>{{ address.street_name }} {{ address.house_num }}</p>
-        <p>{{ address.zipcode }}, {{ address.city }}</p>
-        <p>{{ address.country }}</p>
+        {% if address.street_name %}
+            <h4>Vistað heimilisfang:</h4>
+            <p>{{ address.street_name }} {{ address.house_num }}</p>
+            <p>{{ address.zipcode }}, {{ address.city }}</p>
+            <p>{{ address.country.country_name }}</p>
+        {% else %}
+            <h3>Ekkert heimilisfang vistað!</h3>
+        {% endif %}
     </div>
     <div class="profile-update">
         <a href="/users/profile/edit">

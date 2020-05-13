@@ -26,7 +26,7 @@ def get_item_by_id(request, id):
         'item': get_object_or_404(Item, pk=id)
     })
 
-
+# TODO: filter virkar ekki ef farið er hér í gegn
 def get_items_category(request, id):
     context = {
         'items': Item.objects.filter(category_id=id),
