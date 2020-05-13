@@ -9,7 +9,6 @@
                     <h4>Nota vistað heimilisfang:
                         {% if address.street_name != '' %}
                             <input type="radio" name="address-radio" id="saved_address"></h4>
-                            <h5>Vistað heimilisfang:</h5>
                             <p>{{ address.street_name }} {{ address.house_num }}</p>
                             <p>{{ address.zipcode }} {{ address.city }}, {{ address.country.country_name }}</p>
                         {% else %}
@@ -18,19 +17,24 @@
                     <h4>Nýtt heimilisfang: <input type="radio" name="address-radio" id="new_address" checked="checked">
                     </h4>
                         <div class="address-form">
-                            Götunafn: {{ address_form.street_name }}
+                            <label>Götunafn:</label>
+                            {{ address_form.street_name }}
                         </div>
                         <div class="address-form">
-                            Húsnúmer: {{ address_form.house_num }}
+                            <label>Húsnúmer:</label>
+                            {{ address_form.house_num }}
                         </div>
                         <div class="address-form">
-                            Póstnúmer: {{ address_form.zipcode }}
+                            <label>Póstnúmer:</label>
+                            {{ address_form.zipcode }}
                         </div>
                         <div class="address-form">
-                            Borg/Bær: {{ address_form.city }}
+                            <label>Borg/Bær:</label>
+                            {{ address_form.city }}
                         </div>
                         <div class="address-form">
-                            Land: {{ address_form.country_id }}
+                            <label>Land:</label>
+                            {{ address_form.country_id }}
                         </div>
                 {% endwith %}
             </div>

@@ -843,6 +843,11 @@ select::-ms-expand {
   justify-content: flex-end;
   border-radius: 0; }
 
+.address-form input {
+  border-radius: 4px;
+  margin-left: 5px;
+  border: 2px gray solid; }
+
 .card-form input {
   border-radius: 4px;
   margin-left: 5px;
