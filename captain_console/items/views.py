@@ -7,20 +7,8 @@ def index(request):
     return render(request, 'items/index.html')
 
 
-# search_filter er tengdur searchbar, virkar ekki.
 # manuf í context er til að fá lista af framleiðendum í sidebar filter
 def all(request):
-
-    # items = []
-    # if 'search_filter' in request.GET:  #TODO: search virkar ekki
-    #     search_filter = request.GET['search_filter']
-    #     items = [{
-    #         'id': x.id,
-    #         'name': x.name,
-    #         'price': x.price,
-    #         'img': x.itemimg_set.first.img,
-    #     } for x in Item.objects.filter(name__icontains=search_filter)]
-    #     return JsonResponse({'data': items})
 
     # Ef það er query string í URL þá áframsendist requestið á filter fallið
     if request.GET.get('filter-cat') or request.GET.get('filter-sort'):
@@ -38,7 +26,7 @@ def get_item_by_id(request, id):
         'item': get_object_or_404(Item, pk=id)
     })
 
-
+# TODO: filter virkar ekki ef farið er hér í gegn
 def get_items_category(request, id):
     context = {
         'items': Item.objects.filter(category_id=id),

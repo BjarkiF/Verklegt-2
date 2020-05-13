@@ -1,0 +1,49 @@
+.checkout-site{
+  display: flex;
+  margin-top: 20px;
+}
+
+.checkout-info{
+  width: 50%;
+  height: 300px;
+  //background: #EDF2F4;
+  padding: 20px;
+}
+
+.checkout-payment{
+  //border: 2px black solid;
+  //background: #EDF2F4;
+  width: 50%;
+  //margin: 10px;
+  border-left: 2px lightgrey solid;
+  padding: 20px;
+
+
+}
+//
+//.card-form{
+//  margin: 20px;
+//  display: flex;
+//  justify-content: flex-end;
+//  //background: #CE0000;
+//}
+
+.card-form{
+  //width: 400px;
+  margin: 20px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0;
+  //font-size: 20px;
+
+}
+
+
+.card-form input{
+  //background: ghostwhite;
+  border-radius: 4px;
+  //margin: 0;
+  margin-left: 5px;
+  border: 2px gray solid;
+  //font-size: 16px;
+}

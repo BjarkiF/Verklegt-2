@@ -28,7 +28,7 @@
   //display: inline-block;
   //border: 2px black solid;
   //border-radius: 10px;
-  width: 500px;
+  width: 400px;
   height: 300px;
   font-size: 20px;
   //background: #dedde8;
@@ -47,14 +47,16 @@
 .profile-update {
   //color: ghostwhite;
   margin: 10px 10px 40px 80px;
-
+  //position: absolute;
+  display: inline-block;
+  float: right;
 }
 .update{
   border: 2px black solid;
   border-radius: 10px;
   background: $color0;
   color: $color4;
-
+  width: 280px;
 }
 .update:hover{
   transition: 0.3s all ease;

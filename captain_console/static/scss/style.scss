@@ -12,6 +12,7 @@ $color3: #000000;
 $color4: #FFFFFF;
 $color5: #d3d3d3;
 $color6: gray;
+$staffcolor: #E6B74B;
 
 @import '_HTML_tags.scss';
 @import '_footer.scss';
@@ -24,3 +25,6 @@ $color6: gray;
 @import '_cart.scss';
 @import '_profile.scss';
 @import '_profile_update.scss';
+@import '_checkout.scss';
+@import '_management.scss';
+

@@ -15,13 +15,27 @@
     <div class="profile-info">
         <p>* Nafn: {{ user.first_name }} {{ user.last_name }}</p>
         <p>* Netfang: {{ user.email }}</p>
-        <p>* Heimilisfang: {{ user.profile.address }}</p>
-        <p>* Sími: {{ user.profile.phone }}</p>
+        <p>* Sími: {{ profile.phone }}</p>
         <p>* Notandanafn: {{ user.username }}</p>
+    </div>
+    <div class="profile-address">
+        {% if address.street_name %}
+            <h4>Vistað heimilisfang:</h4>
+            <p>{{ address.street_name }} {{ address.house_num }}</p>
+            <p>{{ address.zipcode }}, {{ address.city }}</p>
+            <p>{{ address.country.country_name }}</p>
+        {% else %}
+            <h3>Ekkert heimilisfang vistað!</h3>
+        {% endif %}
     </div>
     <div class="profile-update">
         <a href="/users/profile/edit">
             <input class="update" type="submit" value="Uppfæra prófíl">
+        </a>
+    </div>
+    <div class="profile-update-address">
+        <a href="/users/profile/address">
+            <input class="update" type="submit" value="Uppfæra heimilisfang">
         </a>
     </div>
     </div>

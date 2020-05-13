@@ -1,115 +1,3 @@
-///*-------------------------------------------------------------------------------*/
-//.logo{
-//  cursor: pointer;
-//  float: left;
-//  line-height: 80px;
-//}
-//
-//nav a {
-//  text-decoration: none;
-//}
-//
-//.navbar{
-//  list-style: none;
-//  text-decoration: none;
-//  display: flex;
-//  background-color: $color0;
-//  height: 80px;
-//  width: 100%;
-//  border-radius: 0;
-//}
-//
-//.Rbuttons{
-//  margin-left: auto;
-//  margin-right: 0;
-//}
-//
-//.search{
-//  top: 60%;
-//  left: 50%;
-//  background: ghostwhite;
-//  border-radius: 40px;
-//  padding: 2px;
-//}
-//
-//.search:hover > .search-txt{
-//  width: 240px;
-//  padding: 0 6px;
-//}
-//
-//.search-btn{
-//  color: ghostwhite;
-//  float: right;
-//  width: 40px;
-//  height: 40px;
-//  border-radius: 50%;
-//  background: red;
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//}
-//
-//.search-btn:hover{
-//  color: gray;
-//  transition: all 0.3s ease 0s;
-//  text-decoration: none;
-//}
-//
-//.search-txt{
-//  border: none;
-//  background: none;
-//  outline: none;
-//  float: left;
-//  padding: 0;
-//  color: black;
-//  font-size: 16px;
-//  transition: 0.4s;
-//  line-height: 40px;
-//  width: 50px;
-//}
-//
-//.Lbuttons{
-//  top: 0;
-//  left: 10%;
-//}
-//
-//.navbuttons li {
-//  display: inline-block;
-//  padding-left: 30px;
-//  padding-top: 40px;
-//}
-//
-//.navbuttons li a{
-//  margin-right: 10px;
-//  text-decoration: none;
-//}
-//
-//.navbuttons li a:hover{
-//  color: gray;
-//}
-//
-//header {
-//  height: 80px;
-//  text-align: center;
-//  background: #CE0000;
-//  width: 100%;
-//  z-index: 12;
-//  position: fixed;
-//  padding: 0;
-//  border-left: 50px #E0E0E0 solid;
-//  border-right: 50px #E0E0E0 solid;
-//  color: #EDF2F4;
-//}
-//header nav ul a{
-//  color: #EDF2F4;
-//}
-//.container{
-//  //margin: 0;
-//  //position: relative;
-//  left: 50px;
-//  right: 50px;
-//  height: 80px;
-//}
 
 
 .logo{
@@ -154,7 +42,7 @@ nav a {
 
 .search{
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   background: ghostwhite;
@@ -162,10 +50,17 @@ nav a {
   padding: 2px;
 }
 
-.search:hover > .search-txt{
-  width: 240px;
-  padding: 0 6px;
-}
+//.search:hover > .search-txt{
+//  width: 240px;
+//  padding: 0 6px;
+//  transition: all 0.3s ease 0s;
+//}
+//.search:hover > .search-form{
+//  //transition: width 2s;
+//  width: 240px;
+//  padding: 0 6px;
+//  transition: all 0.4s ease 0s;
+//}
 
 .search-btn{
   color: ghostwhite;
@@ -173,7 +68,7 @@ nav a {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: red;
+  background: $color0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,12 +85,12 @@ nav a {
   background: none;
   outline: none;
   float: left;
-  padding: 0;
   color: black;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
-  width: 50px;
+  width: 200px;
+  padding-left: 10px;
 }
 
 .Lbuttons{
@@ -265,7 +160,7 @@ button {
   transition: all 0.3s ease 0s;
 }
 
-img{
+.logo img{
   height: 80px;
   width: 97px;
 
@@ -273,4 +168,13 @@ img{
 
 header nav ul a{
   color: #EDF2F4;
+}
+
+
+
+/*-------------------------------------------------------------------------------------*/
+/*Staff navbar*/
+
+.staff-nav-bar{
+  background: #E6B74B;
 }

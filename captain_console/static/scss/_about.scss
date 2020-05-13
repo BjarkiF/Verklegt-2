@@ -1,7 +1,7 @@
 /*---------------------------------------------------------------------------*/
 /*UM OKKUR SÍÐAN*/
 #info{
-  border: 1px #CE0000 solid;
+  //border: 1px #CE0000 solid;
   border-radius: 10px;
   //width: 48%;
   text-align: center;
@@ -9,15 +9,17 @@
   //position: relative;
   //top: 50px;
   //left: 250px;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 0 20px;
 }
 
 #location {
   //width: 48%;
 }
 .col-md-6{
-  margin-top: 20px;
+  margin: 20px 20px 20px 45px;
+  width: 90%;
   padding: 0;
+  text-align: center;
 }
 
 .col-md-6.content{
@@ -26,11 +28,12 @@
 }
 
 .location-header{
-  font-size: 18px;
-  margin-top: 70px;
+  font-size: 24px;
+  //margin-top: 70px;
   text-align: center;
 }
 
-.locat ion-text{
+.location-text{
+  font-size: 16px;
   text-align: center;
 }
