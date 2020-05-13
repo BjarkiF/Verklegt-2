@@ -1,30 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Checkout:</h2>
-    <div class="checkout-info">
-    <p>Contact info(billing addr)</p>
+    <div class="checkout-site">
+{#        <h2>Checkout:</h2>#}
+        <div class="checkout-info">
+        <p>Contact info(billing addr)</p>
+        </div>
+        <div class="checkout-payment">
+            <form>
+                <div class="card-form">
+                    <label>Nafn korthafa:</label>
+                    <input type="text" placeholder="Nafn">
+                </div>
+                <div class="card-form">
+                    <label>Kortanúmer:</label>
+                    <input type="text" placeholder="xxxx-xxxx-xxxx">
+                </div>
+                <div class="card-form">
+                    <label>Gildistími:</label>
+                    <input type="text" placeholder="MM/YY">
+                </div>
+                <div class="card-form">
+                    <label>CVC:</label>
+                    <input type="text" placeholder="xxx">
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="checkout-payment">
-        <form>
-            <div class="card-form">
-                <label>Nafn korthafa:</label>
-                <input type="text" placeholder="Nafn">
-            </div>
-            <div class="card-form">
-                <label>Kortanúmer:</label>
-                <input type="text" placeholder="xxxx-xxxx-xxxx">
-            </div>
-            <div class="card-form">
-                <label>Gildistími:</label>
-                <input type="text" placeholder="MM/YY">
-            </div>
-            <div class="card-form">
-                <label>CVC:</label>
-                <input type="text" placeholder="xxx">
-            </div>
-        </form>
-    <p>Coins</p>
+        <div class="buybtn">
+            <a href="/cart/checkout">
+            <button class="buybutton" type="submit">Greiða</button>
+            </a>
+        </div>
 
-    </div>
+
 
 {% endblock %}
