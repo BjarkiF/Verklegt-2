@@ -7,11 +7,11 @@ from items.models import Item, ItemManufacturer
 from cart.models import Cart
 from users.models import User#, Users
 from django.forms.models import model_to_dict
-
+from django.contrib.auth.models import User
 from rest_framework import viewsets
 from rest_framework import permissions
 
-from api.serializers import ItemSerializer
+from api.serializers import ItemSerializer, UserSerializer
 
 """
 def index(request):
@@ -78,5 +78,5 @@ class users(viewsets.ModelViewSet):
     Returns all users.
     """
     queryset = User.objects.all()
-    serializer_class = ItemSerializer
+    serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]

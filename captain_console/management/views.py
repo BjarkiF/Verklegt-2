@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
-
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from users.models import Profile
 from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
@@ -32,7 +32,7 @@ def orders(request):
 
 @login_required
 def staff(request):
-    staff = Profile.objects.all()
+    staff = User.objects.all()
     return render(request, 'management/staff/index.html', {'staff': staff})
 
 @login_required
