@@ -402,7 +402,7 @@ select::-ms-expand {
 
 .frontFL:hover {
   transition: 0.3s all ease;
-  background: red; }
+  background: #CE0000; }
 
 .frontFL:hover p {
   transition: 0.3s all ease;
