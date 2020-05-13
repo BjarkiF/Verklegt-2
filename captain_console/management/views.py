@@ -6,8 +6,11 @@ from users.models import Profile
 from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
 from django.contrib.auth.models import User
 
+# TODO: Gera bash scriptu sem setur upp nokkra mismuandi notendur.
 # TODO: Setja inn roles í Users. Bara ákveðin role eiga að getað skoðað þessa síðu.
-
+# TODO: nota is_superuser og is_staff flöggin til að stýra hvað hver getur gert.
+# superuser getur verið með is_staff = f og ekki komið fram á staff síðunni
+# venjulegir users koma heldur ekki á þeirri síðu.
 @login_required
 def index(request):
     # TODO: Connect to database.
@@ -32,7 +35,7 @@ def orders(request):
 
 @login_required
 def staff(request):
-    staff = User.objects.filter(is_superuser='f')
+    staff = User.objects.filter(is_staff='t')
     return render(request, 'management/staff/index.html', {'staff': staff})
 
 
