@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Checkout:</h2>
+    <div class="checkout-info">
+    <p>Contact info(billing addr)</p>
+    </div>
+    <div class="checkout-payment">
+        <form>
+            <div class="card-form">
+                <label>Nafn korthafa:</label>
+                <input type="text" placeholder="Nafn">
+            </div>
+            <div class="card-form">
+                <label>Kortanúmer:</label>
+                <input type="text" placeholder="xxxx-xxxx-xxxx">
+            </div>
+            <div class="card-form">
+                <label>Gildistími:</label>
+                <input type="text" placeholder="Nafn">
+            </div>
+            <div class="card-form">
+                <label>CVC:</label>
+                <input type="text" placeholder="xxx">
+            </div>
+        </form>
+    <p>Coins</p>
+
+    </div>
+
+{% endblock %}
