@@ -57,3 +57,6 @@ def remove_from_cart_all(request, id):
     cart.items = items
     cart.save()
     return index(request)
+
+def checkout(request):
+    return render(request ,'cart/checkout.html')

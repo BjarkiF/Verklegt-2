@@ -1,0 +1,37 @@
+.checkout-info{
+background: #e8e1d6}
+
+.checkout-payment{
+  //border: 2px black solid;
+  background: #EDF2F4;
+  width: 350px;
+  margin: 10px;
+  padding: 10px;
+}
+//
+//.card-form{
+//  margin: 20px;
+//  display: flex;
+//  justify-content: flex-end;
+//  //background: #CE0000;
+//}
+
+.card-form{
+  //width: 400px;
+  margin: 20px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0;
+  //font-size: 20px;
+
+}
+
+
+.card-form input{
+  //background: ghostwhite;
+  border-radius: 4px;
+  //margin: 0;
+  margin-left: 5px;
+  border: 2px gray solid;
+  //font-size: 16px;
+}

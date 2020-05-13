@@ -8,4 +8,6 @@ urlpatterns = [
     path('remove/<int:id>', views.remove_from_cart, name='remove_from_cart'),
     path('removeall/<int:id>', views.remove_from_cart_all, name='remove_from_cart_all'),
     path('login', LoginView.as_view(), name="Login"),
+    path('checkout', views.checkout)
+
 ]
