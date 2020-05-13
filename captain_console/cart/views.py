@@ -60,4 +60,4 @@ def remove_from_cart_all(request, id):
     return index(request)
 
 def checkout(request):
-    return render(request ,'cart/checkout.html')
+    return render(request ,'cart/checkout.html', { 'user': User.objects.get(id=request.user.id),})
