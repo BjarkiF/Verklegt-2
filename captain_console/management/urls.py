@@ -11,6 +11,7 @@ urlpatterns = [
     path('groups/<str:group_name>/', views.group_view, name="Group view"),
     path('customers/', views.customers, name="Customers"),
     path('customers/<str:username>/', views.employees_profile, name="Customer Profile"),
+    path('customers/<str:username>/delete/', views.employees_delete, name="Customer Profile"),
     path('orders/', views.orders, name="Management Orders"),
     path('employees/', views.employees, name="Employees"),
     path('employees/<str:username>/', views.employees_profile, name="Employee Profile"),

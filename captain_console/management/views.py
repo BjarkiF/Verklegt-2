@@ -60,14 +60,14 @@ def orders(request):
 @login_required
 def employees(request):
     data = User.objects.filter(is_staff='t')
-    return render(request, 'management/staff/index.html', {'staff': data, 'active_page': 'employees',})
+    return render(request, 'management/employees/index.html', {'staff': data, 'active_page': 'employees',})
 
 
 @user_passes_test(only_employee)
 @login_required
 def employees_profile(request, username):
     data = User.objects.filter(is_staff='t', username=username)
-    return render(request, 'management/staff/details.html', {'employee': data, 'active_page': 'employees',})
+    return render(request, 'management/employees/details.html', {'employee': data, 'active_page': 'employees',})
 
 
 @user_passes_test(only_employee)
@@ -75,7 +75,15 @@ def employees_profile(request, username):
 @login_required
 def employees_register(request):
     # TODO: Connect to database.
-    return render(request, 'management/staff/register.html', { 'active_page': 'employees', })
+    return render(request, 'management/employees/register.html', { 'active_page': 'employees', })
+
+
+@user_passes_test(only_employee)
+@user_passes_test(only_staff)
+@login_required
+def employees_delete(request):
+    # TODO: Connect to database.
+    return render(request, 'management/employees/index.html', { 'active_page': 'employees', })
 
 
 @user_passes_test(only_employee)
