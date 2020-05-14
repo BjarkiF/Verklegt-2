@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.urls import re_path
 from django.views.static import serve
+from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, PasswordResetCompleteView
 
 from rest_framework import routers
 
@@ -35,6 +36,8 @@ urlpatterns = [
     path('management/', include('management.urls')),
     path('cart/', include('cart.urls')),
     path('api/v1/', include('api.urls')),
+    path('logout', LogoutView.as_view(template_name='registration/logout.html'),  name="Logout"),
+    path('login', LoginView.as_view(template_name='registration/login.html'), name="Login"),
 ]
 
 #if settings.DEBUG:

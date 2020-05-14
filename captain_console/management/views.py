@@ -50,3 +50,16 @@ def config(request):
     # TODO: Sumir notendur eiga að sjá config og getað breytt meðal annars upplýsingum í footernum.
     config = None
     return render(request, 'management/config.html', {'config': config})
+
+
+@login_required
+def groups(request):
+    groups = {}
+    return render(request, 'management/groups.html', groups)
+
+
+@login_required
+def users(request):
+    groups = {}
+    return render(request, 'management/users.html', groups)
+

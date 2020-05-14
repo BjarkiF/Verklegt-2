@@ -79,3 +79,4 @@ def edit_address(request):
         'form': EditAddressForm(instance=address),
         #'country_select': UserCountry.objects.all()
     })
+
