@@ -825,6 +825,17 @@ header nav ul a {
   margin: 10px 0;
   transition: 0.3s all ease; }
 
+#countryselect select {
+  position: absolute;
+  background: ghostwhite;
+  left: 40%;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 0;
+  border: 2px gray solid;
+  font-size: 16px; }
+
 .checkout-site {
   display: flex;
   margin: 20px 20px 0 20px; }
@@ -926,3 +937,24 @@ header nav ul a {
 
 .col-md-2 {
   padding-top: 15px; }
+
+.list-group {
+  background: #6f42c1; }
+
+.list-group-item.list-group-item-action.active {
+  background: #E6B74B;
+  border: none; }
+
+.table th {
+  color: #CE0000; }
+
+.table a {
+  color: black;
+  text-decoration: none; }
+
+.table a:hover {
+  transition: 0.3s all ease;
+  color: #CE0000; }
+
+.table tbody tr {
+  color: black; }

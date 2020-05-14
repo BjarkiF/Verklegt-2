@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="edit-site">
-        <h2 class="edit-title">Uppfæra Heimilisfang</h2>
-        <p>*Stjörnumerkta reiti verður að fylla í</p>
+        <h2 class="edit-title">Uppfæra Heimilisfang:</h2>
+{#        <p>*Stjörnumerkta reiti verður að fylla í</p>#}
         <form method="post">
             {% csrf_token %}
             <div class="profile-form">
                 Götunafn: {{ form.street_name }}
             </div>
             <div class="profile-form">
-                Húsnúmer: *{{ form.house_num }}
+                Húsnúmer: {{ form.house_num }}
             </div>
             <div class="profile-form">
-                Borg/Bær: *{{ form.city }}
+                Borg/Bær: {{ form.city }}
             </div>
             <div class="profile-form">
                 Póstnúmer: {{ form.zipcode }}
             </div>
-            <div class="profile-form">
+            <div id="countryselect" class="profile-form">
                 Land: {{ form.country_id }}
             </div>
 {#            <div class="profile-form">#}
