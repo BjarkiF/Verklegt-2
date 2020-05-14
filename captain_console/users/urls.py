@@ -11,13 +11,13 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', LoginView.as_view(template_name='users/login.html'), name="Login"),
-    path('register', views.register, name="Register"),
-    path('reset', views.recover, name="Recover"),
-    path('logout', LogoutView.as_view(template_name='users/logout.html'), name="Logout"),
-    path('login', LoginView.as_view(template_name='users/login.html'), name="Login"),
+    path('register/', views.register, name="Register"),
+    path('reset/', views.recover, name="Recover"),
+    path('logout/', LogoutView.as_view(template_name='users/logout.html'), name="Logout"),
+    path('login/', LoginView.as_view(template_name='users/login.html'), name="Login"),
     path('profile/edit', views.edit_profile, name="Edit_profile"),
-    path('profile', views.profile, name="Profile"),
-    path('reset/<str:token>/', auth_views.PasswordResetView, name='password_reset_confirm'),
+    path('profile/', views.profile, name="Profile"),
+    path('reset/<str:token>/', auth_views.PasswordResetView, name='password_reset_confirm'), # TODO: Password reset
     path('reset/done/', auth_views.PasswordResetCompleteView, name='password_reset_complete'),
-    path('profile/address', views.edit_address, name='Edit_address')
+    path('profile/address/', views.edit_address, name='Edit_address')
 ]

@@ -8,7 +8,7 @@ urlpatterns = [
     path('', views.index),
     path('all/', views.all_items),
     path(r'^all/$', views.get_items_filter), # TODO: færa þetta í REST API.
-    path('<int:id>', views.get_item_by_id),
-    path('filter/<int:id>', views.get_items_category),
+    path('<int:id>/', views.get_item_by_id),
+    path('filter/<int:id>/', views.get_items_category),
     path('search/', views.search)
 ]

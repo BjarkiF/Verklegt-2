@@ -56,7 +56,7 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET api/v1/users/ ERROR", function(done) {
+    it("GET api/v1/users ERROR", function(done) {
         chai.request(url)
             .get('/api/v1/users')
             .set('Content-Type', 'appliction/json')
@@ -69,7 +69,7 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET api/v1/users/ SUCCESS - all users", function(done) {
+    it("GET api/v1/users SUCCESS - all users", function(done) {
         chai.request(url)
             .get('/api/v1/users')
             .set('Content-Type', 'appliction/json')
