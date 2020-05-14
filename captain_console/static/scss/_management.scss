@@ -8,3 +8,26 @@
 .col-md-2{
   padding-top: 15px;
 }
+.list-group{
+  background: #6f42c1;
+}
+
+.list-group-item.list-group-item-action.active{
+  background: #E6B74B;
+  border: none;
+}
+
+.table th{
+  color: #CE0000;
+}
+.table a{
+  color: black;
+  text-decoration: none;
+}
+.table a:hover{
+  transition: 0.3s all ease;
+  color: $color0;
+}
+.table tbody tr{
+  color: black;
+}
