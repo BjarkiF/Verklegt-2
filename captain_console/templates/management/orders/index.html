@@ -10,6 +10,7 @@
               <th scope="col">Name</th>
               <th scope="col">Location</th>
               <th scope="col">Orders</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -19,6 +20,7 @@
               <td><a href="#">{{ o.name }}</a></td>
               <td><a href="#">{{ o.city }}</a></td>
               <td><a href="#">{{ o.count }}</a></td>
+              <td><a href="order/delete/{{ order.id }}/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
           </tbody>
