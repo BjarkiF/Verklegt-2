@@ -325,7 +325,7 @@ header nav ul a {
   font-size: 30px;
   margin: 15px 0 15px 0; }
 
-select {
+.select select {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -339,7 +339,7 @@ select {
   cursor: pointer;
   font-size: 16px; }
 
-select::-ms-expand {
+.select select::-ms-expand {
   display: none; }
 
 .select {
@@ -820,23 +820,24 @@ select::-ms-expand {
   transition: 0.3s all ease; }
 
 .checkout-site {
-  width: 85%;
-  height: 450px;
-  margin: auto;
-  padding: 10px; }
+  display: flex;
+  margin: 20px 20px 0 20px; }
 
 .checkout-info {
-  width: 50%;
+  width: 100%;
   height: 300px;
-  float: left; }
+  margin: 0; }
 
-.checkout-payment {
-  margin-left: 50%;
-  border-left: 2px lightgrey solid;
-  padding: 20px;
-  height: 310px; }
+.saved-addr {
+  padding: 10px;
+  width: 40%; }
 
-.card-form {
+.new-addr {
+  padding: 10px;
+  width: 60%;
+  float: right; }
+
+.address-form {
   margin: 20px;
   display: flex;
   justify-content: flex-end;
@@ -844,13 +845,67 @@ select::-ms-expand {
 
 .address-form input {
   border-radius: 4px;
+  width: 180px;
   margin-left: 5px;
   border: 2px gray solid; }
+
+.address-form select {
+  border-radius: 4px;
+  width: 180px;
+  margin-left: 5px;
+  border: 2px gray solid;
+  font-size: 16px; }
+
+.address-choice {
+  display: flex; }
+
+.checkout-info p {
+  font-size: 20px; }
+
+.checkout-payment {
+  width: 40%;
+  border-left: 2px lightgrey solid;
+  padding-left: 10px; }
+
+.checkout-payment form {
+  margin-top: 70px; }
+
+.checkout-payment p {
+  font-size: 20px; }
+
+.card-form {
+  margin: 20px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0; }
 
 .card-form input {
   border-radius: 4px;
   margin-left: 5px;
   border: 2px gray solid; }
+
+.Cbuybtn {
+  text-align: right;
+  margin: 10px; }
+
+.Cbuybtn {
+  margin: 100px; }
+
+.Cbuybutton {
+  width: 200px;
+  margin: 15px 10px 0 10px;
+  border-radius: 10px;
+  border: grey 2px solid;
+  background: #CE0000;
+  color: ghostwhite; }
+
+.Cbuybutton:hover {
+  transition: 0.3s all ease;
+  color: #D0D3D4;
+  border-color: gray; }
+
+#ex-date input {
+  width: 80px; }
 
 .card-heading {
   margin-left: 200px; }

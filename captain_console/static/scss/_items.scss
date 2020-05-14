@@ -198,7 +198,7 @@
 }
 
 
-select{
+.select select{
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -212,7 +212,7 @@ select{
   cursor: pointer;
   font-size: 16px;
 }
-select::-ms-expand{
+.select select::-ms-expand{
   display: none;
 }
 

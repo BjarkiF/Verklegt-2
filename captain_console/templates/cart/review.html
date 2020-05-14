@@ -1,4 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
     {{ card.number }}
+    <p>held að þetta sé vitlaust tengtddd hja mér:/</p>
+    {% for item in items %}
+        <div class="cart-remove">
+                <a class="cart-remove-icon" href="{% url 'remove_from_cart_all' item.0.id %}">
+                    <i class="fas fa-trash"></i>
+                </a>
+        </div>
+            <div class="cart-item">
+            <div class="cart-img">
+                <img src="{{ item.0.itemimg_set.first.img }}" alt="{{ item.0.name }}"/>
+            </div>
+            <div class="cart-name">
+                {{ item.0.name }}
+            </div>
+            <div class="cart-q">
+                <p>
+                    <a href="{% url 'remove_from_cart' item.0.id %}">-</a>
+                    Magn: {{ item.1 }}
+                    <a href="{% url 'add_to_cart' item.0.id %}">+</a>
+                </p>
+            </div>
+            <div class="cart-price">
+                {{ item.0.price }},-
+            </div>
+        </div>
+{% endfor %}
+
 {% endblock %}

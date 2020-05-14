@@ -106,3 +106,7 @@ def get_address_dict(form): # TODO: ekkert country_id?
         'country': country.country_name
     }
     return dict
+
+
+def review(request):
+    return render(request,'cart/review.html')

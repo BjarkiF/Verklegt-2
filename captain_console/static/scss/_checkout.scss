@@ -1,28 +1,147 @@
+//.checkout-site{
+//  width: 85%;
+//  height: 450px;
+//  margin: auto;
+//  //background: aqua;
+//  padding: 10px;
+//}
+//
+//.checkout-info{
+//  width: 50%;
+//  height: 300px;
+//  //background: #EDF2F4;
+//  float: left;
+//}
+//
+//.checkout-payment{
+//  //border: 2px black solid;
+//  //background: #EDF25F;
+//  margin-left: 50%;
+//  border-left: 2px lightgrey solid;
+//  padding: 20px;
+//  height: 310px;
+//
+//
+//}
+////
+////.card-form{
+////  margin: 20px;
+////  display: flex;
+////  justify-content: flex-end;
+////  //background: #CE0000;
+////}
+//
+//.card-form{
+//  //width: 400px;
+//  margin: 20px;
+//  display: flex;
+//  justify-content: flex-end;
+//  border-radius: 0;
+//  //font-size: 20px;
+//
+//}
+//
+//.address-form input {
+//  //background: ghostwhite;
+//  border-radius: 4px;
+//  //margin: 0;
+//  margin-left: 5px;
+//  border: 2px gray solid;
+//  //font-size: 16px;
+//}
+//
+//.card-form input{
+//  //background: ghostwhite;
+//  border-radius: 4px;
+//  //margin: 0;
+//  margin-left: 5px;
+//  border: 2px gray solid;
+//  //font-size: 16px;
+//}
+
+//--------------
+//.checkout-site{
+//  margin: 100px;
+//  background: #ad4848
+//}
 .checkout-site{
-  width: 85%;
-  height: 450px;
-  margin: auto;
-  //background: aqua;
-  padding: 10px;
+  display: flex;
+  margin: 20px 20px 0 20px;
 }
 
 .checkout-info{
-  width: 50%;
+  width: 100%;
   height: 300px;
+  margin: 0;
   //background: #EDF2F4;
-  float: left;
+  //padding: 20px;
+  //display: flex;
 }
 
-.checkout-payment{
+.saved-addr{
+  //background: #9fcdff;
+  padding: 10px;
+  width: 40%;
+
+}
+
+.new-addr{
+  //background: #E6B74B;
+  //margin-left: 10px;
+  padding: 10px;
+  width: 60%;
+  float: right;
+
+
+
+}
+
+.address-form{
+  margin: 20px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0;
+
+}
+.address-form input{
+  border-radius: 4px;
+  width: 180px;
+  margin-left: 5px;
+  border: 2px gray solid;
+
+}
+.address-form select{
+  border-radius: 4px;
+  width: 180px;
+  margin-left: 5px;
+  border: 2px gray solid;
+  font-size: 16px;
+}
+
+
+.address-choice{
+  display: flex;
+}
+.checkout-info p{
+  font-size: 20px;
+}
+//---------------------------------------------------------------------------
+.checkout-payment {
   //border: 2px black solid;
-  //background: #EDF25F;
-  margin-left: 50%;
+  //background: #EDF2F4;
+  width: 40%;
+  //margin: 10px;
   border-left: 2px lightgrey solid;
-  padding: 20px;
-  height: 310px;
-
-
+  padding-left: 10px;
 }
+.checkout-payment form {
+  margin-top: 70px;
+}
+
+.checkout-payment p{
+ font-size: 20px;
+}
+
 //
 //.card-form{
 //  margin: 20px;
@@ -41,22 +160,41 @@
 
 }
 
-.address-form input {
-  //background: ghostwhite;
-  border-radius: 4px;
-  //margin: 0;
-  margin-left: 5px;
-  border: 2px gray solid;
-  //font-size: 16px;
-}
-
 .card-form input{
   //background: ghostwhite;
   border-radius: 4px;
   //margin: 0;
   margin-left: 5px;
   border: 2px gray solid;
-  //font-size: 16px;
+
+}
+.Cbuybtn{
+  text-align: right;
+  margin: 10px;
+
+}
+.Cbuybtn{
+  margin: 100px;
+}
+
+.Cbuybutton{
+  width: 200px;
+  margin: 15px 10px 0 10px;
+  border-radius: 10px;
+  border:grey 2px solid;
+  background: $color0;
+  color: ghostwhite;
+
+}
+
+.Cbuybutton:hover{
+  transition: 0.3s all ease;
+  color: #D0D3D4;
+  border-color: gray;
+}
+
+#ex-date input{
+  width: 80px;
 }
 
 .card-heading{
