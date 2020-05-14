@@ -563,6 +563,9 @@ header nav ul a {
   margin: 10px 0;
   transition: 0.3s all ease; }
 
+.logged-out-thanks {
+  text-align: center; }
+
 .register-title {
   width: 100%;
   text-align: center;
