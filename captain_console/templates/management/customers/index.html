@@ -11,6 +11,8 @@
               <th scope="col">Email</th>
               <th scope="col">Active</th>
               <th scope="col">Last Login</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -21,6 +23,8 @@
               <td>{{ c.email }}</td>
               <td>{{ c.is_active }}</td>
               <td>{{ c.last_login }}</td>
+              <td><a href="order/delete/{{ order.id }}/"><i class="fas fa-lock"></i></a></td>
+              <td><a href="order/delete/{{ order.id }}/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
           </tbody>
