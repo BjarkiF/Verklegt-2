@@ -12,8 +12,8 @@
               <th scope="col">Email</th>
               <th scope="col">is_active</th>
               <th scope="col">last_login</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
+              <th scope="col"><i class="fas fa-lock"></i></th>
+              <th scope="col"><i class="fas fa-trash"></i></th>
             </tr>
           </thead>
           <tbody>
@@ -22,11 +22,11 @@
               <th scope="row">{{ forloop.counter }}</th>
               <td><a href="{{s.username}}/">{{ s.username }}</a></td>
               <td><a href="{{s.username}}/">{{ s.first_name }} {{ s.first_name }}</a></td>
-              <td>{{ s.email }}</a></td>
+              <td>{{ s.email }}</td>
               <td>{{ s.is_active }}</td>
               <td>{{ s.last_login }}</td>
-              <td><a href="delete/{{ order.id }}/"><i class="fas fa-lock"></i></a></td>
-              <td><a href="delete/{{ order.id }}/"><i class="fas fa-trash"></i></a></td>
+              <td><a href="{{ s.username }}/lock/"><i class="fas fa-lock"></i></a></td>
+              <td><a href="{{ s.username }}/delete/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
           </tbody>

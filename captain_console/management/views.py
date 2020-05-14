@@ -98,12 +98,21 @@ def employees_register(request):
     return render(request, 'management/employees/register.html', { 'active_page': 'employees', })
 
 
-@user_passes_test(only_employee)
+#@user_passes_test(only_employee)
 @user_passes_test(only_staff)
 @login_required
-def employees_delete(request):
+def employees_delete(request, username):
     # TODO: Connect to database.
-    return render(request, 'management/employees/index.html', { 'active_page': 'employees', })
+    logging.info('Deleting employee ID: {0}'.format(username))
+    return redirect('/management/employees/')
+
+#@user_passes_test(only_employee)
+@user_passes_test(only_staff)
+@login_required
+def employees_lock(request, username):
+    # TODO: Connect to database.
+    logging.info('Locking employee account ID: {0}'.format(username))
+    return redirect('/management/employees/')
 
 
 @user_passes_test(only_employee)
@@ -191,5 +200,21 @@ def customers(request):
 @user_passes_test(only_employee)
 @login_required
 def customers_details(request, username):
-    data = User.objects.filter(is_staff='t', username=username)
+    data = User.objects.filter(is_staff='f', username=username)
     return render(request, 'management/customers/details.html', {'customer': data, 'active_page': 'customers',})
+
+
+@user_passes_test(only_staff)
+@login_required
+def customers_delete(request, id):
+    data = User.objects.filter(id=id).delete()
+    return redirect('/management/customers/')
+
+@user_passes_test(only_staff)
+@login_required
+def customers_lock(request, id):
+    #data = User.objects.filter(id=id).delete()
+    logging.info('Locking account ID: {0}'.format(id))
+    return redirect('/management/customers/')
+
+
