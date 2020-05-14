@@ -21,9 +21,17 @@
                 <p>Flokkur: {{ item.category.name }}</p>
             </div>
 
-            <a href="{% url 'add_to_cart' item.id %}" class="button Kbutton">
-                Bæta í körfu
-            </a>
+
+            {% if not user.is_staff %}
+                <a href="{% url 'add_to_cart' item.id %}" class="button Kbutton">
+                    Bæta í körfu
+                </a>
+            {% else %}
+                <a href="{% url 'add_to_cart' item.id %}" class="button Kbutton change-item-button">
+                    Breyta vöru
+                </a>
+            {% endif %}
+
             </div>
         </div>
     {% endblock %}
