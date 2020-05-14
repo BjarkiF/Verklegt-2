@@ -949,11 +949,30 @@ header nav ul a {
 
 .table a {
   color: black;
-  text-decoration: none; }
+  text-decoration: none;
+  font-size: 18px; }
 
 .table a:hover {
   transition: 0.3s all ease;
   color: #CE0000; }
 
+.table td {
+  font-size: 18px;
+  background: #EDF2F4; }
+
 .table tbody tr {
-  color: black; }
+  color: black;
+  font-size: 16px; }
+
+.fas.fa-plus {
+  color: gray;
+  border: 1px silver solid;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+  background: ghostwhite; }
+
+.fas.fa-plus:hover {
+  transition: 0.3s all ease;
+  background: #E6B74B;
+  color: ghostwhite; }
