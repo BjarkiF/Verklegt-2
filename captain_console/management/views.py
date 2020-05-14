@@ -56,15 +56,22 @@ def orders(request):
 
 @user_passes_test(only_employee)
 @login_required
-def staff(request):
+def employees(request):
     data = User.objects.filter(is_staff='t')
     return render(request, 'management/staff/index.html', {'staff': data})
 
 
 @user_passes_test(only_employee)
+@login_required
+def employees_profile(request, username):
+    data = User.objects.filter(is_staff='t', username=username)
+    return render(request, 'management/staff/details.html', {'employee': data})
+
+
+@user_passes_test(only_employee)
 @user_passes_test(only_staff)
 @login_required
-def staff_register(request):
+def employees_register(request):
     # TODO: Connect to database.
     return render(request, 'management/staff/register.html')
 
@@ -131,3 +138,10 @@ def customers(request):
     data = User.objects.filter(is_staff='f')
     return render(request, 'management/customers/index.html', {'customers': data})
 
+
+
+@user_passes_test(only_employee)
+@login_required
+def customers_details(request, username):
+    data = User.objects.filter(is_staff='t', username=username)
+    return render(request, 'management/customers/details.html', {'customer': data})

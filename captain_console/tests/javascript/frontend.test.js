@@ -46,6 +46,32 @@ describe('Endpoint tests', () => {
         });
     });
 
+    it("GET / SUCCESS - Index", function(done) {
+        /* Ná í forsíðuna. */
+        chai.request(url)
+            .get('/')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(200);
+                chai.expect(res).to.be.html;
+
+                done();
+        });
+    });
+
+    it("GET / SUCCESS - Index", function(done) {
+        /* Ná í forsíðuna. */
+        chai.request(url)
+            .get('')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(200);
+                chai.expect(res).to.be.html;
+
+                done();
+        });
+    });
+
     it("GET /cart/ SUCCESS", function(done) {
         /* Hvað gerist ef karfan er opnuð án þess að ská sig inn. */
  
@@ -62,11 +88,43 @@ describe('Endpoint tests', () => {
         });
     });
 
+    it("GET /cart SUCCESS", function(done) {
+        /* Hvað gerist ef karfan er opnuð án þess að ská sig inn. */
+ 
+        chai.request(url)
+            .get('/cart')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(200);
+                chai.expect(res).to.be.html;
+                chai.expect(res.redirects[0]).to.equal(url + '/users/login?next=/cart/')
+                chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
 
     it("GET /about/ SUCCESS", function(done) {
         /* Opna about */
         chai.request(url)
             .get('/about/')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(200);
+                chai.expect(res).to.be.html;
+
+                /*chai.expect(typeof(res)).to.equal('object');*/
+
+                done();
+        });
+    });
+
+
+    it("GET /about SUCCESS", function(done) {
+        /* Opna about */
+        chai.request(url)
+            .get('/about')
             .set('Content-Type', 'appliction/json')
             .end( (err, res) => {
                 chai.expect(res).to.have.status(200);
@@ -185,35 +243,6 @@ describe('Endpoint tests', () => {
                 chai.expect(res).to.be.html;
                 //chai.expect(typeof(res)).to.equal('object');
                 chai.expect(res.redirects[0]).to.equal(url + '/management/groups/')
-
-                done();
-        });
-    });
-
-
-    
-    it("GET api/v1/user/1337/ SUCCESS", function(done) {
-        chai.request(url)
-            .get('/api/v1/user/1337')
-            .set('Content-Type', 'appliction/json')
-            .end( (err, res) => {
-                chai.expect(res).to.have.status(403);
-                chai.expect(res).to.be.json;
-                chai.expect(typeof(res)).to.equal('object');
-
-                done();
-        });
-    });
-
-    
-    it("GET api/v1/user/1337/ SUCCESS", function(done) {
-        chai.request(url)
-            .get('/api/v1/user/1337/')
-            .set('Content-Type', 'appliction/json')
-            .end( (err, res) => {
-                chai.expect(res).to.have.status(404);
-                chai.expect(res).to.be.html;
-                chai.expect(typeof(res)).to.equal('object');
 
                 done();
         });

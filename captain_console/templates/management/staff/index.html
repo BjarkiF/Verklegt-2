@@ -8,13 +8,10 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Username</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
+              <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">is_active</th>
               <th scope="col">last_login</th>
-              <th scope="col">Kennitala</th>
-              <th scope="col">Sími</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -23,16 +20,13 @@
             {% for s in staff %}
             <tr>
               <th scope="row">{{ forloop.counter }}</th>
-              <td>{{ s.username }}</td>
-              <td>{{ s.first_name }}</td>
-              <td>{{ s.last_name }}</td>
-              <td>{{ s.email }}</td>
+              <td><a href="{{s.username}}/">{{ s.username }}</a></td>
+              <td><a href="{{s.username}}/">{{ s.first_name }} {{ s.first_name }}</a></td>
+              <td>{{ s.email }}</a></td>
               <td>{{ s.is_active }}</td>
               <td>{{ s.last_login }}</td>
-              <td><!-- TODO: kennitala --></td>
-              <td><!-- TODO: telephone --></td>
-              <td><a href="order/delete/{{ order.id }}/"><i class="fas fa-lock"></i></a></td>
-              <td><a href="order/delete/{{ order.id }}/"><i class="fas fa-trash"></i></a></td>
+              <td><a href="delete/{{ order.id }}/"><i class="fas fa-lock"></i></a></td>
+              <td><a href="delete/{{ order.id }}/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
           </tbody>
