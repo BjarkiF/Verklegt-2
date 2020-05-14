@@ -17,8 +17,6 @@ class UserAddress(models.Model):
 
 
 class Profile(models.Model):
-    # TODO: Hvað er þetta? Eitthvað gamalt?
-    # þetta er profile model sem extendar django user modelið svo það sé hægt að geyma myndir, address o.fl.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     img = models.CharField(max_length=999, default='', blank=True, verbose_name='Mynd')
     phone = models.CharField(max_length=999, default='', blank=True, verbose_name='Símanúmer')
@@ -26,10 +24,10 @@ class Profile(models.Model):
 
 class UserCard(models.Model):
     name = models.CharField(max_length=999)
-    number = models.IntegerField()
-    exp_month = models.IntegerField()
-    exp_year = models.IntegerField()
-    cvc = models.IntegerField()
+    number = models.CharField(max_length=16)
+    exp_month = models.CharField(max_length=2)
+    exp_year = models.CharField(max_length=2)
+    cvc = models.CharField(max_length=3)
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:

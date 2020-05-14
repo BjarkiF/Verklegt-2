@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="checkout-site">
-        <form id="checkout-form" method="post" >
+        <form method="post" >
             {% csrf_token %}
         <div class="checkout-info">
             {% with user.useraddress_set.all|first as address %}
@@ -16,48 +16,58 @@
                         {% endif %}
                     <h4>Nýtt heimilisfang: <input type="radio" name="address-radio" id="new_address" checked="checked">
                     </h4>
+                        {{ address_form.non_field_errors }}
                         <div class="address-form">
                             <label>Götunafn:</label>
                             {{ address_form.street_name }}
+                            {{ address_form.street_name.errors }}
                         </div>
                         <div class="address-form">
                             <label>Húsnúmer:</label>
                             {{ address_form.house_num }}
+                            {{ address_form.house_num.errors }}
                         </div>
                         <div class="address-form">
                             <label>Póstnúmer:</label>
                             {{ address_form.zipcode }}
+                            {{ address_form.zipcode.errors }}
                         </div>
                         <div class="address-form">
                             <label>Borg/Bær:</label>
                             {{ address_form.city }}
+                            {{ address_form.city.errors }}
                         </div>
                         <div class="address-form">
                             <label>Land:</label>
                             {{ address_form.country_id }}
+                            {{ address_form.country_id.errors }}
                         </div>
                 {% endwith %}
             </div>
         </div>
         <div class="checkout-payment">
-            <form>
+            <h4 class="card-heading">Kortaupplýsingar:</h4>
+                {{ card_form.non_field_errors }}
                 <div class="card-form">
                     <label>Nafn korthafa:</label>
                     {{ card_form.name }}
+                    {{ card_form.name.errors }}
                 </div>
                 <div class="card-form">
                     <label>Kortanúmer:</label>
                     {{ card_form.number }}
+                    {{ card_form.number.errors }}
                 </div>
                 <div class="card-form">
                     <label>Gildistími:</label>
                     {{ card_form.exp_month }}/{{ card_form.exp_year }}
+                    {{ card_form.exp_month.errors }} {{ card_form.exp_year.errors }}
                 </div>
                 <div class="card-form">
                     <label>CVC:</label>
                     {{ card_form.cvc }}
+                    {{ card_form.cvc.errors }}
                 </div>
-            </form>
         </div>
         <div class="buybtn">
             <input class="buybutton" type="submit" value="Áfram">
