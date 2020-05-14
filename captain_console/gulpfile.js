@@ -53,7 +53,7 @@ gulp.task('scss', function(){
     /* Build the scss file. */
     return gulp.src('./static/scss/style.scss')
                .pipe(sass()) // Using gulp-sass
-               .pipe(concat('style.css'))
+               //.pipe(concat('style.css'))
                .pipe(csslint({
                     'shorthand': false
                }))

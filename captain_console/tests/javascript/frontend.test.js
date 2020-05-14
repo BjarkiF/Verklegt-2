@@ -3,6 +3,8 @@ let chaiHttp = require('chai-http')
 let parseArguments = require('./chai-set-url')
 chai.use(chaiHttp)
 
+// TODO: log to a file
+
 let url = parseArguments.url()
 let creds = require('./creds').creds();
 
@@ -43,11 +45,12 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
-
-    it("GET /cart/ SUCCESS - all events", function(done) {
+/*
+    it("GET /cart/ SUCCESS", function(done) {
         /* Hvað gerist ef karfan er opnuð án þess að ská sig inn. */
+ /*
         chai.request(url)
-            .get('/cart/')
+            .get('/cart')
             .set('Content-Type', 'appliction/json')
             .end( (err, res) => {
                 chai.expect(res).to.have.status(200);
@@ -58,11 +61,11 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
-
-
-    it("GET /about/ SUCCESS - all events", function(done) {
+*/
+/*
+    it("GET /about/ SUCCESS", function(done) {
         /* Opna about */
-        chai.request(url)
+/*        chai.request(url)
             .get('/about/')
             .set('Content-Type', 'appliction/json')
             .end( (err, res) => {
@@ -70,13 +73,13 @@ describe('Endpoint tests', () => {
                 chai.expect(res).to.be.html;
 
                 /*chai.expect(typeof(res)).to.equal('object');*/
-
+/*
                 done();
         });
     });
-
-
-    it("GET /users/login/ SUCCESS - all events", function(done) {
+*/
+/*
+    it("GET /users/login/ SUCCESS", function(done) {
         chai.request(url)
             .get('/users/login')
             .set('Content-Type', 'appliction/json')
@@ -88,9 +91,9 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
+*/
 
-
-    it("GET /login/ SUCCESS - all events", function(done) {
+    it("GET /login/ SUCCESS", function(done) {
         chai.request(url)
             .get('/login')
             .set('Content-Type', 'appliction/json')
@@ -103,7 +106,7 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET /about/login/ SUCCESS - all events", function(done) {
+    it("GET /about/login/ SUCCESS", function(done) {
         chai.request(url)
             .get('/about/login')
             .set('Content-Type', 'appliction/json')
@@ -116,7 +119,7 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET /items/login/ SUCCESS - all events", function(done) {
+    it("GET /items/login/ SUCCESS", function(done) {
         chai.request(url)
             .get('/items/login')
             .set('Content-Type', 'appliction/json')
@@ -129,7 +132,7 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET /cart/login/ SUCCESS - all events", function(done) {
+    it("GET /cart/login/ ERROR", function(done) {
         chai.request(url)
             .get('/cart/login')
             .set('Content-Type', 'appliction/json')
@@ -141,11 +144,11 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
-
-    it("GET /management/login/ SUCCESS - all events", function(done) {
+/*
+    it("GET /management/login/ SUCCESS", function(done) {
         chai.request(url)
             .get('/management/login')
-            .set('Content-Type', 'appliction/html')
+            .set('Content-Type', 'appliction/json')
             .end( (err, res) => {
                 chai.expect(res).to.have.status(404);
                 chai.expect(res).to.be.html;
@@ -154,12 +157,13 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
-
-    it("GET /management/login/ SUCCESS - all events", function(done) {
+*/
+    /*
+    it("GET /management/login/ SUCCESS creds superuser", function(done) {
         chai.request(url)
-            .get('/management/')
-            .auth(creds.staff.username, creds.staff.password)
-            .set('Content-Type', 'appliction/html')
+            .get('/management/login')
+            .auth(creds.superuser.username, creds.superuser.password)
+            .set('Content-Type', 'appliction/json')
             .end( (err, res) => {
                 chai.expect(res).to.have.status(200);
                 chai.expect(res).to.be.html;
@@ -168,10 +172,27 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
+    */
+
+
+    it("GET /management/groups/ FAIL invalid creds ", function(done) {
+        chai.request(url)
+            .get('/management/groups')
+            .auth('notandi', 'eitthvaðbull')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(403);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+                chai.expect(res.redirects[0]).to.equal(url + '/users/login?next=/management/groups')
+
+                done();
+        });
+    });
 
 
     /*
-    it("GET api/v1/user/1337/ SUCCESS - all events", function(done) {
+    it("GET api/v1/user/1337/ SUCCESS", function(done) {
         chai.request(url)
             .get('/api/v1/user/1337/')
             .set('Content-Type', 'appliction/json')

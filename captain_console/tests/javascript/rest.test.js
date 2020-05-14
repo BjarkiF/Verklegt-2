@@ -20,7 +20,7 @@ describe('Endpoint tests', () => {
      * GET                                      *
      ********************************************/
 
-    it("GET api/v1/items/all/ SUCCESS - all events", function(done) {
+    it("GET api/v1/items/all SUCCESS", function(done) {
         chai.request(url)
             .get('/api/v1/items/all')
             .set('Content-Type', 'appliction/json')
@@ -43,7 +43,7 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET api/v1/cart/ ERROR - all events", function(done) {
+    it("GET api/v1/cart ERROR", function(done) {
         chai.request(url)
             .get('/api/v1/cart')
             .set('Content-Type', 'appliction/json')
@@ -56,9 +56,9 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET api/v1/users/ ERROR - all events", function(done) {
+    it("GET api/v1/users/ ERROR", function(done) {
         chai.request(url)
-            .get('/api/v1/users/')
+            .get('/api/v1/users')
             .set('Content-Type', 'appliction/json')
             .end( (err, res) => {
                 chai.expect(res).to.have.status(403);
@@ -71,7 +71,7 @@ describe('Endpoint tests', () => {
 
     it("GET api/v1/users/ SUCCESS - all users", function(done) {
         chai.request(url)
-            .get('/api/v1/users/')
+            .get('/api/v1/users')
             .set('Content-Type', 'appliction/json')
             .auth(creds.superuser.username, creds.superuser.password)
             .end( (err, res) => {
@@ -85,7 +85,7 @@ describe('Endpoint tests', () => {
 
     it("GET api/v1/users/ SUCCESS - all users", function(done) {
         chai.request(url)
-            .get('/api/v1/users/')
+            .get('/api/v1/users')
             .set('Content-Type', 'appliction/json')
             .auth(creds.staff.username, creds.staff.password)
             .end( (err, res) => {
@@ -99,7 +99,7 @@ describe('Endpoint tests', () => {
 
     it("GET api/v1/users/ SUCCESS - all users", function(done) {
         chai.request(url)
-            .get('/api/v1/users/')
+            .get('/api/v1/users')
             .set('Content-Type', 'appliction/json')
             .auth(creds.customer.username, creds.customer.password)
             .end( (err, res) => {
@@ -113,7 +113,7 @@ describe('Endpoint tests', () => {
 
     it("GET api/v1/user/1/ ERROR - user by id", function(done) {
         chai.request(url)
-            .get('/api/v1/user/1337/')
+            .get('/api/v1/user/1337')
             .set('Content-Type', 'appliction/json')
             .end( (err, res) => {
                 chai.expect(res).to.have.status(403);
