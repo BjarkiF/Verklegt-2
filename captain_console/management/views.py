@@ -2,8 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from users.models import Profile
-from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
+#from users.models import Profile
+#from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
+from management.forms.forms import ConfigForm
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import user_passes_test
 
@@ -101,7 +102,7 @@ def config(request):
             ]
         }
     }
-    return render(request, 'management/config.html', {'config': data})
+    return render(request, 'management/config.html', {'config': data, 'form': ConfigForm()})
 
 
 @user_passes_test(only_employee)

@@ -3,11 +3,77 @@
 
     {% include 'management/navbar.html' %}
     <div class="col-md-10 content">
-    <!--
-        TODO: Config
-        TODO: Categories
-        TODO: About
-        TODO: Footer
-    -->
+        <!--
+            TODO: Config
+            TODO: Categories
+            TODO: About
+            TODO: Footer
+        -->
+
+        <h1>Config</h1>
+        <div class="col-md-5 content">
+        <h2 class="register-title">Footer</h2>
+        <p>* Stjörnumerkta reiti er nauðsynlegt að fylla</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-control">
+                {{ form.hours_weekdays.errors}}
+                Notandanafn:* {{ form.hours_saturday }}
+            </div>
+            <div class="form-control">
+                {{ form.hours_saturday.errors }}
+                Laugadagar:* {{ form.hours_saturday }}
+            </div>
+            <div class="form-control">
+                {{ form.hours_sunday.errors }}
+                Sunnudagar:* {{ form.hours_sunday }}
+            </div>
+            <div class="form-control">
+                {{ form.email.errors }}
+                Netfang:* {{ form.email }}
+            </div>
+            <div class="form-control">
+                {{ form.telephone.errors }}
+                Sími:* {{ form.telephone }}
+            </div>
+            <div class="form-control">
+                {{ form.address.errors }}
+                Heimilisfang:* {{ form.address }}
+            </div>
+            <div class="form-control">
+                {{ form.social_facebook.errors }}
+                Facebook:* {{ form.social_facebook }}
+            </div>
+            <div class="form-control">
+                {{ form.social_twitter.errors }}
+                Twitter:* {{ form.social_twitter }}
+            </div>
+            <div class="form-control">
+                {{ form.social_youtube.errors }}
+                YouTube:* {{ form.social_youtube }}
+            </div>
+            <div class="form-control">
+                {{ form.social_instagram.errors }}
+                Instagram:* {{ form.social_instagram }}
+            </div>
+            <input class="reg" type="submit" value="Nýskrá">
+        </form>
+        </div>
+        <div class="col-md-5 content">
+            <h2 class="register-title">Um Okkur</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-control">
+                    {{ form.username.errors }}
+                    Texti:* {{ form.username }}
+                </div>
+                <div class="form-control">
+                    {{ form.first_name.errors }}
+                    Staðsetning:* {{ form.first_name }}
+                </div>
+                <input class="reg" type="submit" value="Nýskrá">
+            </form>
+        </div>
     </div>
+
 {% endblock %}

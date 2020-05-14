@@ -46,6 +46,7 @@ describe('Endpoint tests', () => {
         });
     });
 
+
     it("GET / SUCCESS - Index", function(done) {
         /* Ná í forsíðuna. */
         chai.request(url)
@@ -59,6 +60,7 @@ describe('Endpoint tests', () => {
         });
     });
 
+
     it("GET / SUCCESS - Index", function(done) {
         /* Ná í forsíðuna. */
         chai.request(url)
@@ -71,6 +73,7 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
+
 
     it("GET /cart/ SUCCESS", function(done) {
         /* Hvað gerist ef karfan er opnuð án þess að ská sig inn. */
@@ -87,6 +90,7 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
+
 
     it("GET /cart SUCCESS", function(done) {
         /* Hvað gerist ef karfan er opnuð án þess að ská sig inn. */
@@ -164,7 +168,8 @@ describe('Endpoint tests', () => {
         });
     });
 
-    it("GET /about/login/ SUCCESS", function(done) {
+
+    it("GET /about/login SUCCESS", function(done) {
         chai.request(url)
             .get('/about/login')
             .set('Content-Type', 'appliction/json')
@@ -176,6 +181,21 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
+
+
+    it("GET /about/login/ SUCCESS", function(done) {
+        chai.request(url)
+            .get('/about/login/')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(404);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
 
     it("GET /items/login/ SUCCESS", function(done) {
         chai.request(url)
@@ -190,6 +210,7 @@ describe('Endpoint tests', () => {
         });
     });
 
+
     it("GET /cart/login/ ERROR", function(done) {
         chai.request(url)
             .get('/cart/login')
@@ -202,6 +223,7 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
+
 
     it("GET /management/login/ SUCCESS", function(done) {
         chai.request(url)
@@ -232,8 +254,7 @@ describe('Endpoint tests', () => {
     });
     
 
-
-    it("GET /management/groups/ FAIL invalid creds ", function(done) {
+    it("GET /management/groups FAIL invalid creds ", function(done) {
         chai.request(url)
             .get('/management/groups')
             .auth('notandi', 'eitthvaðbull')
@@ -243,6 +264,22 @@ describe('Endpoint tests', () => {
                 chai.expect(res).to.be.html;
                 //chai.expect(typeof(res)).to.equal('object');
                 chai.expect(res.redirects[0]).to.equal(url + '/management/groups/')
+
+                done();
+        });
+    });    
+
+
+    it("GET /management/groups/ FAIL invalid creds ", function(done) {
+        chai.request(url)
+            .get('/management/groups/')
+            .auth('notandi', 'eitthvaðbull')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(200);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+                chai.expect(res.redirects[0]).to.equal(url + '/users/login?next=/management/groups/')
 
                 done();
         });
