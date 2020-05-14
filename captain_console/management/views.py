@@ -41,7 +41,7 @@ def orders(request):
         {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
         {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
     ]
-    return render(request, 'management/orders.html', {'orders': data})
+    return render(request, 'management/orders/index.html', {'orders': data})
 
 
 @user_passes_test(only_employee)
@@ -98,7 +98,7 @@ def groups(request):
     #    users = User.objects.filter()
     #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
-    return render(request, 'management/groups.html', {'groups': data})
+    return render(request, 'management/groups/index.html', {'groups': data})
 
 
 @user_passes_test(only_employee)
@@ -112,12 +112,12 @@ def group_view(request, group_name):
     #    users = User.objects.filter()
     #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
-    return render(request, 'management/groups.html', {'groups': data})
+    return render(request, 'management/groups/details.html', {'group': data})
 
 
 @user_passes_test(only_employee)
 @login_required
 def customers(request):
     data = User.objects.filter(is_staff='f')
-    return render(request, 'management/customers.html', {'customers': data})
+    return render(request, 'management/customers/index.html', {'customers': data})
 
