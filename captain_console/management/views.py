@@ -26,6 +26,7 @@ def only_employee(user):
 def index(request):
     # TODO: Connect to database.
     data = {
+        'active_page': 'index',
         'orders': {
             'unprocesessed': 1337,
             'ready': 7,
@@ -52,21 +53,21 @@ def orders(request):
         {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
         {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
     ]
-    return render(request, 'management/orders/index.html', {'orders': data})
+    return render(request, 'management/orders/index.html', {'orders': data, 'active_page': 'orders',})
 
 
 @user_passes_test(only_employee)
 @login_required
 def employees(request):
     data = User.objects.filter(is_staff='t')
-    return render(request, 'management/staff/index.html', {'staff': data})
+    return render(request, 'management/staff/index.html', {'staff': data, 'active_page': 'employees',})
 
 
 @user_passes_test(only_employee)
 @login_required
 def employees_profile(request, username):
     data = User.objects.filter(is_staff='t', username=username)
-    return render(request, 'management/staff/details.html', {'employee': data})
+    return render(request, 'management/staff/details.html', {'employee': data, 'active_page': 'employees',})
 
 
 @user_passes_test(only_employee)
@@ -74,7 +75,7 @@ def employees_profile(request, username):
 @login_required
 def employees_register(request):
     # TODO: Connect to database.
-    return render(request, 'management/staff/register.html')
+    return render(request, 'management/staff/register.html', { 'active_page': 'employees', })
 
 
 @user_passes_test(only_employee)
@@ -102,7 +103,11 @@ def config(request):
             ]
         }
     }
-    return render(request, 'management/config.html', {'config': data, 'form': ConfigForm()})
+
+    #active_page = request.path.split('/')
+    #logging.info(active_page)
+
+    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'footer-form': ConfigForm()})
 
 
 @user_passes_test(only_employee)
@@ -116,7 +121,7 @@ def groups(request):
     #    users = User.objects.filter()
     #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
-    return render(request, 'management/groups/index.html', {'groups': data})
+    return render(request, 'management/groups/index.html', {'groups': data, 'active_page': 'groups',})
 
 
 @user_passes_test(only_employee)
@@ -130,14 +135,14 @@ def group_view(request, group_name):
     #    users = User.objects.filter()
     #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
-    return render(request, 'management/groups/details.html', {'group': data})
+    return render(request, 'management/groups/details.html', {'group': data, 'active_page': 'groups',})
 
 
 @user_passes_test(only_employee)
 @login_required
 def customers(request):
     data = User.objects.filter(is_staff='f')
-    return render(request, 'management/customers/index.html', {'customers': data})
+    return render(request, 'management/customers/index.html', {'customers': data, 'active_page': 'customers',})
 
 
 
@@ -145,4 +150,4 @@ def customers(request):
 @login_required
 def customers_details(request, username):
     data = User.objects.filter(is_staff='t', username=username)
-    return render(request, 'management/customers/details.html', {'customer': data})
+    return render(request, 'management/customers/details.html', {'customer': data, 'active_page': 'customers',})

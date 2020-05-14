@@ -6,10 +6,10 @@
         <!--
             TODO: Config
             TODO: Categories
-            TODO: About
-            TODO: Footer
+            TODO: *About*
+            TODO: *Footer*
         -->
-
+        {{ active_page }}
         <h1>Config</h1>
         <div class="col-md-5 content">
         <h2 class="register-title">Footer</h2>
@@ -18,7 +18,7 @@
             {% csrf_token %}
             <div class="form-control">
                 {{ form.hours_weekdays.errors}}
-                Notandanafn:* {{ form.hours_saturday }}
+                Virkur dagur:* {{ form.hours_weekdays }}
             </div>
             <div class="form-control">
                 {{ form.hours_saturday.errors }}
@@ -65,11 +65,11 @@
                 {% csrf_token %}
                 <div class="form-control">
                     {{ form.username.errors }}
-                    Texti:* {{ form.username }}
+                    Texti: {{ form.username }}
                 </div>
                 <div class="form-control">
                     {{ form.first_name.errors }}
-                    Staðsetning:* {{ form.first_name }}
+                    Staðsetning: {{ form.first_name }}
                 </div>
                 <input class="reg" type="submit" value="Nýskrá">
             </form>
