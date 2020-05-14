@@ -526,7 +526,8 @@ header nav ul a {
 /*INNSKRÁ SÍÐAN*/
 .loginsite {
   background: #e8e1d6;
-  margin-top: 0; }
+  margin-top: 0;
+  height: 75vh; }
   .loginsite h2 {
     margin-left: auto;
     margin-right: auto;
@@ -567,7 +568,7 @@ header nav ul a {
   padding-top: 30px; }
 
 .register-site {
-  height: 500px;
+  height: 75vh;
   background: #e8e1d6; }
 
 .register-site p {
