@@ -20,7 +20,7 @@
               <td><a href="#">{{ o.name }}</a></td>
               <td><a href="#">{{ o.city }}</a></td>
               <td><a href="#">{{ o.count }}</a></td>
-              <td><a href="order/delete/{{ order.id }}/"><i class="fas fa-trash"></i></a></td>
+              <td><a href="{{ o.id }}/delete/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
           </tbody>

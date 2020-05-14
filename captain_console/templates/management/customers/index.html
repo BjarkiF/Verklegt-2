@@ -19,12 +19,12 @@
             {% for c in customers %}
             <tr>
               <th scope="row">{{ forloop.counter }}</th>
-              <td><a href="customer/{{ c.first_name }}/">{{ c.first_name }} {{ c.last_name }}</a></td>
+              <td><a href="{{ c.first_name }}/">{{ c.first_name }} {{ c.last_name }}</a></td>
               <td>{{ c.email }}</td>
               <td>{{ c.is_active }}</td>
               <td>{{ c.last_login }}</td>
-              <td><a href="order/delete/{{ order.id }}/"><i class="fas fa-lock"></i></a></td>
-              <td><a href="order/delete/{{ order.id }}/"><i class="fas fa-trash"></i></a></td>
+              <td><a href="delete/{{ c.id }}/"><i class="fas fa-lock"></i></a></td>
+              <td><a href="delete/{{ c.id }}/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
           </tbody>

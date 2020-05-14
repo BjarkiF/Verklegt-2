@@ -15,7 +15,7 @@
             <tr>
               <th scope="row">{{ forloop.counter }}</th>
               <td><a href="{{ group }}">{{ group }}</a></td>
-              <td><i class="fas fa-trash"></i></td>
+              <td><a href="{{ group }}/delete/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
           </tbody>
