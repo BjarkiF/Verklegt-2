@@ -1,4 +1,4 @@
-
+// TODO: Setja hæðina í vh eininguna svo síðann sé samtals 100vh þó að contentið sé ekki alveg nógu langt
 
 .logo{
   cursor: pointer;
@@ -17,9 +17,11 @@ nav{
   z-index: 100;
   /*line-height: 80px;*/
 }
+
 nav a {
   text-decoration: none;
 }
+
 .navbuttons{
   list-style: none;
   text-decoration: none;

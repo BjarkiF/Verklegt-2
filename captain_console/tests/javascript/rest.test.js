@@ -5,26 +5,8 @@ let parseArguments = require('./chai-set-url')
 chai.use(chaiHttp)
 
 let url = parseArguments.url()
+let creds = require('./creds').creds();
 
-// TODO: Gera ráð fyrir mismunandi creds.
-let creds = {
-    'customer': {
-            'username': process.env.REST_CUSTOMER_USERNAME,
-            'password': process.env.REST_CUSTOMER_PASSWORD
-    },
-    'employee': {
-            'username': process.env.REST_EMPLOYEE_PASSWORD,
-            'password': process.env.REST_EMPLOYEE_PASSWORD
-    },
-    'staff': {
-            'username': process.env.REST_STAFF_USERNAME,
-            'password': process.env.REST_STAFF_PASSWORD
-    },
-    'superuser': {
-            'username': process.env.REST_SUPERUSER_USERNAME,
-            'password': process.env.REST_SUPERUSER_PASSWORD
-    }
-}
 describe('Endpoint tests', () => {
     //###########################
     //Write your tests below here

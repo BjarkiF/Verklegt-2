@@ -7,6 +7,7 @@ from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import user_passes_test
 
+import logging
 
 def only_staff(user):
     return user.groups.filter(name='staff').count()
@@ -55,6 +56,7 @@ def staff(request):
 
 
 @user_passes_test(only_employee)
+@user_passes_test(only_staff)
 @login_required
 def staffRegister(request):
     # TODO: Connect to database.
@@ -62,6 +64,7 @@ def staffRegister(request):
 
 
 @user_passes_test(only_employee)
+@user_passes_test(only_staff)
 @login_required
 def config(request):
     # TODO: Sumir notendur eiga að sjá config og getað breytt meðal annars upplýsingum í footernum.
@@ -70,9 +73,16 @@ def config(request):
 
 
 @user_passes_test(only_employee)
+@user_passes_test(only_staff)
 @login_required
 def groups(request):
     groups = Group.objects.all()
+    for g in groups:
+        l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
+        l_as_list = list(l)  # QuerySet to `list`
+        users = User.objects.filter(groups__name='customers')
+        logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
+
     return render(request, 'management/groups.html', {'groups': groups})
 
 

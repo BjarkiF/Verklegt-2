@@ -4,6 +4,7 @@ let parseArguments = require('./chai-set-url')
 chai.use(chaiHttp)
 
 let url = parseArguments.url()
+let creds = require('./creds').creds();
 
 describe('Endpoint tests', () => {
     //###########################
@@ -147,6 +148,20 @@ describe('Endpoint tests', () => {
             .set('Content-Type', 'appliction/html')
             .end( (err, res) => {
                 chai.expect(res).to.have.status(404);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
+    it("GET /management/login/ SUCCESS - all events", function(done) {
+        chai.request(url)
+            .get('/management/')
+            .auth(creds.staff.username, creds.staff.password)
+            .set('Content-Type', 'appliction/html')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(200);
                 chai.expect(res).to.be.html;
                 //chai.expect(typeof(res)).to.equal('object');
 
