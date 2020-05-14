@@ -20,12 +20,18 @@ from django.urls import re_path
 from django.views.static import serve
 from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, PasswordResetCompleteView
 
+from django.conf.urls.static import static
 from rest_framework import routers
+from django.conf import settings
 
+import os
 import logging
+
+from . import views
 
 router = routers.DefaultRouter()
 router.register(r'items', include('items.views'), basename='items')
+
 
 urlpatterns = [
     path('', include('items.urls')),
@@ -38,10 +44,12 @@ urlpatterns = [
     path('api/v1/', include('api.urls')),
 ]
 
-#if settings.DEBUG:
-#    urlpatterns += [
-#        re_path(r'^static/(?P<path>.*)$', serve),
-#    ]
+
+handler404 = 'captain_console.views.error_404'
+handler500 = 'captain_console.views.error_500'
+handler403 = 'captain_console.views.error_403'
+handler400 = 'captain_console.views.error_400'
+
 
 
 logging.info('STATIC_ROOT: {0}'.format(settings.STATIC_ROOT))

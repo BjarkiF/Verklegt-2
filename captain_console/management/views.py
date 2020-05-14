@@ -18,12 +18,7 @@ def only_employee(user):
     return user.groups.filter(name='employees').count()
 
 
-# TODO: Gera bash scriptu sem setur upp nokkra mismuandi notendur.
-# TODO: Setja inn roles í Users. Bara ákveðin role eiga að getað skoðað þessa síðu.
-# TODO: nota is_superuser og is_staff flöggin til að stýra hvað hver getur gert.
-# superuser getur verið með is_staff = f og ekki komið fram á staff síðunni
-# venjulegir users koma heldur ekki á þeirri síðu.
-
+# TODO: segja user að hann hafi ekki aðgang  ef hann er loggaður inn sem customer.
 
 @user_passes_test(only_employee)
 @login_required
@@ -46,7 +41,7 @@ def orders(request):
         {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
         {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
     ]
-    return render(request, 'management/orders.html', {'orders': data})
+    return render(request, 'management/orders/index.html', {'orders': data})
 
 
 @user_passes_test(only_employee)
@@ -97,18 +92,32 @@ def config(request):
 @login_required
 def groups(request):
     data = Group.objects.all()
-    for g in groups:
-        l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-        l_as_list = list(l)  # QuerySet to `list`
-        users = User.objects.filter(groups__name='customers')
-        logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
+    #for g in groups:
+    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
+    #    l_as_list = list(l)  # QuerySet to `list`
+    #    users = User.objects.filter()
+    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
-    return render(request, 'management/groups.html', {'groups': data})
+    return render(request, 'management/groups/index.html', {'groups': data})
+
+
+@user_passes_test(only_employee)
+@user_passes_test(only_staff)
+@login_required
+def group_view(request, group_name):
+    data = Group.objects.filter(name=group_name)
+    #for g in groups:
+    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
+    #    l_as_list = list(l)  # QuerySet to `list`
+    #    users = User.objects.filter()
+    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
+
+    return render(request, 'management/groups/details.html', {'group': data})
 
 
 @user_passes_test(only_employee)
 @login_required
 def customers(request):
     data = User.objects.filter(is_staff='f')
-    return render(request, 'management/customers.html', {'customers': data})
+    return render(request, 'management/customers/index.html', {'customers': data})
 

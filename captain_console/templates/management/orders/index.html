@@ -16,9 +16,9 @@
           {% for o in orders %}
             <tr>
               <th scope="row">{{ forloop.counter }}</th>
-              <td>{{ o.name }}</td>
-              <td>{{ o.city }}</td>
-              <td>{{ o.count }}</td>
+              <td><a href="#">{{ o.name }}</a></td>
+              <td><a href="#">{{ o.city }}</a></td>
+              <td><a href="#">{{ o.count }}</a></td>
             </tr>
             {% endfor %}
           </tbody>
