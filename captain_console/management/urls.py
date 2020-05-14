@@ -7,6 +7,8 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('', views.index, name="Management Index"),
     path('groups/', views.groups, name="Groups"),
+    path('groups/add/', views.groups, name="Groups Add"),
+    path('groups/<str:group_name>/', views.group_view, name="Group view"),
     path('customers/', views.customers, name="Users"),
     path('orders/', views.orders, name="Management Orders"),
     path('staff/', views.staff, name="Management Staff"),

@@ -2,7 +2,7 @@
 {% block content %}
     {% include 'management/navbar.html' %}
     <div class="col-md-10 content">
-        <h1>Manage Groups</h1>
+        <h1>Manage Groups <a href="add"><i class="fas fa-plus"></i></a></h1>
         <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -14,7 +14,8 @@
             {% for group in groups %}
             <tr>
               <th scope="row">{{ forloop.counter }}</th>
-              <td>{{ group }}</td>
+              <td><a href="{{ group }}">{{ group }}</a></td>
+              <td><i class="fas fa-trash"></i></td>
             </tr>
             {% endfor %}
           </tbody>

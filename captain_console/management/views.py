@@ -18,6 +18,8 @@ def only_employee(user):
     return user.groups.filter(name='employees').count()
 
 
+# TODO: segja user að hann hafi ekki aðgang  ef hann er loggaður inn sem customer.
+
 @user_passes_test(only_employee)
 @login_required
 def index(request):
@@ -90,11 +92,25 @@ def config(request):
 @login_required
 def groups(request):
     data = Group.objects.all()
-    for g in groups:
-        l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-        l_as_list = list(l)  # QuerySet to `list`
-        users = User.objects.filter(groups__name='customers')
-        logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
+    #for g in groups:
+    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
+    #    l_as_list = list(l)  # QuerySet to `list`
+    #    users = User.objects.filter()
+    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
+
+    return render(request, 'management/groups.html', {'groups': data})
+
+
+@user_passes_test(only_employee)
+@user_passes_test(only_staff)
+@login_required
+def group_view(request, group_name):
+    data = Group.objects.filter(name=group_name)
+    #for g in groups:
+    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
+    #    l_as_list = list(l)  # QuerySet to `list`
+    #    users = User.objects.filter()
+    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return render(request, 'management/groups.html', {'groups': data})
 
