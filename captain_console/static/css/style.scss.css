@@ -514,13 +514,15 @@ header nav ul a {
   width: 200px;
   padding: 5px;
   right: 0;
+  border: 2px black solid;
   border-radius: 10px;
-  background-color: gray; }
+  background: #CE0000;
+  color: #FFFFFF; }
 
 .Kbutton:hover {
-  border-color: black;
-  color: red;
-  transition: 0.3s all ease; }
+  transition: 0.3s all ease;
+  color: #D0D3D4;
+  text-decoration: none; }
 
 /*-------------------------------------------------------------------------------------*/
 /*INNSKRÁ SÍÐAN*/
@@ -560,6 +562,9 @@ header nav ul a {
   color: #D0D3D4;
   margin: 10px 0;
   transition: 0.3s all ease; }
+
+.logged-out-thanks {
+  text-align: center; }
 
 .register-title {
   width: 100%;
