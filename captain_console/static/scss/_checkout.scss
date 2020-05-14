@@ -1,22 +1,25 @@
 .checkout-site{
-  display: flex;
-  margin-top: 20px;
+  width: 85%;
+  height: 450px;
+  margin: auto;
+  //background: aqua;
+  padding: 10px;
 }
 
 .checkout-info{
   width: 50%;
   height: 300px;
   //background: #EDF2F4;
-  padding: 20px;
+  float: left;
 }
 
 .checkout-payment{
   //border: 2px black solid;
-  //background: #EDF2F4;
-  width: 50%;
-  //margin: 10px;
+  //background: #EDF25F;
+  margin-left: 50%;
   border-left: 2px lightgrey solid;
   padding: 20px;
+  height: 310px;
 
 
 }
@@ -38,6 +41,14 @@
 
 }
 
+.address-form input {
+  //background: ghostwhite;
+  border-radius: 4px;
+  //margin: 0;
+  margin-left: 5px;
+  border: 2px gray solid;
+  //font-size: 16px;
+}
 
 .card-form input{
   //background: ghostwhite;

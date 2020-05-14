@@ -821,24 +821,32 @@ select::-ms-expand {
   transition: 0.3s all ease; }
 
 .checkout-site {
-  display: flex;
-  margin-top: 20px; }
+  width: 85%;
+  height: 450px;
+  margin: auto;
+  padding: 10px; }
 
 .checkout-info {
   width: 50%;
   height: 300px;
-  padding: 20px; }
+  float: left; }
 
 .checkout-payment {
-  width: 50%;
+  margin-left: 50%;
   border-left: 2px lightgrey solid;
-  padding: 20px; }
+  padding: 20px;
+  height: 310px; }
 
 .card-form {
   margin: 20px;
   display: flex;
   justify-content: flex-end;
   border-radius: 0; }
+
+.address-form input {
+  border-radius: 4px;
+  margin-left: 5px;
+  border: 2px gray solid; }
 
 .card-form input {
   border-radius: 4px;
