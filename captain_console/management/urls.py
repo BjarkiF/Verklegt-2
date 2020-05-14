@@ -10,6 +10,6 @@ urlpatterns = [
     path('customers', views.customers, name="Users"),
     path('orders/', views.orders, name="Management Orders"),
     path('staff/', views.staff, name="Management Staff"),
-    path('staff/register/', views.staffRegister, name="Management Staff"),
+    path('staff/register/', views.staff_register, name="Management Staff"),
     path('config/', views.config, name="Management Config"),
 ]

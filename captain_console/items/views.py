@@ -8,7 +8,7 @@ def index(request):
 
 
 # manuf í context er til að fá lista af framleiðendum í sidebar filter
-def all(request):
+def all_items(request):
 
     # Ef það er query string í URL þá áframsendist requestið á filter fallið
     if request.GET.get('filter-cat') or request.GET.get('filter-sort'):
@@ -25,6 +25,7 @@ def get_item_by_id(request, id):
     return render(request, 'items/single_item_detail.html', {
         'item': get_object_or_404(Item, pk=id)
     })
+
 
 # TODO: filter virkar ekki ef farið er hér í gegn
 def get_items_category(request, id):
@@ -67,6 +68,7 @@ def get_items_filter(request):
         'manuf': manuf_context,
     }
     return render(request, 'items/all_items.html', context)
+
 
 def search(request):
     search_term = request.GET.get('q')

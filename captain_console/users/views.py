@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-#from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
 from django.shortcuts import render, redirect
 from users.models import Profile, UserAddress, UserCountry
 from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm, EditAddressForm #, EditCountryForm
@@ -61,6 +61,7 @@ def profile(request):
         'address': UserAddress.objects.filter(user_id=request.user.id).first(),
     })
 
+
 # TODO: Skoða hvernig þetta er saveað, afhverju virkar ekki form.save?
 @login_required
 def edit_address(request):
@@ -79,4 +80,3 @@ def edit_address(request):
         'form': EditAddressForm(instance=address),
         #'country_select': UserCountry.objects.all()
     })
-

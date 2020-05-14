@@ -37,8 +37,10 @@ def get_item_by_id(request):
     return JsonResponse(data)
 """
 
+
 class item(viewsets.ModelViewSet):
     """
+    TODO: rename this
     Return items in the store.
     """
     queryset = Item.objects.all()
@@ -46,7 +48,7 @@ class item(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class items(viewsets.ModelViewSet):
+class Items(viewsets.ModelViewSet):
     """
     Return items in the store.
     """
@@ -55,7 +57,7 @@ class items(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class cart(viewsets.ModelViewSet):
+class Cart(viewsets.ModelViewSet):
     """
     Returns user cart.
     """
@@ -66,6 +68,7 @@ class cart(viewsets.ModelViewSet):
 
 class user(viewsets.ModelViewSet):
     """
+    TODO: rename this
     Return user profile..
     """
     queryset = User.objects.all()
@@ -73,7 +76,7 @@ class user(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class users(viewsets.ModelViewSet):
+class Users(viewsets.ModelViewSet):
     """
     Returns all users.
     """

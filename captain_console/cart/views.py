@@ -6,6 +6,7 @@ from users.models import User, UserCountry, UserCard
 from users.forms.forms import EditAddressForm, UserCardForm
 from django.core.exceptions import ObjectDoesNotExist
 
+
 @login_required
 def index(request):
     cart = Cart.objects.filter(user_id=request.user.id).first()
@@ -30,6 +31,7 @@ def index(request):
         'total': total,
     })
 
+
 @login_required
 def add_to_cart(request, id):
     if request.user.is_authenticated:
@@ -44,12 +46,14 @@ def add_to_cart(request, id):
     else:
         return redirect('/users/')
 
+
 @login_required
 def remove_from_cart(request, id):
     cart = get_object_or_404(Cart, user_id=request.user.id)
     cart.items.remove(str(id))
     cart.save()
     return redirect('/cart/')
+
 
 @login_required
 def remove_from_cart_all(request, id):
@@ -59,6 +63,7 @@ def remove_from_cart_all(request, id):
     cart.items = items
     cart.save()
     return redirect('/cart/')
+
 
 @login_required
 def checkout(request): # TODO: klára
@@ -90,7 +95,8 @@ def checkout(request): # TODO: klára
         'address_form': EditAddressForm(),
         'card_form': UserCardForm(),
     }
-    return render(request ,'cart/checkout.html', context)
+    return render(request, 'cart/checkout.html', context)
+
 
 def get_address_dict(form): # TODO: ekkert country_id?
     country = UserCountry.objects.get(id=form.country_id)
