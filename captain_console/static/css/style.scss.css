@@ -853,6 +853,9 @@ select::-ms-expand {
   margin-left: 5px;
   border: 2px gray solid; }
 
+.card-heading {
+  margin-left: 200px; }
+
 .staff-register-site {
   background: #9fcdff;
   float: right;

@@ -61,14 +61,14 @@ class EditAddressForm(forms.ModelForm):
 
 class UserCardForm(forms.ModelForm):
     name = forms.CharField(max_length=999)
-    number = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xxxx-xxxx-xxxx-xxxx'}), min_length=16,
-                             max_length=16, validators=[RegexValidator(r'^\d{1,10}$')])
-    exp_month = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xx'}), min_length=16,
-                             max_length=16, validators=[RegexValidator(r'^\d{1,10}$')])
-    exp_year = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xx'}), min_length=16,
-                             max_length=16, validators=[RegexValidator(r'^\d{1,10}$')])
-    cvc = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xxx'}), min_length=16,
-                             max_length=16, validators=[RegexValidator(r'^\d{1,10}$')])
+    number = forms.CharField(widget=forms.NumberInput(attrs={'placeholder':'xxxx-xxxx-xxxx-xxxx'}), min_length=16,
+                             max_length=16,) #validators=[RegexValidator(r'^\d{1,10}$')])
+    exp_month = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xx'}), min_length=2,
+                             max_length=2, validators=[RegexValidator(r'^\d{1,10}$')])
+    exp_year = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xx'}), min_length=2,
+                             max_length=2, validators=[RegexValidator(r'^\d{1,10}$')])
+    cvc = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'xxx'}), min_length=3,
+                             max_length=3, validators=[RegexValidator(r'^\d{1,10}$')])
 
     class Meta:
         model = UserCard

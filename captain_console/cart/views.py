@@ -65,7 +65,7 @@ def checkout(request): # TODO: klára
     if request.method == 'POST':
         address_form = EditAddressForm(data=request.POST)
         card_form = UserCardForm(data=request.POST)
-        if address_form.is_valid() and card_form.is_valid():
+        if card_form.is_valid():
             card = UserCard.objects.create(
                 name=request.POST['name'],
                 number=request.POST['number'],
@@ -73,14 +73,18 @@ def checkout(request): # TODO: klára
                 exp_year=request.POST['exp_year'],
                 cvc=request.POST['cvc']
             )
-            context = {
-                'cart': Cart.objects.get(user_id=request.user.id),
-                'address': get_address_dict(address_form),
-                'card': card
-            }
-        elif card_form.is_valid():
-            pass
-        return render(request, 'cart/review.html', context)
+            if address_form.is_valid():
+                context = {
+                    'cart': Cart.objects.get(user_id=request.user.id),
+                    'address': get_address_dict(address_form),
+                    'card': card
+                }
+            else: # TODO: temp fix
+                card = UserCard.objects.create()
+                context = {
+                    'card': card
+                }
+            return render(request, 'cart/review.html', context)
     context = {
         'user': User.objects.get(id=request.user.id),
         'address_form': EditAddressForm(),
@@ -88,10 +92,10 @@ def checkout(request): # TODO: klára
     }
     return render(request ,'cart/checkout.html', context)
 
-def get_address_dict(form):
+def get_address_dict(form): # TODO: ekkert country_id?
     country = UserCountry.objects.get(id=form.country_id)
     dict = {
-        'street': form.street_name + ' ' + form.house_num,
+        'street': form.cleaned_data.stree + ' ' + form.house_num,
         'city': form.zipcode + ' ' + form.city,
         'country': country.country_name
     }
