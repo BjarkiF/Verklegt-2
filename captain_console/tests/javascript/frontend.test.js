@@ -73,6 +73,88 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
+
+
+    it("GET /users/login/ SUCCESS - all events", function(done) {
+        chai.request(url)
+            .get('/users/login')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(200);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
+
+    it("GET /login/ SUCCESS - all events", function(done) {
+        chai.request(url)
+            .get('/login')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(404);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
+    it("GET /about/login/ SUCCESS - all events", function(done) {
+        chai.request(url)
+            .get('/about/login')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(404);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
+    it("GET /items/login/ SUCCESS - all events", function(done) {
+        chai.request(url)
+            .get('/items/login')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(404);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
+    it("GET /cart/login/ SUCCESS - all events", function(done) {
+        chai.request(url)
+            .get('/cart/login')
+            .set('Content-Type', 'appliction/json')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(404);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
+    it("GET /management/login/ SUCCESS - all events", function(done) {
+        chai.request(url)
+            .get('/management/login')
+            .set('Content-Type', 'appliction/html')
+            .end( (err, res) => {
+                chai.expect(res).to.have.status(404);
+                chai.expect(res).to.be.html;
+                //chai.expect(typeof(res)).to.equal('object');
+
+                done();
+        });
+    });
+
+
     /*
     it("GET api/v1/user/1337/ SUCCESS - all events", function(done) {
         chai.request(url)

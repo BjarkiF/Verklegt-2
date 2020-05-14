@@ -2,7 +2,7 @@
 {% block content %}
     <h2 class="profile-header">Þinn Prófíll:</h2>
     <div class="profile">
-
+        <!-- TODO: einhverjar upplýsingar sem eiga bara að birtast á starfsmanna prófíl?  -->
         {% if user.profile.img  %}
             <img src="{{ user.profile.img }}" alt="Prófílmynd"/>
         {% else %}

@@ -2,7 +2,7 @@
 {% block content %}
     {% include 'management/navbar.html' %}
     <div class="col-md-10 content">
-        <h1>Manage Groups</h1>
+        <h1>Manage Customers</h1>
         <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -11,10 +11,14 @@
             </tr>
           </thead>
           <tbody>
-            {% for group in groups %}
+            {% for c in customers %}
             <tr>
               <th scope="row">{{ forloop.counter }}</th>
-              <td>{{ group }}</td>
+              <td>{{ c.first_name }}</td>
+              <td>{{ c.last_name }}</td>
+              <td>{{ c.email }}</td>
+              <td>{{ c.is_active }}</td>
+              <td>{{ c.last_login }}</td>
             </tr>
             {% endfor %}
           </tbody>

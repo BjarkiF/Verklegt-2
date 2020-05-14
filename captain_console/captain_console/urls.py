@@ -36,8 +36,6 @@ urlpatterns = [
     path('management/', include('management.urls')),
     path('cart/', include('cart.urls')),
     path('api/v1/', include('api.urls')),
-    path('logout', LogoutView.as_view(template_name='registration/logout.html'),  name="Logout"),
-    path('login', LoginView.as_view(template_name='registration/login.html'), name="Login"),
 ]
 
 #if settings.DEBUG:

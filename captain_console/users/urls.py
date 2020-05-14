@@ -10,11 +10,11 @@ from django.contrib.auth import views as auth_views
 '''
 
 urlpatterns = [
-    path('', LoginView.as_view(template_name='users/index.html'), name="Login"),
+    path('', LoginView.as_view(template_name='users/login.html'), name="Login"),
     path('register', views.register, name="Register"),
     path('reset', views.recover, name="Recover"),
-    path('logout', LogoutView.as_view(template_name='registration/logout.html'),  name="Logout"),
-    path('login', LoginView.as_view(template_name='registration/login.html'), name="Login"),
+    path('logout', LogoutView.as_view(template_name='users/logout.html'), name="Logout"),
+    path('login', LoginView.as_view(template_name='users/login.html'), name="Login"),
     path('profile/edit', views.edit_profile, name="Edit_profile"),
     path('profile', views.profile, name="Profile"),
     path('reset/<str:token>/', auth_views.PasswordResetView, name='password_reset_confirm'),
