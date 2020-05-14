@@ -18,13 +18,6 @@ def only_employee(user):
     return user.groups.filter(name='employees').count()
 
 
-# TODO: Gera bash scriptu sem setur upp nokkra mismuandi notendur.
-# TODO: Setja inn roles í Users. Bara ákveðin role eiga að getað skoðað þessa síðu.
-# TODO: nota is_superuser og is_staff flöggin til að stýra hvað hver getur gert.
-# superuser getur verið með is_staff = f og ekki komið fram á staff síðunni
-# venjulegir users koma heldur ekki á þeirri síðu.
-
-
 @user_passes_test(only_employee)
 @login_required
 def index(request):

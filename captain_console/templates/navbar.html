@@ -43,10 +43,10 @@
 
     <nav class="navbar navbuttons">
     <a href="/items/" class="logo">
-        <img class="logo" src="../../static/images/logo.png" alt="logo">
+        <img class="logo" src="/static/images/logo.png" alt="logo">
     </a>
         <ul class="Lbuttons">
-            <li><a href="/items/all">Vörur </a></li>
+            <li><a href="/items/all/">Vörur </a></li>
             <li><a href="/about/">Um okkur </a></li>
         </ul>
         <div class="search">
@@ -64,7 +64,7 @@
 {#              </div>#}
 
               <div class="cart-stack">
-                  <li><a href="/cart/">Karfa<i class="fas fa-shopping-cart"></i></a></li>
+                  <li><a href="/cart">Karfa<i class="fas fa-shopping-cart"></i></a></li>
               </div>
 
               <div class="profile-logout-stack">
@@ -74,7 +74,7 @@
 
           {% else %}
               <div class="login-stack">
-                  <li><a href="/users/">Innskrá<i class="fas fa-user"></i></a></li>
+                  <li><a href="/users">Innskrá<i class="fas fa-user"></i></a></li>
               </div>
           {% endif %}
         </ul>
@@ -85,11 +85,11 @@
 
     <nav class="navbar navbuttons staff-nav-bar">
     <a href="/items/" class="logo">
-        <img class="logo" src="../../static/images/logo.png" alt="logo">
+        <img class="logo" src="/static/images/logo.png" alt="logo">
     </a>
         <ul class="Lbuttons">
             <li><a href="/items/all">Vörur </a></li>
-            <li><a href="/about/">Um okkur </a></li>
+            <li><a href="/about">Um okkur </a></li>
         </ul>
         <div class="search">
             <form class="search-form" method="get" action="/items/search/">
@@ -102,7 +102,7 @@
         <ul class="Rbuttons">
           {% if not user.is_anonymous %}
               <div class="cart-stack">
-                  <li><a href="/management/">Starfsmaður</a></li>
+                  <li><a href="/management">Starfsmaður</a></li>
               </div>
 
 {#              <div class="cart-stack">#}
@@ -116,7 +116,7 @@
 
           {% else %}
               <div class="login-stack">
-                  <li><a href="/users/">Innskrá<i class="fas fa-user"></i></a></li>
+                  <li><a href="/users">Innskrá<i class="fas fa-user"></i></a></li>
               </div>
           {% endif %}
         </ul>

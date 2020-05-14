@@ -15,7 +15,7 @@ class ItemManufacturer(models.Model):
 
 class Item(models.Model):
     name = models.CharField(max_length=255)
-    date = models.DateField(default=timezone.now())
+    date = models.DateField()
     description = models.CharField(max_length=999, blank=True)
     category = models.ForeignKey(ItemCategory, on_delete=models.CASCADE) # TODO: Gera frekar nýja töflu eða lista af id?
     price = models.IntegerField()
