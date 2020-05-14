@@ -101,7 +101,7 @@
                         <div class="saved-addr">
                             <h4>Nota vistað heimilisfang:
                             <input type="radio" name="address-radio" id="saved_address"></h4>
-                                {% if address.street_name != '' %}
+                                {% if not address.street_name %}
 
                                     <p>Ekkert vistað heimilisfang!</p>
                                 {% else %}
