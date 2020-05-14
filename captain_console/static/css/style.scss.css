@@ -831,12 +831,14 @@ header nav ul a {
 
 .saved-addr {
   padding: 10px;
-  width: 40%; }
+  width: 45%; }
 
 .new-addr {
   padding: 10px;
-  width: 60%;
+  width: 55%;
   float: right; }
+  .new-addr h4 {
+    padding-left: 35%; }
 
 .address-form {
   margin: 20px;
