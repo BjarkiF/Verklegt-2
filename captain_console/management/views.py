@@ -24,7 +24,17 @@ def only_employee(user):
 @login_required
 def index(request):
     # TODO: Connect to database.
-    data = {'orders': {'unprocesessed': 1337, 'ready': 42, 'mailed': 666}}
+    data = {
+        'orders': {
+            'unprocesessed': 1337,
+            'ready': 7,
+            'mailed': 666
+        },
+        'customers': {
+            'customers_registered': 31337,
+            'customers_online': 42
+        }
+    }
     return render(request, 'management/index.html', data)
 
 
