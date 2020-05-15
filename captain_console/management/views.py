@@ -104,7 +104,10 @@ def employees_register(request):
 def user_delete(request, username):
     # TODO: Connect to database.
     logging.info('Deleting Account Username: {0}'.format(username))
-    return redirect('/management/employees/')
+
+    User.objects.filter(username=username).delete()
+
+    return redirect(request.GET.get('next'))
 
 #@user_passes_test(only_employee)
 @user_passes_test(only_staff)
