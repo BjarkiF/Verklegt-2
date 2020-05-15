@@ -59,6 +59,9 @@ footer {
   display: flex;
   flex-direction: row; }
 
+.footer-link {
+  font-size: 14px; }
+
 /*-------------------------------------------------------------------------*/
 /*Left Footer*/
 .left-footer {
