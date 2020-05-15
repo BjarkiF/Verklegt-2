@@ -39,8 +39,11 @@ def all_items(request):
     # Ef það er query string í URL þá áframsendist requestið á filter fallið
     if request.GET.get('filter-cat') or request.GET.get('filter-sort') or request.GET.get('filter-manuf'): #gera betur?
         return get_items_filter(request)
-
-    if request.session['search_ids']: # TODO: láta filtera virka bara við searched items?
+    try:
+        session_check = request.session['search_ids']
+    except KeyError:
+        session_check = None
+    if session_check: # TODO: láta filtera virka bara við searched items?
         ids = request.session['search_ids']
         request.session['search_ids'] = None
         items = Item.objects.filter(id__in=ids)
