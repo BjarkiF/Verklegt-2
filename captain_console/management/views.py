@@ -248,7 +248,8 @@ def customers_details(request, username):
     data = User.objects.filter(is_staff='f', username=username)
     return render(request, 'management/customers/details.html', {'customer': data, 'active_page': 'customers',})
 
-
+@user_passes_test(only_employee)
+@login_required
 def new_item(request):
     if request.method == 'POST':
         form = CreateItemForm(data=request.POST)

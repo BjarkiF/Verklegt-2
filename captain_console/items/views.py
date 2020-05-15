@@ -15,7 +15,9 @@ def edit(request, id):
     if request.method == 'POST':
         form_item = EditItemForm(data=request.POST)
         if form_item.is_valid():
-            form_item.save()
+            item.price = request.POST['price']
+            item.description = request.POST['description']
+            item.save()
             return get_item_by_id(request, id)
     return render(request, 'items/edit_item.html', context={
 
