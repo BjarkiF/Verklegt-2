@@ -123,6 +123,9 @@ def checkout(request): # TODO: klára
 def review(request):
     return render(request,'cart/review.html')
 
+def confirm(request):
+    return render(request, 'cart/confirm.html')
+
 def get_cart_items(cart):
     total = 0
     found = 0
