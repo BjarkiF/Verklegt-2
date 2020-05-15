@@ -3,7 +3,8 @@
     <h2 class="profile-header">Þinn Prófíll:</h2>
     <div class="profile">
         {% if user.profile.img  %}
-            <img src="{{ user.profile.img }}" alt="Prófílmynd"/>
+            <img src="{{ user.profile.img }}" alt="Prófílmynd"
+                 onerror="this.onerror=null;this.src='../../static/images/noprofile_resize.jpg';"/>
         {% else %}
             <div class="picture-missing">
                 <img src="../../static/images/noprofile_resize.jpg" alt="No profile pic">
