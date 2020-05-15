@@ -163,8 +163,12 @@ def config(request):
                 social_twitter=request.POST.get('social_twitter'),
                 social_instagram=request.POST.get('social_instagram'),
                 about=request.POST.get('about'),
-                location=request.POST.get('location')
+                location=request.POST.get('location'),
+                lat=request.POST.get('lat'),
+                long=request.POST.get('long'),
+                zoom=request.POST.get('zoom')
             )
+            logging.info('jájá!! {0}'.format(request.POST.get('zoom')))
             config_new.save()
 
             return redirect('/management/config/')

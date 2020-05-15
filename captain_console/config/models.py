@@ -18,4 +18,4 @@ class Config(models.Model):
     location = models.CharField(max_length=255)
     lat = models.CharField(max_length=255)
     long = models.CharField(max_length=255)
-    zoom = models.IntegerField()
+    zoom = models.CharField(max_length=255)
