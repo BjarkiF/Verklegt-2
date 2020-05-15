@@ -2,11 +2,15 @@
 
 ## Environmental Variables
 Eftirfarandi env breytur þurfa að vera rétt stilltar til að ná gagnagrunnstengingu.
-- DB_NAME
-- DB_USER
-- DB_PASSWORD
-- DB_HOST
-- DB_PORT
+- DB_NAME: captain_console
+- DB_USER: postgres
+- DB_PASSWORD: AnnaðVerklegaNámskeiðið
+- DB_HOST: captainconsole47.ddns.net
+- DB_PORT: 5432
+- DB_ENGINE: django.db.backends.postgresql
+- DATABASE_URL: postgres://postgres:p4ssw0rd@captainconsole47.ddns.net/captain_console
+- ENV: development
+
 - PORT=8000 # Svo heroku local sé á réttu porti.
 
 ## Installing
