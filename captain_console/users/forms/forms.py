@@ -40,7 +40,7 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = {'username', 'first_name', 'last_name', 'email', 'password1', 'password2'}
-forms
+
 
 class EditUserForm(forms.ModelForm):
     class Meta:
@@ -58,6 +58,19 @@ class EditAddressForm(forms.ModelForm):
     class Meta:
         model = UserAddress
         fields = ('street_name', 'house_num', 'city', 'zipcode', 'country_id' )
+
+
+class CheckoutAddressForm(EditAddressForm):
+    street_name = forms.CharField(required=False)
+    house_num = forms.CharField(required=False)
+    city = forms.CharField(required=False)
+    zipcode = forms.CharField(required=False)
+    country_id = forms.ModelChoiceField(queryset=UserCountry.objects.all(), required=False)
+
+    class Meta:
+        model = UserAddress
+        fields = ('street_name', 'house_num', 'city', 'zipcode', 'country_id' )
+
 
 class UserCardForm(forms.ModelForm):
     name = forms.CharField(max_length=999)

@@ -1,31 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
-    {{ card.number }}
-    <p>held að þetta sé vitlaust tengtddd hja mér:/</p>
-
-        <div class="cart-remove">
-                <a class="cart-remove-icon" href="{% url 'remove_from_cart_all' item.0.id %}">
-                    <i class="fas fa-trash"></i>
-                </a>
-        </div>
-            <div class="cart-item">
-            <div class="cart-img">
+    <h4>Þú ert að kaupa:</h4>
+    {% for item in items %}
+        <div class="review-item">
+            <div class="review-item-img">
                 <img src="{{ item.0.itemimg_set.first.img }}" alt="{{ item.0.name }}"/>
             </div>
-            <div class="cart-name">
+            <div class="review-item-name">
                 {{ item.0.name }}
             </div>
-            <div class="cart-q">
-                <p>
-                    <a href="{% url 'remove_from_cart' item.0.id %}">-</a>
-                    Magn: {{ item.1 }}
-                    <a href="{% url 'add_to_cart' item.0.id %}">+</a>
-                </p>
-            </div>
-            <div class="cart-price">
+            <div class="review-item-price">
                 {{ item.0.price }},-
             </div>
+            <div class="review-item-q">
+                <p>
+                    Magn: {{ item.1 }}
+                </p>
+            </div>
         </div>
-
+    {% endfor %}
+    <div class="review-address">
+        <h4>Heimilisfang:</h4>
+        <div class="review-address-street">
+            {{ address.street_name }} {{ address.house_num }}
+        </div>
+        <div class="review-address-city">
+            {{ address.zipcode }}, {{ address.city }}
+        </div>
+        <div class="review-address-country">
+            {{ address.country }}
+        </div>
+    </div>
+    <div class="review-card">
+        <h4>Kortaupplýsingar:</h4>
+        <div class="review-card-name">
+            {{ card.name }}
+        </div>
+        <div class="review-card-number">
+            {{ card.number }}
+        </div>
+    </div>
+    <div class="review-total">
+    Samtals: {{ total }}
+    </div>
+    <div class="review-cancel">
+        <button class="review-confirm-btn" onclick="history.back()">Til Baka</button>
+    </div>
+    <div class="review-confirm">
+        <button class="review-confirm-btn">Staðfesta Pöntun!</button>
+    </div>
 
 {% endblock %}
