@@ -1,77 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-
     {% include 'management/navbar.html' %}
     <div class="col-md-10 content">
-        <form method="post">
-        <!--
-            TODO: *Config*
-            TODO: Categories
-            TODO: *About*
-            TODO: *Footer*
-        -->
         <h1>Config</h1>
         <div class="col-md-5 content">
         <h2 class="register-title">Footer</h2>
+        <form method="post">
         <p>* Stjörnumerkta reiti er nauðsynlegt að fylla</p>
             {% csrf_token %}
-            {{ form }}
-            <div class="form-control">
-            {{ form.hours_weekdays.errors}}
-            <label>Virkur dagur:*</label> {{ form.hours_weekdays }}
-            </div>
-            <div class="form-control">
-                {{ form.hours_saturday.errors }}
-                Laugadagar:* {{ form.hours_saturday }}
-            </div>
-            <div class="form-control">
-                {{ form.hours_sunday.errors }}
-                Sunnudagar:* {{ form.hours_sunday }}
-            </div>
-            <div class="form-control">
-                {{ form.email.errors }}
-                Netfang:* {{ form.email }}
-            </div>
-            <div class="form-control">
-                {{ form.telephone.errors }}
-                Sími:* {{ form.telephone }}
-            </div>
-            <div class="form-control">
-                {{ form.address.errors }}
-                Heimilisfang:* {{ form.address }}
-            </div>
-            <div class="form-control">
-                {{ form.social_facebook.errors }}
-                Facebook:* {{ form.social_facebook }}
-            </div>
-            <div class="form-control">
-                {{ form.social_twitter.errors }}
-                Twitter:* {{ form.social_twitter }}
-            </div>
-            <div class="form-control">
-                {{ form.social_youtube.errors }}
-                YouTube:* {{ form.social_youtube }}
-            </div>
-            <div class="form-control">
-                {{ form.social_instagram.errors }}
-                Instagram:* {{ form.social_instagram }}
-            </div>
-            <input class="reg" type="submit" value="Vista">
+            {{  form.as_p  }}
         </form>
-        </div>
-        <div class="col-md-5 content">
-            <h2 class="register-title">Um Okkur</h2>
-                <div class="form-control">
-                    {{ form.about.errors }}
-                    {{ form.about.label }}: {{ form.about.widget }}
-                </div>
-                <div class="form-control">
-                    {{ form.location.errors }}
-                    {{ form.about.label_tag }}: {{ form.location }}
-                </div>
-            </div>
-        </form>
-
 
     </div>
 {% endblock %}
