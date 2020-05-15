@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, Pass
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 #from users.models import Profile
-#from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
+from users.forms.forms import RegisterForm
 from items.forms.forms import CreateItemForm
 from items.models import Item, ItemImg
 from management.forms.forms import ConfigForm
@@ -174,7 +174,7 @@ def config(request):
     #active_page = request.path.split('/')
     #logging.info(active_page)
 
-    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'form': ConfigForm()})
+    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'footer-form': ConfigForm()})
 
 
 @user_passes_test(only_employee)
@@ -273,7 +273,7 @@ def new_item(request):
             img_temp.save()
             return redirect('Management Index')
     context = {
-        'active_page': 'newitem',
-        'form': CreateItemForm()
+        'form': CreateItemForm(),
+        'active_page': 'new_item',
     }
     return render(request, 'management/items/new_item.html', context)

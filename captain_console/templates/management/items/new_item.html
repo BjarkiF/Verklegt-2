@@ -2,27 +2,35 @@
 {% block content %}
     {% include 'management/navbar.html' %}
     <form class="new-item-form" method="post">
+    <h2>Skrá nýja vöru:</h2>
         {% csrf_token %}
-        <div class="new-item-name">
-            Nafn: {{ form.name }}
-        </div>
-        <div class="new-item-desc">
-            Lýsing: {{ form.description }}
-        </div>
-        <div class="new-item-price">
-            Verð: {{ form.price }}
-        </div>
-        <div class="new-item-manuf">
-            Framleiðandi: {{ form.manufacturer_id }}
-        </div>
-        <div class="new-item-cat">
-            Flokkur: {{ form.category_id }}
-        </div>
-        <div class="new-item-img">
-            Mynd: {{ form.img }}
+        <div class="form-fields">
+                <div class="new-item-name">
+                    Nafn: {{ form.name }}
+                </div>
+    {#        <div class="new-con1">#}
+                <div class="new-item-price">
+                    Verð: {{ form.price }}
+                </div>
+                <div class="new-item-desc">
+                    Lýsing: {{ form.description }}
+                </div>
+
+    {#        </div>#}
+            <div class="new-con2">
+                <div class="new-item-manuf">
+                    Framleiðandi: {{ form.manufacturer_id }}
+                </div>
+                <div class="new-item-cat">
+                    Flokkur: {{ form.category_id }}
+                </div>
+                <div class="new-item-img">
+                    Mynd: {{ form.img }}
+                </div>
+            </div>
         </div>
         <div class="new-item-confirm">
-            <input type="submit" value="Staðfesta">
+            <input class="buybutton" type="submit" value="Staðfesta">
         </div>
     </form>
 {% endblock %}

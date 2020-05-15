@@ -545,6 +545,25 @@ header nav ul a {
   display: flex;
   justify-content: space-between; }
 
+.edit-singleinfo {
+  border: black 2px solid;
+  border-radius: 10px;
+  height: 280px;
+  width: 280px;
+  text-align: center;
+  margin: 25px 70px 0 25px; }
+
+.edit-singleitem form {
+  display: flex;
+  justify-content: space-between; }
+
+.edit-single-img-name img {
+  margin: 0 0 0 70px; }
+
+.edit-singledescription {
+  display: inline-block;
+  float: left; }
+
 /*-------------------------------------------------------------------------------------*/
 /*INNSKRÁ SÍÐAN*/
 .loginsite {
@@ -1106,6 +1125,51 @@ header nav ul a {
 
 .content .index-dashboard .card-body .card-text span {
   display: flex; }
+
+.new-item-form {
+  margin: 40px;
+  font-size: 16px; }
+
+.form-fields textarea {
+  height: 100px;
+  background: ghostwhite;
+  border-radius: 4px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px; }
+
+.form-fields input {
+  background: ghostwhite;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin-left: 10px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px; }
+
+.new-item-name {
+  margin-bottom: 20px; }
+
+.new-item-price {
+  margin-bottom: 20px; }
+
+.new-con2 {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px lightgrey solid;
+  margin: 10px 80px;
+  padding: 10px; }
+
+.new-con2 select {
+  background: ghostwhite;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 0;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px; }
 
 .rev-heading {
   margin: 10px;
