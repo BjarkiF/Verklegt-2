@@ -97,24 +97,20 @@
                 <p>Sendingar upplýsingar: <i class="far fa-address-card"></i></p>
                 {% with user.useraddress_set.all|first as address %}
                 <div class="address-choice">
-                    <form id="address-form">
+{#                    <form id="address-form">#}
                         <div class="saved-addr">
                             <h4>Nota vistað heimilisfang:
-                            <input type="radio" name="address-radio" id="saved_address"></h4>
-                                {% if not address.street_name %}
-
+                            <input type="radio" name="address-radio" value="saved_address"></h4>
+                                {% if address.street_name == '' %}
                                     <p>Ekkert vistað heimilisfang!</p>
                                 {% else %}
-
-
                                     <h5>Vistað heimilisfang:</h5>
                                     <p>{{ address.street_name }} {{ address.house_num }}</p>
                                     <p>{{ address.zipcode }} {{ address.city }}, {{ address.country.country_name }}</p>
-
                                 {% endif %}
                         </div>
                         <div class="new-addr">
-                            <h4 class="new-addr-heading">Nýtt heimilisfang: <input checked type="radio" name="address-radio" id="new_address"></h4>
+                            <h4 class="new-addr-heading">Nýtt heimilisfang: <input checked type="radio" name="address-radio" value="new_address"></h4>
                                  {{ address_form.non_field_errors }}
                                 <div class="address-form">
                                     <label>Götunafn:</label>
@@ -142,7 +138,7 @@
                                     {{ address_form.country_id.errors }}
                                 </div>
                         </div>
-                    </form>
+{#                    </form>#}
                 </div>
 {#            <div class="address-saved">#}
 {#                <div class="address-saved-item">#}
@@ -152,7 +148,7 @@
             </div>
             <div class="checkout-payment">
                 <p>Greiðsluupplýsingar: <i class="far fa-credit-card"></i></p>
-                <form>
+{#                <form>#}
                     {{ card_form.non_field_errors }}
                     <div class="card-form">
                         <label>Nafn korthafa:</label>
@@ -174,17 +170,20 @@
                         {{ card_form.cvc }}
                         {{ card_form.cvc.errors }}
                     </div>
-                </form>
+{#                </form>#}
 
             </div>
 {#            </form>#}
-        </form>
-    </div>
         <div class="Cbuybtn">
             <a href="/cart/review">
             <button class="Cbuybutton" type="submit">Áfram</button>
             </a>
         </div>
-
-
+        </form>
+            <div class="Cbuybtn">
+            <a href="/cart/">
+            <button class="Cbuybutton" >Til Baka</button>
+            </a>
+        </div>
+    </div>
 {% endblock %}

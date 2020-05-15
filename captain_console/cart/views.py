@@ -2,30 +2,31 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from cart.models import Cart
 from items.models import Item
-from users.models import User, UserCountry, UserCard
-from users.forms.forms import EditAddressForm, UserCardForm
+from users.models import User, UserCountry, UserCard, UserAddress
+from users.forms.forms import CheckoutAddressForm, UserCardForm
 from django.core.exceptions import ObjectDoesNotExist
 
 
 @login_required
 def index(request):
     cart = Cart.objects.filter(user_id=request.user.id).first()
-    total = 0
-    found = 0
-    if cart:
-        items = []
-        for cart_item in cart.items:
-            item = Item.objects.get(id=cart_item)
-            for list in items:
-                if item == list[0]:
-                    list[1] += 1
-                    found = 1
-            if not found:
-                items.append([item, 1])
-            total += item.price
-            found = 0
-    else:
-        items = []
+    # total = 0
+    # found = 0
+    # if cart:
+    #     items = []
+    #     for cart_item in cart.items:
+    #         item = Item.objects.get(id=cart_item)
+    #         for list in items:
+    #             if item == list[0]:
+    #                 list[1] += 1
+    #                 found = 1
+    #         if not found:
+    #             items.append([item, 1])
+    #         total += item.price
+    #         found = 0
+    # else:
+    #     items = []
+    items, total = get_cart_items(cart)
     return render(request, 'cart/index.html', {
         'items': items,
         'total': total,
@@ -68,45 +69,78 @@ def remove_from_cart_all(request, id):
 @login_required
 def checkout(request): # TODO: klára
     if request.method == 'POST':
-        address_form = EditAddressForm(data=request.POST)
+        cart = Cart.objects.get(user_id=request.user.id)
+        items, total = get_cart_items(cart)
+        address_form = CheckoutAddressForm(data=request.POST)
         card_form = UserCardForm(data=request.POST)
         if card_form.is_valid():
+            numstring = request.POST['number']
             card = UserCard.objects.create(
                 name=request.POST['name'],
-                number=request.POST['number'],
-                exp_month=request.POST['exp_month'],
-                exp_year=request.POST['exp_year'],
-                cvc=request.POST['cvc']
+                number='xxxxxxxxxxxx' + numstring[-4:],
+                # exp_month=request.POST['exp_month'],
+                # exp_year=request.POST['exp_year'],
+                # cvc=request.POST['cvc']
             )
-            if address_form.is_valid():
+            if request.POST['address-radio']=='new_address':
+                if address_form.is_valid() and request.POST['country_id']: # TODO: lmao validata betur
+                    context = {
+                        'address': {
+                            'street_name': request.POST['street_name'],
+                            'house_num': request.POST['house_num'],
+                            'zipcode': request.POST['zipcode'],
+                            'city': request.POST['city'],
+                            'country': (UserCountry.objects.get(id=request.POST['country_id'])).country_name
+                        },
+                        'card': card,
+                        'items': items,
+                        'total': total,
+                    }
+                else:
+                    return redirect('/cart/checkout')
+            else:
+                address_temp = UserAddress.objects.get(user_id=request.user.id)
                 context = {
-                    'cart': Cart.objects.get(user_id=request.user.id),
-                    'address': get_address_dict(address_form),
-                    'card': card
-                }
-            else: # TODO: temp fix
-                card = UserCard.objects.create()
-                context = {
-                    'card': card
+                    'address': {
+                        'street_name': address_temp.street_name,
+                        'house_num': address_temp.house_num,
+                        'zipcode': address_temp.zipcode,
+                        'city': address_temp.city,
+                        'country': address_temp.country.country_name
+                    },
+                    'card': card,
+                    'items': items,
+                    'total': total,
                 }
             return render(request, 'cart/review.html', context)
     context = {
         'user': User.objects.get(id=request.user.id),
-        'address_form': EditAddressForm(),
+        'address_form': CheckoutAddressForm(),
         'card_form': UserCardForm(),
     }
     return render(request, 'cart/checkout.html', context)
 
-
-def get_address_dict(form): # TODO: ekkert country_id?
-    country = UserCountry.objects.get(id=form.country_id)
-    dict = {
-        'street': form.cleaned_data.stree + ' ' + form.house_num,
-        'city': form.zipcode + ' ' + form.city,
-        'country': country.country_name
-    }
-    return dict
-
-
 def review(request):
     return render(request,'cart/review.html')
+
+def confirm(request):
+    return render(request, 'cart/confirm.html')
+
+def get_cart_items(cart):
+    total = 0
+    found = 0
+    if cart:
+        items = []
+        for cart_item in cart.items:
+            item = Item.objects.get(id=cart_item)
+            for list in items:
+                if item == list[0]:
+                    list[1] += 1
+                    found = 1
+            if not found:
+                items.append([item, 1])
+            total += item.price
+            found = 0
+    else:
+        items = []
+    return items, total
