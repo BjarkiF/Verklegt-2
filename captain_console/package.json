@@ -26,7 +26,8 @@
     "html-validator": "^5.1.12",
     "jslint": "^0.12.1",
     "mocha": "^7.1.2",
-    "sass": "^1.26.5"
+    "sass": "^1.26.5",
+    "simple-node-logger": "^18.12.24"
   },
   "devDependencies": {
     "gulp-csslint": "^1.0.1"

@@ -1,103 +1,12 @@
-{#{% extends 'base.html' %}#}
-{#{% block content %}#}
-{#    <div class="checkout-site">#}
-{#        <form method="post" >#}
-{#            {% csrf_token %}#}
-{#        <form id="checkout-form" method="post" action="/cart/checkout">#}
-{##}
-{#        <div class="checkout-info">#}
-{#            <p>Sendingar upplýsingar: <i class="far fa-address-card"></i></p>#}
-{#            {% with user.useraddress_set.all|first as address %}#}
-{#            <div class="address-choice">#}
-{#                <form id="address-form">#}
-{#                    <div class="saved-addr">#}
-{#                        <h4>Nota vistað heimilisfang:#}
-{#                            {% if address.street_name != '' %}#}
-{#                                <input type="radio" name="address-radio" id="saved_address"></h4>#}
-{#                                <h5>Vistað heimilisfang:</h5>#}
-{#                                <p>{{ address.street_name }} {{ address.house_num }}</p>#}
-{#                                <p>{{ address.zipcode }} {{ address.city }}, {{ address.country.country_name }}</p>#}
-{#                            {% else %}#}
-{#                                <p>Ekkert vistað heimilisfang!</p>#}
-{#                            {% endif %}#}
-{#                    </div>#}
-{#                    <div class="new-addr">#}
-{#                        <h4>Nýtt heimilisfang: <input type="radio" name="address-radio" id="new_address" checked="checked">#}
-{#                            --------------------------------------------#}
-                                {#{{ address_form.non_field_errors }}#}
-{#                             <div class="address-form">#}
-{#                                <label>Götunafn:</label>#}
-{#                                {{ address_form.street_name }}#}
-{#                                {{ address_form.street_name.errors }}#}
-{#                            </div>#}
-{#                            <div class="address-form">#}
-{#                                <label>Húsnúmer:</label>#}
-{#                                {{ address_form.house_num }}#}
-{#                                {{ address_form.house_num.errors }}#}
-{#                            </div>#}
-{#                            <div class="address-form">#}
-{#                                <label>Póstnúmer:</label>#}
-{#                                {{ address_form.zipcode }}#}
-{#                                {{ address_form.zipcode.errors }}#}
-{#                            </div>#}
-{#                            <div class="address-form">#}
-{#                                <label>Borg/Bær:</label>#}
-{#                                {{ address_form.city }}#}
-{#                                {{ address_form.city.errors }}#}
-{#                            </div>#}
-{#                            <div class="address-form">#}
-{#                                <label>Land:</label>#}
-{#                                {{ address_form.country_id }}#}
-{#                                {{ address_form.country_id.errors }}#}
-{#                            </div>#}
-{#                    </div>#}
-{#                </form>#}
-{#            </div>#}
-{#            <div class="address-saved">#}
-{#                <div class="address-saved-item">#}
-{#                </div>#}
-{#                    <h4>Nota vistað heimilisfang:#}
-{#                        {% if address.street_name != '' %}#}
-{#                            <input type="radio" name="address-radio" id="saved_address"></h4>#}
-{#                            <p>{{ address.street_name }} {{ address.house_num }}</p>#}
-{#                            <p>{{ address.zipcode }} {{ address.city }}, {{ address.country.country_name }}</p>#}
-{#                        {% else %}#}
-{#                            <p>Ekkert vistað heimilisfang!</p>#}
-{#                        {% endif %}#}
-{##}
-{#                {% endwith %}#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="checkout-payment">#}
-{#            <p>Greiðsluupplýsingar: <i class="far fa-credit-card"></i></p>#}
-{#            <form>#}
-{#            <h4 class="card-heading">Kortaupplýsingar:</h4>#}
-{#            </form>#}
-{#        </div>#}
-{#    </div>#}
-{#        <div class="Cbuybtn">#}
-{#            <a href="/cart/checkout">#}
-{#            <button class="Cbuybutton" type="submit">Áfram</button>#}
-{#            </a>#}
-{#        </div>#}
-{##}
-{##}
-{#{% endblock %}#}
-{#-----------------------------------------------------------------------------------------------------------------#}
-
-
-
 {% extends 'base.html' %}
 {% block content %}
     <div class="checkout-site">
         <form class="cube" method="post" >
             {% csrf_token %}
-{#            <form id="checkout-form" method="post" action="/cart/checkout">#}
             <div class="checkout-info">
                 <p>Sendingar upplýsingar: <i class="far fa-address-card"></i></p>
                 {% with user.useraddress_set.all|first as address %}
                 <div class="address-choice">
-{#                    <form id="address-form">#}
                         <div class="saved-addr">
                             <h4>Nota vistað heimilisfang:
                             <input type="radio" name="address-radio" value="saved_address"></h4>
@@ -138,11 +47,7 @@
                                     {{ address_form.country_id.errors }}
                                 </div>
                         </div>
-{#                    </form>#}
                 </div>
-{#            <div class="address-saved">#}
-{#                <div class="address-saved-item">#}
-{#                </div>#}
                 {% endwith %}
 
             </div>
@@ -174,8 +79,6 @@
 {#                </form>#}
                 </div>
             </div>
-{#        </form>#}
-
         <div class="Cbuybtn">
             <a href="/cart/review">
             <button class="Cbuybutton" type="submit">Áfram</button>

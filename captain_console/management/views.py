@@ -35,7 +35,20 @@ def index(request):
         'customers': {
             'customers_registered': 31337,
             'customers_online': 42
-        }
+        },
+        'top10_items':[
+            {'name':'Hlutur1', 'sold': 33},
+            {'name':'Hlutur2', 'sold': 55},
+            {'name':'Hlutur3', 'sold': 22},
+            {'name':'Hlutur4', 'sold': 11},
+            {'name':'Hlutur5', 'sold': 66},
+        ],
+        'reviews': [
+            { 'username':'Jónas', 'text': 'Review texti 1' },
+            { 'username':'Jónas', 'text': 'Review texti 2' },
+            { 'username':'Jónas', 'text': 'Review texti 3' },
+            { 'username':'Jónas', 'text': 'Review texti 4' }
+        ]
     }
     return render(request, 'management/index.html', data)
 
@@ -104,7 +117,10 @@ def employees_register(request):
 def user_delete(request, username):
     # TODO: Connect to database.
     logging.info('Deleting Account Username: {0}'.format(username))
-    return redirect('/management/employees/')
+
+    User.objects.filter(username=username).delete()
+
+    return redirect(request.GET.get('next'))
 
 #@user_passes_test(only_employee)
 @user_passes_test(only_staff)

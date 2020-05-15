@@ -29,16 +29,16 @@
                 {{ address.zipcode }}, {{ address.city }}
             </div>
             <div class="review-address-country">
-                {{ address.country }}
+                {{ address.country.country_name }}
             </div>
         </div>
         <div class="review-card">
             <h4>Kortaupplýsingar:</h4>
             <div class="review-card-name">
-                {{ card.name }}
+                {{ card_name }}
             </div>
             <div class="review-card-number">
-                {{ card.number }}
+                {{ card }}
             </div>
         </div>
     </div>
@@ -50,7 +50,9 @@
             <button class="review-confirm-btn" onclick="history.back()">Til Baka</button>
         </div>
         <div class="review-confirm">
+            <a href="confirm">
             <button class="review-confirm-btn">Staðfesta Pöntun!</button>
+            </a>
         </div>
     </div>
 {% endblock %}

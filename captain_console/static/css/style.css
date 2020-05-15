@@ -390,6 +390,8 @@ header nav ul a {
   height: 100%; }
 
 .front-page-banner img {
+  max-width: 90%;
+  height: 15%;
   width: 140vh; }
 
 .front-page-banner {
