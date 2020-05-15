@@ -107,3 +107,8 @@ def order_details(request, id):
     'address': UserAddress.objects.get(id=order.address_id),
     }
     return render(request, 'users/order_details.html', context)
+
+@login_required
+def search_history_delete(request):
+    UserItemSearch.objects.filter(user_id=request.user.id).delete()
+    return get_search_history(request)

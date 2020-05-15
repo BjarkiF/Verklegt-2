@@ -870,6 +870,9 @@ header nav ul a {
   transition: 0.3s all ease;
   color: #CE0000; }
 
+#delete-history-btn {
+  margin-left: 40%; }
+
 .edit-title {
   width: 100%;
   text-align: center; }
