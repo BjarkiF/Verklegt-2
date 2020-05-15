@@ -32,6 +32,7 @@ def index(request):
         'orders_not': orders.filter(complete=False).count(),
         'accounts': User.objects.all().count(),
         'accounts_active': User.objects.filter(is_active=True).count(),
+        'active_page': 'index'
     }
     return render(request, 'management/index.html', context)
 
