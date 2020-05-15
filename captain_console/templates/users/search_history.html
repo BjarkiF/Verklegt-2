@@ -1,6 +1,12 @@
 {%  extends 'base.html' %}
 {% block content %}
-{#    <h2>Leitar saga:</h2>#}
+    <div class="delete-history">
+        <div class="delete-history-inner">
+        <a href="/users/profile/search/delete/">
+            <button id="delete-history-btn" class="Cbuybutton" >Eyða leitarsögu</button>
+        </a>
+        </div>
+    </div>
     <div class="search-history">
         <h2>Leitarsaga:</h2>
         {% for search in all_searches %}
@@ -10,7 +16,7 @@
                     Leit: {{ search.search }}
                 </a>
             </div>
-    {% endfor %}
+        {% endfor %}
     </div>
 
 {% endblock %}

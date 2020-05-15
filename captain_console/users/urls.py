@@ -22,5 +22,6 @@ urlpatterns = [
     path('profile/address/', views.edit_address, name='Edit_address'),
     path('profile/search/', views.get_search_history, name='profile_search_history'),
     path('profile/orders/', views.get_order_history, name='profile_order_history'),
-    path('profile/orders/<int:id>/', views.order_details, name='profile_order_details')
+    path('profile/orders/<int:id>/', views.order_details, name='profile_order_details'),
+    path('profile/search/delete/', views.search_history_delete, name='delete_search_history'),
 ]
