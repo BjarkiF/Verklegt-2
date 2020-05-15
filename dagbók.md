@@ -53,5 +53,5 @@ Breyttum þannig að ef staff loggar sig inn þá breytist navbar'inn í gull li
 ### 14. maí - Fimmtudagur - Starfsmannasíður (áframhald)
 Dagurinn í dag var mikið notaður í að ganga frá öllum viðkskiptamanna síðum alveg 100%, ganga frá öllum lausum endum. Síðan einnig að halda áfram með starfsmanna hlutann. Það eru komin inn einhver form fyrir starfsmannasíðuna, þarf að ganga frá þeim öllum í css ennþá þó, mjög raw núna. 
 
-### 15. maí - Föstudagur
+### 15. maí - Föstudagur - Frágangur!
 Viðskiptavina hlutinn var 100% tilbúinn í byrjun dags og því var bara einbeitingin sett á starfsmannasíðurnar sem við áttum eftir og að ganga frá öllum lausum endum. Einnig reyndum við að triggera einhverja error'a á síðunni með því að fikta í henni. Nokkrir hlutir komu þar upp eins og ef notandi var með of langt nafn þá fór formið á starfsmannasíðunni í rugl.
