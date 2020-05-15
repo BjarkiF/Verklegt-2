@@ -2,7 +2,6 @@
 {% block content %}
     <h2 class="profile-header">Þinn Prófíll:</h2>
     <div class="profile">
-        <!-- TODO: einhverjar upplýsingar sem eiga bara að birtast á starfsmanna prófíl?  -->
         {% if user.profile.img  %}
             <img src="{{ user.profile.img }}" alt="Prófílmynd"/>
         {% else %}
@@ -36,6 +35,16 @@
     <div class="profile-update">
         <a href="/users/profile/edit">
             <input id="update-profile" class="update" type="submit" value="Uppfæra prófíl">
+        </a>
+    </div>
+    <div class="profile-searchhistory">
+        <a href="/users/profile/search">
+            <input id="profile-search" class="update" type="submit" value="Skoða leitarsögu">
+        </a>
+    </div>
+    <div class="profile-orderhistory">
+        <a href="/users/profile/orders">
+            <input id="profile-orders" class="update" type="submit" value="Skoða fyrri pantanir">
         </a>
     </div>
     </div>

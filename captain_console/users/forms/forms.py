@@ -59,6 +59,19 @@ class EditAddressForm(forms.ModelForm):
         model = UserAddress
         fields = ('street_name', 'house_num', 'city', 'zipcode', 'country_id' )
 
+
+class CheckoutAddressForm(EditAddressForm):
+    street_name = forms.CharField(required=False)
+    house_num = forms.CharField(required=False)
+    city = forms.CharField(required=False)
+    zipcode = forms.CharField(required=False)
+    country_id = forms.ModelChoiceField(queryset=UserCountry.objects.all(), required=False)
+
+    class Meta:
+        model = UserAddress
+        fields = ('street_name', 'house_num', 'city', 'zipcode', 'country_id' )
+
+
 class UserCardForm(forms.ModelForm):
     name = forms.CharField(max_length=999)
     number = forms.CharField(widget=forms.NumberInput(attrs={'placeholder':'xxxx-xxxx-xxxx-xxxx'}), min_length=16,

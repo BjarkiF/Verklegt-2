@@ -1,0 +1,15 @@
+{%  extends 'base.html' %}
+{% block content %}
+    {% for order in all_orders %}
+        <a href="/users/profile/orders/{{ order.id }}">
+            <div class="history-order">
+                <div class="order-date">
+                    Dags: {{ order.date }}
+                </div>
+                <div class="order-total">
+                    Verð: {{ order.total }}
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+{% endblock %}

@@ -10,6 +10,8 @@
 }
 .list-group{
   background: #6f42c1;
+  position: relative;
+  z-index: 0;
 }
 
 .list-group-item.list-group-item-action.active{
@@ -17,17 +19,60 @@
   border: none;
 }
 
-.table th{
-  color: #CE0000;
-}
 .table a{
   color: black;
   text-decoration: none;
+  font-size: 18px;
 }
 .table a:hover{
   transition: 0.3s all ease;
   color: $color0;
 }
+
+.table td {
+  font-size: 18px;
+  background: #EDF2F4;
+}
 .table tbody tr{
   color: black;
+  font-size: 16px;
+}
+
+.fas.fa-plus{
+  color: gray;
+  border: 1px silver solid;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+  background:ghostwhite;
+}
+
+.fas.fa-plus:hover{
+  transition: 0.3s all ease;
+  background: #E6B74B;
+
+  color: ghostwhite;
+
+}
+
+
+.content {
+  .admin-nav {
+
+  }
+
+
+  .index-dashboard {
+    .card-body {
+      .card-title {
+
+      }
+      .card-text {
+        span {
+          display: flex;
+        }
+      }
+    }
+  }
+
 }

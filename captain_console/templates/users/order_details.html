@@ -1,0 +1,40 @@
+{%  extends 'base.html' %}
+{% block content %}
+    <div class="order-id">
+        Pöntun nr: {{ order.id }}
+    </div>
+    <div class="order-date">
+        Dagsetning pöntunar: {{ order.date }}
+    </div>
+    <div class="order-total">
+     Verð samtals: {{ order.total }}
+    </div>
+    <div class="order-all-items">
+        <h4>Vörur:</h4>
+        {% for item in items %}
+        <div class="order-item">
+            <div class="order-item-name">
+                 Vörunr: {{ item.0.id }}, Nafn: {{ item.0.name }}
+            </div>
+            <div class="order-item-price">
+                Verð: {{ item.0.price }}
+            </div>
+            <div class="order-item-q">
+                Magn: {{ item.1 }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="order-address">
+    <h4>Sent til: </h4>
+        <div class="order-address-street">
+            {{ address.street_name }} {{ address.house_num }}
+        </div>
+        <div class="order-address-city">
+            {{ address.zipcode }} {{ address.city }}
+        </div>
+        <div class="order-address-country">
+            {{ address.country.country_name }}
+        </div>
+    </div>
+{% endblock %}

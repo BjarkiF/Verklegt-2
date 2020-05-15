@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
 from django.shortcuts import render, redirect
-from users.models import Profile, UserAddress, UserCountry
+from users.models import Profile, UserAddress, UserItemSearch
 from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm, EditAddressForm #, EditCountryForm
 from django.contrib.auth.models import User
+from cart.models import Order
+from cart.views import get_cart_items
 
 
 def register(request): # TODO: notandi fær ekki villu ef eitthvað klikkar
@@ -62,10 +64,9 @@ def profile(request):
     })
 
 
-# TODO: Skoða hvernig þetta er saveað, afhverju virkar ekki form.save?
 @login_required
 def edit_address(request):
-    address = UserAddress.objects.get(user_id=request.user.id)
+    address = UserAddress.objects.filter(user_id=request.user.id).first()
     if request.method == 'POST':
         form = EditAddressForm(data=request.POST)
         if form.is_valid():
@@ -80,3 +81,29 @@ def edit_address(request):
         'form': EditAddressForm(instance=address),
         #'country_select': UserCountry.objects.all()
     })
+
+
+@login_required
+def get_search_history(request):
+    context = {
+        'all_searches': UserItemSearch.objects.filter(user_id=request.user.id)
+    }
+    return render(request, 'users/search_history.html', context)
+
+
+@login_required
+def get_order_history(request):
+    context = {
+    'all_orders':  Order.objects.filter(user_id=request.user.id)
+    }
+    return render(request, 'users/order_history.html', context)
+
+@login_required
+def order_details(request, id):
+    order = Order.objects.get(id=id)
+    context = {
+    'order': order,
+    'items': get_cart_items(order)[0],
+    'address': UserAddress.objects.get(id=order.address_id),
+    }
+    return render(request, 'users/order_details.html', context)

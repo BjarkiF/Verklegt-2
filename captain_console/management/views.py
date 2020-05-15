@@ -35,7 +35,20 @@ def index(request):
         'customers': {
             'customers_registered': 31337,
             'customers_online': 42
-        }
+        },
+        'top10_items':[
+            {'name':'Hlutur1', 'sold': 33},
+            {'name':'Hlutur2', 'sold': 55},
+            {'name':'Hlutur3', 'sold': 22},
+            {'name':'Hlutur4', 'sold': 11},
+            {'name':'Hlutur5', 'sold': 66},
+        ],
+        'reviews': [
+            { 'username':'Jónas', 'text': 'Review texti 1' },
+            { 'username':'Jónas', 'text': 'Review texti 2' },
+            { 'username':'Jónas', 'text': 'Review texti 3' },
+            { 'username':'Jónas', 'text': 'Review texti 4' }
+        ]
     }
     return render(request, 'management/index.html', data)
 
@@ -46,28 +59,48 @@ def orders(request):
     # orders = Orders.objects.all()
     # TODO: Connect to database.
     data = [
-        {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 2},
-        {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
-        {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 3},
-        {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
-        {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
-        {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
+        {'id': 0, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 2},
+        {'id': 1, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
+        {'id': 2, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 3},
+        {'id': 3, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
+        {'id': 4, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
+        {'id': 5, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
     ]
     return render(request, 'management/orders/index.html', {'orders': data, 'active_page': 'orders',})
 
 
 @user_passes_test(only_employee)
 @login_required
+def orders_details(request):
+    # orders = Orders.objects.all()
+    # TODO: Connect to database.
+    data = {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
+
+    return render(request, 'management/orders/order.html', {'order': data, 'active_page': 'orders',})
+
+
+@user_passes_test(only_employee)
+@login_required
+def orders_delete(request, id):
+    # orders = Orders.objects.all()
+    # TODO: Connect to database.
+    data = {'id': id, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
+    logging.info('Deleting order ID: {0}'.format(id))
+    return redirect('/management/orders/')
+
+
+@user_passes_test(only_employee)
+@login_required
 def employees(request):
-    data = User.objects.filter(is_staff='t')
-    return render(request, 'management/staff/index.html', {'staff': data, 'active_page': 'employees',})
+    data = User.objects.filter(is_staff='t').order_by('first_name')
+    return render(request, 'management/employees/index.html', {'staff': data, 'active_page': 'employees',})
 
 
 @user_passes_test(only_employee)
 @login_required
 def employees_profile(request, username):
     data = User.objects.filter(is_staff='t', username=username)
-    return render(request, 'management/staff/details.html', {'employee': data, 'active_page': 'employees',})
+    return render(request, 'management/employees/details.html', {'employee': data, 'active_page': 'employees',})
 
 
 @user_passes_test(only_employee)
@@ -75,7 +108,39 @@ def employees_profile(request, username):
 @login_required
 def employees_register(request):
     # TODO: Connect to database.
-    return render(request, 'management/staff/register.html', { 'active_page': 'employees', })
+    return render(request, 'management/employees/register.html', { 'active_page': 'employees', })
+
+
+#@user_passes_test(only_employee)
+@user_passes_test(only_staff)
+@login_required
+def user_delete(request, username):
+    # TODO: Connect to database.
+    logging.info('Deleting Account Username: {0}'.format(username))
+
+    User.objects.filter(username=username).delete()
+
+    return redirect(request.GET.get('next'))
+
+#@user_passes_test(only_employee)
+@user_passes_test(only_staff)
+@login_required
+def user_lock(request, username):
+    # TODO: Connect to database.
+    logging.info('Locking Account Username: {0}'.format(username))
+    logging.info('Next: {0}'.format(request.GET.get('next')))
+
+    u = User.objects.get(username=username)
+
+    logging.info('is_active: {0}'.format(u.is_active))
+
+    if u.is_active == True:
+        u.is_active = False
+    else:
+        u.is_active = True
+    u.save()
+
+    return redirect(request.GET.get('next'))
 
 
 @user_passes_test(only_employee)
@@ -114,7 +179,7 @@ def config(request):
 @user_passes_test(only_staff)
 @login_required
 def groups(request):
-    data = Group.objects.all()
+    data = Group.objects.all().order_by('name')
     #for g in groups:
     #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
     #    l_as_list = list(l)  # QuerySet to `list`
@@ -122,6 +187,21 @@ def groups(request):
     #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return render(request, 'management/groups/index.html', {'groups': data, 'active_page': 'groups',})
+
+
+@user_passes_test(only_employee)
+@user_passes_test(only_staff)
+@login_required
+def group_delete(request, group_name):
+    data = Group.objects.all()
+    logging.info('Delete Group: {0}'.format(group_name))
+    #for g in groups:
+    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
+    #    l_as_list = list(l)  # QuerySet to `list`
+    #    users = User.objects.filter()
+    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
+
+    return redirect('/management/groups/')
 
 
 @user_passes_test(only_employee)
@@ -139,9 +219,24 @@ def group_view(request, group_name):
 
 
 @user_passes_test(only_employee)
+@user_passes_test(only_staff)
+@login_required
+def group_new(request):
+    data = {}
+    logging.info('New group!')
+    #for g in groups:
+    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
+    #    l_as_list = list(l)  # QuerySet to `list`
+    #    users = User.objects.filter()
+    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
+
+    return render(request, 'management/groups/new.html', {'group': data, 'active_page': 'groups',})
+
+
+@user_passes_test(only_employee)
 @login_required
 def customers(request):
-    data = User.objects.filter(is_staff='f')
+    data = User.objects.filter(is_staff='f').order_by('first_name')
     return render(request, 'management/customers/index.html', {'customers': data, 'active_page': 'customers',})
 
 
@@ -149,5 +244,5 @@ def customers(request):
 @user_passes_test(only_employee)
 @login_required
 def customers_details(request, username):
-    data = User.objects.filter(is_staff='t', username=username)
+    data = User.objects.filter(is_staff='f', username=username)
     return render(request, 'management/customers/details.html', {'customer': data, 'active_page': 'customers',})

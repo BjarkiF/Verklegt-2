@@ -1,13 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
     {% include 'management/navbar.html' %}
-    <div class="col-md-10 content">
-        <div class="jumbotron">
-            <span>{{ orders.unprocesessed }} óafgreiddar pantanir.</span>
-            <span>{{ orders.ready }} tilbúnar pantanir.</span>
-            <span>{{ orders.mailed }} pantanir póstlagðar.</span>
-            <span>{{ customers.customers_registered }} viðskiptavinir.</span>
-            <span>{{ customers.customers_online }} viðskiptavinir á síðunni.</span>
+        <div class="card col-md-3 index-dashboard">
+            <div class="card-body">
+                <h2 class="card-title">Pantanir</h5>
+                <p class="card-text">         
+                    <span>Óafgreitt: {{ orders.unprocesessed }}</span>
+                    <span>Tilbúnar: {{ orders.ready }}</span>
+                    <span>Afgreiddar: {{ orders.mailed }}</span>
+                </p>
+          </div>
+          <div class="card-body">
+              <h2 class="card-title">Notendur</h5>
+              <p class="card-text">
+                <span>Skráðir: {{ customers.customers_registered }}</span>
+                <span>Virkir: {{ customers.customers_online }}</span>
+              </p>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">TOP 10</h5>
+            <p class="card-text">
+                {% for item in top10_items %}
+                    <span>item</span>
+                {% endfor %}
+            </p>
+      </div>
+     </div>
+
+     <div class="col-md-3">
+        <div class="card-body">
+            <h2 class="card-title">Nýjar umsagnir:</h2>
+            <p class="card-text">
+                {% for review in reviews %}
+                    <span>{{review}}</span>
+                {% endfor %}
+            </p>
         </div>
     </div>
 {% endblock %}
