@@ -778,6 +778,9 @@ header nav ul a {
   padding: 10px;
   padding-right: 30px; }
 
+.your-cart-heading {
+  margin-left: 100px; }
+
 .profile-header {
   margin-left: 30px; }
 
@@ -1118,7 +1121,7 @@ header nav ul a {
   color: #CE0000; }
 
 .table td {
-  font-size: 18px;
+  font-size: 16px;
   background: #EDF2F4; }
 
 .table tbody tr {
