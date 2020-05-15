@@ -27,33 +27,14 @@ def only_employee(user):
 @user_passes_test(only_employee)
 @login_required
 def index(request):
-    # TODO: Connect to database.
-    data = {
-        'active_page': 'index',
-        'orders': {
-            'unprocesessed': 1337,
-            'ready': 7,
-            'mailed': 666
-        },
-        'customers': {
-            'customers_registered': 31337,
-            'customers_online': 42
-        },
-        'top10_items':[
-            {'name':'Hlutur1', 'sold': 33},
-            {'name':'Hlutur2', 'sold': 55},
-            {'name':'Hlutur3', 'sold': 22},
-            {'name':'Hlutur4', 'sold': 11},
-            {'name':'Hlutur5', 'sold': 66},
-        ],
-        'reviews': [
-            { 'username':'Jónas', 'text': 'Review texti 1' },
-            { 'username':'Jónas', 'text': 'Review texti 2' },
-            { 'username':'Jónas', 'text': 'Review texti 3' },
-            { 'username':'Jónas', 'text': 'Review texti 4' }
-        ]
+    orders = Order.objects.all()
+    context ={
+        'orders_ready': orders.filter(complete=True).count(),
+        'orders_not': orders.filter(complete=False).count(),
+        'accounts': User.objects.all().count(),
+        'accounts_active': User.objects.filter(is_active=True).count(),
     }
-    return render(request, 'management/index.html', data)
+    return render(request, 'management/index.html', context)
 
 
 @user_passes_test(only_employee)

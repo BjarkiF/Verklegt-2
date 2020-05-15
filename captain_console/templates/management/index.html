@@ -3,37 +3,45 @@
     {% include 'management/navbar.html' %}
         <div class="card col-md-3 index-dashboard">
             <div class="card-body">
-                <h2 class="card-title">Pantanir</h5>
+                <h1 class="card-title">Pantanir</h1>
                 <p class="card-text">         
-                    <span>Óafgreitt: {{ orders.unprocesessed }}</span>
-                    <span>Tilbúnar: {{ orders.ready }}</span>
+                    <span>
+                        <h4>Í vinnslu: {{ orders_not }}</h4>
+                    </span>
+                    <span>
+                        <h4>Tilbúnar: {{ orders_ready }}</h4>
+                    </span>
                 </p>
           </div>
           <div class="card-body">
-              <h2 class="card-title">Notendur</h5>
+              <h1 class="card-title">Notendur</h1>
               <p class="card-text">
-                <span>Skráðir: {{ customers.customers_registered }}</span>
-                <span>Virkir: {{ customers.customers_online }}</span>
+                <span>
+                    <h4>Skráðir: {{ accounts }}</h4>
+                </span>
+                <span>
+                    <h4>Virkir: {{ accounts_active }}</h4>
+                </span>
               </p>
         </div>
-        <div class="card-body">
-            <h2 class="card-title">TOP 10</h5>
-            <p class="card-text">
-                {% for item in top10_items %}
-                    <span>item</span>
-                {% endfor %}
-            </p>
-      </div>
+{#        <div class="card-body">#}
+{#            <h2 class="card-title">TOP 10</h2>#}
+{#            <p class="card-text">#}
+{#                {% for item in top10_items %}#}
+{#                    <span>item</span>#}
+{#                {% endfor %}#}
+{#            </p>#}
+{#      </div>#}
      </div>
 
-     <div class="col-md-3">
-        <div class="card-body">
-            <h2 class="card-title">Nýjar umsagnir:</h2>
-            <p class="card-text">
-                {% for review in reviews %}
-                    <span>{{review}}</span>
-                {% endfor %}
-            </p>
-        </div>
-    </div>
+{#     <div class="col-md-3">#}
+{#        <div class="card-body">#}
+{#            <h2 class="card-title">Nýjar umsagnir:</h2>#}
+{#            <p class="card-text">#}
+{#                {% for review in reviews %}#}
+{#                    <span>{{review}}</span>#}
+{#                {% endfor %}#}
+{#            </p>#}
+{#        </div>#}
+{#    </div>#}
 {% endblock %}
