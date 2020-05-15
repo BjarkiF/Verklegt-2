@@ -50,7 +50,7 @@ def get_item_by_id(request, id):
     })
 
 
-# TODO: filter virkar ekki ef farið er hér í gegn | komið held ég
+
 def get_items_category(request, id):
     context = {
         'items': Item.objects.filter(category_id=id),
