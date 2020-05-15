@@ -47,11 +47,16 @@
                 <input id="profile-search" class="update" type="submit" value="Skoða leitarsögu">
             </a>
         </div>
-        <div class="profile-orderhistory">
-            <a href="/users/profile/orders">
-                <input id="profile-orders" class="update" type="submit" value="Skoða fyrri pantanir">
-            </a>
-        </div>
+
+        {% if not user.is_staff %}
+            <div class="profile-orderhistory">
+                <a href="/users/profile/orders">
+                    <input id="profile-orders" class="update" type="submit" value="Skoða fyrri pantanir">
+                </a>
+            </div>
+        {% endif %}
+
+
     </div>
     </div>
 {% endblock %}

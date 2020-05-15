@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if items %}
-        <h2>Karfan þín</h2>
+        <h2 class="your-cart-heading">Karfan þín</h2>
         {% for item in items %}
                 <div class="cart-remove">
                         <a class="cart-remove-icon" href="{% url 'remove_from_cart_all' item.0.id %}">

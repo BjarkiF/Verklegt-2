@@ -548,21 +548,42 @@ header nav ul a {
 .edit-singleinfo {
   border: black 2px solid;
   border-radius: 10px;
-  height: 280px;
+  height: 296px;
   width: 280px;
   text-align: center;
-  margin: 25px 70px 0 25px; }
+  margin: 28px 70px 0 25px;
+  padding: 15px 10px; }
+  .edit-singleinfo p {
+    font-size: 20px; }
 
 .edit-singleitem form {
   display: flex;
   justify-content: space-between; }
 
+.edit-price-input input {
+  width: 100px; }
+
+.edit-price-heading {
+  padding: 0 8px 0 0; }
+
+.edit-price-line {
+  display: flex;
+  justify-content: center; }
+
 .edit-single-img-name img {
-  margin: 0 0 0 70px; }
+  margin: 28px 0 0 70px; }
 
 .edit-singledescription {
   display: inline-block;
   float: left; }
+  .edit-singledescription label {
+    font-size: 20px; }
+
+.edit-info-button {
+  margin-top: 105px; }
+
+.edit-single-img-name h2 {
+  margin-left: 80px; }
 
 /*-------------------------------------------------------------------------------------*/
 /*INNSKRÁ SÍÐAN*/
@@ -756,6 +777,9 @@ header nav ul a {
   text-decoration: underline;
   padding: 10px;
   padding-right: 30px; }
+
+.your-cart-heading {
+  margin-left: 100px; }
 
 .profile-header {
   margin-left: 30px; }
@@ -1075,12 +1099,6 @@ header nav ul a {
 .card-heading {
   margin-left: 200px; }
 
-.staff-register-site {
-  background: #9fcdff;
-  float: right;
-  padding: 10px;
-  width: 80%; }
-
 .col-md-2 {
   padding-top: 15px; }
 
@@ -1103,7 +1121,7 @@ header nav ul a {
   color: #CE0000; }
 
 .table td {
-  font-size: 18px;
+  font-size: 16px;
   background: #EDF2F4; }
 
 .table tbody tr {
@@ -1125,6 +1143,79 @@ header nav ul a {
 
 .content .index-dashboard .card-body .card-text span {
   display: flex; }
+
+.new-item-form {
+  margin: 40px;
+  font-size: 16px; }
+
+.form-fields textarea {
+  height: 100px;
+  background: ghostwhite;
+  border-radius: 4px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px; }
+
+.form-fields input {
+  background: ghostwhite;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin-left: 10px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px; }
+
+.new-item-name {
+  margin-bottom: 20px; }
+
+.new-item-price {
+  margin-bottom: 20px; }
+
+.new-con2 {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px lightgrey solid;
+  margin: 10px 80px;
+  padding: 10px; }
+
+.new-con2 select {
+  background: ghostwhite;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 0;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px; }
+
+.staff-register-site {
+  float: right;
+  padding: 10px;
+  width: 80%; }
+  .staff-register-site p {
+    font-size: 20px;
+    text-align: center; }
+
+.a {
+  width: 500px;
+  margin: 20px 0 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  font-size: 20px; }
+
+.a input {
+  background: ghostwhite;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 0 0 0 10px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px; }
 
 .rev-heading {
   margin: 10px;

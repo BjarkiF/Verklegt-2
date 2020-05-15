@@ -548,21 +548,42 @@ header nav ul a {
 .edit-singleinfo {
   border: black 2px solid;
   border-radius: 10px;
-  height: 280px;
+  height: 296px;
   width: 280px;
   text-align: center;
-  margin: 25px 70px 0 25px; }
+  margin: 28px 70px 0 25px;
+  padding: 15px 10px; }
+  .edit-singleinfo p {
+    font-size: 20px; }
 
 .edit-singleitem form {
   display: flex;
   justify-content: space-between; }
 
+.edit-price-input input {
+  width: 100px; }
+
+.edit-price-heading {
+  padding: 0 8px 0 0; }
+
+.edit-price-line {
+  display: flex;
+  justify-content: center; }
+
 .edit-single-img-name img {
-  margin: 0 0 0 70px; }
+  margin: 28px 0 0 70px; }
 
 .edit-singledescription {
   display: inline-block;
   float: left; }
+  .edit-singledescription label {
+    font-size: 20px; }
+
+.edit-info-button {
+  margin-top: 105px; }
+
+.edit-single-img-name h2 {
+  margin-left: 80px; }
 
 /*-------------------------------------------------------------------------------------*/
 /*INNSKRÁ SÍÐAN*/
@@ -756,6 +777,9 @@ header nav ul a {
   text-decoration: underline;
   padding: 10px;
   padding-right: 30px; }
+
+.your-cart-heading {
+  margin-left: 100px; }
 
 .profile-header {
   margin-left: 30px; }
@@ -1097,7 +1121,7 @@ header nav ul a {
   color: #CE0000; }
 
 .table td {
-  font-size: 18px;
+  font-size: 16px;
   background: #EDF2F4; }
 
 .table tbody tr {
