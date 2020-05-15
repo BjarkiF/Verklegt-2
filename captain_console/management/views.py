@@ -206,44 +206,6 @@ def config(request):
     return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'form': ConfigForm()})
 
 
-# @user_passes_test(only_employee)
-# @user_passes_test(only_staff)
-# @login_required
-# def groups(request):
-#     data = Group.objects.all().order_by('name')
-#
-#     return render(request, 'management/groups/index.html', {'groups': data, 'active_page': 'groups',})
-#
-#
-# @user_passes_test(only_employee)
-# @user_passes_test(only_staff)
-# @login_required
-# def group_delete(request, group_name):
-#     data = Group.objects.all()
-#     logging.info('Delete Group: {0}'.format(group_name))
-#
-#     return redirect('/management/groups/')
-#
-#
-# @user_passes_test(only_employee)
-# @user_passes_test(only_staff)
-# @login_required
-# def group_view(request, group_name):
-#     data = Group.objects.filter(name=group_name)
-#
-#     return render(request, 'management/groups/details.html', {'group': data, 'active_page': 'groups',})
-#
-#
-# @user_passes_test(only_employee)
-# @user_passes_test(only_staff)
-# @login_required
-# def group_new(request):
-#     data = {}
-#     logging.info('New group!')
-#
-#     return render(request, 'management/groups/new.html', {'group': data, 'active_page': 'groups',})
-
-
 @user_passes_test(only_employee)
 @login_required
 def customers(request):
