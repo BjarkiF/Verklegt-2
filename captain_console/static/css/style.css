@@ -530,15 +530,6 @@ header nav ul a {
 
 /*--------------------------------------------------------------------------------*/
 /*EDIT single VARA*/
-.edit-singleinfo {
-  width: 300px;
-  height: 313px;
-  margin-bottom: 0;
-  position: absolute;
-  float: left;
-  right: 0;
-  display: inline-block; }
-
 .change-info-button input {
   background: #CE0000;
   border-radius: 10px;
@@ -550,39 +541,9 @@ header nav ul a {
   right: 70px;
   top: 300px; }
 
-.edit-description-textarea {
-  display: block;
-  border-radius: 10px; }
-
-.edit-singledescription {
-  width: 100%;
-  padding-top: 0;
-  position: absolute;
-  left: 410px; }
-
-.edit-single-img-name {
-  width: 260px; }
-  .edit-single-img-name img {
-    margin-top: 0; }
-
-.edit-description-heading {
-  font-size: 30px; }
-
-.edit-price-heading {
-  width: 60px;
-  position: relative;
-  float: left; }
-
-.edit-price-input input {
-  width: 100px;
-  position: relative;
-  float: left; }
-
-.edit-price-line {
-  margin-left: 25px; }
-
-.edit-manuf-class {
-  margin-top: 40px; }
+.edit-singleitem {
+  display: flex;
+  justify-content: space-between; }
 
 /*-------------------------------------------------------------------------------------*/
 /*INNSKRÁ SÍÐAN*/
@@ -689,7 +650,7 @@ header nav ul a {
 
 .cart-item {
   display: inline-block;
-  width: 90%;
+  width: 85%;
   padding: 5px 10px;
   border-bottom: 2px black solid;
   background: #dedde8; }
