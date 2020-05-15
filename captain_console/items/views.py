@@ -1,8 +1,9 @@
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from items.models import Item, ItemManufacturer, ItemCategory
 from items.forms.forms import EditItemForm
 from users.models import UserItemSearch
+from cart.views import get_cart_items
 import datetime
 
 
@@ -36,13 +37,22 @@ def index(request):
 def all_items(request):
 
     # Ef það er query string í URL þá áframsendist requestið á filter fallið
-    if request.GET.get('filter-cat') or request.GET.get('filter-sort'):
+    if request.GET.get('filter-cat') or request.GET.get('filter-sort') or request.GET.get('filter-manuf'): #gera betur?
         return get_items_filter(request)
 
-    context = {
-        'items': Item.objects.all().order_by('name'),
+    if request.session['search_ids']: # TODO: láta filtera virka bara við searched items?
+        ids = request.session['search_ids']
+        request.session['search_ids'] = None
+        items = Item.objects.filter(id__in=ids)
+        context = {
+        'items': items,
         'manuf': ItemManufacturer.objects.all().order_by('name')
-    }
+        }
+    else:
+        context = {
+            'items': Item.objects.all().order_by('name'),
+            'manuf': ItemManufacturer.objects.all().order_by('name')
+        }
     return render(request, 'items/all_items.html', context)
 
 
@@ -107,4 +117,9 @@ def search(request):
         items = Item.objects.filter(Q(name__icontains=search_term) | Q(manufacturer_id=manufacturer.id))
     except ItemManufacturer.DoesNotExist:
         items = Item.objects.filter(name__icontains=search_term)
-    return render(request, 'items/all_items.html', {'items': items})
+    item_ids = []
+    for item in items:
+        item_ids.append(item.id)
+    request.session['search_ids'] = item_ids
+    return redirect('/items/all')
+    #return render(request, 'items/all_items.html', {'items': items})
