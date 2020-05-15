@@ -4,11 +4,12 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 #from users.models import Profile
 #from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
+from items.forms.forms import CreateItemForm
+from items.models import Item, ItemImg
 from management.forms.forms import ConfigForm
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import user_passes_test
-
-import logging
+import logging, datetime
 
 
 def only_staff(user):
@@ -246,3 +247,30 @@ def customers(request):
 def customers_details(request, username):
     data = User.objects.filter(is_staff='f', username=username)
     return render(request, 'management/customers/details.html', {'customer': data, 'active_page': 'customers',})
+
+
+def new_item(request):
+    if request.method == 'POST':
+        form = CreateItemForm(data=request.POST)
+        if form.is_valid():
+            item_temp = Item.objects.create(
+                id = (int(Item.objects.latest('id').id) + 1),
+                name=request.POST['name'],
+                description=request.POST['description'],
+                price=request.POST['price'],
+                manufacturer_id=request.POST['manufacturer_id'],
+                category_id=request.POST['category_id'],
+                date=datetime.datetime.now()
+            )
+            item_temp.save()
+            img_temp = ItemImg.objects.create(
+                id=(int(ItemImg.objects.latest('id').id) + 1),
+                item_id=item_temp.id,
+                img=request.POST['img']
+            )
+            img_temp.save()
+            return redirect('Management Index')
+    context = {
+        'form': CreateItemForm()
+    }
+    return render(request, 'management/items/new_item.html', context)

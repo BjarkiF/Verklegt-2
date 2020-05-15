@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'management/navbar.html' %}
+    <form class="new-item-form" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Staðfesta">
+    </form>
+{% endblock %}

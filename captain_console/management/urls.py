@@ -25,4 +25,5 @@ urlpatterns = [
     path('customers/<str:username>/lock/', views.user_lock, name="Customer Lock Account"),
     path('employees/register/', views.employees_register, name="Register Employee"),
     path('config/', views.config, name="Management Config"),
+    path('newitem/', views.new_item, name='Create Item')
 ]
