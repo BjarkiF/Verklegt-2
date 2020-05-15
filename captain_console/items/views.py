@@ -125,4 +125,3 @@ def search(request):
         item_ids.append(item.id)
     request.session['search_ids'] = item_ids
     return redirect('/items/all')
-    #return render(request, 'items/all_items.html', {'items': items})

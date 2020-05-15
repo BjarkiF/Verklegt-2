@@ -79,7 +79,6 @@ def edit_address(request):
             return redirect('Profile')
     return render(request, 'users/edit_address.html', {
         'form': EditAddressForm(instance=address),
-        #'country_select': UserCountry.objects.all()
     })
 
 
