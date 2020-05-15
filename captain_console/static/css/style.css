@@ -674,6 +674,10 @@ header nav ul a {
   margin: 10px 0;
   transition: 0.3s all ease; }
 
+.logout-button {
+  width: 50%;
+  margin-left: 40%; }
+
 .cart-item {
   display: inline-block;
   width: 85%;
