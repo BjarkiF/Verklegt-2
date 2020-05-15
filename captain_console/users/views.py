@@ -62,10 +62,9 @@ def profile(request):
     })
 
 
-# TODO: Skoða hvernig þetta er saveað, afhverju virkar ekki form.save?
 @login_required
 def edit_address(request):
-    address = UserAddress.objects.get(user_id=request.user.id)
+    address = UserAddress.objects.filter(user_id=request.user.id).first()
     if request.method == 'POST':
         form = EditAddressForm(data=request.POST)
         if form.is_valid():
