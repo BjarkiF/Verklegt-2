@@ -689,7 +689,7 @@ header nav ul a {
 
 .cart-item {
   display: inline-block;
-  width: 85%;
+  width: 90%;
   padding: 5px 10px;
   border-bottom: 2px black solid;
   background: #dedde8; }
@@ -867,6 +867,9 @@ header nav ul a {
   transition: 0.3s all ease;
   color: #CE0000; }
 
+#delete-history-btn {
+  margin-left: 40%; }
+
 .order-history {
   margin: 20px; }
   .order-history h2 {
@@ -939,9 +942,6 @@ header nav ul a {
   padding: 10px; }
   .order-address h4 {
     font-size: 26px; }
-
-#delete-history-btn {
-  margin-left: 40%; }
 
 .edit-title {
   width: 100%;
