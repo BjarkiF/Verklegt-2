@@ -857,18 +857,104 @@ header nav ul a {
   text-align: center;
   display: flex;
   border-bottom: 2px grey solid;
+  width: 60%;
   background: #dedde8; }
 
 .history-search a {
   color: black;
   margin-left: 10px;
   text-decoration: none;
-  padding: 10px;
-  justify-content: space-between; }
+  padding: 10px; }
 
 .history-search a:hover {
   transition: 0.3s all ease;
   color: #CE0000; }
+
+.order-history {
+  margin: 20px; }
+  .order-history h2 {
+    margin: 20px; }
+
+.history-order {
+  text-align: center;
+  display: flex;
+  border-bottom: 2px grey solid;
+  width: 60%;
+  background: #dedde8; }
+
+.order-click {
+  display: flex;
+  color: black; }
+
+.order-click:hover {
+  color: red; }
+
+.order-date {
+  color: black;
+  padding: 10px;
+  text-decoration: none; }
+
+.order-total {
+  color: black;
+  padding: 10px 10px 10px 50px;
+  text-decoration: none;
+  float: right; }
+
+.ord-img {
+  position: absolute;
+  left: 70%;
+  top: 15%; }
+
+.ord-img img {
+  height: 250px;
+  width: 250px;
+  border-top: 1px lightgrey solid;
+  border-bottom: 1px lightgrey solid;
+  border-radius: 10px; }
+
+.order-info {
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+  font-size: 20px;
+  border-bottom: 2px lightgrey solid; }
+
+.order-info div {
+  padding: 10px; }
+
+.order-all-items {
+  text-align: center; }
+  .order-all-items h4 {
+    font-size: 26px; }
+
+.order-item {
+  margin: 10px;
+  display: inline-block;
+  padding: 10px;
+  border-bottom: 2px black solid;
+  background: #dedde8;
+  width: 300px; }
+
+.order-item-name {
+  text-align: center;
+  font-size: 16px; }
+
+.order-item-price {
+  text-align: center;
+  font-size: 18px;
+  text-decoration: underline; }
+
+.order-item-q {
+  text-align: center; }
+
+.order-address {
+  font-size: 20px;
+  text-align: center;
+  margin: 0 80px;
+  border-top: 2px lightgrey solid;
+  padding: 10px; }
+  .order-address h4 {
+    font-size: 26px; }
 
 #delete-history-btn {
   margin-left: 40%; }

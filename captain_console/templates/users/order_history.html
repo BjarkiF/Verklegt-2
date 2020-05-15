@@ -1,15 +1,22 @@
 {%  extends 'base.html' %}
 {% block content %}
-    {% for order in all_orders %}
-        <a href="/users/profile/orders/{{ order.id }}">
+    <div class="order-history">
+        <h2>Þínar pantanir:</h2>
+        {% for order in all_orders %}
             <div class="history-order">
+                <a class="order-click" href="/users/profile/orders/{{ order.id }}">
                 <div class="order-date">
                     Dags: {{ order.date }}
                 </div>
                 <div class="order-total">
                     Verð: {{ order.total }}
                 </div>
+                </a>
             </div>
-        </a>
-    {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="ord-img">
+        <img class="logo" src="/static/images/logo.png" alt="logo">
+    </div>
+
 {% endblock %}
