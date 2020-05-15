@@ -12,12 +12,12 @@ class ConfigForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(ConfigForm, self).__init__(*args, **kwargs)
 
-    hours_weekdays = forms.TextInput(attrs={'class': 'hours-weekdays', 'placeholder': 'Weekdays'})
-    hours_saturday = forms.TextInput(attrs={'class': 'config-form', 'placeholder': 'Saturday'})
-    hours_sunday = forms.TextInput(attrs={'class': 'config-form', 'placeholder': 'Sunday'})
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': ''}))
-    telephone = forms.TextInput(attrs={'class': 'config-form', 'placeholder': 'Telephone'})
-    address = forms.TextInput(attrs={'class': 'config-form', 'placeholder': 'Address'})
+    hours_weekdays = forms.TextInput(attrs={'class': 'form_weekdays', 'placeholder': 'Weekdays'})
+    hours_saturday = forms.TextInput(attrs={'class': 'hours_saturday', 'placeholder': 'Saturday'})
+    hours_sunday = forms.TextInput(attrs={'class': 'form_hours', 'placeholder': 'Sunday'})
+    email = forms.EmailField(label='Tölvupóstfang', widget=forms.EmailInput(attrs={'class': 'form-email', 'placeholder': ''}))
+    telephone = forms.TextInput(attrs={'class': 'form-telephone', 'placeholder': 'Telephone'})
+    address = forms.TextInput(attrs={'class': 'form-address', 'placeholder': 'Address'})
     social_facebook = forms.URLField(label='Facebook', required=False)
     social_twitter = forms.URLField(label='Twitter', required=False)
     social_youtube = forms.URLField(label='YouTube', required=False)
