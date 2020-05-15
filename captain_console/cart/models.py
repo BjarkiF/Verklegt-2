@@ -13,3 +13,4 @@ class Order(models.Model):
     total = models.CharField(max_length=255)
     address = models.ForeignKey(UserAddress, on_delete=models.CASCADE)
     date = models.DateField()
+    complete = models.BooleanField(default=False)
