@@ -785,6 +785,28 @@ header nav ul a {
 .profile-update a {
   color: black; }
 
+.search-history {
+  margin: 20px; }
+  .search-history h2 {
+    margin: 20px; }
+
+.history-search {
+  text-align: center;
+  display: flex;
+  border-bottom: 2px grey solid;
+  background: #dedde8; }
+
+.history-search a {
+  color: black;
+  margin-left: 10px;
+  text-decoration: none;
+  padding: 10px;
+  justify-content: space-between; }
+
+.history-search a:hover {
+  transition: 0.3s all ease;
+  color: #CE0000; }
+
 .edit-title {
   width: 100%;
   text-align: center; }
