@@ -1,11 +1,15 @@
 {%  extends 'base.html' %}
 {% block content %}
-    {% for search in all_searches %}
-        <div class="history-search">
-            <a href="/items/search/?q={{ search.search }}">
-                Dags: {{ search.date }}
-                Leit: {{ search.search }}
-            </a>
-        </div>
+{#    <h2>Leitar saga:</h2>#}
+    <div class="search-history">
+        <h2>Leitar saga:</h2>
+        {% for search in all_searches %}
+            <div class="history-search">
+                <a href="/items/search/?q={{ search.search }}">
+                    Dags: {{ search.date }}
+                    Leit: {{ search.search }}
+                </a>
+            </div>
     {% endfor %}
+    </div>
 {% endblock %}

@@ -99,3 +99,34 @@
   color: black;
 }
 
+//-----------------------------------------------------
+////search history
+.search-history{
+  margin: 20px;
+  h2{
+    margin: 20px;
+  }
+}
+
+
+.history-search{
+  text-align: center;
+  display: flex;
+  border-bottom: 2px grey solid;
+  //width: 70%;
+  //margin: 10px;
+  background: #dedde8;
+  //justify-content: space-between;
+}
+.history-search a{
+  color: black;
+  margin-left: 10px;
+  text-decoration: none;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.history-search a:hover{
+  transition: 0.3s all ease;
+  color: $color0;
+}
