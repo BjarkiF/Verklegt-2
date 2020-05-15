@@ -43,19 +43,38 @@ def footer_hours_sunday():
 @register.simple_tag
 def footer_social_instagram():
     """Removes all values of arg from the given string"""
-    return Config.objects.values_list('social_instagram').last()[0]
+    return Config.objects.values_list('social_instagram').last()[0][8:]
 
 
 @register.simple_tag
 def footer_social_facebook():
     """Removes all values of arg from the given string"""
-    return Config.objects.values_list('social_facebook').last()[0]
+    return Config.objects.values_list('social_facebook').last()[0][8:]
 
 
 @register.simple_tag
 def footer_social_twitter():
     """Removes all values of arg from the given string"""
+    return Config.objects.values_list('social_twitter').last()[0][8:]
+
+
+@register.simple_tag
+def footer_social_instagram_url():
+    """Removes all values of arg from the given string"""
+    return Config.objects.values_list('social_instagram').last()[0]
+
+
+@register.simple_tag
+def footer_social_facebook_url():
+    """Removes all values of arg from the given string"""
+    return Config.objects.values_list('social_facebook').last()[0]
+
+
+@register.simple_tag
+def footer_social_twitter_url():
+    """Removes all values of arg from the given string"""
     return Config.objects.values_list('social_twitter').last()[0]
+
 
 @register.simple_tag
 def footer_lat():
