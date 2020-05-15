@@ -98,8 +98,27 @@
   right: 70px;
   top: 300px;
 }
-
 .edit-singleitem{
   display: flex;
   justify-content: space-between;
 }
+.edit-singleinfo{
+  border: black 2px solid;
+  border-radius: 10px;
+  height: 280px;
+  width: 280px;
+  text-align: center;
+  margin: 25px 70px 0 25px;
+}
+.edit-singleitem form{
+  display: flex;
+  justify-content: space-between;
+}
+.edit-single-img-name img{
+  margin: 0 0 0 70px;
+}
+.edit-singledescription{
+  display: inline-block;
+  float: left;
+}
+
