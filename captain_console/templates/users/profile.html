@@ -27,25 +27,30 @@
             <h3>Ekkert heimilisfang vistað!</h3>
         {% endif %}
     </div>
-    <div class="profile-update-address">
-        <a href="/users/profile/address">
-            <input id="update-address" class="update" type="submit" value="Uppfæra heimilisfang">
-        </a>
+    <div class="all-btns">
+        <div class="profile-update">
+            <a href="/users/profile/edit">
+                <input id="update-profile" class="update" type="submit" value="Uppfæra prófíl">
+            </a>
+        </div>
+        <div class="profile-update-address">
+            <a href="/users/profile/address">
+                <input id="update-address" class="update" type="submit" value="Uppfæra heimilisfang">
+            </a>
+        </div>
+
     </div>
-    <div class="profile-update">
-        <a href="/users/profile/edit">
-            <input id="update-profile" class="update" type="submit" value="Uppfæra prófíl">
-        </a>
-    </div>
-    <div class="profile-searchhistory">
-        <a href="/users/profile/search">
-            <input id="profile-search" class="update" type="submit" value="Skoða leitarsögu">
-        </a>
-    </div>
-    <div class="profile-orderhistory">
-        <a href="/users/profile/orders">
-            <input id="profile-orders" class="update" type="submit" value="Skoða fyrri pantanir">
-        </a>
+    <div class="all-btns2">
+        <div class="profile-searchhistory">
+            <a href="/users/profile/search">
+                <input id="profile-search" class="update" type="submit" value="Skoða leitarsögu">
+            </a>
+        </div>
+        <div class="profile-orderhistory">
+            <a href="/users/profile/orders">
+                <input id="profile-orders" class="update" type="submit" value="Skoða fyrri pantanir">
+            </a>
+        </div>
     </div>
     </div>
 {% endblock %}

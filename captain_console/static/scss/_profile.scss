@@ -60,26 +60,16 @@
 
 }
 
-//
-.profile-update-address{
-    //color: ghostwhite;
-  //margin: 10px 40px 40px 40px;
-  //position: absolute;
-  margin-right: 75px;
-  margin-bottom: 50px;
-  display: inline-block;
-  float: right;
+
+.all-btns{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 50px;
 }
-
-.profile-update {
-  //color: ghostwhite;
-  //margin: 10px 40px 40px 40px;
-  //position: absolute;
-  margin-bottom: 50px;
-  margin-right: 150px;
-  float: right;
-  display: inline-block;
-
+.all-btns2{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 50px;
 }
 
 .update{
