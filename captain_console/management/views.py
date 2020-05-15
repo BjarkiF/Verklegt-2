@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, Pass
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 #from users.models import Profile
-#from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
+from users.forms.forms import RegisterForm
 from items.forms.forms import CreateItemForm
 from items.models import Item, ItemImg
 from management.forms.forms import ConfigForm
@@ -108,15 +108,25 @@ def employees_profile(request, username):
 @user_passes_test(only_staff)
 @login_required
 def employees_register(request):
-    # TODO: Connect to database.
-    return render(request, 'management/employees/register.html', { 'active_page': 'employees', })
+    if request.method == 'POST':
+        form = RegisterForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = User.objects.get(username=request.POST['username'])
+            user.is_staff = True
+            user.save()
+            return redirect('/management/employees')
+    context ={
+        'form': RegisterForm(),
+        'active_page': 'employees',
+    }
+    return render(request, 'management/employees/register.html', context)
 
 
 #@user_passes_test(only_employee)
 @user_passes_test(only_staff)
 @login_required
 def user_delete(request, username):
-    # TODO: Connect to database.
     logging.info('Deleting Account Username: {0}'.format(username))
 
     User.objects.filter(username=username).delete()
@@ -272,6 +282,7 @@ def new_item(request):
             img_temp.save()
             return redirect('Management Index')
     context = {
-        'form': CreateItemForm()
+        'form': CreateItemForm(),
+        'active_page': 'new_item',
     }
     return render(request, 'management/items/new_item.html', context)
