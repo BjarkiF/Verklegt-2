@@ -2,14 +2,18 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User, Group
+from django.contrib.auth.decorators import user_passes_test
+
 #from users.models import Profile
 from cart.models import Order
 from users.forms.forms import RegisterForm
 from items.forms.forms import CreateItemForm
 from items.models import Item, ItemImg
+from config.models import Config
+
 from management.forms.forms import ConfigForm
-from django.contrib.auth.models import User, Group
-from django.contrib.auth.decorators import user_passes_test
+
 import logging
 import datetime
 
@@ -141,6 +145,30 @@ def user_lock(request, username):
 @user_passes_test(only_staff)
 @login_required
 def config(request):
+
+
+    if request.method == 'POST':
+        form = ConfigForm(data=request)
+        if form.is_valid():
+            config_new = Config.objects.create(
+                hours_weekdays=request.POST['hours_weekdays'],
+                hours_saturday=request.POST['hours_saturday'],
+                hours_sunday=request.POST['hours_sunday'],
+                email  = request.POST['email'],
+                telephone = request.POST['telephone'],
+                address = request.POST['address'],
+                social_facebook = request.POST['social_facebook'],
+                social_twitter = request.POST['social_twitter'],
+                social_youtube = request.POST['social_youtube'],
+                social_instagram = request.POST['social_instagram'],
+                about = request.POST['about'],
+                location = request.POST['location']
+            )
+            config_new.save()
+            return redirect('Config')
+
+    c = Config.objects.last()
+    logging.info(c)
     # TODO: Sumir notendur eiga að sjá config og getað breytt meðal annars upplýsingum í footernum.
     # Config example
     data = {
@@ -162,8 +190,6 @@ def config(request):
             ]
         }
     }
-    #for field in ConfigForm():
-    #    logging.info(field)
 
     logging.info(dir(ConfigForm()))
 
