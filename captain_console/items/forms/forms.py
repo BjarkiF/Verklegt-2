@@ -4,7 +4,7 @@ from items.models import Item, ItemManufacturer, ItemCategory
 
 
 class EditItemForm(ModelForm):
-    description = forms.CharField(widget=forms.Textarea(attrs={"rows":13,"cols":50,'style':'resize:none;'}))
+    description = forms.CharField(widget=forms.Textarea(attrs={"rows":14,"cols":50,'style':'resize:none;'}))
 
     class Meta:
         model = Item

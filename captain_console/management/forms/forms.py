@@ -8,7 +8,7 @@ from django.core.validators import RegexValidator
 from config.models import Config
 
 
-class ConfigForm():
+class ConfigForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(ConfigForm, self).__init__(*args, **kwargs)
 
