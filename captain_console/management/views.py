@@ -72,7 +72,7 @@ def orders_delete(request, id):
     # orders = Orders.objects.all()
     # TODO: Connect to database.
     data = {'id': id, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
-
+    logging.info('Deleting order ID: {0}'.format(id))
     return redirect('/management/orders/')
 
 
@@ -101,18 +101,19 @@ def employees_register(request):
 #@user_passes_test(only_employee)
 @user_passes_test(only_staff)
 @login_required
-def employees_delete(request, username):
+def user_delete(request, username):
     # TODO: Connect to database.
-    logging.info('Deleting employee ID: {0}'.format(username))
+    logging.info('Deleting Account Username: {0}'.format(username))
     return redirect('/management/employees/')
 
 #@user_passes_test(only_employee)
 @user_passes_test(only_staff)
 @login_required
-def employees_lock(request, username):
+def user_lock(request, username):
     # TODO: Connect to database.
-    logging.info('Locking employee account ID: {0}'.format(username))
-    return redirect('/management/employees/')
+    logging.info('Locking Account Username: {0}'.format(username))
+    logging.info('Next: {0}'.format(request.GET.get('next')))
+    return redirect(request.GET.get('next'))
 
 
 @user_passes_test(only_employee)
@@ -175,6 +176,7 @@ def group_delete(request, group_name):
 
     return redirect('/management/groups/')
 
+
 @user_passes_test(only_employee)
 @user_passes_test(only_staff)
 @login_required
@@ -190,6 +192,21 @@ def group_view(request, group_name):
 
 
 @user_passes_test(only_employee)
+@user_passes_test(only_staff)
+@login_required
+def group_new(request):
+    data = {}
+    logging.info('New group!')
+    #for g in groups:
+    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
+    #    l_as_list = list(l)  # QuerySet to `list`
+    #    users = User.objects.filter()
+    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
+
+    return render(request, 'management/groups/new.html', {'group': data, 'active_page': 'groups',})
+
+
+@user_passes_test(only_employee)
 @login_required
 def customers(request):
     data = User.objects.filter(is_staff='f')
@@ -202,19 +219,3 @@ def customers(request):
 def customers_details(request, username):
     data = User.objects.filter(is_staff='f', username=username)
     return render(request, 'management/customers/details.html', {'customer': data, 'active_page': 'customers',})
-
-
-@user_passes_test(only_staff)
-@login_required
-def customers_delete(request, id):
-    data = User.objects.filter(id=id).delete()
-    return redirect('/management/customers/')
-
-@user_passes_test(only_staff)
-@login_required
-def customers_lock(request, id):
-    #data = User.objects.filter(id=id).delete()
-    logging.info('Locking account ID: {0}'.format(id))
-    return redirect('/management/customers/')
-
-
