@@ -1,7 +1,8 @@
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from items.models import Item, ItemManufacturer, ItemCategory
-
+from users.models import UserItemSearch
+import datetime
 
 def index(request):
     return render(request, 'items/index.html')
@@ -72,6 +73,11 @@ def get_items_filter(request):
 
 def search(request):
     search_term = request.GET.get('q')
+    if not request.user.is_anonymous:
+        dupe_check = len(UserItemSearch.objects.filter(user_id=request.user.id, search=search_term,
+                                                       date=datetime.datetime.now()))
+        if dupe_check == 0:
+            UserItemSearch.objects.create(user_id=request.user.id, search=search_term, date=datetime.datetime.now())
     try:
         manufacturer = ItemManufacturer.objects.get(name=search_term.capitalize())
         items = Item.objects.filter(Q(name__icontains=search_term) | Q(manufacturer_id=manufacturer.id))

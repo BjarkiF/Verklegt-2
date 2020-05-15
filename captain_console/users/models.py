@@ -29,6 +29,13 @@ class UserCard(models.Model):
     exp_year = models.CharField(max_length=2)
     cvc = models.CharField(max_length=3)
 
+
+class UserItemSearch(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    search = models.CharField(max_length=999)
+    date = models.DateField()
+
+
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
