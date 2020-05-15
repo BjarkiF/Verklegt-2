@@ -1,13 +1,15 @@
 {%  extends 'base.html' %}
 {% block content %}
-    <div class="order-id">
-        Pöntun nr: {{ order.id }}
-    </div>
-    <div class="order-date">
-        Dagsetning pöntunar: {{ order.date }}
-    </div>
-    <div class="order-total">
-     Verð samtals: {{ order.total }}
+    <div class="order-info">
+        <div class="order-id">
+            Pöntun nr: {{ order.id }}
+        </div>
+        <div class="order-date">
+            Dagsetning pöntunar: {{ order.date }}
+        </div>
+        <div class="order-total">
+            Verð samtals: {{ order.total }}
+        </div>
     </div>
     <div class="order-all-items">
         <h4>Vörur:</h4>
