@@ -12,18 +12,17 @@ class ConfigForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(ConfigForm, self).__init__(*args, **kwargs)
 
-    hours_weekdays = forms.TextInput(attrs={'class': 'form_weekdays', 'placeholder': 'Weekdays'})
-    hours_saturday = forms.TextInput(attrs={'class': 'hours_saturday', 'placeholder': 'Saturday'})
-    hours_sunday = forms.TextInput(attrs={'class': 'form_hours', 'placeholder': 'Sunday'})
+    hours_weekdays = forms.CharField(label='Virkir dagar', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
+    hours_saturday = forms.CharField(label='Laugardagar', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
+    hours_sunday = forms.CharField(label='Sunnudagar', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
     email = forms.EmailField(label='Tölvupóstfang', widget=forms.EmailInput(attrs={'class': 'form-email', 'placeholder': ''}))
-    telephone = forms.TextInput(attrs={'class': 'form-telephone', 'placeholder': 'Telephone'})
-    address = forms.TextInput(attrs={'class': 'form-address', 'placeholder': 'Address'})
-    social_facebook = forms.URLField(label='Facebook', required=False)
-    social_twitter = forms.URLField(label='Twitter', required=False)
-    social_youtube = forms.URLField(label='YouTube', required=False)
-    social_instagram = forms.URLField(label='Instagram', required=False)
-    about = forms.CharField(label='Um Okkur', widget=forms.Textarea(attrs={'rows': 9, 'cols':50, 'style':'resize:none;'}))
-    location = forms.CharField(label='Staðsetning', max_length=999, widget=forms.TextInput())
+    telephone = forms.CharField(label='Telephone', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
+    address = forms.CharField(label='Address', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
+    social_facebook = forms.URLField(label='Facebook', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
+    social_twitter = forms.URLField(label='Twitter', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
+    social_instagram = forms.URLField(label='Instagram', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
+    about = forms.CharField(label='Um Okkur', widget=forms.Textarea(attrs={'rows': 9, 'cols':50, 'style':'resize:none;', 'class':'form-about'}))
+    location = forms.CharField(label='Staðsetning', max_length=999, widget=forms.TextInput(attrs={'class': 'form-about'}))
 
     class Meta:
         model = Config
@@ -36,7 +35,6 @@ class ConfigForm(forms.Form):
                 'address',
                 'social_facebook',
                 'social_twitter',
-                'social_youtube',
                 'social_instagram'
                 'about',
                 'location'

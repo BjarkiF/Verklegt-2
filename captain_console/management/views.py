@@ -146,53 +146,59 @@ def user_lock(request, username):
 @user_passes_test(only_staff)
 @login_required
 def config(request):
-
-
     if request.method == 'POST':
-        form = ConfigForm(data=request)
+        form = ConfigForm(data=request.POST)
         if form.is_valid():
             config_new = Config.objects.create(
-                hours_weekdays=request.POST['hours_weekdays'],
-                hours_saturday=request.POST['hours_saturday'],
-                hours_sunday=request.POST['hours_sunday'],
-                email  = request.POST['email'],
-                telephone = request.POST['telephone'],
-                address = request.POST['address'],
-                social_facebook = request.POST['social_facebook'],
-                social_twitter = request.POST['social_twitter'],
-                social_youtube = request.POST['social_youtube'],
-                social_instagram = request.POST['social_instagram'],
-                about = request.POST['about'],
-                location = request.POST['location']
+                hours_weekdays=request.POST.get('hours_weekdays'),
+                hours_saturday=request.POST.get('hours_saturday'),
+                hours_sunday=request.POST.get('hours_sunday'),
+                email =request.POST.get('email'),
+                telephone=request.POST.get('telephone'),
+                address=request.POST.get('address'),
+                social_facebook=request.POST.get('social_facebook'),
+                social_twitter=request.POST.get('social_twitter'),
+                social_instagram=request.POST.get('social_instagram'),
+                about=request.POST.get('about'),
+                location=request.POST.get('location')
             )
             config_new.save()
-            return redirect('Config')
 
-    c = Config.objects.last()
-    logging.info(c)
-    # TODO: Sumir notendur eiga að sjá config og getað breytt meðal annars upplýsingum í footernum.
-    # Config example
-    data = {
-        'footer': {
-            'opening_hours': [
-                'Mon-Fri: 10:00 - 18:00',
-                'Lau: 12:00 - 17:00',
-                'Sun: 13:00 - 16:00'
-            ],
-            'contact': {
-                'email':'verslun@captain.is',
-                'telephone': '581-2345',
-                'address': 'Gamergata 14, Kópavogur'
-            },
-            'social': [
-                'facebook.com/CaptainConsole',
-                'instagram.com/CaptainConsole',
-                'twitter.com/CaptainConsole'
-            ]
+            return redirect('/management/config/')
+        else:
+            logging.error('Config form is not valid!')
+            return redirect('/management/config/')
+    else:
+        try:
+            c = Config.objects.last()
+            logging.info('object:')
+            logging.info(c)
+        except:
+            logging.info('No config set!')
+
+        # TODO: Sumir notendur eiga að sjá config og getað breytt meðal annars upplýsingum í footernum.
+        # Config example
+        data = {
+            'footer': {
+                'opening_hours': [
+                    'Mon-Fri: 10:00 - 18:00',
+                    'Lau: 12:00 - 17:00',
+                    'Sun: 13:00 - 16:00'
+                ],
+                'contact': {
+                    'email':'verslun@captain.is',
+                    'telephone': '581-2345',
+                    'address': 'Gamergata 14, Kópavogur'
+                },
+                'social': [
+                    'facebook.com/CaptainConsole',
+                    'instagram.com/CaptainConsole',
+                    'twitter.com/CaptainConsole'
+                ]
+            }
         }
-    }
 
-    logging.info(dir(ConfigForm()))
+        logging.info(dir(ConfigForm()))
 
     return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'form': ConfigForm()})
 

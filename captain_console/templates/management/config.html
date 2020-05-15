@@ -2,13 +2,43 @@
 {% block content %}
     {% include 'management/navbar.html' %}
     <div class="col-md-10 content">
-        <h1>Config</h1>
-        <div class="col-md-5 content">
-        <h2 class="register-title">Footer</h2>
+        <h1>Stillingar</h1>
         <form method="post">
         <p>* Stjörnumerkta reiti er nauðsynlegt að fylla</p>
             {% csrf_token %}
-            {{  form.as_p  }}
+            <div class="form-weekdays">
+                {{ form.hours_weekdays.label }}: {{ form.hours_weekdays }}
+            </div>
+            <div class="form-saturday">
+                {{ form.hours_saturday.label }}: {{ form.hours_saturday }}
+            </div>
+            <div class="form-weekdays">
+                {{ form.hours_sunday.label }}: {{ form.hours_sunday }}
+            </div>
+            <div class="form-email">
+                {{ form.email.label }}: {{ form.email }}
+            </div>
+            <div class="form-telephone">
+                {{ form.telephone.label }}: {{ form.telephone }}
+            </div>
+            <div class="form-address">
+                {{ form.address.label }}: {{ form.address }}
+            </div>
+            <div class="form-facebook">
+                {{ form.social_facebook.label }}: {{ form.social_facebook }}
+            </div>
+            <div class="form-twitter">
+                {{ form.social_twitter.label }}: {{ form.social_twitter }}
+            </div>
+            <div class="form-instagram">
+                {{ form.social_instagram.label }}: {{ form.social_instagram }}
+            </div>
+            <div class="form-location">
+                {{ form.location.label }}: {{ form.location }}
+            </div>
+            <div class="form-instagram">
+                {{ form.about.label }}: {{ form.about }}
+            </div>
             <input type="submit" value="OK">
         </form>
     </div>
