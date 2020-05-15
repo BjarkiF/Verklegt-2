@@ -1,0 +1,94 @@
+
+{% extends 'base.html' %}
+    {% block content %}
+{#        <div class="singleitem_edit">#}
+{##}
+{#            <form method="post">#}
+{#            <div class="single-img-name">#}
+{#                <img class="item-img" src="{{ item.itemimg_set.first.img }}"  alt="{{ item.item.name }}"/>#}
+{#                <h2 class="singlename_edit">{{ item.name }}</h2>#}
+{#            </div>#}
+{#            <div class="edit_site">#}
+{#                {% csrf_token %}#}
+{#                {{ form_item }}#}
+{##}
+{##}
+{#                {{ form_item.non_field_errors }}#}
+{#                <div class="login-group">#}
+{#                    <label for="{{ form_item.description }}">Notandanafn:</label>#}
+{#                    {{ form_item.description }}#}
+{#                    {{ form_item.description.errors }}#}
+{#                </div>#}
+{##}
+{##}
+{##}
+{#                <input class="edit" type="submit" value="Staðfesta"/>#}
+{##}
+{#            </div>#}
+{##}
+{##}
+{##}
+{##}
+{#            </form>#}
+{#        </div>#}
+
+
+
+
+
+    <div class="col-md-12 singleitem">
+            <div class="col-md-4 single-img-name edit-single-img-name">
+                <img class="item-img" src="{{ item.itemimg_set.first.img }}"  alt="{{ item.item.name }}"/>
+                <h2 class="singlename">{{ item.name }}</h2>
+            </div>
+            <div class="col-md-4 singledescription edit-singledescription">
+
+
+
+                <form method="post">
+                {{ form_item.non_field_errors }}
+                <label class="edit-description-heading">Lýsing vöru:</label>
+                <div class="edit-description-textarea">
+                {{ form_item.description }}
+                {{ form_item.description.errors }}
+{#                </form>#}
+                </div>
+
+
+            </div>
+{#            <form class="col-4-md">#}
+            <div class="singleinfo edit-singleinfo">
+
+
+                <div class="edit-price-line">
+    {#                <form method="post">#}
+                    {{ form_item.non_field_errors }}
+                    <p class="edit-price-heading">Verð:</p>
+                    <div class="edit-price-input">
+                    {{ form_item.price }}
+                    {{ form_item.price.errors }}
+                    </div>
+    {#                </form>#}
+                </div>
+
+
+                <div class="edit-manuf-class">
+                    <p>Framleiðandi: {{ item.manufacturer.name }}</p>
+                    <p>Flokkur: {{ item.category.name }}</p>
+                </div>
+
+                <div class="change-info-button">
+                <input type="submit" value="Staðfesta breytingar">
+                </div>
+
+
+            </div>
+
+
+
+            </form>
+
+        </div>
+    </div>
+
+    {% endblock %}

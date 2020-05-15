@@ -1,6 +1,27 @@
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from items.models import Item, ItemManufacturer, ItemCategory
+from items.forms.forms import EditItemForm
+
+
+
+
+
+
+
+def edit(request, id):
+    item = Item.objects.get(id=id)
+    if request.method == 'POST':
+        form_item = EditItemForm(data=request.POST)
+        if form_item.is_valid():
+            form_item.save()
+            return get_item_by_id(request, id)
+    return render(request, 'items/edit_item.html', context={
+
+            'form_item': EditItemForm(instance=item),
+            'item': Item.objects.get(id=id)
+
+    })
 
 
 def index(request):
@@ -78,3 +99,4 @@ def search(request):
     except ItemManufacturer.DoesNotExist:
         items = Item.objects.filter(name__icontains=search_term)
     return render(request, 'items/all_items.html', {'items': items})
+

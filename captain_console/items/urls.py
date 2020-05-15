@@ -10,5 +10,6 @@ urlpatterns = [
     path(r'^all/$', views.get_items_filter), # TODO: færa þetta í REST API.
     path('<int:id>/', views.get_item_by_id),
     path('filter/<int:id>/', views.get_items_category),
-    path('search/', views.search)
+    path('search/', views.search),
+    path('edit/<int:id>/', views.edit, name='edit')
 ]
