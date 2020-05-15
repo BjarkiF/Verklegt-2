@@ -672,6 +672,16 @@ header nav ul a {
   width: 50%;
   margin-left: 40%; }
 
+.col-md-12.loginsite {
+  text-align: center;
+  padding: 100px; }
+  .col-md-12.loginsite p {
+    font-size: 20px; }
+
+.pass-sent {
+  border-bottom: 2px black solid;
+  text-align: center; }
+
 .cart-item {
   display: inline-block;
   width: 85%;
