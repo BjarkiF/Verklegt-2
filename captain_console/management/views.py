@@ -167,7 +167,7 @@ def config(request):
 
     logging.info(dir(ConfigForm()))
 
-    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'footer-form': ConfigForm()})
+    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'form': ConfigForm()})
 
 
 @user_passes_test(only_employee)
