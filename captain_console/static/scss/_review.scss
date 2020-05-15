@@ -95,13 +95,19 @@
   background: $color0;
   color: ghostwhite;
 }
+//---------------------------------------------------------------
+.confirm-site{
+  text-align: center;
+  margin: 80px;
+}
 
-//.review-cancel-btn{
-//background: #CE0000;
-//}
-//
-//
-//
-//.review-confirm{
-//
-//}
+.confirm-site h1{
+  background: #81e871;
+  border: 2px black solid;
+  padding: 10px;
+  border-radius: 10px ;
+}
+
+.confirm-site h3{
+  padding: 20px;
+}
