@@ -683,6 +683,10 @@ header nav ul a {
   margin: 10px 0;
   transition: 0.3s all ease; }
 
+.logout-button {
+  width: 50%;
+  margin-left: 40%; }
+
 .cart-item {
   display: inline-block;
   width: 85%;
@@ -818,17 +822,15 @@ header nav ul a {
   font-size: 20px;
   margin-left: 20px; }
 
-.profile-update-address {
-  margin-right: 75px;
-  margin-bottom: 50px;
-  display: inline-block;
-  float: right; }
+.all-btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 50px; }
 
-.profile-update {
-  margin-bottom: 50px;
-  margin-right: 150px;
-  float: right;
-  display: inline-block; }
+.all-btns2 {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 50px; }
 
 .update {
   border: 2px black solid;
@@ -859,12 +861,87 @@ header nav ul a {
   color: black;
   margin-left: 10px;
   text-decoration: none;
-  padding: 10px;
-  justify-content: space-between; }
+  padding: 10px; }
 
 .history-search a:hover {
   transition: 0.3s all ease;
   color: #CE0000; }
+
+#delete-history-btn {
+  margin-left: 40%; }
+
+.order-history {
+  margin: 20px; }
+  .order-history h2 {
+    margin: 20px; }
+
+.history-order {
+  text-align: center;
+  display: flex;
+  border-bottom: 2px grey solid;
+  background: #dedde8; }
+
+.order-click {
+  display: flex;
+  color: black; }
+
+.order-click:hover {
+  color: red; }
+
+.order-date {
+  color: black;
+  padding: 10px;
+  text-decoration: none; }
+
+.order-total {
+  color: black;
+  padding: 10px 10px 10px 50px;
+  text-decoration: none;
+  float: right; }
+
+.order-info {
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+  font-size: 20px;
+  border-bottom: 2px lightgrey solid; }
+
+.order-info div {
+  padding: 10px; }
+
+.order-all-items {
+  text-align: center; }
+  .order-all-items h4 {
+    font-size: 26px; }
+
+.order-item {
+  margin: 10px;
+  display: inline-block;
+  padding: 10px;
+  border-bottom: 2px black solid;
+  background: #dedde8;
+  width: 300px; }
+
+.order-item-name {
+  text-align: center;
+  font-size: 16px; }
+
+.order-item-price {
+  text-align: center;
+  font-size: 18px;
+  text-decoration: underline; }
+
+.order-item-q {
+  text-align: center; }
+
+.order-address {
+  font-size: 20px;
+  text-align: center;
+  margin: 0 80px;
+  border-top: 2px lightgrey solid;
+  padding: 10px; }
+  .order-address h4 {
+    font-size: 26px; }
 
 .edit-title {
   width: 100%;
