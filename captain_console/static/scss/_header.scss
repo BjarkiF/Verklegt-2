@@ -7,15 +7,11 @@
 }
 nav{
   float: right;
-  //background: red;
   position: fixed;
   margin-right: auto;
   margin-left: auto;
   width: 90%;
-  //left: 50px;
-  //right: 50px;
   z-index: 100;
-  /*line-height: 80px;*/
 }
 
 nav a {
@@ -32,12 +28,10 @@ nav a {
   background-color: $color0;
   color: $color4;
   height: 80px;
-  //width: ;
   border-radius: 0;
 }
 
 .Rbuttons{
-  //position: absolute;
   top: 0;
   right: 0;
 }
@@ -52,17 +46,7 @@ nav a {
   padding: 2px;
 }
 
-//.search:hover > .search-txt{
-//  width: 240px;
-//  padding: 0 6px;
-//  transition: all 0.3s ease 0s;
-//}
-//.search:hover > .search-form{
-//  //transition: width 2s;
-//  width: 240px;
-//  padding: 0 6px;
-//  transition: all 0.4s ease 0s;
-//}
+
 
 .search-btn{
   color: ghostwhite;
@@ -154,19 +138,11 @@ ul {
 }
 
 button {
-  /*padding: 9px 25px;*/
-  /*background-color: red;*/
-  /*border: none;*/
-  /*border-radius: 50%;*/
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
 
-.logo img{
-  //height: 80px;
-  //width: 97px;
 
-}
 
 header nav ul a{
   color: #EDF2F4;
