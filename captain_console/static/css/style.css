@@ -857,6 +857,7 @@ header nav ul a {
   text-align: center;
   display: flex;
   border-bottom: 2px grey solid;
+  width: 60%;
   background: #dedde8; }
 
 .history-search a {
