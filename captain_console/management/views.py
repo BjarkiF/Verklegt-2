@@ -27,7 +27,8 @@ def only_employee(user):
 
 
 # TODO: segja user að hann hafi ekki aðgang  ef hann er loggaður inn sem customer.
-@user_passes_test(only_employee)
+# @user_passes_test(only_staff)
+# @user_passes_test(only_employee)
 @login_required
 def index(request):
     orders = Order.objects.all()
@@ -56,7 +57,7 @@ def orders(request):
 # @login_required
 # def orders_details(request):
 #     # orders = Orders.objects.all()
-#     # TODO: Connect to database.
+#     #
 #     data = {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
 #
 #     return render(request, 'management/orders/order.html', {'order': data, 'active_page': 'orders',})
@@ -98,9 +99,13 @@ def employees_register(request):
     if request.method == 'POST':
         form = RegisterForm(data=request.POST)
         if form.is_valid():
+            emp_group = Group.objects.get(name='employees')
+            staff_group = Group.objects.get(name='staff')
             form.save()
             user = User.objects.get(username=request.POST['username'])
             user.is_staff = True
+            emp_group.user_set.add(user)
+            staff_group.user_set.add(user)
             user.save()
             return redirect('/management/employees')
     context ={
@@ -140,7 +145,7 @@ def user_lock(request, username):
     return redirect(request.GET.get('next'))
 
 
-@user_passes_test(only_employee)
+#@user_passes_test(only_employee)
 @user_passes_test(only_staff)
 @login_required
 def config(request):
@@ -208,8 +213,8 @@ def config(request):
 #     data = Group.objects.all().order_by('name')
 #
 #     return render(request, 'management/groups/index.html', {'groups': data, 'active_page': 'groups',})
-
-
+#
+#
 # @user_passes_test(only_employee)
 # @user_passes_test(only_staff)
 # @login_required
@@ -218,8 +223,8 @@ def config(request):
 #     logging.info('Delete Group: {0}'.format(group_name))
 #
 #     return redirect('/management/groups/')
-
-
+#
+#
 # @user_passes_test(only_employee)
 # @user_passes_test(only_staff)
 # @login_required
@@ -227,8 +232,8 @@ def config(request):
 #     data = Group.objects.filter(name=group_name)
 #
 #     return render(request, 'management/groups/details.html', {'group': data, 'active_page': 'groups',})
-
-
+#
+#
 # @user_passes_test(only_employee)
 # @user_passes_test(only_staff)
 # @login_required
