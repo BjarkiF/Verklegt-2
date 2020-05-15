@@ -278,6 +278,7 @@ header nav ul a {
   margin: 20px; }
 
 .item-img {
+  object-fit: contain;
   border-radius: 10px;
   border: black 2px solid;
   justify-content: center;
@@ -285,6 +286,7 @@ header nav ul a {
   max-width: 100%;
   height: auto;
   width: auto;
+  background-color: #000000;
   /*height: 120px;*/
   /*width: 195px;*/ }
 
