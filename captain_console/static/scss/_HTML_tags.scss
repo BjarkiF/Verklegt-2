@@ -29,27 +29,20 @@ li, a, button{
 .container:first-of-type{
   background-color: $color4;
   color: $color3;
-  //display: flex;
-  //flex-direction: column;
   width: 90%;
   min-height: 100vh;
   padding: 0;
 }
 .container{
-  //margin: 0 0 0 0;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
   position: relative;
-  //left: 50px;
-  //right: 50px;
-//  //height: 80px;
 }
 
 body{
   background: $color5;
   color: $color3;
-  //flex: 1 0 auto;
   font-family: 'Turret Road', cursive;
   height: 100%;
 }

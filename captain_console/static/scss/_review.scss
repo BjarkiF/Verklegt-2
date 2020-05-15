@@ -4,15 +4,12 @@
 }
 
 .review-item{
-  //background: #1A01CC;
   margin-left: 10px;
   display: inline-block;
-  //width: 85%;
   padding: 10px;
   border-bottom: 2px black solid;
   background: #dedde8;
   width: 200px;
-  //justify-content: center;
 }
 
 
@@ -28,7 +25,6 @@
 .review-item-img img{
   height: 100px;
   width: 100px;
-  //text-align: center;
 }
 
 .review-item-name {
@@ -49,12 +45,10 @@
 .address-card{
   display: flex;
   justify-content: center;
-  //margin: 20px;
 }
 .review-address{
   border-top: 2px lightgrey solid;
   margin: 10px;
-  //padding: 40px 60px;
   width: 50%;
   font-size: 20px;
   text-align: center;
@@ -64,7 +58,6 @@
 .review-card{
   border-top: 2px lightgrey solid;
   margin: 10px;
-  //padding: 40px 60px;
   width: 50%;
   font-size: 20px;
   text-align: center;
@@ -89,7 +82,6 @@
 
 .review-confirm-btn{
    width: auto;
-  //margin: 15px 10px 0 10px;
   border-radius: 10px;
   border:grey 2px solid;
   background: $color0;

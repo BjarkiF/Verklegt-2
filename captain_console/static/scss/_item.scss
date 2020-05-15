@@ -1,7 +1,6 @@
 /*--------------------------------------------------------------------------------*/
 /*single VARA*/
 .singleitem{
-  //background: ghostwhite;
   display: flex;
   margin-left: auto;
   margin-right: auto;
@@ -31,7 +30,6 @@
 .singledescription{
   height: 330px;
   width: 100%;
-  //border: black 2px solid;
   border-radius: 10px;
   padding: 10px;
 }
@@ -64,13 +62,10 @@
   width: 200px;
   padding: 5px;
   right: 0;
-  //margin-left: auto;
-  //margin-right: auto;
   border: 2px black solid;
   border-radius: 10px;
   background: $color0;
   color: $color4;
-  //margin-top: 30px;
 }
 
 .Kbutton:hover{
@@ -121,13 +116,9 @@
 }
 .edit-price-input input{
   width: 100px;
-  //position: relative;
-  //float: left;
 }
 .edit-price-heading{
   padding: 0 8px 0 0;
-  //position: relative;
-  //float: left;
 }
 .edit-price-line{
   display: flex;

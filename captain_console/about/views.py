@@ -1,5 +1,16 @@
 from django.shortcuts import render
+from config.models import Config
+
+import logging
 
 def index(request):
     # TODO: add data from the manage config here.
-    return render(request, 'about/index.html')
+
+    config = Config.objects.last()
+    data = {
+        'config': config
+    }
+
+    logging.info(data)
+
+    return render(request, 'about/index.html', data)

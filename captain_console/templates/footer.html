@@ -1,12 +1,12 @@
-
+{% load custom_tags %}
 <footer>
     <div class="left-footer">
         <p class="left-footer-header">Opnunartími verslunar</p>
         <i class="far fa-clock"></i>
         <div class="opening-hours">
-            <p>Mán-Fös: 10:00 - 18:00</p>
-            <p>Lau: 12:00 - 17:00</p>
-            <p>Sun: 13:00 - 16:00</p>
+            <p>Mán-Fös: {% footer_hours_weekdays %}</p>
+            <p>Lau: {% footer_hours_saturday %}</p>
+            <p>Sun: {% footer_hours_sunday %}</p>
         </div>
     </div>
 
@@ -20,11 +20,9 @@
         </div>
 
         <div class="center-footer-contact-info">
-            <a href="mailto: contact@captainconsole.is" class="footer-link">
-            <p>verslun@captain.is</p>
-            </a>
-            <p>581-2345</p>
-            <p>Gamergata 14, Kópavogur</p>
+            <p>{% footer_email %}</p>
+            <p>{% footer_telephone %}</p>
+            <p>{% footer_address %}</p>
         </div>
     </div>
 
@@ -37,15 +35,9 @@
         </div>
 
         <div class="right-footer-media-info">
-            <a href="http://facebook.com" class="footer-link">
-                <p>facebook.com/CaptainConsole</p>
-            </a>
-            <a href="http://instagram.com" class="footer-link">
-                <p>instagram.com/CaptainConsole</p>
-            </a>
-            <a href="http://twitter.com" class="footer-link">
-                <p>twitter.com/CaptainConsole</p>
-            </a>
+            <p>{% footer_social_facebook %}</p>
+            <p>{% footer_social_instagram %}</p>
+            <p>{% footer_social_twitter %}</p>
         </div>
 
     </div>
