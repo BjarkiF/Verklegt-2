@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from users.models import Profile, UserAddress, UserCountry
 from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm, EditAddressForm #, EditCountryForm
 from django.contrib.auth.models import User
+from cart.models import Order
 
 
 def register(request): # TODO: notandi fær ekki villu ef eitthvað klikkar
@@ -79,3 +80,14 @@ def edit_address(request):
         'form': EditAddressForm(instance=address),
         #'country_select': UserCountry.objects.all()
     })
+
+
+@login_required
+def get_search_history(request):
+    return render(request, 'users/search_history.html')
+
+
+@login_required
+def get_order_history(request):
+    all_orders = Order.objects.filter(user_id=request.user.id)
+    return render(request, 'users/order_history.html', {'all_orders': all_orders})
