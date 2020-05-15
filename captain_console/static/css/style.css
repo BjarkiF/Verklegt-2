@@ -466,7 +466,7 @@ header nav ul a {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
-  margin-top: 30px; }
+  margin-top: 60px; }
 
 .item-img {
   height: 300px;
@@ -474,7 +474,7 @@ header nav ul a {
   width: 250px; }
 
 .single-img-name {
-  margin-left: 70px;
+  margin-left: 150px;
   padding-left: 0; }
 
 .singlename {
@@ -497,7 +497,7 @@ header nav ul a {
   height: 280px;
   width: 280px;
   padding: 20px 15px 15px 15px;
-  margin-right: 70px;
+  margin-right: 150px;
   text-align: center;
   margin-bottom: 15px; }
 
@@ -524,6 +524,65 @@ header nav ul a {
   transition: 0.3s all ease;
   color: #D0D3D4;
   text-decoration: none; }
+
+.edit_site {
+  width: 66%; }
+
+/*--------------------------------------------------------------------------------*/
+/*EDIT single VARA*/
+.edit-singleinfo {
+  width: 300px;
+  height: 313px;
+  margin-bottom: 0;
+  position: absolute;
+  float: left;
+  right: 0;
+  display: inline-block; }
+
+.change-info-button input {
+  background: #CE0000;
+  border-radius: 10px;
+  color: ghostwhite;
+  font-size: 20px;
+  margin: 30px 0;
+  width: 230px;
+  position: absolute;
+  right: 70px;
+  top: 300px; }
+
+.edit-description-textarea {
+  display: block;
+  border-radius: 10px; }
+
+.edit-singledescription {
+  width: 100%;
+  padding-top: 0;
+  position: absolute;
+  left: 410px; }
+
+.edit-single-img-name {
+  width: 260px; }
+  .edit-single-img-name img {
+    margin-top: 0; }
+
+.edit-description-heading {
+  font-size: 30px; }
+
+.edit-price-heading {
+  width: 60px;
+  position: relative;
+  float: left; }
+
+.edit-price-input input {
+  width: 100px;
+  position: relative;
+  float: left; }
+
+.edit-price-line {
+  margin-left: 25px; }
+
+.edit-manuf-class {
+  margin-top: 40px; }
 
 /*-------------------------------------------------------------------------------------*/
 /*INNSKRÁ SÍÐAN*/
@@ -623,6 +682,10 @@ header nav ul a {
   color: #D0D3D4;
   margin: 10px 0;
   transition: 0.3s all ease; }
+
+.logout-button {
+  width: 50%;
+  margin-left: 40%; }
 
 .cart-item {
   display: inline-block;
