@@ -1,92 +1,20 @@
-//.checkout-site{
-//  width: 85%;
-//  height: 450px;
-//  margin: auto;
-//  //background: aqua;
-//  padding: 10px;
-//}
-//
-//.checkout-info{
-//  width: 50%;
-//  height: 300px;
-//  //background: #EDF2F4;
-//  float: left;
-//}
-//
-//.checkout-payment{
-//  //border: 2px black solid;
-//  //background: #EDF25F;
-//  margin-left: 50%;
-//  border-left: 2px lightgrey solid;
-//  padding: 20px;
-//  height: 310px;
-//
-//
-//}
-////
-////.card-form{
-////  margin: 20px;
-////  display: flex;
-////  justify-content: flex-end;
-////  //background: #CE0000;
-////}
-//
-//.card-form{
-//  //width: 400px;
-//  margin: 20px;
-//  display: flex;
-//  justify-content: flex-end;
-//  border-radius: 0;
-//  //font-size: 20px;
-//
-//}
-//
-//.address-form input {
-//  //background: ghostwhite;
-//  border-radius: 4px;
-//  //margin: 0;
-//  margin-left: 5px;
-//  border: 2px gray solid;
-//  //font-size: 16px;
-//}
-//
-//.card-form input{
-//  //background: ghostwhite;
-//  border-radius: 4px;
-//  //margin: 0;
-//  margin-left: 5px;
-//  border: 2px gray solid;
-//  //font-size: 16px;
-//}
 
-//--------------
-//.checkout-site{
-//  margin: 100px;
-//  background: #ad4848
-//}
 .checkout-site{
   margin: 20px 20px 0 20px;
 }
 
 .checkout-info{
-  //width: 100%;
   height: 300px;
   margin: 0;
-  //background: #EDF2F4;
-  //padding: 20px;
-  //display: flex;
 }
 
 .saved-addr{
-  //background: #9fcdff;
   padding: 10px;
   width: 45%;
 
 }
 
 .new-addr{
-  //background: #E6B74B;
-  //margin-left: 10px;
   padding: 10px;
   width: 55%;
   float: right;
@@ -134,10 +62,7 @@
 
 //---------------------------------------------------------------------------
 .checkout-payment {
-  //border: 2px black solid;
-  //background: #EDF2F4;
   width: 40%;
-  //margin: 10px;
   border-left: 2px lightgrey solid;
   padding-left: 10px;
 }
@@ -149,28 +74,18 @@
  font-size: 20px;
 }
 
-//
-//.card-form{
-//  margin: 20px;
-//  display: flex;
-//  justify-content: flex-end;
-//  //background: #CE0000;
-//}
+
 
 .card-form{
-  //width: 400px;
   margin: 20px;
   display: flex;
   justify-content: flex-end;
   border-radius: 0;
-  //font-size: 20px;
 
 }
 
 .card-form input{
-  //background: ghostwhite;
   border-radius: 4px;
-  //margin: 0;
   margin-left: 5px;
   border: 2px gray solid;
 
