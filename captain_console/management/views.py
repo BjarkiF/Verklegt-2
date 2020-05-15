@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, Pass
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 #from users.models import Profile
+from cart.models import Order
 from users.forms.forms import RegisterForm
 from items.forms.forms import CreateItemForm
 from items.models import Item, ItemImg
@@ -25,49 +26,25 @@ def only_employee(user):
 @user_passes_test(only_employee)
 @login_required
 def index(request):
-    # TODO: Connect to database.
-    data = {
-        'active_page': 'index',
-        'orders': {
-            'unprocesessed': 1337,
-            'ready': 7,
-            'mailed': 666
-        },
-        'customers': {
-            'customers_registered': 31337,
-            'customers_online': 42
-        },
-        'top10_items':[
-            {'name':'Hlutur1', 'sold': 33},
-            {'name':'Hlutur2', 'sold': 55},
-            {'name':'Hlutur3', 'sold': 22},
-            {'name':'Hlutur4', 'sold': 11},
-            {'name':'Hlutur5', 'sold': 66},
-        ],
-        'reviews': [
-            { 'username':'Jónas', 'text': 'Review texti 1' },
-            { 'username':'Jónas', 'text': 'Review texti 2' },
-            { 'username':'Jónas', 'text': 'Review texti 3' },
-            { 'username':'Jónas', 'text': 'Review texti 4' }
-        ]
+    orders = Order.objects.all()
+    context ={
+        'orders_ready': orders.filter(complete=True).count(),
+        'orders_not': orders.filter(complete=False).count(),
+        'accounts': User.objects.all().count(),
+        'accounts_active': User.objects.filter(is_active=True).count(),
     }
-    return render(request, 'management/index.html', data)
+    return render(request, 'management/index.html', context)
 
 
 @user_passes_test(only_employee)
 @login_required
 def orders(request):
-    # orders = Orders.objects.all()
-    # TODO: Connect to database.
-    data = [
-        {'id': 0, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 2},
-        {'id': 1, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
-        {'id': 2, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 3},
-        {'id': 3, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
-        {'id': 4, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
-        {'id': 5, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
-    ]
-    return render(request, 'management/orders/index.html', {'orders': data, 'active_page': 'orders',})
+    orders = Order.objects.filter(complete=False)
+    context ={
+        'orders': orders,
+        'active_page': 'orders'
+    }
+    return render(request, 'management/orders/index.html', context)
 
 
 @user_passes_test(only_employee)
@@ -83,12 +60,17 @@ def orders_details(request):
 @user_passes_test(only_employee)
 @login_required
 def orders_delete(request, id):
-    # orders = Orders.objects.all()
-    # TODO: Connect to database.
-    data = {'id': id, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
+    Order.objects.get(id=id).delete()
     logging.info('Deleting order ID: {0}'.format(id))
     return redirect('/management/orders/')
 
+
+def orders_complete(request, id):
+    order = Order.objects.get(id=id)
+    order.complete = True
+    order.save()
+    logging.info('Completing order ID: {0}'.format(id))
+    return redirect('/management/orders/')
 
 @user_passes_test(only_employee)
 @login_required
@@ -108,8 +90,19 @@ def employees_profile(request, username):
 @user_passes_test(only_staff)
 @login_required
 def employees_register(request):
-    # TODO: Connect to database.
-    return render(request, 'management/employees/register.html', { 'active_page': 'employees', })
+    if request.method == 'POST':
+        form = RegisterForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = User.objects.get(username=request.POST['username'])
+            user.is_staff = True
+            user.save()
+            return redirect('/management/employees')
+    context ={
+        'form': RegisterForm(),
+        'active_page': 'employees',
+    }
+    return render(request, 'management/employees/register.html', context)
 
 
 #@user_passes_test(only_employee)
