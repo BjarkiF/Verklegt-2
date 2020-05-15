@@ -1075,12 +1075,6 @@ header nav ul a {
 .card-heading {
   margin-left: 200px; }
 
-.staff-register-site {
-  background: #9fcdff;
-  float: right;
-  padding: 10px;
-  width: 80%; }
-
 .col-md-2 {
   padding-top: 15px; }
 
@@ -1167,6 +1161,34 @@ header nav ul a {
   width: 200px;
   border-radius: 4px;
   margin: 0;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px; }
+
+.staff-register-site {
+  float: right;
+  padding: 10px;
+  width: 80%; }
+  .staff-register-site p {
+    font-size: 20px;
+    text-align: center; }
+
+.a {
+  width: 500px;
+  margin: 20px 0 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  font-size: 20px; }
+
+.a input {
+  background: ghostwhite;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 0 0 0 10px;
   border: 2px gray solid;
   font-size: 16px;
   padding-left: 5px; }
