@@ -1,45 +1,60 @@
 {% extends 'base.html' %}
 {% block content %}
     {% include 'management/navbar.html' %}
-    <div class="col-md-10 content">
+    <div class="footer-edit-site">
         <h1>Stillingar</h1>
         <form method="post">
-        <p>* Stjörnumerkta reiti er nauðsynlegt að fylla</p>
+{#        <p>* Stjörnumerkta reiti er nauðsynlegt að fylla</p>#}
             {% csrf_token %}
-            <div class="form-weekdays">
-                {{ form.hours_weekdays.label }}: {{ form.hours_weekdays }}
+            <p>Breyta footer:</p>
+            <div class="footer-edit">
+
+                <div class="footer1-edit">
+                    <div class="f">
+                        {{ form.hours_weekdays.label }}: {{ form.hours_weekdays }}
+                    </div>
+                    <div class="f">
+                        {{ form.hours_saturday.label }}: {{ form.hours_saturday }}
+                    </div>
+                    <div class="f">
+                        {{ form.hours_sunday.label }}: {{ form.hours_sunday }}
+                    </div>
+                </div>
+                <div class="footer2-edit">
+                    <div class="f">
+                        {{ form.email.label }}: {{ form.email }}
+                    </div>
+                    <div class="f">
+                        {{ form.telephone.label }}: {{ form.telephone }}
+                    </div>
+                    <div class="f">
+                        {{ form.address.label }}: {{ form.address }}
+                    </div>
+                </div>
+                <div class="footer3-edit">
+                    <div class="f">
+                        {{ form.social_facebook.label }}: {{ form.social_facebook }}
+                    </div>
+                    <div class="f">
+                        {{ form.social_twitter.label }}: {{ form.social_twitter }}
+                    </div>
+                    <div class="f">
+                        {{ form.social_instagram.label }}: {{ form.social_instagram }}
+                    </div>
+                </div>
             </div>
-            <div class="form-saturday">
-                {{ form.hours_saturday.label }}: {{ form.hours_saturday }}
+            <p>Breyta um okkur:</p>
+            <div class="about-edit">
+                <div class="f">
+                    {{ form.location.label }}: {{ form.location }}
+                </div>
+                <div class="f">
+                    {{ form.about.label }}: {{ form.about }}
+                </div>
             </div>
-            <div class="form-weekdays">
-                {{ form.hours_sunday.label }}: {{ form.hours_sunday }}
+            <div class="cbtn">
+                <input class="buybutton" type="submit" value="Staðfesta">
             </div>
-            <div class="form-email">
-                {{ form.email.label }}: {{ form.email }}
-            </div>
-            <div class="form-telephone">
-                {{ form.telephone.label }}: {{ form.telephone }}
-            </div>
-            <div class="form-address">
-                {{ form.address.label }}: {{ form.address }}
-            </div>
-            <div class="form-facebook">
-                {{ form.social_facebook.label }}: {{ form.social_facebook }}
-            </div>
-            <div class="form-twitter">
-                {{ form.social_twitter.label }}: {{ form.social_twitter }}
-            </div>
-            <div class="form-instagram">
-                {{ form.social_instagram.label }}: {{ form.social_instagram }}
-            </div>
-            <div class="form-location">
-                {{ form.location.label }}: {{ form.location }}
-            </div>
-            <div class="form-instagram">
-                {{ form.about.label }}: {{ form.about }}
-            </div>
-            <input type="submit" value="OK">
         </form>
     </div>
 {% endblock %}

@@ -1221,6 +1221,87 @@ header nav ul a {
   font-size: 16px;
   padding-left: 5px; }
 
+.footer-edit {
+  display: flex;
+  margin: 20px;
+  border: 2px #CE0000 solid;
+  padding: 10px;
+  justify-content: space-between;
+  color: white;
+  background: #CE0000;
+  font-size: 20px;
+  border-radius: 10px; }
+
+.footer1-edit input {
+  background: ghostwhite;
+  height: 25px;
+  width: 150px;
+  border-radius: 4px;
+  margin: 0 0 0 10px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px;
+  color: black; }
+
+.footer2-edit input {
+  background: ghostwhite;
+  height: 25px;
+  width: 150px;
+  border-radius: 4px;
+  margin: 0 0 0 10px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px;
+  color: black; }
+
+.footer3-edit input {
+  background: ghostwhite;
+  height: 25px;
+  width: 150px;
+  border-radius: 4px;
+  margin: 0 0 0 10px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px;
+  color: black; }
+
+.f {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px; }
+
+.about-edit {
+  display: inline-block;
+  font-size: 20px; }
+
+.about-edit input {
+  background: ghostwhite;
+  border-radius: 4px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px;
+  width: 400px;
+  margin: 0 0 0 10px; }
+
+.about-edit textarea {
+  height: 100px;
+  background: ghostwhite;
+  border-radius: 4px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px;
+  width: 400px;
+  margin: 0 0 0 10px; }
+
+.cbtn {
+  text-align: right;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  font-size: 20px; }
+
+.footer-edit-site p {
+  font-size: 20px; }
+
 .rev-heading {
   margin: 10px;
   font-size: 28px; }
