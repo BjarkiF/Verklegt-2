@@ -43,7 +43,7 @@ def all_items(request):
         session_check = request.session['search_ids']
     except KeyError:
         session_check = None
-    if session_check: # TODO: láta filtera virka bara við searched items?
+    if session_check:
         ids = request.session['search_ids']
         request.session['search_ids'] = None
         items = Item.objects.filter(id__in=ids)

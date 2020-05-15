@@ -61,7 +61,7 @@ def checkout(request):
             card_name = request.POST['name']
             card = 'xxxxxxxxxxxx' + numstring[-4:]
             if request.POST['address-radio']=='new_address':
-                if address_form.is_valid() and request.POST['country_id']: # TODO: lmao validata betur
+                if address_form.is_valid() and request.POST['country_id']: # lmao validata betur??
                     address_new = UserAddress.objects.create(
                         user_id=request.user.id,
                         street_name=request.POST['street_name'],

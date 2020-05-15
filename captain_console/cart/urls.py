@@ -2,7 +2,6 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, 
 from django.urls import path
 from . import views
 
-# TODO: skoða urlin geta látið þau enda á / eða ekki.
 
 urlpatterns = [
     path('', views.index, name='cart'),
