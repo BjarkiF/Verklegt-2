@@ -18,7 +18,7 @@ class CreateItemForm(ModelForm):
 
     manufacturer_id = forms.ModelChoiceField(queryset=ItemManufacturer.objects.all())
     category_id = forms.ModelChoiceField(queryset=ItemCategory.objects.all())
-    description = forms.CharField(widget=forms.Textarea(attrs={'rows': 10, 'cols':50, 'style':'resize:none;'}))
+    description = forms.CharField(widget=forms.Textarea(attrs={'rows': 9, 'cols':50, 'style':'resize:none;'}))
     img = forms.CharField(max_length=999, widget=forms.TextInput())
 
     class Meta:
