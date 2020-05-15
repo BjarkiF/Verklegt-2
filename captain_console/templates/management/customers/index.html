@@ -25,7 +25,7 @@
               <td>{{ c.email }}</td>
               <td>{{ c.is_active }}</td>
               <td>{{ c.last_login }}</td>
-              <td><a href="{{ c.username }}/lock/?next=/management/customers/"><i class="fas {% if c.is_active %}fa-lock{% else %}fa-lock-open{% endif %}"></i></a></td>
+              <td><a href="{{ c.username }}/lock/?next=/management/customers/"><i class="fas {% if c.is_active %}fa-lock-open{% else %}fa-lock{% endif %}"></i></a></td>
               <td><a href="{{ c.username }}/delete/?next=/management/customers/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
