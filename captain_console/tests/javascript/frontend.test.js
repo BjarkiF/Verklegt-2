@@ -1,9 +1,17 @@
 let chai = require('chai')
 let chaiHttp = require('chai-http')
 let parseArguments = require('./chai-set-url')
+
+let opts = {
+        logDirectory:'./logs',
+        fileNamePattern:'chai-<DATE>.log',
+        dateFormat:'YYYY.MM.DD'
+};
+
+let log = require('simple-node-logger').createSimpleLogger(opts);
 chai.use(chaiHttp)
 
-// TODO: log to a file
+log.info('logger testing')
 
 let url = parseArguments.url()
 let creds = require('./creds').creds();
