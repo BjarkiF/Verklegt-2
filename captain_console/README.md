@@ -1,5 +1,9 @@
 # Captain Console
 
+## Heroku
+Síðan er deployed á Heroku.
+Url: https://captain-console-47.herokuapp.com/
+
 ## Environmental Variables
 Eftirfarandi env breytur þurfa að vera rétt stilltar til að ná gagnagrunnstengingu.
 - DB_NAME: captain_console
