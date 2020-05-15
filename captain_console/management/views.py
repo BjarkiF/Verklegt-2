@@ -113,6 +113,17 @@ def user_lock(request, username):
     # TODO: Connect to database.
     logging.info('Locking Account Username: {0}'.format(username))
     logging.info('Next: {0}'.format(request.GET.get('next')))
+
+    u = User.objects.get(username=username)
+
+    logging.info('is_active: {0}'.format(u.is_active))
+
+    if u.is_active == True:
+        u.is_active = False
+    else:
+        u.is_active = True
+    u.save()
+
     return redirect(request.GET.get('next'))
 
 
