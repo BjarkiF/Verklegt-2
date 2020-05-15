@@ -11,8 +11,6 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='users/login.html'), name="Login"),
     path('profile/edit', views.edit_profile, name="Edit_profile"),
     path('profile/', views.profile, name="Profile"),
-    #path('reset/<str:token>/', auth_views.PasswordResetView, name='password_reset_confirm'), # TODO: Password reset
-    #path('reset/done/', auth_views.PasswordResetCompleteView, name='password_reset_complete'),
     path('profile/address/', views.edit_address, name='Edit_address'),
     path('profile/search/', views.get_search_history, name='profile_search_history'),
     path('profile/orders/', views.get_order_history, name='profile_order_history'),

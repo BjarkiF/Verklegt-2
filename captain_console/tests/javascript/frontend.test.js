@@ -260,7 +260,7 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
-    
+    /*
 
     it("GET /management/groups FAIL invalid creds ", function(done) {
         chai.request(url)
@@ -292,7 +292,7 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
-
+    */
     //TODO: Gera fleiri frontend test.
 
     
