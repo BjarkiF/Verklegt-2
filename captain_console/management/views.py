@@ -92,7 +92,7 @@ def orders_delete(request, id):
 @user_passes_test(only_employee)
 @login_required
 def employees(request):
-    data = User.objects.filter(is_staff='t')
+    data = User.objects.filter(is_staff='t').order_by('first_name')
     return render(request, 'management/employees/index.html', {'staff': data, 'active_page': 'employees',})
 
 
@@ -179,7 +179,7 @@ def config(request):
 @user_passes_test(only_staff)
 @login_required
 def groups(request):
-    data = Group.objects.all()
+    data = Group.objects.all().order_by('name')
     #for g in groups:
     #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
     #    l_as_list = list(l)  # QuerySet to `list`
@@ -236,7 +236,7 @@ def group_new(request):
 @user_passes_test(only_employee)
 @login_required
 def customers(request):
-    data = User.objects.filter(is_staff='f')
+    data = User.objects.filter(is_staff='f').order_by('first_name')
     return render(request, 'management/customers/index.html', {'customers': data, 'active_page': 'customers',})
 
 
