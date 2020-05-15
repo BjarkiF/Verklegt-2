@@ -7,10 +7,6 @@ from cart.views import get_cart_items
 import datetime
 
 
-
-
-
-
 def edit(request, id):
     item = Item.objects.get(id=id)
     if request.method == 'POST':
@@ -27,6 +23,10 @@ def edit(request, id):
 
     })
 
+
+def delete(request, id):
+    Item.objects.get(id=id).delete()
+    return all_items(request)
 
 
 def index(request):
