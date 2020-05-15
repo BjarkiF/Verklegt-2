@@ -855,7 +855,6 @@ header nav ul a {
   text-align: center;
   display: flex;
   border-bottom: 2px grey solid;
-  width: 60%;
   background: #dedde8; }
 
 .history-search a {
@@ -877,7 +876,6 @@ header nav ul a {
   text-align: center;
   display: flex;
   border-bottom: 2px grey solid;
-  width: 60%;
   background: #dedde8; }
 
 .order-click {
@@ -897,18 +895,6 @@ header nav ul a {
   padding: 10px 10px 10px 50px;
   text-decoration: none;
   float: right; }
-
-.ord-img {
-  position: absolute;
-  left: 70%;
-  top: 15%; }
-
-.ord-img img {
-  height: 250px;
-  width: 250px;
-  border-top: 1px lightgrey solid;
-  border-bottom: 1px lightgrey solid;
-  border-radius: 10px; }
 
 .order-info {
   display: flex;
