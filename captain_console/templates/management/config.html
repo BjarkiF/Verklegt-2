@@ -3,6 +3,7 @@
 
     {% include 'management/navbar.html' %}
     <div class="col-md-10 content">
+        <form method="post">
         <!--
             TODO: *Config*
             TODO: Categories
@@ -13,11 +14,11 @@
         <div class="col-md-5 content">
         <h2 class="register-title">Footer</h2>
         <p>* Stjörnumerkta reiti er nauðsynlegt að fylla</p>
-        <form class="config-form" method="post">
             {% csrf_token %}
-            <div class="hours-weekdays">
-                {{ form.hours_weekdays.errors}}
-                Virkur dagur:* {{ form.hours_weekdays }}
+            {{ form }}
+            <div class="form-control">
+            {{ form.hours_weekdays.errors}}
+            <label>Virkur dagur:*</label> {{ form.hours_weekdays }}
             </div>
             <div class="form-control">
                 {{ form.hours_saturday.errors }}
@@ -60,17 +61,17 @@
         </div>
         <div class="col-md-5 content">
             <h2 class="register-title">Um Okkur</h2>
-            <form method="post">
-                {% csrf_token %}
                 <div class="form-control">
                     {{ form.about.errors }}
-                    Texti: {{ form.about }}
+                    {{ form.about.label }}: {{ form.about.widget }}
                 </div>
                 <div class="form-control">
                     {{ form.location.errors }}
-                    Staðsetning: {{ form.location }}
+                    {{ form.about.label_tag }}: {{ form.location }}
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
+
+
     </div>
 {% endblock %}

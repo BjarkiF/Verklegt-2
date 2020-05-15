@@ -22,8 +22,8 @@ class ConfigForm():
     social_twitter = forms.URLField(label='Twitter', required=False)
     social_youtube = forms.URLField(label='YouTube', required=False)
     social_instagram = forms.URLField(label='Instagram', required=False)
-    about = forms.CharField(widget=forms.Textarea(attrs={'rows': 9, 'cols':50, 'style':'resize:none;'}))
-    location = forms.CharField(label='Instagram', required=False)
+    about = forms.CharField(label='Um Okkur', widget=forms.Textarea(attrs={'rows': 9, 'cols':50, 'style':'resize:none;'}))
+    location = forms.CharField(label='Staðsetning', max_length=999, widget=forms.TextInput())
 
     class Meta:
         model = Config

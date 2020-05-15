@@ -22,7 +22,6 @@ def only_employee(user):
 
 
 # TODO: segja user að hann hafi ekki aðgang  ef hann er loggaður inn sem customer.
-
 @user_passes_test(only_employee)
 @login_required
 def index(request):
@@ -170,9 +169,10 @@ def config(request):
             ]
         }
     }
+    #for field in ConfigForm():
+    #    logging.info(field)
 
-    #active_page = request.path.split('/')
-    #logging.info(active_page)
+    logging.info(dir(ConfigForm()))
 
     return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'footer-form': ConfigForm()})
 
@@ -182,11 +182,6 @@ def config(request):
 @login_required
 def groups(request):
     data = Group.objects.all().order_by('name')
-    #for g in groups:
-    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-    #    l_as_list = list(l)  # QuerySet to `list`
-    #    users = User.objects.filter()
-    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return render(request, 'management/groups/index.html', {'groups': data, 'active_page': 'groups',})
 
@@ -197,11 +192,6 @@ def groups(request):
 def group_delete(request, group_name):
     data = Group.objects.all()
     logging.info('Delete Group: {0}'.format(group_name))
-    #for g in groups:
-    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-    #    l_as_list = list(l)  # QuerySet to `list`
-    #    users = User.objects.filter()
-    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return redirect('/management/groups/')
 
@@ -211,11 +201,6 @@ def group_delete(request, group_name):
 @login_required
 def group_view(request, group_name):
     data = Group.objects.filter(name=group_name)
-    #for g in groups:
-    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-    #    l_as_list = list(l)  # QuerySet to `list`
-    #    users = User.objects.filter()
-    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return render(request, 'management/groups/details.html', {'group': data, 'active_page': 'groups',})
 
@@ -226,11 +211,6 @@ def group_view(request, group_name):
 def group_new(request):
     data = {}
     logging.info('New group!')
-    #for g in groups:
-    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-    #    l_as_list = list(l)  # QuerySet to `list`
-    #    users = User.objects.filter()
-    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return render(request, 'management/groups/new.html', {'group': data, 'active_page': 'groups',})
 
@@ -242,12 +222,12 @@ def customers(request):
     return render(request, 'management/customers/index.html', {'customers': data, 'active_page': 'customers',})
 
 
-
 @user_passes_test(only_employee)
 @login_required
 def customers_details(request, username):
     data = User.objects.filter(is_staff='f', username=username)
     return render(request, 'management/customers/details.html', {'customer': data, 'active_page': 'customers',})
+
 
 @user_passes_test(only_employee)
 @login_required
