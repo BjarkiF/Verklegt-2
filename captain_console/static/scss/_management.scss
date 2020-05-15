@@ -1,9 +1,3 @@
-.staff-register-site{
-  background: #9fcdff;
-  float: right;
-  padding: 10px;
-  width: 80%;
-}
 
 .col-md-2{
   padding-top: 15px;
@@ -30,7 +24,7 @@
 }
 
 .table td {
-  font-size: 18px;
+  font-size: 16px;
   background: #EDF2F4;
 }
 .table tbody tr{
@@ -76,3 +70,103 @@
   }
 
 }
+
+//----------------------------------------------------------------------------
+//Ný vara
+.new-item-form{
+  margin: 40px;
+  font-size: 16px;
+
+
+}
+.form-fields textarea{
+  height: 100px;
+  //position: absolute;
+  background: ghostwhite;
+  //left: 40%;
+  //height: 25px;
+  border-radius: 4px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px;
+
+}
+
+.form-fields input{
+  background: ghostwhite;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin-left: 10px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px;
+
+
+}
+
+.new-item-name{
+  margin-bottom: 20px;
+}
+.new-item-price{
+  margin-bottom: 20px;
+}
+
+
+
+
+.new-con2{
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px lightgrey solid;
+  margin: 10px 80px;
+  padding: 10px;
+}
+.new-con2 select{
+  //position: absolute;
+  background: ghostwhite;
+  //left: 40%;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 0;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px;
+}
+//-----------------------------------------------------------------------------------
+//skrá nyjann starfsmann
+.staff-register-site{
+  float: right;
+  padding: 10px;
+  width: 80%;
+
+  p{
+    font-size: 20px;
+    text-align: center;
+  }
+}
+.a{
+  width: 500px;
+  margin: 20px 0 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  font-size: 20px;
+}
+
+.a input{
+  background: ghostwhite;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 0 0 0 10px;
+  border: 2px gray solid;
+  font-size: 16px;
+  padding-left: 5px;
+
+}
+
+

@@ -3,13 +3,15 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, Pass
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 #from users.models import Profile
-#from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm
+from cart.models import Order
+from users.forms.forms import RegisterForm
 from items.forms.forms import CreateItemForm
 from items.models import Item, ItemImg
 from management.forms.forms import ConfigForm
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import user_passes_test
-import logging, datetime
+import logging
+import datetime
 
 
 def only_staff(user):
@@ -21,53 +23,28 @@ def only_employee(user):
 
 
 # TODO: segja user að hann hafi ekki aðgang  ef hann er loggaður inn sem customer.
-
 @user_passes_test(only_employee)
 @login_required
 def index(request):
-    # TODO: Connect to database.
-    data = {
-        'active_page': 'index',
-        'orders': {
-            'unprocesessed': 1337,
-            'ready': 7,
-            'mailed': 666
-        },
-        'customers': {
-            'customers_registered': 31337,
-            'customers_online': 42
-        },
-        'top10_items':[
-            {'name':'Hlutur1', 'sold': 33},
-            {'name':'Hlutur2', 'sold': 55},
-            {'name':'Hlutur3', 'sold': 22},
-            {'name':'Hlutur4', 'sold': 11},
-            {'name':'Hlutur5', 'sold': 66},
-        ],
-        'reviews': [
-            { 'username':'Jónas', 'text': 'Review texti 1' },
-            { 'username':'Jónas', 'text': 'Review texti 2' },
-            { 'username':'Jónas', 'text': 'Review texti 3' },
-            { 'username':'Jónas', 'text': 'Review texti 4' }
-        ]
+    orders = Order.objects.all()
+    context ={
+        'orders_ready': orders.filter(complete=True).count(),
+        'orders_not': orders.filter(complete=False).count(),
+        'accounts': User.objects.all().count(),
+        'accounts_active': User.objects.filter(is_active=True).count(),
     }
-    return render(request, 'management/index.html', data)
+    return render(request, 'management/index.html', context)
 
 
 @user_passes_test(only_employee)
 @login_required
 def orders(request):
-    # orders = Orders.objects.all()
-    # TODO: Connect to database.
-    data = [
-        {'id': 0, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 2},
-        {'id': 1, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
-        {'id': 2, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 3},
-        {'id': 3, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
-        {'id': 4, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1},
-        {'id': 5, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
-    ]
-    return render(request, 'management/orders/index.html', {'orders': data, 'active_page': 'orders',})
+    orders = Order.objects.filter(complete=False)
+    context ={
+        'orders': orders,
+        'active_page': 'orders'
+    }
+    return render(request, 'management/orders/index.html', context)
 
 
 @user_passes_test(only_employee)
@@ -83,12 +60,17 @@ def orders_details(request):
 @user_passes_test(only_employee)
 @login_required
 def orders_delete(request, id):
-    # orders = Orders.objects.all()
-    # TODO: Connect to database.
-    data = {'id': id, 'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
+    Order.objects.get(id=id).delete()
     logging.info('Deleting order ID: {0}'.format(id))
     return redirect('/management/orders/')
 
+
+def orders_complete(request, id):
+    order = Order.objects.get(id=id)
+    order.complete = True
+    order.save()
+    logging.info('Completing order ID: {0}'.format(id))
+    return redirect('/management/orders/')
 
 @user_passes_test(only_employee)
 @login_required
@@ -108,8 +90,19 @@ def employees_profile(request, username):
 @user_passes_test(only_staff)
 @login_required
 def employees_register(request):
-    # TODO: Connect to database.
-    return render(request, 'management/employees/register.html', { 'active_page': 'employees', })
+    if request.method == 'POST':
+        form = RegisterForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = User.objects.get(username=request.POST['username'])
+            user.is_staff = True
+            user.save()
+            return redirect('/management/employees')
+    context ={
+        'form': RegisterForm(),
+        'active_page': 'employees',
+    }
+    return render(request, 'management/employees/register.html', context)
 
 
 #@user_passes_test(only_employee)
@@ -169,11 +162,12 @@ def config(request):
             ]
         }
     }
+    #for field in ConfigForm():
+    #    logging.info(field)
 
-    #active_page = request.path.split('/')
-    #logging.info(active_page)
+    logging.info(dir(ConfigForm()))
 
-    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'footer-form': ConfigForm()})
+    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'form': ConfigForm()})
 
 
 @user_passes_test(only_employee)
@@ -181,11 +175,6 @@ def config(request):
 @login_required
 def groups(request):
     data = Group.objects.all().order_by('name')
-    #for g in groups:
-    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-    #    l_as_list = list(l)  # QuerySet to `list`
-    #    users = User.objects.filter()
-    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return render(request, 'management/groups/index.html', {'groups': data, 'active_page': 'groups',})
 
@@ -196,11 +185,6 @@ def groups(request):
 def group_delete(request, group_name):
     data = Group.objects.all()
     logging.info('Delete Group: {0}'.format(group_name))
-    #for g in groups:
-    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-    #    l_as_list = list(l)  # QuerySet to `list`
-    #    users = User.objects.filter()
-    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return redirect('/management/groups/')
 
@@ -210,11 +194,6 @@ def group_delete(request, group_name):
 @login_required
 def group_view(request, group_name):
     data = Group.objects.filter(name=group_name)
-    #for g in groups:
-    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-    #    l_as_list = list(l)  # QuerySet to `list`
-    #    users = User.objects.filter()
-    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return render(request, 'management/groups/details.html', {'group': data, 'active_page': 'groups',})
 
@@ -225,11 +204,6 @@ def group_view(request, group_name):
 def group_new(request):
     data = {}
     logging.info('New group!')
-    #for g in groups:
-    #    l = request.user.groups.values_list('name', flat=True)  # QuerySet Object
-    #    l_as_list = list(l)  # QuerySet to `list`
-    #    users = User.objects.filter()
-    #    logging.info('Group: {0}, User Groups: {1} Users: {2}'.format(g, l_as_list, {'users': users}))
 
     return render(request, 'management/groups/new.html', {'group': data, 'active_page': 'groups',})
 
@@ -241,12 +215,12 @@ def customers(request):
     return render(request, 'management/customers/index.html', {'customers': data, 'active_page': 'customers',})
 
 
-
 @user_passes_test(only_employee)
 @login_required
 def customers_details(request, username):
     data = User.objects.filter(is_staff='f', username=username)
     return render(request, 'management/customers/details.html', {'customer': data, 'active_page': 'customers',})
+
 
 @user_passes_test(only_employee)
 @login_required
@@ -272,6 +246,7 @@ def new_item(request):
             img_temp.save()
             return redirect('Management Index')
     context = {
-        'form': CreateItemForm()
+        'form': CreateItemForm(),
+        'active_page': 'new_item',
     }
     return render(request, 'management/items/new_item.html', context)

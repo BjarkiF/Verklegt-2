@@ -2,24 +2,26 @@
 {% block content %}
     {% include 'management/navbar.html' %}
     <div class="col-md-10 content">
-        <h1>Management Orders</h1>
+        <h1>Virkar pantanir</h1>
         <table class="table">
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Location</th>
-              <th scope="col">Orders</th>
-              <th scope="col"><i class="fas fa-trash"></i></th>
+              <th scope="col">Nafn</th>
+              <th scope="col">Sent:</th>
+              <th scope="col">Vörunr:</th>
+                <th scope="col">Tilbúið:</th>
+              <th scope="col">Eyða:</th>
             </tr>
           </thead>
           <tbody>
           {% for o in orders %}
             <tr>
-              <th scope="row">{{ forloop.counter }}</th>
-              <td><a href="#">{{ o.name }}</a></td>
-              <td><a href="#">{{ o.city }}</a></td>
-              <td><a href="#">{{ o.count }}</a></td>
+              <th scope="row">{{ o.id }}</th>
+              <td>{{ o.user.last_name }}</td>
+              <td>{{ o.address.city }}-{{ o.address.country.country_name }}</td>
+              <td>{{ o.items }}</td>
+              <td><a href="{{ o.id }}/complete/"><i class="far fa-square"></i></a></td>
               <td><a href="{{ o.id }}/delete/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
