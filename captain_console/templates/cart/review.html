@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h4>Þú ert að kaupa:</h4>
+    <h4 class="rev-heading">Þú ert að kaupa:</h4>
     {% for item in items %}
         <div class="review-item">
             <div class="review-item-img">
@@ -19,35 +19,38 @@
             </div>
         </div>
     {% endfor %}
-    <div class="review-address">
-        <h4>Heimilisfang:</h4>
-        <div class="review-address-street">
-            {{ address.street_name }} {{ address.house_num }}
+    <div class="address-card">
+        <div class="review-address">
+            <h4>Heimilisfang:</h4>
+            <div class="review-address-street">
+                {{ address.street_name }} {{ address.house_num }}
+            </div>
+            <div class="review-address-city">
+                {{ address.zipcode }}, {{ address.city }}
+            </div>
+            <div class="review-address-country">
+                {{ address.country }}
+            </div>
         </div>
-        <div class="review-address-city">
-            {{ address.zipcode }}, {{ address.city }}
-        </div>
-        <div class="review-address-country">
-            {{ address.country }}
-        </div>
-    </div>
-    <div class="review-card">
-        <h4>Kortaupplýsingar:</h4>
-        <div class="review-card-name">
-            {{ card.name }}
-        </div>
-        <div class="review-card-number">
-            {{ card.number }}
+        <div class="review-card">
+            <h4>Kortaupplýsingar:</h4>
+            <div class="review-card-name">
+                {{ card.name }}
+            </div>
+            <div class="review-card-number">
+                {{ card.number }}
+            </div>
         </div>
     </div>
     <div class="review-total">
     Samtals: {{ total }}
     </div>
-    <div class="review-cancel">
-        <button class="review-confirm-btn" onclick="history.back()">Til Baka</button>
+    <div class="rev-btns">
+        <div class="review-cancel">
+            <button class="review-confirm-btn" onclick="history.back()">Til Baka</button>
+        </div>
+        <div class="review-confirm">
+            <button class="review-confirm-btn">Staðfesta Pöntun!</button>
+        </div>
     </div>
-    <div class="review-confirm">
-        <button class="review-confirm-btn">Staðfesta Pöntun!</button>
-    </div>
-
 {% endblock %}

@@ -541,6 +541,11 @@ header nav ul a {
     .loginsite form input {
       width: 100%; }
 
+.login-form ul li {
+  font-size: 14px;
+  color: red;
+  padding: 0; }
+
 .login-group label {
   font-size: 16px;
   padding-right: 10px; }
@@ -600,7 +605,8 @@ header nav ul a {
   border-radius: 4px;
   margin: 0;
   border: 2px gray solid;
-  font-size: 16px; }
+  font-size: 16px;
+  padding-left: 5px; }
 
 .reg {
   position: relative;
@@ -837,11 +843,9 @@ header nav ul a {
   font-size: 16px; }
 
 .checkout-site {
-  display: flex;
   margin: 20px 20px 0 20px; }
 
 .checkout-info {
-  width: 100%;
   height: 300px;
   margin: 0; }
 
@@ -881,12 +885,17 @@ header nav ul a {
 .checkout-info p {
   font-size: 20px; }
 
+.cube {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 30px; }
+
 .checkout-payment {
   width: 40%;
   border-left: 2px lightgrey solid;
   padding-left: 10px; }
 
-.checkout-payment form {
+.card-group {
   margin-top: 70px; }
 
 .checkout-payment p {
@@ -904,11 +913,9 @@ header nav ul a {
   border: 2px gray solid; }
 
 .Cbuybtn {
-  text-align: right;
-  margin: 10px; }
-
-.Cbuybtn {
-  margin: 100px; }
+  position: absolute;
+  top: 80%;
+  left: 70%; }
 
 .Cbuybutton {
   width: 200px;
@@ -975,4 +982,77 @@ header nav ul a {
 .fas.fa-plus:hover {
   transition: 0.3s all ease;
   background: #E6B74B;
+  color: ghostwhite; }
+
+.rev-heading {
+  margin: 10px;
+  font-size: 28px; }
+
+.review-item {
+  margin-left: 10px;
+  display: inline-block;
+  padding: 10px;
+  border-bottom: 2px black solid;
+  background: #dedde8;
+  width: 200px; }
+
+.review-item-img {
+  display: inline-block;
+  background: white;
+  margin-left: 40px;
+  border: 2px black solid;
+  border-radius: 5px;
+  text-align: center; }
+
+.review-item-img img {
+  height: 100px;
+  width: 100px; }
+
+.review-item-name {
+  text-align: center;
+  font-size: 16px; }
+
+.review-item-price {
+  text-align: center;
+  font-size: 18px;
+  text-decoration: underline; }
+
+.review-item-q {
+  text-align: center; }
+
+.address-card {
+  display: flex;
+  justify-content: center; }
+
+.review-address {
+  border-top: 2px lightgrey solid;
+  margin: 10px;
+  width: 50%;
+  font-size: 20px;
+  text-align: center; }
+
+.review-card {
+  border-top: 2px lightgrey solid;
+  margin: 10px;
+  width: 50%;
+  font-size: 20px;
+  text-align: center; }
+
+.review-total {
+  text-align: center;
+  font-size: 30px;
+  border-top: 1px lightgrey solid;
+  margin: 10px 80px;
+  text-decoration: underline; }
+
+.rev-btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px; }
+
+.review-confirm-btn {
+  width: auto;
+  border-radius: 10px;
+  border: grey 2px solid;
+  background: #CE0000;
   color: ghostwhite; }

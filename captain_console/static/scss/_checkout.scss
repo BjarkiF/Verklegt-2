@@ -65,12 +65,11 @@
 //  background: #ad4848
 //}
 .checkout-site{
-  display: flex;
   margin: 20px 20px 0 20px;
 }
 
 .checkout-info{
-  width: 100%;
+  //width: 100%;
   height: 300px;
   margin: 0;
   //background: #EDF2F4;
@@ -126,6 +125,13 @@
 .checkout-info p{
   font-size: 20px;
 }
+
+.cube{
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
 //---------------------------------------------------------------------------
 .checkout-payment {
   //border: 2px black solid;
@@ -135,7 +141,7 @@
   border-left: 2px lightgrey solid;
   padding-left: 10px;
 }
-.checkout-payment form {
+.card-group{
   margin-top: 70px;
 }
 
@@ -170,13 +176,11 @@
 
 }
 .Cbuybtn{
-  text-align: right;
-  margin: 10px;
+  position: absolute;
+  top: 80%;
+  left: 70%;
+}
 
-}
-.Cbuybtn{
-  margin: 100px;
-}
 
 .Cbuybutton{
   width: 200px;

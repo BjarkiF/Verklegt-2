@@ -90,7 +90,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="checkout-site">
-        <form method="post" >
+        <form class="cube" method="post" >
             {% csrf_token %}
 {#            <form id="checkout-form" method="post" action="/cart/checkout">#}
             <div class="checkout-info">
@@ -149,6 +149,7 @@
             <div class="checkout-payment">
                 <p>Greiðsluupplýsingar: <i class="far fa-credit-card"></i></p>
 {#                <form>#}
+                <div class="card-group">
                     {{ card_form.non_field_errors }}
                     <div class="card-form">
                         <label>Nafn korthafa:</label>
@@ -171,16 +172,17 @@
                         {{ card_form.cvc.errors }}
                     </div>
 {#                </form>#}
-
+                </div>
             </div>
-{#            </form>#}
+{#        </form>#}
+
         <div class="Cbuybtn">
             <a href="/cart/review">
             <button class="Cbuybutton" type="submit">Áfram</button>
             </a>
         </div>
         </form>
-            <div class="Cbuybtn">
+            <div class="Backbtn">
             <a href="/cart/">
             <button class="Cbuybutton" >Til Baka</button>
             </a>

@@ -1,4 +1,107 @@
-.Rcart-img{
-  //width: 100px;
-  //height: 100px;
+.rev-heading{
+  margin: 10px;
+  font-size: 28px;
 }
+
+.review-item{
+  //background: #1A01CC;
+  margin-left: 10px;
+  display: inline-block;
+  //width: 85%;
+  padding: 10px;
+  border-bottom: 2px black solid;
+  background: #dedde8;
+  width: 200px;
+  //justify-content: center;
+}
+
+
+.review-item-img{
+  display: inline-block;
+  background: white;
+  margin-left: 40px;
+  border: 2px black solid;
+  border-radius: 5px;
+  text-align: center;
+
+}
+.review-item-img img{
+  height: 100px;
+  width: 100px;
+  //text-align: center;
+}
+
+.review-item-name {
+  text-align: center;
+  font-size: 16px;
+
+}
+.review-item-price{
+  text-align: center;
+  font-size: 18px;
+  text-decoration: underline;
+}
+.review-item-q{
+ text-align: center;
+
+}
+
+.address-card{
+  display: flex;
+  justify-content: center;
+  //margin: 20px;
+}
+.review-address{
+  border-top: 2px lightgrey solid;
+  margin: 10px;
+  //padding: 40px 60px;
+  width: 50%;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+.review-card{
+  border-top: 2px lightgrey solid;
+  margin: 10px;
+  //padding: 40px 60px;
+  width: 50%;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+.review-total{
+  text-align: center;
+  font-size: 30px;
+  border-top: 1px lightgrey solid;
+  margin: 10px 80px;
+  text-decoration: underline;
+
+
+}
+
+.rev-btns{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.review-confirm-btn{
+   width: auto;
+  //margin: 15px 10px 0 10px;
+  border-radius: 10px;
+  border:grey 2px solid;
+  background: $color0;
+  color: ghostwhite;
+}
+
+//.review-cancel-btn{
+//background: #CE0000;
+//}
+//
+//
+//
+//.review-confirm{
+//
+//}

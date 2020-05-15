@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="col-md-12 loginsite">
-            <form method="post">
+            <form class="login-form" method="post">
                 <h2>Innskráning</h2>
                 {% csrf_token %}
                 {{ form.non_field_errors }}
