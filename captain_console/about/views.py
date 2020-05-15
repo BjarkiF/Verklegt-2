@@ -11,6 +11,7 @@ def index(request):
         'config': config
     }
 
-    logging.info(data)
+    logging.info(data['config'].lat)
+    logging.info(data['config'].long)
 
     return render(request, 'about/index.html', data)

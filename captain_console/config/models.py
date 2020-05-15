@@ -16,3 +16,6 @@ class Config(models.Model):
     social_instagram = models.CharField(max_length=255)
     about = models.TextField()
     location = models.CharField(max_length=255)
+    lat = models.CharField(max_length=255)
+    long = models.CharField(max_length=255)
+    zoom = models.IntegerField()

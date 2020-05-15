@@ -176,29 +176,12 @@ def config(request):
 
         # TODO: Sumir notendur eiga að sjá config og getað breytt meðal annars upplýsingum í footernum.
         # Config example
-        data = {
-            'footer': {
-                'opening_hours': [
-                    'Mon-Fri: 10:00 - 18:00',
-                    'Lau: 12:00 - 17:00',
-                    'Sun: 13:00 - 16:00'
-                ],
-                'contact': {
-                    'email':'verslun@captain.is',
-                    'telephone': '581-2345',
-                    'address': 'Gamergata 14, Kópavogur'
-                },
-                'social': [
-                    'facebook.com/CaptainConsole',
-                    'instagram.com/CaptainConsole',
-                    'twitter.com/CaptainConsole'
-                ]
-            }
-        }
+        config = Config.objects.last()
+        logging.info(config)
 
         logging.info(dir(ConfigForm()))
 
-    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'form': ConfigForm()})
+    return render(request, 'management/config/index.html', {'config': config, 'active_page': 'config', 'form': ConfigForm()})
 
 
 # @user_passes_test(only_employee)

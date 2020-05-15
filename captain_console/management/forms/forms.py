@@ -9,20 +9,25 @@ from config.models import Config
 
 
 class ConfigForm(forms.Form):
+    c = Config.objects.last()
+
     def __init__(self, *args, **kwargs):
         super(ConfigForm, self).__init__(*args, **kwargs)
 
-    hours_weekdays = forms.CharField(label='Virkir dagar', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
-    hours_saturday = forms.CharField(label='Laugardagar', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
-    hours_sunday = forms.CharField(label='Sunnudagar', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
-    email = forms.EmailField(label='Tölvupóstfang', widget=forms.EmailInput(attrs={'class': 'form-email', 'placeholder': ''}))
-    telephone = forms.CharField(label='Telephone', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
-    address = forms.CharField(label='Address', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
-    social_facebook = forms.URLField(label='Facebook', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
-    social_twitter = forms.URLField(label='Twitter', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
-    social_instagram = forms.URLField(label='Instagram', required=False, widget=forms.TextInput(attrs={'class': "form-weekdays"}))
-    about = forms.CharField(label='Um Okkur', widget=forms.Textarea(attrs={'rows': 9, 'cols':50, 'style':'resize:none;', 'class':'form-about'}))
-    location = forms.CharField(label='Staðsetning', max_length=999, widget=forms.TextInput(attrs={'class': 'form-about'}))
+    hours_weekdays = forms.CharField(label='Virkir dagar', required=False, widget=forms.TextInput(attrs={'class': 'form-weekdays', 'value': c.hours_weekdays}))
+    hours_saturday = forms.CharField(label='Laugardagar', required=False, widget=forms.TextInput(attrs={'class': 'form-weekdays', 'value': c.hours_saturday}))
+    hours_sunday = forms.CharField(label='Sunnudagar', required=False, widget=forms.TextInput(attrs={'class': 'form-weekdays', 'value': c.hours_sunday}))
+    email = forms.EmailField(label='Tölvupóstfang', widget=forms.EmailInput(attrs={'class': 'form-email', 'placeholder': '', 'value': c.email}))
+    telephone = forms.CharField(label='Telephone', required=False, widget=forms.TextInput(attrs={'class': 'form-telephone', 'value': c.telephone}))
+    address = forms.CharField(label='Address', required=False, widget=forms.TextInput(attrs={'class': 'form-address', 'value': c.address}))
+    social_facebook = forms.URLField(label='Facebook', required=False, widget=forms.TextInput(attrs={'class': 'form-facebook', 'value': c.social_facebook}))
+    social_twitter = forms.URLField(label='Twitter', required=False, widget=forms.TextInput(attrs={'class': 'form-twitter', 'value': c.social_twitter}))
+    social_instagram = forms.URLField(label='Instagram', required=False, widget=forms.TextInput(attrs={'class': 'form-instagram', 'value': c.social_instagram}))
+    about = forms.CharField(label='Um Okkur', widget=forms.Textarea(attrs={'rows': 9, 'cols':50, 'style':'resize:none;', 'class':'form-about', 'value': c.about}))
+    location = forms.CharField(label='Staðsetning', max_length=999, widget=forms.TextInput(attrs={'class': 'form-about', 'value': c.location}))
+    lat = forms.IntegerField(label='Hæðargráða', widget=forms.TextInput(attrs={'class': 'form-about', 'value': c.lat}))
+    long = forms.IntegerField(label='Lengdargráða', widget=forms.TextInput(attrs={'class': 'form-about', 'value': c.long}))
+    zoom = forms.IntegerField(label='Zoom', widget=forms.TextInput(attrs={'class': 'form-about', 'value': c.zoom}))
 
     class Meta:
         model = Config
