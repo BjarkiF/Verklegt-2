@@ -5,6 +5,7 @@ from users.models import Profile, UserAddress, UserItemSearch
 from users.forms.forms import EditProfileForm, RegisterForm, EditUserForm, EditAddressForm #, EditCountryForm
 from django.contrib.auth.models import User
 from cart.models import Order
+from cart.views import get_cart_items
 
 
 def register(request): # TODO: notandi fær ekki villu ef eitthvað klikkar
@@ -96,3 +97,13 @@ def get_order_history(request):
     'all_orders':  Order.objects.filter(user_id=request.user.id)
     }
     return render(request, 'users/order_history.html', context)
+
+@login_required
+def order_details(request, id):
+    order = Order.objects.get(id=id)
+    context = {
+    'order': order,
+    'items': get_cart_items(order)[0],
+    'address': UserAddress.objects.get(id=order.address_id),
+    }
+    return render(request, 'users/order_details.html', context)
