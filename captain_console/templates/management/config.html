@@ -4,7 +4,7 @@
     {% include 'management/navbar.html' %}
     <div class="col-md-10 content">
         <!--
-            TODO: Config
+            TODO: *Config*
             TODO: Categories
             TODO: *About*
             TODO: *Footer*
@@ -13,9 +13,9 @@
         <div class="col-md-5 content">
         <h2 class="register-title">Footer</h2>
         <p>* Stjörnumerkta reiti er nauðsynlegt að fylla</p>
-        <form method="post">
+        <form class="config-form" method="post">
             {% csrf_token %}
-            <div class="form-control">
+            <div class="hours-weekdays">
                 {{ form.hours_weekdays.errors}}
                 Virkur dagur:* {{ form.hours_weekdays }}
             </div>
@@ -63,12 +63,12 @@
             <form method="post">
                 {% csrf_token %}
                 <div class="form-control">
-                    {{ form.username.errors }}
-                    Texti: {{ form.username }}
+                    {{ form.about.errors }}
+                    Texti: {{ form.about }}
                 </div>
                 <div class="form-control">
-                    {{ form.first_name.errors }}
-                    Staðsetning: {{ form.first_name }}
+                    {{ form.location.errors }}
+                    Staðsetning: {{ form.location }}
                 </div>
             </form>
         </div>

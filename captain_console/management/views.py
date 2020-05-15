@@ -9,7 +9,8 @@ from items.models import Item, ItemImg
 from management.forms.forms import ConfigForm
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import user_passes_test
-import logging, datetime
+import logging
+import datetime
 
 
 def only_staff(user):
@@ -173,7 +174,7 @@ def config(request):
     #active_page = request.path.split('/')
     #logging.info(active_page)
 
-    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'footer-form': ConfigForm()})
+    return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'form': ConfigForm()})
 
 
 @user_passes_test(only_employee)
@@ -272,6 +273,7 @@ def new_item(request):
             img_temp.save()
             return redirect('Management Index')
     context = {
+        'active_page': 'newitem',
         'form': CreateItemForm()
     }
     return render(request, 'management/items/new_item.html', context)
