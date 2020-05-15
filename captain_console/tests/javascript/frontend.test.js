@@ -1,9 +1,17 @@
 let chai = require('chai')
 let chaiHttp = require('chai-http')
 let parseArguments = require('./chai-set-url')
+
+let opts = {
+        logDirectory:'./logs',
+        fileNamePattern:'chai-<DATE>.log',
+        dateFormat:'YYYY.MM.DD'
+};
+
+let log = require('simple-node-logger').createSimpleLogger(opts);
 chai.use(chaiHttp)
 
-// TODO: log to a file
+log.info('logger testing')
 
 let url = parseArguments.url()
 let creds = require('./creds').creds();
@@ -101,7 +109,7 @@ describe('Endpoint tests', () => {
             .end( (err, res) => {
                 chai.expect(res).to.have.status(200);
                 chai.expect(res).to.be.html;
-                chai.expect(res.redirects[0]).to.equal(url + '/users/login?next=/cart/')
+                chai.expect(res.redirects[0]).to.equal(url + '/cart/')
                 chai.expect(typeof(res)).to.equal('object');
 
                 done();

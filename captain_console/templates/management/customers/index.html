@@ -7,6 +7,7 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Username</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Active</th>
@@ -19,6 +20,7 @@
             {% for c in customers %}
             <tr>
               <th scope="row">{{ forloop.counter }}</th>
+              <td>{{ c.username }}</td>
               <td><a href="{{ c.username }}/">{{ c.first_name }} {{ c.last_name }}</a></td>
               <td>{{ c.email }}</td>
               <td>{{ c.is_active }}</td>

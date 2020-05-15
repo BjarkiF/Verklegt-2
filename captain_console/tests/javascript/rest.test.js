@@ -152,10 +152,6 @@ describe('Endpoint tests', () => {
                 done();
         });
     });
-    /*
 
-    TODO: Gera fleiri rest test.
-
-    */
 });
 
