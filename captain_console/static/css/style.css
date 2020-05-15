@@ -391,7 +391,6 @@ header nav ul a {
 
 .front-page-banner img {
   max-width: 90%;
-  height: 15%;
   width: 140vh; }
 
 .front-page-banner {
@@ -985,6 +984,9 @@ header nav ul a {
   transition: 0.3s all ease;
   background: #E6B74B;
   color: ghostwhite; }
+
+.content .index-dashboard .card-body .card-text span {
+  display: flex; }
 
 .rev-heading {
   margin: 10px;
