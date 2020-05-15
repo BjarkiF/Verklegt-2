@@ -20,7 +20,6 @@ class ConfigForm(forms.Form):
     address = forms.CharField(label='Address', required=False)
     social_facebook = forms.URLField(label='Facebook', required=False)
     social_twitter = forms.URLField(label='Twitter', required=False)
-    social_youtube = forms.URLField(label='YouTube', required=False)
     social_instagram = forms.URLField(label='Instagram', required=False)
     about = forms.CharField(label='Um Okkur', widget=forms.Textarea(attrs={'rows': 9, 'cols':50, 'style':'resize:none;'}))
     location = forms.CharField(label='Staðsetning', max_length=999, widget=forms.TextInput())
@@ -36,7 +35,6 @@ class ConfigForm(forms.Form):
                 'address',
                 'social_facebook',
                 'social_twitter',
-                'social_youtube',
                 'social_instagram'
                 'about',
                 'location'

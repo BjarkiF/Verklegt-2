@@ -158,7 +158,6 @@ def config(request):
                 address=request.POST.get('address'),
                 social_facebook=request.POST.get('social_facebook'),
                 social_twitter=request.POST.get('social_twitter'),
-                social_youtube=request.POST.get('social_youtube'),
                 social_instagram=request.POST.get('social_instagram'),
                 about=request.POST.get('about'),
                 location=request.POST.get('location')
