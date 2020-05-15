@@ -52,14 +52,14 @@ def orders(request):
     return render(request, 'management/orders/index.html', context)
 
 
-@user_passes_test(only_employee)
-@login_required
-def orders_details(request):
-    # orders = Orders.objects.all()
-    # TODO: Connect to database.
-    data = {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
-
-    return render(request, 'management/orders/order.html', {'order': data, 'active_page': 'orders',})
+# @user_passes_test(only_employee)
+# @login_required
+# def orders_details(request):
+#     # orders = Orders.objects.all()
+#     # TODO: Connect to database.
+#     data = {'name': 'Kristinn Jónsson', 'city': 'Reykjavík', 'count': 1}
+#
+#     return render(request, 'management/orders/order.html', {'order': data, 'active_page': 'orders',})
 
 
 @user_passes_test(only_employee)
@@ -114,7 +114,6 @@ def employees_register(request):
 @user_passes_test(only_staff)
 @login_required
 def user_delete(request, username):
-    # TODO: Connect to database.
     logging.info('Deleting Account Username: {0}'.format(username))
 
     User.objects.filter(username=username).delete()
@@ -125,19 +124,18 @@ def user_delete(request, username):
 @user_passes_test(only_staff)
 @login_required
 def user_lock(request, username):
-    # TODO: Connect to database.
     logging.info('Locking Account Username: {0}'.format(username))
     logging.info('Next: {0}'.format(request.GET.get('next')))
 
     u = User.objects.get(username=username)
+    if username != request.user.username:
+        logging.info('is_active: {0}'.format(u.is_active))
 
-    logging.info('is_active: {0}'.format(u.is_active))
-
-    if u.is_active == True:
-        u.is_active = False
-    else:
-        u.is_active = True
-    u.save()
+        if u.is_active == True:
+            u.is_active = False
+        else:
+            u.is_active = True
+        u.save()
 
     return redirect(request.GET.get('next'))
 
@@ -203,42 +201,42 @@ def config(request):
     return render(request, 'management/config.html', {'config': data, 'active_page': 'config', 'form': ConfigForm()})
 
 
-@user_passes_test(only_employee)
-@user_passes_test(only_staff)
-@login_required
-def groups(request):
-    data = Group.objects.all().order_by('name')
-
-    return render(request, 'management/groups/index.html', {'groups': data, 'active_page': 'groups',})
-
-
-@user_passes_test(only_employee)
-@user_passes_test(only_staff)
-@login_required
-def group_delete(request, group_name):
-    data = Group.objects.all()
-    logging.info('Delete Group: {0}'.format(group_name))
-
-    return redirect('/management/groups/')
+# @user_passes_test(only_employee)
+# @user_passes_test(only_staff)
+# @login_required
+# def groups(request):
+#     data = Group.objects.all().order_by('name')
+#
+#     return render(request, 'management/groups/index.html', {'groups': data, 'active_page': 'groups',})
 
 
-@user_passes_test(only_employee)
-@user_passes_test(only_staff)
-@login_required
-def group_view(request, group_name):
-    data = Group.objects.filter(name=group_name)
+# @user_passes_test(only_employee)
+# @user_passes_test(only_staff)
+# @login_required
+# def group_delete(request, group_name):
+#     data = Group.objects.all()
+#     logging.info('Delete Group: {0}'.format(group_name))
+#
+#     return redirect('/management/groups/')
 
-    return render(request, 'management/groups/details.html', {'group': data, 'active_page': 'groups',})
+
+# @user_passes_test(only_employee)
+# @user_passes_test(only_staff)
+# @login_required
+# def group_view(request, group_name):
+#     data = Group.objects.filter(name=group_name)
+#
+#     return render(request, 'management/groups/details.html', {'group': data, 'active_page': 'groups',})
 
 
-@user_passes_test(only_employee)
-@user_passes_test(only_staff)
-@login_required
-def group_new(request):
-    data = {}
-    logging.info('New group!')
-
-    return render(request, 'management/groups/new.html', {'group': data, 'active_page': 'groups',})
+# @user_passes_test(only_employee)
+# @user_passes_test(only_staff)
+# @login_required
+# def group_new(request):
+#     data = {}
+#     logging.info('New group!')
+#
+#     return render(request, 'management/groups/new.html', {'group': data, 'active_page': 'groups',})
 
 
 @user_passes_test(only_employee)

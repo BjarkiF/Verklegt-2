@@ -7,10 +7,6 @@ from cart.views import get_cart_items
 import datetime
 
 
-
-
-
-
 def edit(request, id):
     item = Item.objects.get(id=id)
     if request.method == 'POST':
@@ -28,6 +24,10 @@ def edit(request, id):
     })
 
 
+def delete(request, id):
+    Item.objects.get(id=id).delete()
+    return all_items(request)
+
 
 def index(request):
     return render(request, 'items/index.html')
@@ -43,7 +43,7 @@ def all_items(request):
         session_check = request.session['search_ids']
     except KeyError:
         session_check = None
-    if session_check: # TODO: láta filtera virka bara við searched items?
+    if session_check:
         ids = request.session['search_ids']
         request.session['search_ids'] = None
         items = Item.objects.filter(id__in=ids)

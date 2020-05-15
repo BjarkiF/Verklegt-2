@@ -1,11 +1,11 @@
 from django.db import models
 from django.utils import timezone
 
-# TODO: Þarf að skrifa SQL view fyrir sumt?
+
 
 
 class ItemCategory(models.Model):
-    name = models.CharField(max_length=255) #TODO: skoða parent category?
+    name = models.CharField(max_length=255)
 
 
 class ItemManufacturer(models.Model):
@@ -17,7 +17,7 @@ class Item(models.Model):
     name = models.CharField(max_length=255)
     date = models.DateField()
     description = models.CharField(max_length=999, blank=True)
-    category = models.ForeignKey(ItemCategory, on_delete=models.CASCADE) # TODO: Gera frekar nýja töflu eða lista af id?
+    category = models.ForeignKey(ItemCategory, on_delete=models.CASCADE)
     price = models.IntegerField()
     manufacturer = models.ForeignKey(ItemManufacturer, on_delete=models.CASCADE)
 

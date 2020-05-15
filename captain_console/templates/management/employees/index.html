@@ -6,12 +6,12 @@
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Username</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">is_active</th>
-              <th scope="col">last_login</th>
+              <th scope="col">ID</th>
+              <th scope="col">Notandi</th>
+              <th scope="col">Nafn</th>
+              <th scope="col">Netfang</th>
+              <th scope="col">Virkur</th>
+              <th scope="col">Síðasta Innskráning</th>
               <th scope="col"><i class="fas fa-lock"></i></th>
               <th scope="col"><i class="fas fa-trash"></i></th>
             </tr>
@@ -24,7 +24,11 @@
               <td><a href="{{s.username}}/">{{ s.first_name }} {{ s.first_name }}</a></td>
               <td>{{ s.email }}</td>
               <td>{{ s.is_active }}</td>
-              <td>{{ s.last_login }}</td><td><a href="{{ s.username }}/lock/?next=/management/customers/"><i class="fas {% if s.is_active %}fa-lock-open{% else %}fa-lock{% endif %}"></i></a></td>
+              <td>{{ s.last_login }}</td><td>
+                <a href="{{ s.username }}/lock/?next=/management/employees/">
+                    <i class="fas {% if s.is_active %}fa-lock-open{% else %}fa-lock{% endif %}"></i>
+                </a>
+              </td>
               <td><a href="{{ s.username }}/delete/?next=/management/employees/"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
